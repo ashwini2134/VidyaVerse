@@ -1,0 +1,157 @@
+{
+  "id": "python-lecture-4",
+  "courseSlug": "python",
+  "number": 4,
+  "title": "Conditional Statements",
+  "overview": "Programs need to make decisions. Conditional statements let your code choose different paths based on conditions.",
+  "estimatedMinutes": 50,
+  "sections": [
+    {
+      "id": "if-basics",
+      "label": "if Statements",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "blue",
+          "title": "Making Decisions with if",
+          "body": "The `if` statement lets you run code only when a condition is True. If False, the code is skipped.",
+          "bullets": [
+            "Write if followed by a condition and a colon",
+            "The code to run goes on the next line, indented 4 spaces",
+            "Python uses indentation to show what code belongs to the if",
+            "If True, the indented block runs; if False, it is skipped"
+          ]
+        },
+        {
+          "type": "analogy",
+          "title": "if is Like a Traffic Light",
+          "emoji": "",
+          "text": "Green light (True) → you go. Red light (False) → you stop. The if statement checks the condition and decides whether to run the code or skip it."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Traffic Light",
+            "description": "Green → GO, Red → STOP. The condition decides which path to take.",
+            "image": "https://images.unsplash.com/photo-1557404763-69708cd8b9ce?w=800&q=80"
+          },
+          "visualization": {
+            "type": "decision",
+            "title": "Decision Branching",
+            "condition": "Condition?",
+            "trueLabel": "True Path",
+            "falseLabel": "False Path"
+          },
+          "code": {
+            "language": "python",
+            "code": "light = \"green\"\nif light == \"green\":\n    print(\"Go\")\nelse:\n    print(\"Stop\")",
+            "output": "Go"
+          }
+        },
+        {
+          "type": "code_example",
+          "title": "Basic if Statement",
+          "language": "python",
+          "code": "age = 18\nif age >= 18:\n    print(\"You are an adult\")\n    print(\"You can vote!\")",
+          "expectedOutput": "You are an adult\nYou can vote!"
+        },
+        {
+          "type": "practice",
+          "title": "Voting Eligibility",
+          "instructions": "Ask for age. If 18+, print \"You are eligible to vote!\"",
+          "starterCode": "age = int(input(\"Enter your age: \"))\nif age >= 18:",
+          "solution": "age = int(input(\"Enter your age: \"))\nif age >= 18:\n    print(\"You are eligible to vote!\")",
+          "hint": "Use if age >= 18: followed by an indented print() statement.",
+          "expectedOutput": "You are eligible to vote!"
+        }
+      ]
+    },
+    {
+      "id": "if-else",
+      "label": "if-else & elif",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "Two Paths with if-else",
+          "body": "When you need to choose between two options, use if-else. One block runs if True, another if False.",
+          "bullets": [
+            "if condition: — runs when True",
+            "else: — runs when False",
+            "Only ONE of the two blocks runs, never both"
+          ]
+        },
+        {
+          "type": "code_example",
+          "title": "if-else in Action",
+          "language": "python",
+          "code": "age = 16\nif age >= 18:\n    print(\"You can vote\")\nelse:\n    print(\"Too young to vote\")",
+          "expectedOutput": "Too young to vote"
+        },
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "Multiple Conditions with elif",
+          "body": "When you have more than two possibilities, use elif. You can chain as many as needed.",
+          "bullets": [
+            "if checks the first condition",
+            "elif checks the next (if previous was False)",
+            "else runs only if ALL conditions were False"
+          ]
+        },
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "Truthy and Falsy Values",
+          "body": "Some values are treated as True (truthy) and others as False (falsy) in conditions.",
+          "bullets": [
+            "Falsy: None, 0, 0.0, \"\" (empty string), [] (empty list)",
+            "Truthy: everything else — non-zero numbers, non-empty strings",
+            "Lets you write concise conditions like if name:"
+          ]
+        },
+        {
+          "type": "practice",
+          "title": "Grade Calculator",
+          "instructions": "Ask for marks. Print grade: 90+ = A, 80-89 = B, 70-79 = C, 60-69 = D, below 60 = F.",
+          "starterCode": "marks = int(input(\"Enter marks: \"))\nif marks >= 90:\n    \nelif \nelif \nelif \nelse:",
+          "solution": "marks = int(input(\"Enter marks: \"))\nif marks >= 90:\n    print(\"Grade: A\")\nelif marks >= 80:\n    print(\"Grade: B\")\nelif marks >= 70:\n    print(\"Grade: C\")\nelif marks >= 60:\n    print(\"Grade: D\")\nelse:\n    print(\"Grade: F\")",
+          "hint": "Check the highest grade first (>= 90), then work down.",
+          "expectedOutput": "Grade: F"
+        },
+        {
+          "type": "reflection",
+          "question": "Does this concept make sense so far? Try to explain it in your own words.",
+          "answer": "If you can explain this concept to someone else, you have understood it well. Practice with the exercises below to reinforce your learning."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "if runs code only when a condition is True"
+      },
+      {
+        "text": "if-else provides two paths: one for True, one for False"
+      },
+      {
+        "text": "elif chains multiple conditions in sequence"
+      },
+      {
+        "text": "Truthy values: non-zero numbers, non-empty strings"
+      },
+      {
+        "text": "Falsy values: 0, None, empty strings, empty lists"
+      }
+    ],
+    "whatYouLearned": [
+      "How to write if statements with proper indentation",
+      "How to use if-else for two-way decisions",
+      "How to chain multiple conditions with elif",
+      "What truthy and falsy values are",
+      "How to build a complete grade calculator"
+    ],
+    "nextUp": "For Loops"
+  }
+}

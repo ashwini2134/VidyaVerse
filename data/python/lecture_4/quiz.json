@@ -1,0 +1,57 @@
+[
+  {
+    "question": "What does an if statement do when its condition is False?",
+    "options": [
+      "Runs the indented block",
+      "Skips the indented block",
+      "Asks the user",
+      "Shows an error"
+    ],
+    "answer": "Skips the indented block",
+    "explanation": "When the if condition is False, the indented block is skipped."
+  },
+  {
+    "question": "Which keyword is used for 'else if' in Python?",
+    "options": [
+      "else if",
+      "elseif",
+      "elsif",
+      "elif"
+    ],
+    "answer": "elif",
+    "explanation": "Python uses elif (short for else if) to chain additional conditions."
+  },
+  {
+    "question": "What will this print? x = 5; if x > 10: print('Big') else: print('Small')",
+    "options": [
+      "Big",
+      "Small",
+      "Nothing",
+      "Error"
+    ],
+    "answer": "Small",
+    "explanation": "x = 5, and 5 is not greater than 10, so the else block runs."
+  },
+  {
+    "question": "Which of these values is considered Falsy in Python?",
+    "options": [
+      "0",
+      "1",
+      "[1, 2, 3]",
+      "\"False\""
+    ],
+    "answer": "0",
+    "explanation": "0 (integer zero) is falsy. All non-zero numbers and non-empty strings/lists are truthy."
+  },
+  {
+    "question": "What is proper indentation in Python?",
+    "options": [
+      "2 spaces",
+      "Tabs only",
+      "8 spaces",
+      "4 spaces (standard)"
+    ],
+    "answer": "4 spaces (standard)",
+    "explanation": "Python's standard indentation is 4 spaces. Consistent indentation is critical."
+  }
+]

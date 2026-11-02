@@ -1,0 +1,204 @@
+{
+  "id": "python-lecture-11",
+  "courseSlug": "python",
+  "number": 11,
+  "title": "String Operations",
+  "overview": "Strings are everywhere in programming. Python gives you an incredibly rich set of tools to analyze, transform, and manipulate text.",
+  "estimatedMinutes": 50,
+  "sections": [
+    {
+      "id": "string-basics",
+      "label": "String Basics",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "blue",
+          "title": "Strings are Sequences",
+          "body": "A string is a sequence of characters. You can access individual characters, slice portions, and measure length — just like lists.",
+          "bullets": [
+            "Indexing: text[0] gets the first character",
+            "Slicing: text[1:4] gets characters at index 1-3",
+            "len(text) returns the number of characters",
+            "Negative indexing: text[-1] gets the last character"
+          ]
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Chain of Characters",
+            "description": "Each character has a position. You can access individual links.",
+            "image": "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "String Indexing",
+            "items": [
+              "Index",
+              "Access",
+              "Extract"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "word = \"Python\"\nprint(word[0])",
+            "output": "P"
+          }
+        },
+        {
+          "type": "code_example",
+          "title": "String Indexing and Slicing",
+          "language": "python",
+          "code": "text = \"Python\"\nprint(text[0])\nprint(text[-1])\nprint(text[1:4])\nprint(text[:3])\nprint(text[::2])\nprint(len(text))",
+          "expectedOutput": "P\nn\n yth\nPyt\nPto\n6"
+        },
+        {
+          "type": "practice",
+          "title": "Explore a String",
+          "instructions": "Create a string with your name. Print first char, last char, length, and first 3 chars.",
+          "starterCode": "name = \"Lakshanya\"\nprint(f\"First: {name[0]}\")\nprint(f\"Last: {name[]}\")\nprint(f\"Length: {len()}\")\nprint(f\"First 3: {name[:]}\")",
+          "solution": "name = \"Lakshanya\"\nprint(f\"First: {name[0]}\")\nprint(f\"Last: {name[-1]}\")\nprint(f\"Length: {len(name)}\")\nprint(f\"First 3: {name[:3]}\")",
+          "hint": "Use index 0 for first, -1 for last, len() for length, [:3] for slice.",
+          "expectedOutput": "First: L\nLast: a\nLength: 9\nFirst 3: Lak"
+        },
+        {
+          "type": "visual_aid",
+          "kind": "index_visual",
+          "title": "Character Index Positions",
+          "accentColor": "blue",
+          "items": [
+            {
+              "label": "H"
+            },
+            {
+              "label": "E"
+            },
+            {
+              "label": "L"
+            },
+            {
+              "label": "L"
+            },
+            {
+              "label": "O"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "string-methods",
+      "label": "String Methods",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "Powerful String Methods",
+          "body": "Python strings have built-in methods for changing case, removing whitespace, finding text, and more.",
+          "bullets": [
+            "upper() / lower() — change case",
+            "strip() — removes whitespace from both ends",
+            "replace(old, new) — replaces text",
+            "find(substring) — returns index or -1 if not found",
+            "startswith() / endswith() — check beginning/end"
+          ]
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Editing Tools",
+            "description": "Each method transforms the string in a specific way",
+            "image": "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "String Methods",
+            "items": [
+              "Original",
+              "Method",
+              "Result"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "msg = \"  Hello  \"\nprint(msg.strip())",
+            "output": "Hello"
+          }
+        },
+        {
+          "type": "code_example",
+          "title": "Case Methods and Cleanup",
+          "language": "python",
+          "code": "text = \"  Hello, World!  \"\nprint(text.upper())\nprint(text.lower())\nprint(text.strip())\nprint(text.strip().replace(\"World\", \"Python\"))\n\nmsg = \"hello.txt\"\nprint(msg.endswith(\".txt\"))",
+          "expectedOutput": "HELLO, WORLD!  \n  hello, world!  \nHello, World!\nHello, Python!\nTrue"
+        },
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "Splitting and Joining",
+          "body": "Strings can be split into lists and lists can be joined into strings.",
+          "bullets": [
+            "split() — splits a string into a list (default: space)",
+            "split(\",\") — splits by comma",
+            "\" \".join(list) — joins list items into a string"
+          ]
+        },
+        {
+          "type": "practice",
+          "title": "Name Initials",
+          "instructions": "Ask for first name and last name. Print the initials in uppercase with a dot between them.",
+          "starterCode": "first = input(\"First name: \")\nlast = input(\"Last name: \")\ninitial = first[0].upper() + \".\" + last[0].upper()\nprint(initial)",
+          "solution": "first = input(\"First name: \")\nlast = input(\"Last name: \")\ninitial = first[0].upper() + \".\" + last[0].upper()\nprint(initial)",
+          "hint": "Use [0] to get the first character of each name. Use .upper() to make them uppercase.",
+          "expectedOutput": "T.T"
+        },
+        {
+          "type": "visual_aid",
+          "kind": "transformation_demo",
+          "title": "String Transformations",
+          "accentColor": "purple",
+          "items": [
+            {
+              "label": "\"hello\".upper()",
+              "desc": "HELLO"
+            },
+            {
+              "label": "\"HELLO\".lower()",
+              "desc": "hello"
+            },
+            {
+              "label": "\"  hi  \".strip()",
+              "desc": "hi"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Strings are sequences — index, slice, and measure with len()"
+      },
+      {
+        "text": "upper(), lower(), strip() change and clean strings"
+      },
+      {
+        "text": "find(), startswith(), endswith(), count() search strings"
+      },
+      {
+        "text": "split() breaks strings into lists; join() combines them"
+      },
+      {
+        "text": "String reversal with [::-1] is useful for palindrome checks"
+      }
+    ],
+    "whatYouLearned": [
+      "How to index and slice strings like lists",
+      "How to change case and clean strings with methods",
+      "How to search within strings",
+      "How to split and join strings",
+      "How to build a palindrome checker"
+    ],
+    "nextUp": "File Handling"
+  }
+}

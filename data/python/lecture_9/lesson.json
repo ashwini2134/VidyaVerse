@@ -1,0 +1,191 @@
+{
+  "id": "python-lecture-9",
+  "courseSlug": "python",
+  "number": 9,
+  "title": "Dictionaries",
+  "overview": "Dictionaries store data as key-value pairs — like a real dictionary where you look up a word (key) to find its definition (value).",
+  "estimatedMinutes": 50,
+  "sections": [
+    {
+      "id": "dict-basics",
+      "label": "Dictionary Basics",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "blue",
+          "title": "What is a Dictionary?",
+          "body": "A **dictionary** stores pairs of keys and values. Each key is unique and maps to a value.",
+          "bullets": [
+            "Keys must be unique and immutable (strings, numbers)",
+            "Values can be anything: numbers, strings, lists, even other dicts",
+            "Access: student[\"name\"] gets the value for key \"name\"",
+            "Dictionaries are unordered — accessed by key, not position"
+          ]
+        },
+        {
+          "type": "analogy",
+          "title": "A Dictionary is Like a Phone Book",
+          "emoji": "",
+          "text": "You look up a person's name (the key) to find their phone number (the value). Each name is unique. You search by name directly — that's how Python dictionaries work."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Phone Book",
+            "description": "Look up a name (key) to find the number (value).",
+            "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=800&q=80"
+          },
+          "visualization": {
+            "type": "categories",
+            "title": "Name → Number Mapping",
+            "centerLabel": "Name → Number Mapping",
+            "items": [
+              "Alice",
+              "Bob",
+              "Charlie"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "phone = {\"Alice\": \"123\", \"Bob\": \"456\"}\nprint(phone[\"Alice\"])",
+            "output": "123"
+          }
+        },
+        {
+          "type": "code_example",
+          "title": "Creating and Accessing Dictionaries",
+          "language": "python",
+          "code": "student = {\n    \"name\": \"Lakshanya\",\n    \"age\": 20,\n    \"college\": \"SRM University\"\n}\nprint(student[\"name\"])\nprint(student[\"age\"])\nprint(student)",
+          "expectedOutput": "Lakshanya\n20\n{'name': 'Lakshanya', 'age': 20, 'college': 'SRM University'}"
+        },
+        {
+          "type": "practice",
+          "title": "Create Your Profile",
+          "instructions": "Create a dictionary with keys: name, age, city, hobby. Print each value.",
+          "starterCode": "profile = {\n    \"name\": \"\",\n    \"age\": ,\n    \"city\": \"\",\n    \"hobby\": \"\"\n}\nprint(f\"Name: {profile['name']}\")",
+          "solution": "profile = {\"name\": \"Lakshanya\", \"age\": 20, \"city\": \"Chennai\", \"hobby\": \"coding\"}\nprint(f\"Name: {profile['name']}\")\nprint(f\"Age: {profile['age']}\")\nprint(f\"City: {profile['city']}\")\nprint(f\"Hobby: {profile['hobby']}\")",
+          "hint": "Use profile[\"key_name\"] to access each value.",
+          "expectedOutput": "Name: Lakshanya\nAge: 20\nCity: Chennai\nHobby: coding"
+        },
+        {
+          "type": "visual_aid",
+          "kind": "mapping_visual",
+          "title": "Key → Value Mapping",
+          "accentColor": "green",
+          "items": [
+            {
+              "label": "\"name\"",
+              "desc": "\"Alice\""
+            },
+            {
+              "label": "\"age\"",
+              "desc": "25"
+            },
+            {
+              "label": "\"city\"",
+              "desc": "\"New York\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dict-operations",
+      "label": "Modifying Dictionaries",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "Adding, Updating, and Deleting",
+          "body": "Dictionaries are mutable — you can change them after creation.",
+          "bullets": [
+            "Add: student[\"grade\"] = \"A\" — creates a new key-value pair",
+            "Update: student[\"age\"] = 21 — changes the existing value",
+            "Delete: del student[\"grade\"] — removes the key-value pair",
+            "Check: \"name\" in student — returns True if key exists"
+          ]
+        },
+        {
+          "type": "code_example",
+          "title": "Dictionary Modifications",
+          "language": "python",
+          "code": "student = {\"name\": \"Lakshanya\", \"age\": 20}\nprint(student)\n\nstudent[\"grade\"] = \"A\"\nprint(student)\n\nstudent[\"age\"] = 21\nprint(student)\n\nprint(\"name\" in student)\ndel student[\"grade\"]\nprint(student)",
+          "expectedOutput": "{'name': 'Lakshanya', 'age': 20}\n{'name': 'Lakshanya', 'age': 20, 'grade': 'A'}\n{'name': 'Lakshanya', 'age': 21}\nTrue\n{'name': 'Lakshanya', 'age': 21}"
+        },
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "Dictionary Methods",
+          "body": "Dictionaries have useful methods for working with keys, values, and items.",
+          "bullets": [
+            ".keys() — returns all keys",
+            ".values() — returns all values",
+            ".items() — returns all (key, value) pairs",
+            ".get(key) — safely gets value or returns None if missing"
+          ]
+        },
+        {
+          "type": "practice",
+          "title": "Student Database",
+          "instructions": "Create a student dict with name and 3 subject marks. Calculate average and add as new key. Print all items.",
+          "starterCode": "student = {\"name\": \"Lakshanya\", \"math\": 85, \"science\": 92, \"english\": 78}\nstudent[\"average\"] = \nfor key, value in student.items():\n    print(f\"{key}: {value}\")",
+          "solution": "student = {\"name\": \"Lakshanya\", \"math\": 85, \"science\": 92, \"english\": 78}\nstudent[\"average\"] = (student[\"math\"] + student[\"science\"] + student[\"english\"]) // 3\nfor key, value in student.items():\n    print(f\"{key}: {value}\")",
+          "hint": "Calculate (math + science + english) // 3. Add with student['average'] = avg.",
+          "expectedOutput": "name: Lakshanya\nmath: 85\nscience: 92\nenglish: 78\naverage: 85"
+        },
+        {
+          "type": "visual_aid",
+          "kind": "mapping_visual",
+          "title": "Key → Value Mapping",
+          "accentColor": "green",
+          "items": [
+            {
+              "label": "\"name\"",
+              "desc": "\"Alice\""
+            },
+            {
+              "label": "\"age\"",
+              "desc": "25"
+            },
+            {
+              "label": "\"city\"",
+              "desc": "\"New York\""
+            }
+          ]
+        },
+        {
+          "type": "reflection",
+          "question": "Does this concept make sense so far? Try to explain it in your own words.",
+          "answer": "If you can explain this concept to someone else, you have understood it well. Practice with the exercises below to reinforce your learning."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Dictionaries store key-value pairs with {key: value}"
+      },
+      {
+        "text": "Keys must be unique and immutable"
+      },
+      {
+        "text": "Add/update with dict[key] = value; delete with del"
+      },
+      {
+        "text": ".get(key, default) safely accesses values"
+      },
+      {
+        "text": ".keys(), .values(), .items() iterate dictionary data"
+      }
+    ],
+    "whatYouLearned": [
+      "How to create dictionaries with key-value pairs",
+      "How to access values using keys",
+      "How to add, update, and delete dictionary entries",
+      "How to check if a key exists",
+      "How to use .keys(), .values(), .items(), .get()"
+    ],
+    "nextUp": "Functions"
+  }
+}

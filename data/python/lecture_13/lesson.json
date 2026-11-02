@@ -1,0 +1,111 @@
+{
+  "id": "python-lecture-13",
+  "courseSlug": "python",
+  "number": 13,
+  "title": "Mini Project",
+  "overview": "Congratulations! You've learned all the fundamentals of Python. Now it's time to apply everything by building a complete project of your choice.",
+  "estimatedMinutes": 60,
+  "sections": [
+    {
+      "id": "project-options",
+      "label": "Project Options",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "blue",
+          "title": "Choose Your Project",
+          "body": "You've learned variables, conditionals, loops, functions, lists, dictionaries, strings, and file handling. Now pick one of four projects to build from scratch.",
+          "bullets": [
+            "**Student Management System** — Add, view, update, and delete student records",
+            "**Expense Tracker** — Log expenses, view totals, and filter by category",
+            "**Quiz Application** — Create quizzes with multiple choice questions and scoring",
+            "**To-Do List** — Add tasks, mark complete, and save/load from a file"
+          ]
+        },
+        {
+          "type": "analogy",
+          "title": "This is Your Graduation Project",
+          "emoji": "",
+          "text": "Just like a chef who learns all the techniques before cooking their signature dish, you've learned all the Python ingredients. Now put them together to create something amazing!"
+        },
+        {
+          "type": "reflection",
+          "question": "Does this concept make sense so far? Try to explain it in your own words.",
+          "answer": "If you can explain this concept to someone else, you have understood it well. Practice with the exercises below to reinforce your learning."
+        }
+      ]
+    },
+    {
+      "id": "requirements",
+      "label": "Project Requirements",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "Minimum Requirements",
+          "body": "Your project must include the following features to be complete.",
+          "bullets": [
+            "Minimum 3 functions (including main())",
+            "User input and formatted output",
+            "At least one loop (for or while)",
+            "At least one conditional (if/elif/else)",
+            "Use a list or dictionary to store data",
+            "**Bonus**: File handling (save/load data from a file)"
+          ]
+        },
+        {
+          "type": "text",
+          "content": "Start by planning your project on paper: What features will it have? What data structure will you use? How will functions be organized? Write the pseudocode first, then translate to Python."
+        },
+        {
+          "type": "code_example",
+          "title": "Project Template — Student Management System",
+          "language": "python",
+          "code": "# Student Management System\n\ndef add_student(students):\n    name = input(\"Enter student name: \")\n    grade = int(input(\"Enter grade: \"))\n    students[name] = grade\n    print(f\"Added {name}\")\n\ndef view_all(students):\n    if not students:\n        print(\"No students yet\")\n        return\n    for name, grade in students.items():\n        print(f\"{name}: {grade}\")\n\ndef main():\n    students = {}\n    while True:\n        print(\"\\n1. Add Student\")\n        print(\"2. View All\")\n        print(\"3. Exit\")\n        choice = input(\"Choose: \")\n        if choice == \"1\":\n            add_student(students)\n        elif choice == \"2\":\n            view_all(students)\n        elif choice == \"3\":\n            break\n        else:\n            print(\"Invalid choice\")\n\nmain()",
+          "expectedOutput": "1. Add Student\n2. View All\n3. Exit\nChoose:"
+        },
+        {
+          "type": "reflection",
+          "question": "Which project would you like to build and why? Think about which one you'd find most useful in your daily life.",
+          "answer": "Any project is great for practice! The Student Management System teaches CRUD operations. The Expense Tracker teaches data analysis. The Quiz App teaches logic and scoring. The To-Do List teaches file persistence. Choose what excites you!"
+        },
+        {
+          "type": "practice",
+          "title": "Project Menu",
+          "instructions": "Write a menu program showing 4 project options. Let the user pick one (1-4) and print a confirmation.",
+          "starterCode": "print(\"1. Student Management System\")\nprint(\"2. Expense Tracker\")\nprint(\"3. Quiz Application\")\nprint(\"4. To-Do List\")\nchoice = int(input(\"Choose (1-4): \"))\nprojects = [\"\", \"Student Management System\", \"Expense Tracker\", \"Quiz Application\", \"To-Do List\"]",
+          "solution": "print(\"1. Student Management System\")\nprint(\"2. Expense Tracker\")\nprint(\"3. Quiz Application\")\nprint(\"4. To-Do List\")\nchoice = int(input(\"Choose (1-4): \"))\nprojects = [\"\", \"Student Management System\", \"Expense Tracker\", \"Quiz Application\", \"To-Do List\"]\nprint(f\"You selected: {projects[choice]}\")",
+          "hint": "Use a list to map choice numbers to project names.",
+          "expectedOutput": "1. Student Management System\n2. Expense Tracker\n3. Quiz Application\n4. To-Do List\nYou selected: Expense Tracker"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "You've learned all Python fundamentals — now apply them!"
+      },
+      {
+        "text": "Plan your project before coding"
+      },
+      {
+        "text": "Use functions to organize code into clear sections"
+      },
+      {
+        "text": "Bonus: add file saving/loading for data persistence"
+      },
+      {
+        "text": "Build something YOU want to use — that's the best motivation"
+      }
+    ],
+    "whatYouLearned": [
+      "How to plan and structure a complete Python project",
+      "How to use functions, loops, conditionals, and data structures together",
+      "How to handle file saving/loading for persistence",
+      "How to build a menu-driven interactive program",
+      "How to apply everything you've learned in one complete project"
+    ],
+    "nextUp": ""
+  }
+}

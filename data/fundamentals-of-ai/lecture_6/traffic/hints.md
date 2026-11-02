@@ -1,0 +1,4 @@
+- Check out the official [Tensorflow Keras overview](https://www.tensorflow.org/guide/keras/overview) for some guidelines for the syntax of building neural network layers. You may find the lecture source code useful as well.
+- The [OpenCV-Python](https://docs.opencv.org/4.5.2/d2/d96/tutorial_py_table_of_contents_imgproc.html) documentation may prove helpful for reading images as arrays and then resizing them.
+- Once you’ve resized an image `img`, you can verify its dimensions by printing the value of `img.shape`. If you’ve resized the image correctly, its shape should be `(30, 30, 3)` (assuming `IMG_WIDTH` and `IMG_HEIGHT` are both `30`).
+- If you’d like to practice with a smaller data set, you can download a [modified dataset](https://cdn.cs50.net/ai/2023/x/projects/5/gtsrb-small.zip) that contains only 3 different types of road signs instead of 43.

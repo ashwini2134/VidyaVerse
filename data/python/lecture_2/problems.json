@@ -1,0 +1,38 @@
+[
+  {
+    "id": "greeting_card",
+    "title": "Greeting Card",
+    "description": "Ask the user for their name and age using input(). Print a greeting: 'Hello [name]! You are [age] years old. Welcome to Python!'",
+    "difficulty": "easy",
+    "starterCode": "# Get user info\nname = input(\"Enter your name: \")\nage = input(\"Enter your age: \")\n\n# Print greeting",
+    "solution": "name = input(\"Enter your name: \")\nage = input(\"Enter your age: \")\nprint(f\"Hello {name}! You are {age} years old. Welcome to Python!\")",
+    "testCases": [
+      {
+        "label": "With input Lakshanya 20",
+        "input": "Lakshanya\n20",
+        "expectedOutput": "Enter your name: Enter your age: Hello Lakshanya! You are 20 years old. Welcome to Python!"
+      }
+    ]
+  },
+  {
+    "id": "addition_calculator",
+    "title": "Addition Calculator",
+    "description": "Ask the user for two numbers. Convert them to integers. Print the sum in the format: '[num1] + [num2] = [sum]'",
+    "difficulty": "easy",
+    "starterCode": "num1 = int(input(\"First number: \"))\nnum2 = int(input(\"Second number: \"))\n\n# Calculate and print sum",
+    "solution": "num1 = int(input(\"First number: \"))\nnum2 = int(input(\"Second number: \"))\nresult = num1 + num2\nprint(f\"{num1} + {num2} = {result}\")",
+    "testCases": [
+      {
+        "label": "5 + 3",
+        "input": "5\n3",
+        "expectedOutput": "First number: Second number: 5 + 3 = 8"
+      }
+    ]
+  },
+  {
+    "id": "story_generator",
+    "title": "Story Generator",
+    "description": "Create a personalized story using user input and f-strings.",
+    "difficulty": "easy"
+  }
+]

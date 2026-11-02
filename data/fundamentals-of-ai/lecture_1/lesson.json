@@ -1,0 +1,458 @@
+{
+  "id": "fundamentals-of-ai-lecture-0",
+  "courseSlug": "fundamentals-of-ai",
+  "number": 1,
+  "title": "Introduction to AI",
+  "overview": "Artificial Intelligence is everywhere \u2014 from spam filters to voice assistants. Learn what AI is, how it relates to ML and Deep Learning, and where you'll encounter it daily.",
+  "estimatedMinutes": 50,
+  "sections": [
+    {
+      "id": "what-is-ai",
+      "label": "What is AI?",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "300px",
+            "label": "What is AI? \u2014 SVG placeholder",
+            "svgId": "ai-learning"
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "What is AI?"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "AI is technology that learns from data to make decisions without being explicitly programmed for every situation."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Learns From Examples"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "AI studies thousands of examples.\nIt finds patterns without human rules."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Adapts to New Input"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "It handles situations it has never seen before.\nNo manual updates required."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Improves With More Data"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The more data AI receives, the better its decisions become."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Powers Everyday Tools"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "From search engines to voice assistants.\nAI works behind the scenes every day."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "AI doesn't follow fixed rules.\nIt learns patterns from data."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "AI is Like Airport Security",
+          "subtitle": "A scanner doesn't know the rules.\nIt learns what danger looks like.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "Security checks thousands of bags.\nEvery day. Every airport."
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "Patterns matter.\nNot every bag is identical.",
+              "visual": {
+                "type": "flow",
+                "items": [
+                  "Dense metal shapes",
+                  "Wiring patterns",
+                  "Liquid containers",
+                  "Safe everyday items"
+                ],
+                "conclusion": "Pattern recognised"
+              }
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "This is exactly how AI thinks.\nExamples \u2192 Patterns \u2192 Decision."
+            }
+          ],
+          "insight": "AI is technology that learns patterns from examples to make decisions on its own.",
+          "reinforcement": "Traditional programs follow fixed rules written by humans. AI learns its own rules by studying data."
+        },
+        {
+          "type": "practice",
+          "title": "AI vs Traditional Programs",
+          "instructions": "WHAT YOU'LL LEARN\n\nThe difference between traditional programs and AI systems.\n\nYOUR CHALLENGE\n\nClassify real-world applications as traditional programming or AI.\n\nPROMPT HINT\n\nDoes the application follow rules or learn from data?",
+          "starterCode": "# Classify each application\n# Write 'Traditional' or 'AI' next to each\nprint(\"Calculator: \") \nprint(\"Spam filter: \") \nprint(\"Google Maps: \") \nprint(\"Netflix: \")",
+          "solution": "print(\"Calculator: Traditional\")\nprint(\"Spam filter: AI\")\nprint(\"Google Maps: AI\")\nprint(\"Netflix: AI\")",
+          "hint": "Ask yourself for each: Does it follow fixed rules or learn from data?"
+        }
+      ]
+    },
+    {
+      "id": "ai-ml-dl",
+      "label": "AI vs ML vs DL",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "300px",
+            "label": "AI vs ML vs DL \u2014 SVG placeholder",
+            "svgId": "ai-subsets"
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "AI, Machine Learning, and Deep Learning"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "AI is the broadest field \u2014 any technique that makes machines appear intelligent."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "ML is a subset of AI \u2014 algorithms that learn patterns from data instead of hard-coded rules."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "DL is a subset of ML \u2014 multi-layered neural networks that excel at vision, speech, and language."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Artificial Intelligence"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Any technique that makes a machine appear smart \u2014 search, rules, logic, or learning.\nThe broadest umbrella. A chess engine is AI just as much as ChatGPT."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Machine Learning"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "AI that learns from examples instead of rules you wrote.\nMore data \u2192 smarter model. No manual rule updates needed."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Deep Learning"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "ML powered by many-layered neural networks.\nUnlocked images, speech, and language \u2014 things older ML couldn't handle."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Narrow vs General AI"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Every AI today does exactly ONE thing.\nFace ID can't chat. ChatGPT can't drive. General AI doesn't exist yet."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "DL \u2282 ML \u2282 AI \u2014 each is a subset of the one above. Knowing where a system sits tells you exactly how it works."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "AI, ML, and DL Are Like Russian Dolls",
+          "subtitle": "They're not separate boxes side by side. Open AI \u2014 ML is hidden inside. Open ML \u2014 DL is inside.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "The Outer Doll: AI",
+              "description": "AI is the largest shell: everything that makes machines appear smart \u2014 search, logic, expert systems, and learning all under one lid."
+            },
+            {
+              "number": 2,
+              "label": "Inside AI: ML Emerges",
+              "description": "Crack open the AI shell and Machine Learning lifts out. Instead of hand-written rules, ML learns its own patterns from data \u2014 fitting entirely inside AI but doing something far more powerful."
+            },
+            {
+              "number": 3,
+              "label": "Inside ML: Deep Learning",
+              "description": "Open ML and there's Deep Learning at the core: multi-layered neural networks that unlocked images, speech, and language. The smallest doll \u2014 but the one that changed everything."
+            }
+          ],
+          "insight": "All Deep Learning is ML.|All ML is AI.|But not all AI is ML \u2014 and|not all ML is Deep Learning.",
+          "reinforcement": "When someone says 'AI', they often mean Deep Learning.|Now you know the precise difference between all three."
+        },
+        {
+          "type": "practice",
+          "title": "Categorizing AI Subfields",
+          "instructions": "Categorize each technology as AI, ML, or Deep Learning.",
+          "starterCode": "terms = {\n    \"Spam filter\": \"\",\n    \"Face recognition\": \"\",\n    \"Chatbot\": \"\",\n}\n# Fill in: AI, ML, or DL\nterms[\"Spam filter\"] = \"ML\"\nterms[\"Face recognition\"] = \"DL\"\nterms[\"Chatbot\"] = \"AI\"\nfor term, category in terms.items():\n    print(f\"{term}: {category}\")",
+          "solution": "terms = {\"Spam filter\": \"ML\", \"Face recognition\": \"DL\", \"Chatbot\": \"AI\"}\nfor term, category in terms.items():\n    print(f\"{term}: {category}\")",
+          "hint": "AI is the broadest category. ML learns from data. Deep Learning uses neural networks with many layers."
+        }
+      ]
+    },
+    {
+      "id": "getting-started",
+      "label": "AI Around You",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "300px",
+            "label": "AI Around You \u2014 SVG placeholder",
+            "svgId": "ai-everyday"
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "AI is Already Around You"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Before you even arrive at school, you have already used five different AI systems."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Your phone unlocked, your route planned, your inbox filtered, your feed ranked, and your assistant understood you \u2014 all powered by AI."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Face Unlock \u2014 Deep Learning"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Your phone does not compare a stored photo. A neural network studied thousands of images of your face at different angles and learned its unique geometry. It recognises you \u2014 not a picture of you."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Google Maps \u2014 Search + Optimisation"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Maps evaluates millions of possible routes every time you navigate. Search explores the options; Optimisation picks the fastest one based on distance, live traffic, and historical patterns."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Spam Filter \u2014 Machine Learning"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Your inbox was protected by a model trained on millions of labelled emails. It found patterns \u2014 certain words, sender behaviour, formatting \u2014 without being told a single rule. It adapts as spammers evolve."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Netflix \u2014 Recommendation AI"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Netflix compares your watch history with millions of other users. People who watched what you watched tend to enjoy certain other shows. This collaborative filtering predicts your taste with surprising accuracy."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "ChatGPT \u2014 Language Models"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "ChatGPT learned from billions of sentences. It does not look up answers \u2014 it generates them word by word, predicting the most likely continuation based on everything it learned about human language."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "Every technique you'll study in this course \u2014 search, probability, ML, neural networks, language \u2014 is already powering the apps on your phone right now."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "AI is Like an Orchestra",
+          "subtitle": "A musician plays many instruments but leads to one symphony. We use AI for many different tasks, all with one final goal: making life easier.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "illustration": "",
+              "description": "An orchestra has many instruments \u2014 violin, trumpet, drums, flute, piano.|Different sounds, one piece of music."
+            },
+            {
+              "number": 2,
+              "label": "Each Speaks Differently",
+              "description": "Each instrument has its own voice and role.|An orchestra needs all of them, not just one."
+            },
+            {
+              "number": 3,
+              "label": "The Conductor Unites",
+              "description": "Without a conductor, the orchestra is just noise.|With one, every musician follows the same beat."
+            },
+            {
+              "number": 4,
+              "label": "AI is the Same",
+              "description": "Face Unlock, Maps, Spam Filter, Netflix, ChatGPT \u2014|different techniques, same goal: make life easier.",
+              "visual": {
+                "type": "flow",
+                "items": [
+                  "Face Unlock",
+                  "Google Maps",
+                  "Spam Filter",
+                  "Netflix",
+                  "ChatGPT"
+                ],
+                "conclusion": "One goal: make life easier"
+              }
+            },
+            {
+              "number": 5,
+              "label": "One Symphony",
+              "description": "Every AI technique \u2014 from search to language models \u2014|plays the same symphony:|making life simpler."
+            }
+          ],
+          "insight": "Every AI service plays a different instrument.|You don't see the orchestra \u2014 you just hear the music.",
+          "reinforcement": "Your phone unlocks, your route plans, your spam filters \u2014|all playing together before you even arrive.|That's the symphony. You're living in it."
+        },
+        {
+          "type": "practice",
+          "title": "AI Conversation Practice",
+          "instructions": "Ask the AI a specific question about how Artificial Intelligence learns from data. Then reflect on your prompt and try again to compare.",
+          "starterCode": "# Ask a thoughtful question about how AI learns\n# Then reflect: what makes a good prompt?\n\nquestion = \"How does AI learn from data?\"\nprint(f\"Question: {question}\")\nprint(\"Now reflect: Could you have asked a more specific question?\")",
+          "solution": "# Example conversation starter\nquestion = \"How does a spam filter learn which emails are junk?\"\nprint(f\"Question: {question}\")\nprint(\"Good questions are specific and focus on the learning process.\")",
+          "hint": "Think about what you just learned in this lecture. Ask about a specific AI concept."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "AI = computers doing tasks that need human thinking"
+      },
+      {
+        "text": "ML is a subset of AI that learns from data"
+      },
+      {
+        "text": "Deep Learning uses neural networks inspired by the brain"
+      },
+      {
+        "text": "All AI today is Narrow AI \u2014 it does one specific task"
+      },
+      {
+        "text": "AI is already in your daily life: maps, music, email filters"
+      },
+      {
+        "text": "The AI path covers: Search, Knowledge, Uncertainty, Optimization, Learning, Neural Nets, Language"
+      }
+    ],
+    "whatYouLearned": [
+      "What Artificial Intelligence really means",
+      "How Machine Learning and Deep Learning relate to AI",
+      "The difference between Narrow AI and General AI",
+      "Real examples of AI you encounter every day",
+      "The 7 core AI topics in this course",
+      "How AI systems collect data, train models, and make predictions"
+    ],
+    "nextUp": "Search Algorithms"
+  }
+}

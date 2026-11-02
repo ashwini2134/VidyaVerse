@@ -1,0 +1,161 @@
+{
+  "id": "python-lecture-6",
+  "courseSlug": "python",
+  "number": 6,
+  "title": "While Loops",
+  "overview": "While loops run as long as a condition is true. They're perfect when you don't know exactly how many times you need to repeat.",
+  "estimatedMinutes": 45,
+  "sections": [
+    {
+      "id": "while-basics",
+      "label": "while Loop",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "blue",
+          "title": "The while Loop",
+          "body": "A `while` loop keeps running as long as its condition is True. It checks the condition BEFORE each iteration.",
+          "bullets": [
+            "while condition: — checks before each run",
+            "If True, the body runs, then checks again",
+            "If False, the loop stops"
+          ]
+        },
+        {
+          "type": "analogy",
+          "title": "while is Like Checking Your Phone",
+          "emoji": "",
+          "text": "While waiting for a friend: check for messages. No message → wait. Message arrives → stop. The while loop checks a condition and keeps going until it changes."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Checking Your Phone",
+            "description": "Keep checking until there are no more notifications",
+            "image": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=800&q=80"
+          },
+          "visualization": {
+            "type": "repetition",
+            "title": "While Loop",
+            "items": [
+              "Check",
+              "Any Left?",
+              "Process",
+              "Repeat"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "count = 3\nwhile count > 0:\n    print(f\"{count} left\")\n    count -= 1",
+            "output": "3 left\n2 left\n1 left"
+          }
+        },
+        {
+          "type": "code_example",
+          "title": "Basic while Loop",
+          "language": "python",
+          "code": "count = 1\nwhile count <= 5:\n    print(f\"Count: {count}\")\n    count = count + 1\nprint(\"Done!\")",
+          "expectedOutput": "Count: 1\nCount: 2\nCount: 3\nCount: 4\nCount: 5\nDone!"
+        },
+        {
+          "type": "explanation",
+          "accentColor": "blue",
+          "title": "Avoiding Infinite Loops",
+          "body": "An **infinite loop** runs forever because the condition never becomes False.",
+          "bullets": [
+            "Always update the counter variable inside the loop",
+            "Make sure the condition will eventually become False",
+            "Use break to exit early if needed",
+            "Press Ctrl+C to stop a running program"
+          ]
+        },
+        {
+          "type": "practice",
+          "title": "Sum of N Numbers",
+          "instructions": "Ask for a number N. Use a while loop to calculate sum of 1 to N.",
+          "starterCode": "n = int(input(\"Enter N: \"))\ncount = 1\ntotal = 0\nwhile count <= n:\n    total = \n    count = \nprint(f\"Sum: {total}\")",
+          "solution": "n = int(input(\"Enter N: \"))\ncount = 1\ntotal = 0\nwhile count <= n:\n    total = total + count\n    count = count + 1\nprint(f\"Sum of 1 to {n} = {total}\")",
+          "hint": "Add count to total each iteration, then increment count.",
+          "expectedOutput": "Sum of 1 to 42 = 903"
+        }
+      ]
+    },
+    {
+      "id": "break-continue",
+      "label": "break & continue",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "Controlling Loop Flow",
+          "body": "Sometimes you need to exit early or skip an iteration. break and continue give you this control.",
+          "bullets": [
+            "break — exits the loop immediately",
+            "continue — skips to the next iteration",
+            "break is useful for 'found it!' scenarios",
+            "continue is useful for 'skip this one' scenarios"
+          ]
+        },
+        {
+          "type": "code_example",
+          "title": "break — Exit Early",
+          "language": "python",
+          "code": "for num in range(1, 10):\n    if num == 5:\n        print(\"Found 5! Stopping...\")\n        break\n    print(f\"Checking: {num}\")",
+          "expectedOutput": "Checking: 1\nChecking: 2\nChecking: 3\nChecking: 4\nFound 5! Stopping..."
+        },
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "while vs for",
+          "body": "Choose the right loop for the right job.",
+          "bullets": [
+            "Use for when you know the count or have a list",
+            "Use while when waiting for a condition to change",
+            "for loops are safer (no infinite loops)"
+          ]
+        },
+        {
+          "type": "practice",
+          "title": "Countdown Timer",
+          "instructions": "Ask for a number N. Use a while loop to count down from N to 1, then print 'Blast off!'",
+          "starterCode": "n = int(input(\"Enter a number: \"))\nwhile n > 0:\n    print(n)\n    n = \nprint(\"Blast off!\")",
+          "solution": "n = int(input(\"Enter a number: \"))\nwhile n > 0:\n    print(n)\n    n -= 1\nprint(\"Blast off!\")",
+          "hint": "Decrease n by 1 inside the loop using n -= 1. The loop stops when n reaches 0.",
+          "expectedOutput": "42\n41\n40\n39\n38\n37\n36\n35\n34\n33\n32\n31\n30\n29\n28\n27\n26\n25\n24\n23\n22\n21\n20\n19\n18\n17\n16\n15\n14\n13\n12\n11\n10\n9\n8\n7\n6\n5\n4\n3\n2\n1\nBlast off!"
+        },
+        {
+          "type": "reflection",
+          "question": "Does this concept make sense so far? Try to explain it in your own words.",
+          "answer": "If you can explain this concept to someone else, you have understood it well. Practice with the exercises below to reinforce your learning."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "while loops run as long as the condition is True"
+      },
+      {
+        "text": "Always update the condition variable to avoid infinite loops"
+      },
+      {
+        "text": "break exits the loop immediately"
+      },
+      {
+        "text": "continue skips to the next iteration"
+      },
+      {
+        "text": "Use for when you know the count, while when you don't"
+      }
+    ],
+    "whatYouLearned": [
+      "How while loops work with conditions",
+      "How to avoid infinite loops",
+      "How to use break and continue",
+      "When to use while vs for loops",
+      "How to build a number guessing game"
+    ],
+    "nextUp": "Lists"
+  }
+}

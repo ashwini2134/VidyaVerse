@@ -1,0 +1,215 @@
+[
+  {
+    "id": "ml_workflow",
+    "title": "ML Workflow Validator",
+    "description": "In Machine Learning, it's critical that data is cleaned BEFORE training the model. Write a script to validate the order of workflow steps.\n\nYour program must:\n1. Read a comma-separated list of workflow steps from the user.\n2. Find the index of 'Clean Data' and the index of 'Train Model' in the list.\n3. If 'Clean Data' comes before 'Train Model', print 'Valid Workflow'.\n4. Otherwise (or if either is missing), print 'Invalid Workflow'.\n\nSample Input:\nCollect Data,Clean Data,Train Model,Test Model\n\nSample Output:\nValid Workflow",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "workflow = input().strip().split(',')\n\n# Your code here\n",
+    "solution": "workflow = input().strip().split(',')\nif 'Clean Data' in workflow and 'Train Model' in workflow:\n    idx_clean = workflow.index('Clean Data')\n    idx_train = workflow.index('Train Model')\n    if idx_clean < idx_train:\n        print('Valid Workflow')\n    else:\n        print('Invalid Workflow')\nelse:\n    print('Invalid Workflow')",
+    "hints": [
+      "First verify that both strings exist in the list using the `in` operator.",
+      "Use `.index('Clean Data')` to find its position in the list, and compare it to `.index('Train Model')`."
+    ],
+    "testCases": [
+      {
+        "label": "Valid order",
+        "input": "Collect Data,Clean Data,Train Model",
+        "expectedOutput": "Valid Workflow\n"
+      },
+      {
+        "label": "Reversed order",
+        "input": "Train Model,Clean Data",
+        "expectedOutput": "Invalid Workflow\n"
+      },
+      {
+        "label": "Missing step",
+        "input": "Collect Data,Train Model",
+        "expectedOutput": "Invalid Workflow\n"
+      }
+    ]
+  },
+  {
+    "id": "simple_classifier_l6",
+    "title": "Simple Number Classifier",
+    "description": "Write Python code to classify a number entered by the user as Positive, Negative, or Zero.\n\nYour program must:\n1. Read an integer input.\n2. Apply the rules:\n   - Greater than 0 -> Print 'Positive'\n   - Less than 0 -> Print 'Negative'\n   - Exactly 0 -> Print 'Zero'\n\nSample Input:\n-5\n\nSample Output:\nNegative",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "number = int(input())\n\n# Your code here\n",
+    "solution": "number = int(input())\nif number > 0:\n    print('Positive')\nelif number < 0:\n    print('Negative')\nelse:\n    print('Zero')",
+    "hints": [
+      "Use an `if / elif / else` block.",
+      "Remember that 0 is neither positive nor negative."
+    ],
+    "testCases": [
+      {
+        "label": "Negative",
+        "input": "-5",
+        "expectedOutput": "Negative\n"
+      },
+      {
+        "label": "Positive",
+        "input": "100",
+        "expectedOutput": "Positive\n"
+      },
+      {
+        "label": "Zero",
+        "input": "0",
+        "expectedOutput": "Zero\n"
+      }
+    ]
+  },
+  {
+    "id": "data_cleaning_sim1",
+    "title": "Data Cleaner (Similar A)",
+    "description": "Real world data is messy! Write a program that takes a 'dirty' string of data and cleans it up for a machine learning algorithm.\n\nYour program must:\n1. Read a string input.\n2. Strip all leading and trailing whitespace.\n3. Convert the entire string to lowercase.\n4. Replace all occurrences of the word 'error' with an empty string ''.\n5. Print the cleaned string.\n\nSample Input:\n   This ERROR is bad data   \n\nSample Output:\nthis  is bad data",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "dirty_data = input()\n\n# Your cleaning steps here\n",
+    "solution": "dirty_data = input()\nclean = dirty_data.strip().lower().replace('error', '')\nprint(clean)",
+    "hints": [
+      "You can chain string methods together like `input().strip().lower()`.",
+      "Use `.replace('error', '')` to remove the specific word."
+    ],
+    "testCases": [
+      {
+        "label": "Has errors and spaces",
+        "input": "   This ERROR is bad data   ",
+        "expectedOutput": "this  is bad data\n"
+      },
+      {
+        "label": "Clean already",
+        "input": "good data",
+        "expectedOutput": "good data\n"
+      },
+      {
+        "label": "Multiple errors",
+        "input": "ERRORERROR",
+        "expectedOutput": "\n"
+      }
+    ]
+  },
+  {
+    "id": "simple_categorizer_sim2",
+    "title": "Age Categorizer (Similar B)",
+    "description": "Write a Python script that takes a user's age as input and categorizes them into life stages.\n\nYour program must:\n1. Read an integer age.\n2. Print 'Child' if under 13.\n3. Print 'Teen' if 13 to 19 (inclusive).\n4. Print 'Adult' if 20 or older.\n\nSample Input:\n15\n\nSample Output:\nTeen",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "age = int(input())\n\n# Your code here\n",
+    "solution": "age = int(input())\nif age < 13:\n    print('Child')\nelif age <= 19:\n    print('Teen')\nelse:\n    print('Adult')",
+    "hints": [
+      "Since an `if age < 13` block catches all younger ages, the `elif` only needs to check `<= 19`.",
+      "Use a final `else:` statement for Adults."
+    ],
+    "testCases": [
+      {
+        "label": "Teen",
+        "input": "15",
+        "expectedOutput": "Teen\n"
+      },
+      {
+        "label": "Child",
+        "input": "12",
+        "expectedOutput": "Child\n"
+      },
+      {
+        "label": "Adult boundary",
+        "input": "20",
+        "expectedOutput": "Adult\n"
+      }
+    ]
+  },
+  {
+    "id": "loss_function_calculator",
+    "title": "Loss Function Calculator",
+    "description": "Implement three loss functions: 0-1 loss, L\u2081 loss, and L\u2082 loss. Given actual and predicted values, compute the loss for each type.\n\nWrite a program that:\n1. Reads two floats from input: actual and predicted.\n2. Prints the 0-1 loss (0 if equal, 1 otherwise).\n3. Prints the L\u2081 loss (absolute difference).\n4. Prints the L\u2082 loss (squared difference).\n\nSample Input:\n3.0 2.5\n\nSample Output:\n1\n0.5\n0.25",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "actual, predicted = map(float, input().split())\n\n# Your loss functions here\n",
+    "solution": "actual, predicted = map(float, input().split())\n\nloss_01 = 0 if actual == predicted else 1\nloss_l1 = abs(actual - predicted)\nloss_l2 = (actual - predicted) ** 2\n\nprint(loss_01)\nprint(loss_l1)\nprint(loss_l2)",
+    "hints": [
+      "0-1 loss is 0 when values match exactly, 1 otherwise.",
+      "L\u2081 loss uses abs() for absolute difference.",
+      "L\u2082 loss squares the difference."
+    ],
+    "testCases": [
+      {
+        "label": "Close prediction",
+        "input": "3.0 2.5",
+        "expectedOutput": "1\n0.5\n0.25\n"
+      },
+      {
+        "label": "Exact match",
+        "input": "5.0 5.0",
+        "expectedOutput": "0\n0.0\n0.0\n"
+      },
+      {
+        "label": "Large error",
+        "input": "1.0 10.0",
+        "expectedOutput": "1\n9.0\n81.0\n"
+      }
+    ]
+  },
+  {
+    "id": "perceptron_step",
+    "title": "Single Perceptron Update",
+    "description": "Simulate one step of the perceptron learning rule. Given the current weights, input vector, learning rate, true label, and predicted label, compute the updated weights.\n\nThe perceptron update rule: w\u1d62 = w\u1d62 + \u03b1 * (y - \u0177) * x\u1d62\nwhere y is the true label, \u0177 is the predicted label, and \u03b1 is the learning rate.\n\nSample Input:\n0.5 0.3\n1 2\n0.1\n1\n0\n\nSample Output:\n0.6 0.5",
+    "difficulty": "medium",
+    "type": "coding",
+    "starterCode": "weights = list(map(float, input().split()))\ninputs = list(map(float, input().split()))\nalpha = float(input())\ntrue_label = int(input())\npred_label = int(input())\n\n# Your update rule here\n",
+    "solution": "weights = list(map(float, input().split()))\ninputs = list(map(float, input().split()))\nalpha = float(input())\ntrue_label = int(input())\npred_label = int(input())\n\nerror = true_label - pred_label\nupdated = [w + alpha * error * x for w, x in zip(weights, inputs)]\nprint(' '.join(f'{v:.1f}' for v in updated))",
+    "hints": [
+      "The error is true_label - pred_label.",
+      "Each weight updates by: alpha * error * corresponding input.",
+      "If prediction is correct (error = 0), weights don't change."
+    ],
+    "testCases": [
+      {
+        "label": "Underestimated",
+        "input": "0.5 0.3\n1 2\n0.1\n1\n0",
+        "expectedOutput": "0.6 0.5\n"
+      },
+      {
+        "label": "Overestimated",
+        "input": "0.5 0.3\n1 2\n0.1\n0\n1",
+        "expectedOutput": "0.4 0.1\n"
+      },
+      {
+        "label": "Correct prediction",
+        "input": "0.5 0.3\n1 2\n0.1\n1\n1",
+        "expectedOutput": "0.5 0.3\n"
+      }
+    ]
+  },
+  {
+    "id": "margin_checker",
+    "title": "Margin Checker",
+    "description": "Check whether a decision boundary correctly separates two classes with a margin. Given four numbers representing the positions of two class A points and two class B points on a line, determine if the boundary at x=0 separates them with a margin \u2265 1.\n\nThe boundary at x=0 classifies points with x < 0 as class A and x > 0 as class B. The margin is the distance from the boundary to the nearest point on each side.\n\nSample Input:\n-3 -1 2 4\n\nSample Output:\nMargin: 1.0\nSufficient",
+    "difficulty": "medium",
+    "type": "coding",
+    "starterCode": "a1, a2, b1, b2 = map(float, input().split())\n\n# Your margin check here\n",
+    "solution": "a1, a2, b1, b2 = map(float, input().split())\n\nmargin_a = min(abs(a1), abs(a2))\nmargin_b = min(abs(b1), abs(b2))\nmargin = min(margin_a, margin_b)\n\nprint(f'Margin: {margin}')\nprint('Sufficient' if margin >= 1 else 'Insufficient')",
+    "hints": [
+      "Class A points should be negative (x < 0), class B points positive (x > 0).",
+      "The margin is the distance from the boundary (x=0) to the closest point on each side.",
+      "Use abs() to find distances."
+    ],
+    "testCases": [
+      {
+        "label": "Sufficient margin",
+        "input": "-3 -1 2 4",
+        "expectedOutput": "Margin: 1.0\nSufficient\n"
+      },
+      {
+        "label": "Insufficient margin",
+        "input": "-3 -0.5 0.5 4",
+        "expectedOutput": "Margin: 0.5\nInsufficient\n"
+      },
+      {
+        "label": "Wide margin",
+        "input": "-5 -3 3 6",
+        "expectedOutput": "Margin: 3.0\nSufficient\n"
+      }
+    ]
+  }
+]

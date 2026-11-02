@@ -1,0 +1,54 @@
+[
+  {
+    "number": 0,
+    "label": "Lecture 1",
+    "title": "Functions, Variables"
+  },
+  {
+    "number": 1,
+    "label": "Lecture 2",
+    "title": "Conditionals"
+  },
+  {
+    "number": 2,
+    "label": "Lecture 3",
+    "title": "Loops"
+  },
+  {
+    "number": 3,
+    "label": "Lecture 4",
+    "title": "Exceptions"
+  },
+  {
+    "number": 4,
+    "label": "Lecture 5",
+    "title": "Libraries"
+  },
+  {
+    "number": 5,
+    "label": "Lecture 6",
+    "title": "Unit Tests",
+    "problems_available": false
+  },
+  {
+    "number": 6,
+    "label": "Lecture 7",
+    "title": "File I/O"
+  },
+  {
+    "number": 7,
+    "label": "Lecture 8",
+    "title": "Regular Expressions"
+  },
+  {
+    "number": 8,
+    "label": "Lecture 9",
+    "title": "Object-Oriented Programming"
+  },
+  {
+    "number": 9,
+    "label": "Lecture 10",
+    "title": "Et Cetera",
+    "problems_available": false
+  }
+]

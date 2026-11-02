@@ -1,0 +1,1496 @@
+{
+  "id": "fundamentals-of-ai-lecture-5",
+  "courseSlug": "fundamentals-of-ai",
+  "number": 6,
+  "title": "Machine Learning",
+  "overview": "Machine Learning is the paradigm shift that made modern AI possible. Instead of writing rules, you give a system data and it learns the rules itself. Learn supervised learning, loss functions, perceptron learning, support vector machines, overfitting, and reinforcement learning.",
+  "estimatedMinutes": 100,
+  "sections": [
+    {
+      "id": "supervised-learning",
+      "label": "Supervised Learning",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Supervised Learning — SVG placeholder",
+            "svgId": "supervised-learning"
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "Supervised Learning"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Supervised learning is the most widely used form of machine learning. You provide labelled examples \u2014 inputs paired with correct outputs \u2014 and the model learns to generalise the pattern to new, unseen inputs."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Training Data"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A set of (input, correct output) pairs. The model sees these examples during training and adjusts its internal parameters to produce the right output for each input."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Features"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The measurable properties of an input used to make predictions. For an email: word frequencies, sender, subject length. Choosing good features is as important as choosing the right model."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Labels"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The correct output the model should produce for each training input. Labels are expensive \u2014 they require human annotation. The quality of labels directly determines the quality of the trained model."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Model & Prediction"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The model is a function that takes features as input and produces a prediction. Training adjusts the model's parameters so its predictions match the labels as closely as possible."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Generalisation"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The true test of a model is not how well it performs on training data \u2014 it is how well it performs on data it has never seen. A model that memorises but doesn't generalise is useless."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Introduction to Supervised Learning"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Supervised learning is the most common type of machine learning \u2014 the model learns from labelled examples."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Each training example has an input and a known correct output (the label). The model's job is to predict the label from the input."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The model learns by comparing its prediction to the correct label, measuring the error, and adjusting its internal parameters to reduce that error."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "This process repeats over millions of examples until the model can generalise to new, unseen inputs."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Applications include spam detection, image recognition, medical diagnosis, and language translation."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Supervised Learning \u2014 A machine learning paradigm where the model is trained on labelled data \u2014 each input comes with the correct output.",
+              "Label \u2014 The known correct output for a training example. The model learns to predict labels from inputs.",
+              "Training Data \u2014 The collection of labelled examples used to teach the model. More high-quality data generally produces better models.",
+              "Generalisation \u2014 The ability of a model to make correct predictions on data it has never seen before \u2014 the true goal of supervised learning."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Classification vs Regression"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Supervised learning has two main varieties: classification and regression."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Classification predicts a discrete category. Is this email spam or not? Is this a cat or a dog? Is this tumour malignant or benign?"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The output of classification is a class label. If there are only two classes, it is binary classification. More than two classes is multi-class classification."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Regression predicts a continuous number. What will the temperature be tomorrow? What is the expected price of this house? How many customers will arrive today?"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The output of regression is a real number \u2014 any value within a range. The model learns a function that maps inputs to continuous outputs."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Classification \u2014 Predicting a discrete category or class label. The output is one of a fixed set of possibilities.",
+              "Binary Classification \u2014 Classification with exactly two possible classes. Examples: spam/not spam, positive/negative, pass/fail.",
+              "Multi-Class Classification \u2014 Classification with more than two classes. Examples: digit recognition (0-9), animal species (cat/dog/bird).",
+              "Regression \u2014 Predicting a continuous numerical value. Examples: temperature, price, time, age, probability."
+            ]
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "Supervised learning doesn't program intelligence. It trains it. The programmer defines the learning process, not the outcome."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Supervised Learning is Like Teaching a Dog Tricks",
+          "subtitle": "You don't explain the rules to a dog. You show examples, give feedback, and let it figure out the pattern.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "You hold up a ball and say 'fetch'. The dog runs, brings it back. You say 'good dog' and give a treat. You don't explain the physics of throwing or the concept of retrieval \u2014 you just show the example and reward the correct response."
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "Show an example. Observe the response. Give feedback \u2014 positive or negative. Adjust based on the feedback. Repeat hundreds of times. The pattern emerges from experience, not instruction.",
+              "visual": {
+                "type": "repetition",
+                "items": [
+                  "Show Data",
+                  "Model Predicts",
+                  "Compare to Label",
+                  "Update Model",
+                  "Repeat"
+                ],
+                "conclusion": "Model learns the pattern"
+              }
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "Supervised learning is identical. Feed in labelled examples. The model predicts. Compare prediction to the label. Calculate the error. Adjust internal parameters. Repeat millions of times. No programmer ever writes the rules \u2014 the model discovers them."
+            }
+          ],
+          "insight": "Supervised learning is pattern recognition at scale \u2014 computers doing in seconds what would take humans years.",
+          "reinforcement": "Labelled data = showing examples with the right answer. The model learns the pattern without being told the rules."
+        },
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Overfitting & Generalisation — SVG placeholder",
+            "svgId": "overfitting"
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "Overfitting & Generalisation"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A model that gets 100% on training data but fails on new data is useless. Overfitting is the single most common failure mode in machine learning \u2014 understanding it is essential before building any real system."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Overfitting"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The model memorised the training data \u2014 including noise \u2014 instead of learning the general pattern. It performs perfectly on training data but fails on new data."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Memorizing Instead of Understanding"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The student memorizes every question instead of understanding the concepts."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "A Different Situation"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Because the questions changed, memorization was not enough."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "This is Overfitting"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "An overfitted model memorizes the training data instead of learning the general pattern."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Overfitting happens when a model learns the training data too closely, including noise and small details. As a result, it performs well on training data but poorly on new, unseen data."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "The goal of machine learning is not to memorise data \u2014 it is to discover the pattern beneath it."
+          }
+        },
+        {
+          "type": "practice",
+          "title": "Classifying ML Problems",
+          "instructions": "Classify each problem as classification or regression.",
+          "starterCode": "# Classify each problem\nproblems = [\n    \"Predict house price\",\n    \"Spam or not spam\",\n    \"Student exam score\",\n    \"Image: cat or dog\",\n]\nfor problem in problems:\n    if problem in [\"Predict house price\", \"Student exam score\"]:\n        print(f\"{problem}: regression\")\n    else:\n        print(f\"{problem}: classification\")",
+          "solution": "problems = [\"Predict house price\", \"Spam or not spam\", \"Student exam score\", \"Image: cat or dog\"]\nfor problem in problems:\n    if problem in [\"Predict house price\", \"Student exam score\"]:\n        print(f\"{problem}: regression\")\n    else:\n        print(f\"{problem}: classification\")",
+          "hint": "Classification predicts a category. Regression predicts a number."
+        }
+      ]
+    },
+    {
+      "id": "decision-boundaries",
+      "label": "Decision Boundaries &amp; Loss",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Loss Functions — SVG placeholder",
+            "svgId": "loss-functions"
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "Loss Functions"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Loss functions quantify how wrong a prediction is. The less accurate the prediction, the larger the loss. Choosing the right loss function shapes what your model learns to prioritise."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "What a Loss Function Measures"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A loss function quantifies the utility lost by a decision rule. When a prediction misses the mark, the loss function assigns a penalty. The goal of training is to minimise this penalty across all predictions."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "0-1 Loss for Classification"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The simplest loss for classification: L(actual, predicted) = 0 if they match, 1 otherwise. It counts mistakes but treats all errors equally \u2014 a near-miss is penalised as harshly as a wild guess."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "L\u2081 Loss (Mean Absolute Error)"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "For continuous values, L\u2081 ="
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "actual - predicted"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": ". It penalises every error linearly. Outliers have proportional impact, making L\u2081 robust to extreme values."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "L\u2082 Loss (Mean Squared Error)"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "L\u2082 = (actual - predicted)\u00b2. It squares the error, so large mistakes are penalised much more heavily than small ones. This makes it sensitive to outliers but useful when big errors are unacceptable."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Choosing the Right Loss"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "L\u2081 is robust to outliers \u2014 use it when extreme values shouldn\u2019t dominate. L\u2082 is sensitive \u2014 use it when large errors must be avoided at all costs. 0-1 loss is simple for classification but offers no gradient signal for learning."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Understanding Loss Functions"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A loss function quantifies the penalty for incorrect predictions. The larger the error, the larger the loss."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "For classification, the 0-1 loss simply counts mistakes \u2014 a prediction is either right or wrong with no middle ground."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "For regression, L\u2081 loss takes the absolute difference, treating every unit of error with equal weight."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "L\u2082 loss squares the difference, making large errors disproportionately costly \u2014 it punishes outliers harshly."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The choice of loss function directly influences what the model learns to optimise during training."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Loss Function \u2014 A function that quantifies the penalty for incorrect predictions. Minimising loss is the goal of training.",
+              "0-1 Loss \u2014 A loss function for classification: 0 if the prediction matches the label, 1 otherwise. Simple but offers no gradient.",
+              "L\u2081 Loss \u2014 Mean Absolute Error. The absolute difference between predicted and actual values. Robust to outliers.",
+              "L\u2082 Loss \u2014 Mean Squared Error. The squared difference between predicted and actual values. Sensitive to outliers."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "L\u2081 vs L\u2082 \u2014 The Tradeoff"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "L\u2081 loss is robust \u2014 a single outlier can only pull the model so far because the penalty grows linearly."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "L\u2082 loss is sensitive \u2014 a single extreme outlier can dominate the total loss because the penalty grows quadratically."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Use L\u2081 when your data has outliers you cannot remove, and you do not want them to distort the model."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Use L\u2082 when large errors are genuinely more dangerous than small ones, such as in safety-critical applications."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "In practice, many models use a hybrid called Huber loss that behaves like L\u2082 for small errors and L\u2081 for large ones."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Outlier Sensitivity \u2014 How much a single extreme value can influence the total loss. L\u2082 is highly sensitive; L\u2081 is not.",
+              "Huber Loss \u2014 A hybrid loss function that combines L\u2081 and L\u2082, behaving quadratically for small errors and linearly for large ones."
+            ]
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "The loss function tells the model what kind of mistake to fear most. Choose it carefully \u2014 it shapes everything the model learns."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Loss Functions Are Like a Dart Competition",
+          "subtitle": "Every miss has a cost. How you score determines how players throw.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "Three players throw darts at a board. Player A hits near the centre. Player B lands farther away. Player C misses badly. The darts remain visible as scores appear beside each throw. Every miss has a cost \u2014 every prediction has an error.",
+              "caption": "A bad throw costs more than a good one \u2014 just like a bad prediction costs more loss.",
+              "visual": {
+                "type": "comparison",
+                "items": [
+                  "Player A: Near centre \u2014 small error",
+                  "Player B: Farther out \u2014 bigger error",
+                  "Player C: Complete miss \u2014 largest error"
+                ],
+                "conclusion": "Every prediction has an error"
+              }
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "Now the scoring method changes. Same dart positions, different rules. Mode 1 penalises a near miss as -1 and a far miss as -3. Mode 2 penalises a near miss as -1 but a far miss as -10. The same throws produce very different scores. Toggle between scoring systems and the scores smoothly change. Different scoring rules reward different behaviour.",
+              "caption": "Change the scoring rules, change what players aim for \u2014 loss functions shape what the model learns.",
+              "visual": {
+                "type": "toggle",
+                "items": [
+                  "Mode 1: Small penalty \u2014 near miss -1, far miss -3",
+                  "Mode 2: Large penalty \u2014 near miss -1, far miss -10"
+                ],
+                "conclusion": "Change the score. Change the strategy."
+              }
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "Replace darts with AI predictions. A prediction enters, the actual value is compared, a loss function calculates the penalty, and a score is produced. The model learns from the score \u2014 lower loss means a better model. Loss functions tell AI how costly each mistake is, shaping what the model prioritises during training.",
+              "caption": "AI adjusts until the loss is as small as possible \u2014 bullseye is the goal."
+            }
+          ],
+          "insight": "The same error can cost more or less depending on how you measure it. Choose your loss function wisely.",
+          "reinforcement": "Loss functions translate real-world priorities into mathematical penalties the model can minimise."
+        },
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Perceptron Learning — SVG placeholder",
+            "svgId": "perceptron-learning"
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "Perceptron Learning"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Instead of comparing a new point to every existing observation, the perceptron looks at the data as a whole and draws a decision boundary \u2014 a line that separates the classes. Every new point is classified by which side of the line it falls on."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "The Decision Boundary"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A line (or hyperplane in higher dimensions) dividing the feature space into two regions. Points on one side get one label; points on the other side get the other. The perceptron learns where to draw this line from data."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Weights, Inputs, and the Dot Product"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The perceptron computes a weighted sum of the inputs: w\u2080 + w\u2081x\u2081 + w\u2082x\u2082 + ... If this sum is \u2265 0, predict one class; otherwise predict the other. The weight vector w defines the orientation and position of the decision boundary."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "The Perceptron Learning Rule"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "For each training example, if the prediction is correct, the weights stay unchanged. If the model underestimates, the weights increase. If it overestimates, the weights decrease. Each update scales with the learning rate \u03b1, which controls how much each mistake influences the boundary."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Hard Threshold"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The classic perceptron uses a hard threshold \u2014 the output is either 0 or 1 with no in-between. This makes it decisive but unable to express uncertainty or confidence in its prediction."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Soft Threshold with the Logistic Function"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A logistic (sigmoid) function replaces the hard step with an S-shaped curve. The output becomes a real number between 0 and 1, representing the probability or confidence of the prediction. This smooth gradient makes training more stable."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "How the Perceptron Works"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The perceptron creates a decision boundary \u2014 a line or hyperplane \u2014 that separates different classes in the feature space."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Each input feature is multiplied by a learned weight. The weighted sum plus a bias determines which side of the boundary the point falls on."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The weight vector defines the orientation of the decision boundary. Changing the weights rotates or shifts the line."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "If the weighted sum exceeds a threshold, the perceptron outputs one class; otherwise it outputs the other \u2014 a hard 0 or 1 decision."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The perceptron convergence theorem guarantees that if the data is linearly separable, the algorithm will find a separating boundary in finite steps."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Decision Boundary \u2014 A line or hyperplane that separates different classes in feature space. Points on one side get one label, points on the other get another.",
+              "Weight Vector \u2014 A vector of learned coefficients that determines the orientation and position of the decision boundary.",
+              "Dot Product \u2014 The sum of element-wise multiplications between the weight vector and the input vector. The result determines the prediction."
+            ]
+          }
+        },
+        {
+          "type": "ai_section",
+          "theme": "light",
+          "hero": {
+            "category": "",
+            "title": "",
+            "intro": ""
+          },
+          "concepts": [],
+          "probabilityContent": {
+            "chapters": [
+              {
+                "title": "The Learning Rule and Thresholds",
+                "sentences": [
+                  "The perceptron learning rule updates weights only when the model makes a mistake \u2014 correct predictions leave the boundary unchanged.",
+                  "If the model predicted 0 but the label is 1 (underestimation), the weights increase in the direction of the input.",
+                  "If the model predicted 1 but the label is 0 (overestimation), the weights decrease away from the input.",
+                  "The learning rate \u03b1 controls how aggressive each update is. A high rate learns faster but may overshoot; a low rate is more stable but slower.",
+                  "A hard threshold outputs a definitive 0 or 1. A soft threshold (sigmoid) outputs a probability, expressing confidence in the prediction."
+                ],
+                "terms": [
+                  {
+                    "term": "Perceptron Learning Rule",
+                    "definition": "w := w + \u03b1(y - \u0177)x. Weights are updated proportionally to the error multiplied by the input and the learning rate."
+                  },
+                  {
+                    "term": "Learning Rate (\u03b1)",
+                    "definition": "A hyperparameter controlling how much each mistake influences the weights. Typical values range from 0.01 to 1.0."
+                  },
+                  {
+                    "term": "Hard Threshold",
+                    "definition": "An activation function that outputs exactly 0 or 1 with no intermediate values. Decisive but cannot express uncertainty."
+                  },
+                  {
+                    "term": "Soft Threshold (Sigmoid)",
+                    "definition": "An S-shaped activation function that outputs a continuous value between 0 and 1, representing probability or confidence."
+                  }
+                ],
+                "interactive": "perceptron-learning"
+              }
+            ]
+          },
+          "keyInsight": ""
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "The perceptron learns one decision boundary from all the data at once \u2014 not by remembering neighbours but by updating its weights every time it makes a mistake."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Perceptron Learning is Like a Security Guard Learning Staff",
+          "subtitle": "The guard doesn\u2019t know everyone on day one. Every wrong identification teaches a better rule.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "A new security guard at an office entrance checks people as they enter. Some employees are allowed in. Some visitors are stopped. The guard makes mistakes \u2014 waving in a visitor who shouldn\u2019t enter, or stopping an employee who works there. Wrong decisions flash up. At first, decisions are often wrong.",
+              "caption": "The guard guesses at first \u2014 wrong passes and wrong stops happen all the time.",
+              "visual": {
+                "type": "repetition",
+                "items": [
+                  "Employee enters \u2014 correct pass",
+                  "Visitor enters \u2014 wrong pass",
+                  "Employee stopped \u2014 wrong stop",
+                  "Visitor stopped \u2014 correct stop"
+                ],
+                "conclusion": "The guard doesn't know everyone yet"
+              }
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "Each wrong decision triggers feedback. The manager signals: this employee should enter, this visitor should not. The guard updates his understanding. A mental line between who should and should not enter gradually shifts after every correction. Each correction changes the decision boundary. Feedback changes future decisions.",
+              "caption": "Every mistake gets corrected \u2014 the guard's mental boundary shifts a little each time.",
+              "visual": {
+                "type": "flow",
+                "items": [
+                  "Wrong decision",
+                  "Manager gives feedback",
+                  "Guard updates understanding",
+                  "Boundary shifts"
+                ],
+                "conclusion": "Every mistake improves the rule"
+              }
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "Replace the guard with a perceptron. People become data points. The mental line becomes a decision boundary. Misclassified points move the boundary by updating the weights. Over hundreds of corrections, almost all points are correctly classified. Every wrong prediction updates the decision boundary until it separates the classes cleanly.",
+              "caption": "The perceptron keeps adjusting its boundary until it separates staff from strangers \u2014 one mistake at a time."
+            }
+          ],
+          "insight": "The perceptron doesn\u2019t memorise \u2014 it adjusts. Every mistake is a learning opportunity that moves the boundary closer to where it should be.",
+          "reinforcement": "Weights are updated only when the prediction is wrong. Correct predictions leave the boundary unchanged."
+        },
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Support Vector Machines — SVG placeholder",
+            "svgId": "support-vector-machines"
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "Support Vector Machines"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A Support Vector Machine goes beyond finding any decision boundary \u2014 it finds the best one. By maximising the margin between the boundary and the nearest points, SVMs produce classifiers that generalise better to new data."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Maximum Margin Separator"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Many boundaries can separate two classes without mistakes, but they are not equally good. The maximum margin separator is the boundary that stays as far as possible from both groups. This gap gives the most leeway for variation within each class, reducing the chance of misclassifying new points."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Support Vectors"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Support vectors are the training examples that lie closest to the decision boundary. They are the hardest to classify correctly. The SVM\u2019s boundary depends only on these critical points \u2014 the rest of the data could be removed and the boundary would stay the same."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Why Margin Matters"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A decision boundary too close to one group will misclassify new points that differ only slightly from existing ones. A wide margin gives the model tolerance for noise and variation, leading to better generalisation on unseen data."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Non-Linear Decision Boundaries"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Not all data can be separated by a straight line. SVMs handle this with the kernel trick \u2014 they project the data into higher dimensions where a linear boundary becomes possible, without ever computing the projection explicitly."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "SVMs vs Perceptrons"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A perceptron finds any separating boundary and stops. An SVM actively searches for the boundary with the widest possible margin. The perceptron is driven by mistakes; the SVM is driven by the geometry of the data itself."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Maximum Margin Classification"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "An SVM finds the decision boundary that maximises the distance to the nearest points from each class \u2014 the maximum margin separator."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The margin is the distance from the boundary to the closest training example on either side. A wider margin means better generalisation."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Support vectors are the critical training examples that lie exactly on the margin. They alone define the boundary \u2014 remove them and the boundary shifts."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Maximising the margin is a constrained optimisation problem. The SVM solves for the boundary that maximises the gap while still separating the classes."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The SVM objective balances maximising the margin against minimising classification errors, controlled by a regularisation parameter C."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Maximum Margin Separator \u2014 The decision boundary that maximises the distance to the nearest training examples of any class.",
+              "Support Vector \u2014 A training example that lies closest to the decision boundary. Support vectors are the critical points that define the margin.",
+              "Margin \u2014 The perpendicular distance from the decision boundary to the nearest support vector. Larger margins improve generalisation."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "The Kernel Trick"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Not all data is linearly separable. The kernel trick allows SVMs to create non-linear decision boundaries without explicitly computing a higher-dimensional space."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A kernel function computes the similarity between two points in a transformed feature space, without ever constructing that space explicitly."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Common kernels include the polynomial kernel, the radial basis function (RBF) kernel, and the sigmoid kernel."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The choice of kernel is a hyperparameter that depends on the structure of the data. The RBF kernel is a good default for most problems."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "SVMs with kernels can separate complex patterns like concentric circles or intertwined spirals that a linear classifier could never handle."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Kernel Trick \u2014 A technique that implicitly maps data into a higher-dimensional space where linear separation is possible, without computing the mapping explicitly.",
+              "RBF Kernel \u2014 Radial Basis Function kernel. A popular kernel that measures similarity based on Euclidean distance. Effective for non-linear data.",
+              "Regularisation Parameter (C) \u2014 Controls the tradeoff between maximising the margin and minimising misclassifications. Smaller C = wider margin, larger C = fewer errors."
+            ]
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "SVMs don\u2019t just separate data \u2014 they separate it with the widest possible buffer zone, making them one of the most robust classifiers in machine learning."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "SVMs Are Like Building a Road Median",
+          "subtitle": "A thin painted line leaves no room for error. A wide median keeps traffic safely apart.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "Cars move in opposite directions on a road with only a painted centre line between them. Vehicles pass dangerously close. Near collisions occur as cars drift slightly over the line. A thin line isn\u2019t always safe \u2014 small separations leave little room for error.",
+              "caption": "A painted line separates traffic \u2014 but one small drift and cars almost collide.",
+              "visual": {
+                "type": "comparison",
+                "items": [
+                  "Cars pass close together",
+                  "Near collisions from small drifts",
+                  "No buffer for mistakes"
+                ],
+                "conclusion": "A thin line isn't always safe"
+              }
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "The painted line expands into a wide concrete median. Cars now travel comfortably on each side with more space between both lanes. Animated arrows show the increased distance between traffic flows. More space means fewer mistakes \u2014 create the largest safe buffer.",
+              "caption": "A wide median means cars never get close \u2014 maximum room between opposing traffic.",
+              "visual": {
+                "type": "flow",
+                "items": [
+                  "Thin painted line",
+                  "Wider median built",
+                  "Cars travel comfortably apart"
+                ],
+                "conclusion": "Create the largest safe buffer"
+              }
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "The road transforms into a graph. Blue points and red points appear. A separating line appears between them. Then the margin grows wider. The closest points on each side become highlighted and labelled: Support Vectors. These critical examples define the boundary\u2019s position. The widest boundary usually generalises best.",
+              "caption": "Only the closest points matter \u2014 support vectors alone define the widest safe margin."
+            }
+          ],
+          "insight": "A wide margin means tolerance for variation. The best classifier doesn\u2019t just separate \u2014 it leaves room for error.",
+          "reinforcement": "Support vectors are the critical few examples that define the entire boundary. The rest of the data is irrelevant once the margin is set."
+        }
+      ]
+    },
+    {
+      "id": "unsupervised-learning",
+      "label": "Unsupervised Learning",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Unsupervised Learning \u2014 SVG placeholder",
+            "svgId": "unsupervised-learning"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Unlike supervised learning, unsupervised learning works with data that has no labels. The model must find structure, patterns, and groupings on its own \u2014 discovering hidden insights without being told what to look for."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "No Labels, Only Data"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "In unsupervised learning, the model receives input data without any corresponding output labels. It must find structure on its own \u2014 grouping similar items, finding patterns, or reducing dimensionality."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Clustering"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Clustering is the most common unsupervised task. The model groups data points so that items in the same cluster are more similar to each other than to items in other clusters. It discovers natural groupings in the data."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "K-Means"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "K-Means partitions data into K clusters. Each point belongs to the cluster with the nearest mean (centroid). The algorithm iterates between assigning points and updating centroids until convergence. Simple, fast, and widely used."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Hierarchical Clustering"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Hierarchical clustering builds a tree of clusters. Agglomerative (bottom-up) starts with each point as its own cluster and merges the closest pairs. Divisive (top-down) starts with one cluster and splits recursively. The result is a dendrogram."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "DBSCAN"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "DBSCAN groups points that are closely packed together, marking points in low-density regions as noise. It does not require specifying the number of clusters beforehand and can find arbitrarily shaped clusters \u2014 unlike K-Means."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Introduction to Unsupervised Learning"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Unsupervised learning finds hidden patterns in data without any labels or correct answers."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The model must discover structure on its own \u2014 grouping similar items, detecting anomalies, or compressing the data into fewer dimensions."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "It is used when you have lots of data but no labels, or when you want to discover patterns you did not know existed."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Applications include customer segmentation, anomaly detection, recommendation systems, and gene sequence analysis."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Unsupervised Learning \u2014 A machine learning paradigm where the model finds patterns in unlabelled data without any guidance or correct answers.",
+              "Feature Space \u2014 A multi-dimensional space where each dimension is a feature of the data. Clustering algorithms find groups in this space."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Clustering Concepts"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Clustering is the task of partitioning a set of data points into groups such that points in the same group are more similar to each other than to points in other groups."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A cluster is a collection of data points that are similar to one another based on a chosen similarity metric, such as Euclidean distance."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The quality of a clustering is measured by intra-cluster similarity (how tight each cluster is) and inter-cluster dissimilarity (how separated clusters are)."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Choosing the right number of clusters is a key challenge \u2014 too few oversimplifies, too many overfits."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Cluster \u2014 A group of data points that are more similar to each other than to points outside the group.",
+              "Centroid \u2014 The centre of a cluster, typically the mean of all points in the cluster.",
+              "Similarity Metric \u2014 A measure of how close two data points are, such as Euclidean distance, Manhattan distance, or cosine similarity."
+            ]
+          }
+        },
+        {
+          "type": "ai_section",
+          "theme": "light",
+          "hero": {
+            "category": "",
+            "title": "",
+            "intro": ""
+          },
+          "concepts": [],
+          "probabilityContent": {
+            "chapters": [
+              {
+                "title": "K-Means Clustering \u2014 Try It Yourself",
+                "interactive": "k-means",
+                "sentences": [
+                  "K-means clustering groups data points into k clusters. First, k random cluster centers are placed in the space.",
+                  "Each point is assigned to the nearest center. Then each center moves to the mean of its assigned points.",
+                  "This repeats until the centers stop moving \u2014 the algorithm has converged and the data is divided into clusters."
+                ],
+                "terms": [
+                  {
+                    "term": "Centroid",
+                    "definition": "The center point of a cluster, recalculated as the mean of all points assigned to that cluster."
+                  },
+                  {
+                    "term": "Convergence",
+                    "definition": "When centroids stop moving between iterations \u2014 the algorithm has found a stable set of clusters."
+                  },
+                  {
+                    "term": "Initialization",
+                    "definition": "The random placement of k cluster centers at the start. Different initial positions can lead to different final clusters."
+                  }
+                ]
+              }
+            ]
+          },
+          "keyInsight": ""
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Common Clustering Algorithms (K-Means, Hierarchical, DBSCAN)"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "K-Means is the most popular clustering algorithm. It partitions data into K clusters by iteratively assigning points to the nearest centroid and updating centroids."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "K-Means is fast and scalable but requires you to choose K in advance and works best with spherical clusters of similar size."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Hierarchical clustering builds a tree (dendrogram) of nested clusters. It does not require specifying K \u2014 you cut the tree at the desired level."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Agglomerative (bottom-up) hierarchical clustering starts with each point as its own cluster and merges the closest pairs until one cluster remains."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "DBSCAN groups points based on density \u2014 points in dense regions form clusters, while points in sparse regions are labelled as noise."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "DBSCAN does not require specifying the number of clusters and can discover arbitrarily shaped clusters, but struggles with varying density."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "K-Means \u2014 Partitions data into K clusters by minimising the distance from each point to its assigned cluster centroid. Fast, simple, and widely used.",
+              "Hierarchical Clustering \u2014 Builds a tree of clusters, either bottom-up (agglomerative) or top-down (divisive). Does not require specifying K.",
+              "DBSCAN \u2014 Density-Based Spatial Clustering of Applications with Noise. Groups dense regions and marks sparse regions as outliers.",
+              "Dendrogram \u2014 A tree diagram showing the nested relationships between clusters produced by hierarchical clustering."
+            ]
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "Unsupervised learning finds patterns no human labelled \u2014 it discovers the hidden structure of data automatically."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Unsupervised Learning Reveals Hidden Patterns",
+          "subtitle": "A biologist lands on an unexplored island full of unknown creatures. No field guide exists \u2014 they must observe, compare, and group organisms by their natural similarities. The categories are not given; they emerge from the data itself.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "The biologist collects specimens: some have feathers, some have scales, some have fur. Others are tiny, some are massive, a few glow in the dark. Without preset labels, they start noticing which traits tend to co-occur \u2014 creatures naturally sort into groups based on shared characteristics."
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "Each creature is a point in a feature space \u2014 weight, limb count, skin type, activity pattern. Creatures with similar features cluster together. The biologist never told the computer what a \u2018bird\u2019 or \u2018reptile\u2019 is; the clusters simply emerged from the measurements."
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "K-Means, Hierarchical Clustering, and DBSCAN are the algorithms AI uses to discover these hidden groupings. Each algorithm measures similarity differently, but all share the same goal: find natural structure in unlabelled data."
+            }
+          ],
+          "insight": "Unsupervised learning discovers structure without a teacher \u2014 it is pure exploration, not instruction.",
+          "reinforcement": "Without labels, the model must find patterns on its own. This is how AI uncovers hidden segments, anomalies, and natural groupings in raw data."
+        },
+        {
+          "type": "practice",
+          "title": "Match the Clustering Algorithm",
+          "instructions": "Read each real-world scenario and decide which clustering algorithm \u2014 K-Means, Hierarchical, or DBSCAN \u2014 fits best, based on whether K is known, whether clusters are round, and whether noise/outliers matter.",
+          "starterCode": "# This exercise is interactive - use the panel above to match each scenario\n# to the correct clustering algorithm: K-Means, Hierarchical, or DBSCAN.\n",
+          "solution": "",
+          "hint": "Ask three questions: Do I know K in advance? Are the clusters round and evenly sized? Is there noise or an irregular shape I need to detect?"
+        }
+      ]
+    },
+    {
+      "id": "reinforcement-learning",
+      "label": "Reinforcement Learning",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Reinforcement Learning \u2014 SVG placeholder",
+            "svgId": "reinforcement-learning"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Reinforcement learning is a completely different paradigm. The agent learns not from labelled data but from the consequences of its own actions \u2014 receiving rewards for good decisions and penalties for bad ones."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Agent and Environment"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "In reinforcement learning, an agent learns by interacting with an environment, taking actions and receiving rewards or penalties based on those actions."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Reward Signal"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The reward signal defines the goal of the RL problem. The agent aims to maximize cumulative reward over time through trial and error."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Exploration vs Exploitation"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The agent must balance exploring new actions to discover better strategies with exploiting known actions that yield high rewards."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "Reinforcement learning doesn't need labelled data. It learns from consequences \u2014 the same way every animal on earth learns."
+          }
+        },
+        {
+          "type": "infographic",
+          "id": "rl-learning-cycle",
+          "panels": [
+            {
+              "label": "The RL Loop",
+              "title": "Agent \u00b7 Action \u00b7 Reward",
+              "caption": "The agent observes, acts, and learns from every reward the environment returns."
+            },
+            {
+              "label": "Explore vs Exploit",
+              "title": "Try New Things or Stick With What Works?",
+              "caption": "Explore unknown paths for greater reward, or exploit known ones for safety."
+            },
+            {
+              "label": "Q-Learning",
+              "title": "Learning the Value of Every Action",
+              "caption": "Q-learning builds a table of expected rewards for every state and action."
+            }
+          ],
+          "takeaway": "Reinforcement learning teaches an agent to make decisions by rewarding desirable outcomes. The agent learns through trial and error, balancing exploration with exploitation, and builds a Q-table that encodes the best action for every situation."
+        },
+        {
+          "type": "practice",
+          "title": "Q-Learning from Scratch",
+          "instructions": "Implement Q-learning to train an agent to navigate a simple grid and reach a goal.",
+          "starterCode": "import random\n\n# States: 0=start, 1=middle, 2=goal\n# Actions: 0=stay, 1=move forward\nrewards  = {(0,1): 0, (1,1): 10, (0,0): -1, (1,0): -1}\ntransition = {(0,1):1, (1,1):2, (0,0):0, (1,0):1}\nQ = {(s,a): 0.0 for s in [0,1] for a in [0,1]}\nalpha, gamma, epsilon = 0.5, 0.9, 0.3\n\nfor episode in range(200):\n    state = 0\n    while state != 2:\n        action = random.choice([0,1]) if random.random() < epsilon else max([0,1], key=lambda a: Q[(state,a)])\n        next_state = transition.get((state,action), state)\n        reward = rewards.get((state,action), 0)\n        best_next = max(Q.get((next_state,a),0) for a in [0,1]) if next_state != 2 else 0\n        Q[(state,action)] += alpha * (reward + gamma * best_next - Q[(state,action)])\n        state = next_state\n\nprint('Learned Q-values:')\nfor key, val in Q.items():\n    print(f'  Q{key} = {val:.2f}')",
+          "solution": "import random\nrewards={(0,1):0,(1,1):10,(0,0):-1,(1,0):-1}\ntransition={(0,1):1,(1,1):2,(0,0):0,(1,0):1}\nQ={(s,a):0.0 for s in[0,1]for a in[0,1]}\nalpha,gamma,eps=0.5,0.9,0.3\nfor _ in range(200):\n    s=0\n    while s!=2:\n        a=random.choice([0,1])if random.random()<eps else max([0,1],key=lambda a:Q[(s,a)])\n        ns=transition.get((s,a),s)\n        r=rewards.get((s,a),0)\n        bn=max(Q.get((ns,a),0)for a in[0,1])if ns!=2 else 0\n        Q[(s,a)]+=alpha*(r+gamma*bn-Q[(s,a)])\n        s=ns\nprint({k:round(v,2)for k,v in Q.items()})",
+          "hint": "Q-update: Q(s,a) += alpha * (reward + gamma * max_Q(next_state) - Q(s,a)). The agent balances exploration (random) vs exploitation (pick highest Q)."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Supervised learning trains on (input, label) pairs and generalises to new inputs"
+      },
+      {
+        "text": "Features are the measurable properties of inputs \u2014 their quality determines model quality"
+      },
+      {
+        "text": "Overfitting is memorising training data; the fix is regularisation and test evaluation"
+      },
+      {
+        "text": "Classification predicts a category; regression predicts a continuous number"
+      },
+      {
+        "text": "k-NN classifies by majority vote among the k nearest training examples"
+      },
+      {
+        "text": "Loss functions quantify prediction error \u2014 0-1 for classification, L\u2081 and L\u2082 for regression"
+      },
+      {
+        "text": "The perceptron learns a decision boundary by updating weights on every mistake"
+      },
+      {
+        "text": "SVMs maximise the margin between classes for better generalisation"
+      },
+      {
+        "text": "Reinforcement learning learns from rewards \u2014 no labels, just consequences of actions"
+      },
+      {
+        "text": "Q-learning estimates the value of actions and improves through experience"
+      }
+    ],
+    "whatYouLearned": [
+      "What supervised learning is and how training data, features, and labels work together",
+      "The difference between classification and regression problems",
+      "How decision trees and k-NN classify new inputs",
+      "How loss functions like 0-1, L\u2081, and L\u2082 penalise different kinds of error",
+      "How the perceptron learning rule updates weights to find a decision boundary",
+      "How SVMs maximise the margin using support vectors for robust classification",
+      "What overfitting is, how to detect it, and how to prevent it",
+      "The full RL framework: agent, environment, state, action, reward, policy",
+      "How Q-learning derives an optimal policy through trial and error",
+      "Why generalisation \u2014 not training accuracy \u2014 is the true measure of a model"
+    ],
+    "nextUp": "Neural Networks"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "id": "java-beginners-lecture-8",
+  "courseSlug": "java-beginners",
+  "number": 8,
+  "title": "Collections",
+  "overview": "Overview of Collections",
+  "estimatedMinutes": 45,
+  "sections": [
+    {
+      "id": "section-1-lecture-8",
+      "label": "Theory Part 1",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "blue",
+          "title": "Introduction to Collections",
+          "body": "Content for Collections...",
+          "bullets": [
+            "Point 1",
+            "Point 2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-2-lecture-8",
+      "label": "Theory Part 2",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "Deep dive into Collections",
+          "body": "More content for Collections...",
+          "bullets": [
+            "Point 1",
+            "Point 2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-3-lecture-8",
+      "label": "Theory Part 3",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "green",
+          "title": "Mastering Collections",
+          "body": "Advanced content for Collections...",
+          "bullets": [
+            "Point 1",
+            "Point 2"
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Takeaway 1 for Collections"
+      },
+      {
+        "text": "Takeaway 2 for Collections"
+      }
+    ],
+    "whatYouLearned": [
+      "You learned about Collections"
+    ],
+    "nextUp": "Functional Programming"
+  }
+}

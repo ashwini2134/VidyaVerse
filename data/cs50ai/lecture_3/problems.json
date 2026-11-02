@@ -1,0 +1,14 @@
+[
+  {
+    "id": "flip_coin",
+    "title": "Flip a coin 20 times",
+    "description": "Flip a coin 20 times (use random.random() in Python or physically flip). Record your results. Calculate: How many heads? What is the probability of heads in your experiment? Is it close to 0.5?",
+    "difficulty": "easy"
+  },
+  {
+    "id": "coin_sim",
+    "title": "Python Coin Simulator",
+    "description": "Write Python using the random module to simulate 100 coin flips. Count heads and tails. Print the probability of heads. Run it 3 times — does the result change?",
+    "difficulty": "easy"
+  }
+]

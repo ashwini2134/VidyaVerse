@@ -1,0 +1,57 @@
+[
+  {
+    "question": "What does the print() function do in Python?",
+    "options": [
+      "Calculates math expressions",
+      "Creates a new file",
+      "Displays output on the screen",
+      "Reads user input"
+    ],
+    "answer": "Displays output on the screen",
+    "explanation": "print() is used to display text, numbers, or other values on the screen."
+  },
+  {
+    "question": "What does print(\"Hello\" + \" \" + \"World\") output?",
+    "options": [
+      "Hello World",
+      "Hello + World",
+      "Error",
+      "HelloWorld"
+    ],
+    "answer": "Hello World",
+    "explanation": "The + operator concatenates strings, joining them together."
+  },
+  {
+    "question": "Which of the following is a valid variable name in Python?",
+    "options": [
+      "2nd_place",
+      "class",
+      "_count",
+      "my-var"
+    ],
+    "answer": "_count",
+    "explanation": "Variable names can start with a letter or underscore, but not a number."
+  },
+  {
+    "question": "What is the result of 17 // 5 in Python?",
+    "options": [
+      "3.4",
+      "3",
+      "4",
+      "2"
+    ],
+    "answer": "3",
+    "explanation": "Floor division (//) divides and rounds down to the nearest whole number."
+  },
+  {
+    "question": "What type of value does input() always return?",
+    "options": [
+      "String",
+      "Integer",
+      "Boolean",
+      "Float"
+    ],
+    "answer": "String",
+    "explanation": "input() always returns a string, even if the user types a number. Use int() to convert."
+  }
+]

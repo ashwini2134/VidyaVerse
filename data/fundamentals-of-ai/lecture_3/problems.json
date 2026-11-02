@@ -1,0 +1,122 @@
+[
+  {
+    "id": "logic_puzzle",
+    "title": "Logic Puzzle Solver",
+    "description": "Write a program that solves a logic puzzle based on strict rules. We know that Alice has a dog, a cat, or a bird.\n\nYour program must:\n1. Read what animal Alice has (user input).\n2. Apply the following logical rules:\n   - If Alice has a 'dog', then Bob has a 'bird'.\n   - If Alice has a 'cat', then Bob has a 'dog'.\n   - If Alice has a 'bird', then Bob has a 'cat'.\n3. Print what Bob has in the format 'Bob has a [animal]'.\n   If the input is not dog, cat, or bird, print 'Invalid input'.\n\nSample Input:\ndog\n\nSample Output:\nBob has a bird",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "alice_animal = input().strip().lower()\n\n# Your code here\n",
+    "solution": "alice_animal = input().strip().lower()\nif alice_animal == 'dog':\n    print('Bob has a bird')\nelif alice_animal == 'cat':\n    print('Bob has a dog')\nelif alice_animal == 'bird':\n    print('Bob has a cat')\nelse:\n    print('Invalid input')",
+    "hints": [
+      "Use an `if/elif/else` structure to check each possible animal Alice might have.",
+      "Remember to handle the fallback case with `else` for invalid inputs."
+    ],
+    "testCases": [
+      {
+        "label": "Alice has dog",
+        "input": "dog",
+        "expectedOutput": "Bob has a bird\n"
+      },
+      {
+        "label": "Alice has bird",
+        "input": "bird",
+        "expectedOutput": "Bob has a cat\n"
+      },
+      {
+        "label": "Invalid",
+        "input": "fish",
+        "expectedOutput": "Invalid input\n"
+      }
+    ]
+  },
+  {
+    "id": "daily_rules",
+    "title": "Daily Rules Validator",
+    "description": "Write a Python program that applies multiple conditions to decide an outcome based on weather and the day of the week.\n\nYour program must:\n1. Read the weather ('rain' or 'sun').\n2. Read the day type ('weekend' or 'weekday').\n3. Apply these rules:\n   - If weekday AND rain -> Print 'Work from home'\n   - If weekday AND sun -> Print 'Go to office'\n   - If weekend -> Print 'Relax at home'\n   - Otherwise -> Print 'Invalid input'\n\nSample Input:\nrain\nweekday\n\nSample Output:\nWork from home",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "weather = input().strip().lower()\nday_type = input().strip().lower()\n\n# Your code here\n",
+    "solution": "weather = input().strip().lower()\nday_type = input().strip().lower()\nif day_type == 'weekday' and weather == 'rain':\n    print('Work from home')\nelif day_type == 'weekday' and weather == 'sun':\n    print('Go to office')\nelif day_type == 'weekend':\n    print('Relax at home')\nelse:\n    print('Invalid input')",
+    "hints": [
+      "Use the `and` logical operator to check two conditions at once in your `if` statement.",
+      "Make sure you handle exactly 'weekend' correctly without needing to check the weather."
+    ],
+    "testCases": [
+      {
+        "label": "Rainy weekday",
+        "input": "rain\nweekday",
+        "expectedOutput": "Work from home\n"
+      },
+      {
+        "label": "Sunny weekday",
+        "input": "sun\nweekday",
+        "expectedOutput": "Go to office\n"
+      },
+      {
+        "label": "Sunny weekend",
+        "input": "sun\nweekend",
+        "expectedOutput": "Relax at home\n"
+      }
+    ]
+  },
+  {
+    "id": "deductive_reasoning_sim1",
+    "title": "Deductive Reasoning Checker (Similar A)",
+    "description": "Write a program that evaluates the logical consistency of an event based on a premise. Premise: 'If it snows, the flight is canceled.'\n\nYour program must:\n1. Read whether it snowed ('yes' or 'no').\n2. Read whether the flight was canceled ('yes' or 'no').\n3. Print 'Consistent' if the outcomes obey the premise.\n4. Print 'Inconsistent' if it snowed but the flight was NOT canceled (which violates the premise!).\n\nNote: If it didn't snow, the flight could be canceled for another reason, so that's still 'Consistent'.\n\nSample Input:\nyes\nno\n\nSample Output:\nInconsistent",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "snowed = input().strip().lower()\ncanceled = input().strip().lower()\n\n# Your code here\n",
+    "solution": "snowed = input().strip().lower()\ncanceled = input().strip().lower()\nif snowed == 'yes' and canceled == 'no':\n    print('Inconsistent')\nelse:\n    print('Consistent')",
+    "hints": [
+      "The only way this premise is violated (inconsistent) is if the condition happens (snows) but the guaranteed result does NOT happen.",
+      "You only need one `if` statement for the violation, and an `else` for everything else!"
+    ],
+    "testCases": [
+      {
+        "label": "Violates premise",
+        "input": "yes\nno",
+        "expectedOutput": "Inconsistent\n"
+      },
+      {
+        "label": "Follows premise",
+        "input": "yes\nyes",
+        "expectedOutput": "Consistent\n"
+      },
+      {
+        "label": "Other reason",
+        "input": "no\nyes",
+        "expectedOutput": "Consistent\n"
+      }
+    ]
+  },
+  {
+    "id": "movie_recommendation_sim2",
+    "title": "Movie Recommendation Rules (Similar B)",
+    "description": "Write a Python program that uses logic to recommend a movie rating based on age and genre.\n\nYour program must:\n1. Ask the user for a genre ('action' or 'comedy').\n2. Ask for their age (integer).\n3. Apply these rules:\n   - If age < 13 AND genre is 'action' -> Print 'PG Action'\n   - If age >= 13 AND genre is 'action' -> Print 'PG-13 Action'\n   - If genre is 'comedy' -> Print 'PG Comedy' (regardless of age)\n   - Otherwise -> Print 'Unknown'\n\nSample Input:\naction\n10\n\nSample Output:\nPG Action",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "genre = input().strip().lower()\nage = int(input().strip())\n\n# Your code here\n",
+    "solution": "genre = input().strip().lower()\nage = int(input().strip())\nif age < 13 and genre == 'action':\n    print('PG Action')\nelif age >= 13 and genre == 'action':\n    print('PG-13 Action')\nelif genre == 'comedy':\n    print('PG Comedy')\nelse:\n    print('Unknown')",
+    "hints": [
+      "Remember to convert the `age` input to an integer before comparing it with `< 13`.",
+      "Use `and` to combine age and genre conditions."
+    ],
+    "testCases": [
+      {
+        "label": "Young Action",
+        "input": "action\n10",
+        "expectedOutput": "PG Action\n"
+      },
+      {
+        "label": "Older Action",
+        "input": "action\n15",
+        "expectedOutput": "PG-13 Action\n"
+      },
+      {
+        "label": "Comedy ignores age",
+        "input": "comedy\n40",
+        "expectedOutput": "PG Comedy\n"
+      }
+    ]
+  }
+]

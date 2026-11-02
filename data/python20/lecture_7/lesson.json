@@ -1,0 +1,439 @@
+{
+  "id": "python20-lecture-7",
+  "courseSlug": "python20",
+  "number": 7,
+  "title": "Lists",
+  "overview": "Variables store one value. But what if you need to store 100 student marks? Or 50 product names? Lists are Python's most versatile data structure — an ordered collection that can hold multiple items of any type.",
+  "estimatedMinutes": 60,
+  "sections": [
+    {
+      "id": "creating-lists",
+      "label": "Creating and Accessing Lists",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "A **list** is a collection of items stored in a single variable. Instead of creating 10 variables for 10 marks, you create one list."
+        },
+        {
+          "type": "text",
+          "content": "Lists are defined with square brackets `[]`, with items separated by commas."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Creating Lists",
+          "language": "python",
+          "code": "# A list of student marks\nmarks = [78, 92, 85, 67, 95]\n\n# A list of names\nstudents = [\"Priya\", \"Ravi\", \"Meera\", \"Arjun\"]\n\n# A mixed list\nprofile = [\"Lakshanya\", 20, \"Chennai\", True]\n\nprint(marks)\nprint(students)\nprint(len(marks))   # Number of items",
+          "expectedOutput": "[78, 92, 85, 67, 95]\n['Priya', 'Ravi', 'Meera', 'Arjun']\n5",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "To access a specific item, use its **index** inside square brackets. Python counting starts at **0**, not 1."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Indexing",
+          "language": "python",
+          "code": "fruits = [\"apple\", \"banana\", \"cherry\", \"date\"]\n\nprint(fruits[0])   # First item\nprint(fruits[1])   # Second item\nprint(fruits[-1])  # Last item (negative index!)\nprint(fruits[-2])  # Second from last",
+          "expectedOutput": "apple\nbanana\ndate\ncherry",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "**Negative indexing** is one of Python's clever features. `-1` always gives the last item, `-2` the second-to-last, and so on. You don't need to know the length to access the end."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Train Coaches",
+            "description": "A train has coaches numbered starting from 0. Coach 0 is the engine, coach 1 is next, and so on. Passenger -1 is always in the last coach. Python lists work exactly like this — ordered, numbered from 0, with negative indices for the end.",
+            "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80",
+            "bullets": [
+              "Coaches are numbered from the engine: 1, 2, 3, 4...",
+              "Your ticket tells you exactly which coach and seat to find.",
+              "The position (index) is how you locate your exact spot on the train."
+            ],
+            "highlightCard": "List indexing lets you access any element by its position — starting at 0."
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "List Indexing",
+            "items": [
+              "[0] → first",
+              "[1] → second",
+              "[-1] → last",
+              "[-2] → second to last"
+            ],
+            "bullets": [
+              "List index starts at 0, not 1 — the first item is at position [0].",
+              "Use list[index] to access any specific element directly.",
+              "Negative indices count from the end: list[-1] is always the last item."
+            ],
+            "highlightCard": "trains[0] is the first coach, trains[-1] is the last — indexing is instant access."
+          },
+          "code": {
+            "language": "python",
+            "code": "teams = [\"CSK\", \"RCB\", \"MI\", \"KKR\"]\nprint(teams[0])   # CSK\nprint(teams[-1])  # KKR",
+            "output": "CSK\nKKR",
+            "highlights": [
+              "coaches[0] accesses 'Engine' — the first item at index 0.",
+              "coaches[2] accesses the third item — index 2 is always position 3.",
+              "coaches[-1] accesses the last item, regardless of how long the list is."
+            ],
+            "highlightCard": "Indexing gives you direct, instant access to any element in a list."
+          },
+          "reflection": {
+            "question": "If a list has 6 items, what is the index of the last item?",
+            "answer": "5 — or -1 using negative indexing. Python starts at 0, so items are at indices 0 through 5.",
+            "options": [
+              "6",
+              "5",
+              "-1 (both 5 and -1)",
+              "0"
+            ]
+          },
+          "stage1Transition": "Python lists are like trains — each item has a numbered position. Let's see how indexing works.",
+          "stage2Transition": "Here is how list indexing looks in Python.",
+          "takeaway": "Train coaches and list indices work the same way — each position has a number, and you use that number to access exactly what you need. Python lists count from 0."
+        },
+        {
+          "type": "practice",
+          "title": "Student Roster",
+          "instructions": "You have a class roster: students = [\"Aisha\", \"Rohan\", \"Divya\", \"Karthik\", \"Sneha\"]. Print: the first student, the last student, and the total number of students.",
+          "starterCode": "students = [\"Aisha\", \"Rohan\", \"Divya\", \"Karthik\", \"Sneha\"]\n\n# Print first student\nprint(\"First:\", )\n# Print last student\nprint(\"Last:\", )\n# Print total count\nprint(\"Total:\", )",
+          "solution": "students = [\"Aisha\", \"Rohan\", \"Divya\", \"Karthik\", \"Sneha\"]\n\nprint(\"First:\", students[0])\nprint(\"Last:\", students[-1])\nprint(\"Total:\", len(students))",
+          "hint": "Use [0] for first, [-1] for last, and len() for the count.",
+          "expectedOutput": "First: Aisha\nLast: Sneha\nTotal: 5"
+        }
+      ]
+    },
+    {
+      "id": "list-operations",
+      "label": "Modifying Lists",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Lists in Python are **mutable** — you can change them after creation. Add items, remove items, change items. This is what makes lists so useful."
+        },
+        {
+          "type": "text",
+          "content": "**Changing an item:** Use the index with `=`.\n\n**Slicing:** Get a portion of the list with `[start:stop]`."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Modifying and Slicing",
+          "language": "python",
+          "code": "marks = [70, 85, 90, 60, 75]\n\n# Change the 4th mark\nmarks[3] = 80\nprint(\"Updated:\", marks)\n\n# Slicing: first 3 marks\nprint(\"First 3:\", marks[0:3])\n\n# Slicing: last 2 marks\nprint(\"Last 2:\", marks[-2:])",
+          "expectedOutput": "Updated: [70, 85, 90, 80, 75]\nFirst 3: [70, 85, 90]\nLast 2: [80, 75]",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "Slicing `[start:stop]` returns items from index `start` up to but **not including** `stop`. Leaving either empty means 'go to the beginning/end'."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — List Concatenation and Repetition",
+          "language": "python",
+          "code": "list1 = [1, 2, 3]\nlist2 = [4, 5, 6]\n\n# Combine lists\ncombined = list1 + list2\nprint(combined)\n\n# Repeat a list\nrepeated = [0] * 5\nprint(repeated)",
+          "expectedOutput": "[1, 2, 3, 4, 5, 6]\n[0, 0, 0, 0, 0]",
+          "editable": true
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Playlist",
+            "description": "A music playlist lets you add songs, remove songs, rearrange the order, and play just a portion. Python lists are exactly like playlists — ordered, changeable, and you can get any slice of them.",
+            "image": "https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?w=800&q=80",
+            "bullets": [
+              "You pick a range of songs to listen to — not the full playlist.",
+              "Tracks 2 through 4 play: you get 3 songs from one selection.",
+              "The rest of the playlist is unaffected — you're just viewing a slice."
+            ],
+            "highlightCard": "Slicing extracts a portion of a list without modifying the original."
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "List Slice [1:4]",
+            "items": [
+              "List: [A, B, C, D, E]",
+              "Slice [1:4]: B, C, D",
+              "Does NOT include index 4"
+            ],
+            "bullets": [
+              "list[start:stop] extracts items from start up to (but not including) stop.",
+              "Omit start to begin from the first element: list[:3].",
+              "Omit stop to go until the last element: list[2:]."
+            ],
+            "highlightCard": "playlist[1:4] gives you items at index 1, 2, 3 — stop index is excluded."
+          },
+          "code": {
+            "language": "python",
+            "code": "songs = [\"A\", \"B\", \"C\", \"D\", \"E\"]\nprint(songs[1:4])  # ['B', 'C', 'D']",
+            "output": "['B', 'C', 'D']",
+            "highlights": [
+              "playlist[1:4] extracts items at positions 1, 2, and 3 — not 4.",
+              "The original list is unchanged — slicing creates a new list.",
+              "Add a third value for step: playlist[::2] picks every other song."
+            ],
+            "highlightCard": "Slicing is powerful — extract any portion of any list in a single clean expression."
+          },
+          "reflection": {
+            "question": "What does marks[2:5] return from a list of 7 items?",
+            "answer": "Items at indices 2, 3, and 4 — three items starting from index 2, stopping before index 5.",
+            "options": [
+              "Items 2, 3, 4, 5",
+              "Items at indices 2, 3, 4",
+              "Items 3, 4, 5 (1-indexed)",
+              "Just item at index 5"
+            ]
+          },
+          "stage1Transition": "Python's slice notation lets you extract any sub-section of a list. Let's see how.",
+          "stage2Transition": "Here is how list slicing works in Python.",
+          "takeaway": "Like choosing a range of songs from a playlist, list slicing extracts any sub-section you choose. The start is included, the stop is excluded, and the original is never modified."
+        },
+        {
+          "type": "practice",
+          "title": "Top 3 Scores",
+          "instructions": "Given scores = [45, 78, 92, 55, 88, 96, 70], you want to extract the first 3 scores, update the second score from 78 to 85, and print the updated list and the first-3 slice.",
+          "starterCode": "scores = [45, 78, 92, 55, 88, 96, 70]\n\n# Update second score to 85\n\n\n# Print full updated list\nprint(\"Updated:\", scores)\n\n# Print first 3 scores\nprint(\"First 3:\", )",
+          "solution": "scores = [45, 78, 92, 55, 88, 96, 70]\n\nscores[1] = 85\n\nprint(\"Updated:\", scores)\nprint(\"First 3:\", scores[0:3])",
+          "hint": "scores[1] = 85 updates index 1. scores[0:3] gives the first 3 items.",
+          "expectedOutput": "Updated: [45, 85, 92, 55, 88, 96, 70]\nFirst 3: [45, 85, 92]"
+        }
+      ]
+    },
+    {
+      "id": "list-methods",
+      "label": "List Methods",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Python lists come with built-in methods — actions you can call on a list directly using `list.method()` syntax."
+        },
+        {
+          "type": "text",
+          "content": "The most commonly used ones: `append()` · `insert()` · `remove()` · `pop()` · `sort()` · `reverse()` · `index()` · `count()`"
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Essential List Methods",
+          "language": "python",
+          "code": "cart = [\"laptop\", \"mouse\", \"keyboard\"]\n\n# Add to end\ncart.append(\"monitor\")\nprint(\"After append:\", cart)\n\n# Insert at position\ncart.insert(1, \"USB hub\")\nprint(\"After insert:\", cart)\n\n# Remove by value\ncart.remove(\"mouse\")\nprint(\"After remove:\", cart)\n\n# Remove and return last item\nlast = cart.pop()\nprint(\"Popped:\", last)\nprint(\"After pop:\", cart)",
+          "expectedOutput": "After append: ['laptop', 'mouse', 'keyboard', 'monitor']\nAfter insert: ['laptop', 'USB hub', 'mouse', 'keyboard', 'monitor']\nAfter remove: ['laptop', 'USB hub', 'keyboard', 'monitor']\nPopped: monitor\nAfter pop: ['laptop', 'USB hub', 'keyboard']",
+          "editable": true
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Sorting and Searching",
+          "language": "python",
+          "code": "numbers = [5, 2, 8, 1, 9, 3]\n\n# Sort in ascending order\nnumbers.sort()\nprint(\"Sorted:\", numbers)\n\n# Reverse\nnumbers.reverse()\nprint(\"Reversed:\", numbers)\n\n# Search\nprint(\"Index of 8:\", numbers.index(8))\nprint(\"Count of 1:\", numbers.count(1))",
+          "expectedOutput": "Sorted: [1, 2, 3, 5, 8, 9]\nReversed: [9, 8, 5, 3, 2, 1]\nIndex of 8: 1\nCount of 1: 1",
+          "editable": true
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Library Book Shelf",
+            "description": "A library shelf has specific operations: add a new book (append), insert between two books (insert), return a book (remove/pop), sort alphabetically (sort), and find where a book is (index). List methods mirror these exact real-world operations.",
+            "image": "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800&q=80",
+            "bullets": [
+              "Adding a new book: place it at the end of the shelf.",
+              "Removing a book: take it off the shelf and the others close the gap.",
+              "Searching for a book: scan the shelf to find its exact position."
+            ],
+            "highlightCard": "List methods let you add, remove, sort, and search — all built in."
+          },
+          "visualization": {
+            "type": "categories",
+            "title": "List Methods by Purpose",
+            "items": [
+              "Add: append(), insert()",
+              "Remove: remove(), pop()",
+              "Order: sort(), reverse()",
+              "Find: index(), count()"
+            ],
+            "bullets": [
+              "append() adds a new item to the end of the list.",
+              "remove() deletes the first occurrence of a specific value.",
+              "sort() rearranges items in ascending order, in place."
+            ],
+            "highlightCard": "append, remove, sort, len — four methods every Python list user must know."
+          },
+          "code": {
+            "language": "python",
+            "code": "books = [\"Python\", \"Java\", \"C++\"]\nbooks.append(\"Rust\")\nbooks.sort()\nprint(books)",
+            "output": "['C++', 'Java', 'Python', 'Rust']",
+            "highlights": [
+              "books.append('Python Crash Course') adds the book to the end.",
+              "books.remove('Old Book') deletes the first matching item.",
+              "books.sort() rearranges items alphabetically — it modifies the list in place."
+            ],
+            "highlightCard": "List methods are built-in tools — you never need to write these operations from scratch."
+          },
+          "reflection": {
+            "question": "What is the difference between remove() and pop()?",
+            "answer": "remove() deletes by value. pop() deletes by index (default: last item) and returns the removed item.",
+            "options": [
+              "They are identical",
+              "remove() deletes by value; pop() deletes by index and returns the item",
+              "pop() deletes all occurrences",
+              "remove() only works on strings"
+            ]
+          },
+          "stage1Transition": "Python lists have built-in methods for every operation you need. Let's explore them.",
+          "stage2Transition": "Here is how the most common list methods look in Python.",
+          "takeaway": "A library shelf demonstrates every list operation: add a book (append), remove one (remove), reorganize (sort), and count the collection (len). Python lists have all of these built in."
+        },
+        {
+          "type": "practice",
+          "title": "Manage a Waitlist",
+          "instructions": "You manage a college event waitlist = [\"Arun\", \"Bina\", \"Carlos\", \"Divya\"]. Do these operations in order: 1) Add 'Esha' at the end. 2) Remove 'Carlos' from the list. 3) Sort alphabetically. 4) Print the final list and its length.",
+          "starterCode": "waitlist = [\"Arun\", \"Bina\", \"Carlos\", \"Divya\"]\n\n# 1. Add Esha\n\n# 2. Remove Carlos\n\n# 3. Sort\n\n# 4. Print result\nprint(\"Waitlist:\", waitlist)\nprint(\"Count:\", len(waitlist))",
+          "solution": "waitlist = [\"Arun\", \"Bina\", \"Carlos\", \"Divya\"]\n\nwaitlist.append(\"Esha\")\nwaitlist.remove(\"Carlos\")\nwaitlist.sort()\n\nprint(\"Waitlist:\", waitlist)\nprint(\"Count:\", len(waitlist))",
+          "hint": "Use .append(), .remove(), and .sort() in sequence. sort() sorts in place.",
+          "expectedOutput": "Waitlist: ['Arun', 'Bina', 'Divya', 'Esha']\nCount: 4"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Lists store multiple items in one variable, defined with square brackets: []."
+      },
+      {
+        "text": "Indexing starts at 0. The last item is at index -1."
+      },
+      {
+        "text": "Slicing [start:stop] extracts a portion — stop is excluded."
+      },
+      {
+        "text": "Lists are mutable — you can change items using index assignment."
+      },
+      {
+        "text": "append() adds to the end; insert(i, x) adds at position i."
+      },
+      {
+        "text": "remove() deletes by value; pop() removes by index and returns the item."
+      },
+      {
+        "text": "sort() sorts in place; sorted() returns a new sorted list without modifying the original."
+      }
+    ],
+    "whatYouLearned": [
+      "How to create lists and access items by index",
+      "Negative indexing and list slicing",
+      "How to modify lists: change, add, remove",
+      "Essential list methods: append, insert, remove, pop, sort, reverse, index, count"
+    ],
+    "nextUp": "Tuples & Sets"
+  },
+  "quiz": [
+    {
+      "question": "What is the index of the first item in a Python list?",
+      "options": [
+        "1",
+        "0",
+        "-1",
+        "None"
+      ],
+      "answer": "0",
+      "explanation": "Python uses zero-based indexing. The first item is at index 0, the second at index 1, and so on."
+    },
+    {
+      "question": "What does items[-2] return?",
+      "options": [
+        "An error",
+        "The second item",
+        "The second-to-last item",
+        "The last item"
+      ],
+      "answer": "The second-to-last item",
+      "explanation": "Negative indices count from the end. -1 is the last item, -2 is the second-to-last, and so on."
+    },
+    {
+      "question": "What is the difference between append() and insert()?",
+      "options": [
+        "They do the same thing",
+        "append() adds to the end; insert(i, x) adds at index i",
+        "insert() is faster",
+        "append() only works with numbers"
+      ],
+      "answer": "append() adds to the end; insert(i, x) adds at index i",
+      "explanation": "append() always adds to the end. insert() lets you specify exactly where to put the new item."
+    },
+    {
+      "question": "What does nums[1:4] return from [10, 20, 30, 40, 50]?",
+      "options": [
+        "[20, 30, 40, 50]",
+        "[20, 30, 40]",
+        "[10, 20, 30]",
+        "[20, 30]"
+      ],
+      "answer": "[20, 30, 40]",
+      "explanation": "Slicing [1:4] starts at index 1 (value 20) and goes up to but not including index 4 (value 50). So it returns indices 1, 2, 3: [20, 30, 40]."
+    },
+    {
+      "question": "What does pop() do when called without arguments?",
+      "options": [
+        "Removes the first item",
+        "Removes and returns the last item",
+        "Clears the list",
+        "Returns the list length"
+      ],
+      "answer": "Removes and returns the last item",
+      "explanation": "pop() without arguments removes the last item and returns it, so you can use the removed value. pop(0) would remove the first item."
+    }
+  ],
+  "problems": [
+    {
+      "id": "python20-l7-p1",
+      "title": "List Statistics",
+      "description": "Given temperatures = [28, 32, 25, 30, 35, 22, 29], calculate and print:\n- Minimum temperature (use min())\n- Maximum temperature (use max())\n- Average temperature\n- Total count",
+      "difficulty": "easy",
+      "starterCode": "temperatures = [28, 32, 25, 30, 35, 22, 29]\n\n# Print statistics\n",
+      "solution": "temperatures = [28, 32, 25, 30, 35, 22, 29]\n\nprint(f\"Min: {min(temperatures)}\")\nprint(f\"Max: {max(temperatures)}\")\nprint(f\"Average: {sum(temperatures) / len(temperatures)}\")\nprint(f\"Count: {len(temperatures)}\")",
+      "testCases": [
+        {
+          "label": "Statistics output",
+          "input": "",
+          "expectedOutput": "Min: 22\nMax: 35\nAverage: 28.714285714285715\nCount: 7",
+          "matchType": "exact"
+        }
+      ]
+    },
+    {
+      "id": "python20-l7-p2",
+      "title": "Reverse a List Without reverse()",
+      "description": "Given data = [1, 2, 3, 4, 5], reverse it without using the .reverse() method or [::-1]. Use a loop to build a new reversed list.\n\nExpected output:\n[5, 4, 3, 2, 1]",
+      "difficulty": "medium",
+      "starterCode": "data = [1, 2, 3, 4, 5]\nreversed_list = []\n\n# Use a loop to reverse\n",
+      "solution": "data = [1, 2, 3, 4, 5]\nreversed_list = []\n\nfor i in range(len(data) - 1, -1, -1):\n    reversed_list.append(data[i])\n\nprint(reversed_list)",
+      "testCases": [
+        {
+          "label": "Reversed list",
+          "input": "",
+          "expectedOutput": "[5, 4, 3, 2, 1]",
+          "matchType": "exact"
+        }
+      ]
+    },
+    {
+      "id": "python20-l7-p3",
+      "title": "Remove Duplicates",
+      "description": "Given data = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3], create a new list with only the unique values, maintaining order of first appearance.\n\nExpected output:\n[3, 1, 4, 5, 9, 2, 6]",
+      "difficulty": "medium",
+      "starterCode": "data = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3]\nunique = []\n\n# Add only unique values\n",
+      "solution": "data = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3]\nunique = []\n\nfor item in data:\n    if item not in unique:\n        unique.append(item)\n\nprint(unique)",
+      "testCases": [
+        {
+          "label": "Unique values",
+          "input": "",
+          "expectedOutput": "[3, 1, 4, 5, 9, 2, 6]",
+          "matchType": "exact"
+        }
+      ]
+    }
+  ]
+}

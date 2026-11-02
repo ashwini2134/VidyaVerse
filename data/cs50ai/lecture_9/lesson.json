@@ -1,0 +1,203 @@
+{
+  "id": "cs50ai-lecture-9",
+  "courseSlug": "cs50ai",
+  "number": 9,
+  "title": "Final Project",
+  "overview": "You have completed the full AI journey. This week you will apply everything to build a real project.",
+  "estimatedMinutes": 60,
+  "nextUp": null,
+  "sections": [
+    {
+      "id": "what-learned",
+      "label": "What You Have Learned",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "What is What You Have Learned?",
+          "body": "You have completed the full AI journey — from Search to Language. This week you will apply everything to build a real project.",
+          "bullets": [
+            "Week 0: Search — BFS, DFS, A — AI finding paths and solutions",
+            "Week 1: Knowledge & Logic — IF-THEN rules, inference, knowledge base",
+            "Week 2: Uncertainty — probability, Bayes Theorem, spam filters",
+            "Week 3: Optimization — Hill Climbing, Simulated Annealing, CSP",
+            "Week 4: Machine Learning — supervised, unsupervised, reinforcement",
+            "Week 5: Neural Networks — layers, weights, deep learning, CNNs",
+            "Week 6: NLP — tokenization, embeddings, LLMs, transformers"
+          ],
+          "accentColor": "blue"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Think of the AI Journey as Learning to Ride a Bike",
+            "description": "Start simple, practice, then handle complex tasks",
+            "image": "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=800&q=80"
+          },
+          "visualization": {
+            "type": "categories",
+            "title": "AI Evolution Timeline",
+            "centerLabel": "AI",
+            "items": [
+              "Symbolic (1950s)",
+              "ML (1990s)",
+              "Deep Learning",
+              "LLMs (2020s)"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "# Timeline of AI progress\neras = [(\"Symbolic\", 1956), (\"ML\", 1990), (\"Deep Learning\", 2012), (\"LLMs\", 2020)]\nfor name, year in eras:\n    print(f\"{name} ({year}): {(2026 - year) // 10} decades of progress\")",
+            "output": "Symbolic (1956): 7 decades of progress\nML (1990): 3 decades of progress\nDeep Learning (2012): 1 decades of progress\nLLMs (2020): 0 decades of progress"
+          }
+        },
+        {
+          "type": "practice",
+          "title": "Planning Your AI Project",
+          "instructions": "Define a project plan with name, AI concept, inputs, and outputs.",
+          "starterCode": "# Define your project plan\nproject = {\n    \"name\": \"AI Chatbot\",\n    \"ai_concept\": \"NLP\",\n    \"input\": \"User question\",\n    \"output\": \"AI answer\"\n}\nfor key, value in project.items():\n    print(f\"{key}: {value}\")",
+          "solution": "project = {\"name\": \"AI Chatbot\", \"ai_concept\": \"NLP\", \"input\": \"User question\", \"output\": \"AI answer\"}\nfor key, value in project.items():\n    print(f\"{key}: {value}\")",
+          "hint": "Think about which AI topic from the course you want to apply in your project."
+        }
+      ]
+    },
+    {
+      "id": "choose-project",
+      "label": "Choose Your Project",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "What is Choose Your Project?",
+          "body": "Choose one of the 4 project options. Each uses a different AI concept from the course.",
+          "bullets": [
+            "Option 1: AI Chatbot — uses NLP and prompt engineering to answer questions on a topic",
+            "Option 2: AI Story Generator — user gives characters and setting; AI generates a short story",
+            "Option 3: AI Resume Builder — user inputs details; AI formats and generates a professional resume",
+            "Option 4: Search Visualizer — a diagram or slide showing how BFS and DFS solve the same maze differently",
+            "This concept is fundamental to AI development."
+          ],
+          "accentColor": "blue"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Think of Project Planning as a Blueprint",
+            "description": "Define the problem, gather data, choose a model",
+            "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Project Blueprint Steps",
+            "items": [
+              "Define Problem",
+              "Gather Data",
+              "Build Model",
+              "Evaluate",
+              "Deploy"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "def build(problem, data, model):\n    print(f\"1. Problem: {problem}\")\n    print(f\"2. Data: {len(data)} samples\")\n    print(f\"3. Model: {model}\")\nbuild(\"Spam\", [\"e1\", \"e2\"], \"NB\")",
+            "output": "1. Problem: Spam\n2. Data: 2 samples\n3. Model: NB"
+          }
+        },
+        {
+          "type": "practice",
+          "title": "Selecting Your Project Path",
+          "instructions": "Review the available project options and select one that matches your interests.",
+          "starterCode": "# Explore your project options\noptions = [\n    \"1. AI Chatbot - NLP & prompt engineering\",\n    \"2. Story Generator - language models\",\n    \"3. Resume Builder - text generation\",\n    \"4. Search Visualizer - BFS/DFS algorithms\",\n]\nprint(\"Available Projects:\")\nfor opt in options:\n    print(f\"  {opt}\")\nchoice = 1\nprint(f\"\\nI choose option {choice}!\")\nprint(\"Reason: I want to learn how chatbots process language.\")",
+          "solution": "options = [\"1. AI Chatbot - NLP\", \"2. Story Generator\", \"3. Resume Builder\", \"4. Search Visualizer\"]\nfor opt in options:\n    print(f\"  {opt}\")\nchoice = 1\nprint(f\"\\nI choose option {choice}!\")",
+          "hint": "Pick a project that matches the AI topic you enjoyed most in the course."
+        }
+      ]
+    },
+    {
+      "id": "getting-started",
+      "label": "Project Workflow",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "What is Project Steps?",
+          "body": "Follow these steps to complete the project.",
+          "bullets": [
+            "Step 1: Choose your project from the 4 options",
+            "Step 2: Identify which AI concept it uses (search, ML, NLP, etc.)",
+            "Step 3: Define input — what does the user provide?",
+            "Step 4: Define output — what does the AI produce?",
+            "Step 5: Identify one ethical consideration relevant to your project",
+            "Step 6: Write a short reflection — what surprised you about how AI actually works?"
+          ],
+          "accentColor": "blue"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Think of Project Workflow as a Recipe",
+            "description": "Follow a sequence of steps to build and deploy AI",
+            "image": "https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Workflow = Recipe Steps",
+            "items": [
+              "Raw Data",
+              "Prepare → Train → Evaluate",
+              "Trained Model"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "steps = [\"Prepare\", \"Train\", \"Deploy\"]\nfor s in steps:\n    print(f\"  → {s}\")\nprint(\"✅ Complete!\")",
+            "output": "  → Prepare\n  → Train\n  → Deploy\n✅ Complete!"
+          }
+        },
+        {
+          "type": "code_example",
+          "title": "Building an AI Pipeline",
+          "language": "python",
+          "code": "# Simple end-to-end AI pipeline\n\ndef preprocess(text):\n    return text.lower().split()\n\ndef extract_features(tokens):\n    positive_words = {\"good\", \"great\", \"excellent\", \"amazing\"}\n    return sum(1 for t in tokens if t in positive_words)\n\ndef predict(sentiment_score):\n    return \"Positive\" if sentiment_score >= 1 else \"Negative\"\n\n# Test the pipeline\nreviews = [\n    \"This product is amazing and great\",\n    \"Terrible experience, very bad\",\n]\n\nfor review in reviews:\n    tokens = preprocess(review)\n    score = extract_features(tokens)\n    result = predict(score)\n    print(f\"Review: {review}\")\n    print(f\"Sentiment: {result}\\n\")",
+          "expectedOutput": "Review: This product is amazing and great\nSentiment: Positive\n\nReview: Terrible experience, very bad\nSentiment: Negative"
+        },
+        {
+          "type": "practice",
+          "title": "Practice Exercise",
+          "instructions": "Write a project plan: project name, AI concept used, input, output, ethical consideration",
+          "starterCode": "# Outline your plan here\n",
+          "solution": "# E.g. Name: Chatbot, Concept: NLP",
+          "hint": "Fill in all the required project elements."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "You have completed 8 weeks of AI concepts — Search, Logic, Probability, Optimization, ML, Neural Networks, NLP, Ethics"
+      },
+      {
+        "text": "The final project applies your learning to a real AI-powered application"
+      },
+      {
+        "text": "Every project must show which AI concept it uses"
+      },
+      {
+        "text": "Define clear input and output for your project"
+      },
+      {
+        "text": "Every project must include one ethical consideration"
+      },
+      {
+        "text": "Reflection is as important as the code — think about what surprised you"
+      }
+    ],
+    "whatYouLearned": [
+      "What AI, ML, and Deep Learning are and how they differ",
+      "How AI searches for solutions using BFS, DFS, and A",
+      "How AI uses logic, probability, and optimization",
+      "How Machine Learning and Neural Networks work",
+      "How NLP and LLMs understand and generate language",
+      "How to identify and address ethical issues in AI"
+    ],
+    "nextUp": null
+  }
+}

@@ -1,0 +1,16 @@
+[
+  { "number": 0, "label": "Lecture 1", "title": "What is Python?" },
+  { "number": 1, "label": "Lecture 2", "title": "Variables & Data Types" },
+  { "number": 2, "label": "Lecture 3", "title": "Input & Output" },
+  { "number": 3, "label": "Lecture 4", "title": "Operators" },
+  { "number": 4, "label": "Lecture 5", "title": "Conditional Statements" },
+  { "number": 5, "label": "Lecture 6", "title": "For Loops" },
+  { "number": 6, "label": "Lecture 7", "title": "While Loops" },
+  { "number": 7, "label": "Lecture 8", "title": "Lists" },
+  { "number": 8, "label": "Lecture 9", "title": "Tuples & Sets" },
+  { "number": 9, "label": "Lecture 10", "title": "Dictionaries" },
+  { "number": 10, "label": "Lecture 11", "title": "Functions" },
+  { "number": 11, "label": "Lecture 12", "title": "String Operations" },
+  { "number": 12, "label": "Lecture 13", "title": "File Handling" },
+  { "number": 13, "label": "Lecture 14", "title": "Mini Project" }
+]

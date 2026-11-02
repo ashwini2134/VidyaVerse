@@ -1,0 +1,57 @@
+[
+  {
+    "question": "When does a while loop stop?",
+    "options": [
+      "When it reaches 10 iterations",
+      "After running once",
+      "When the condition becomes False",
+      "It never stops"
+    ],
+    "answer": "When the condition becomes False",
+    "explanation": "A while loop continues as long as its condition is True. It stops when the condition becomes False."
+  },
+  {
+    "question": "What happens if the condition in a while loop never becomes False?",
+    "options": [
+      "The program crashes immediately",
+      "The loop runs once",
+      "Infinite loop — runs forever",
+      "Python automatically stops it"
+    ],
+    "answer": "Infinite loop — runs forever",
+    "explanation": "If the condition never becomes False, the loop runs forever (infinite loop). Press Ctrl+C to stop."
+  },
+  {
+    "question": "What does the break statement do?",
+    "options": [
+      "Pauses the loop",
+      "Exits the loop immediately",
+      "Skips the current iteration",
+      "Restarts the loop"
+    ],
+    "answer": "Exits the loop immediately",
+    "explanation": "break immediately terminates the loop and execution continues after the loop."
+  },
+  {
+    "question": "What does the continue statement do?",
+    "options": [
+      "Repeats the current iteration",
+      "Exits the loop",
+      "Stops the program",
+      "Skips to the next iteration"
+    ],
+    "answer": "Skips to the next iteration",
+    "explanation": "continue skips the rest of the current iteration and moves to the next one."
+  },
+  {
+    "question": "Which loop is safer when you know the number of iterations?",
+    "options": [
+      "for loop",
+      "Neither",
+      "while loop",
+      "Both are equally safe"
+    ],
+    "answer": "for loop",
+    "explanation": "for loops are safer because they have a built-in limit. while loops can become infinite."
+  }
+]

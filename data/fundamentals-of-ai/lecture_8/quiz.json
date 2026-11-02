@@ -1,0 +1,57 @@
+[
+  {
+    "question": "NLP stands for?",
+    "options": [
+      "Network Language Program",
+      "Neural Layer Processing",
+      "None",
+      "Natural Language Processing"
+    ],
+    "answer": "Natural Language Processing",
+    "explanation": "The correct answer is Natural Language Processing."
+  },
+  {
+    "question": "Tokenization means?",
+    "options": [
+      "Encrypting text",
+      "Summarizing text",
+      "Splitting text into smaller units",
+      "Translating text"
+    ],
+    "answer": "Splitting text into smaller units",
+    "explanation": "The correct answer is Splitting text into smaller units."
+  },
+  {
+    "question": "Word embeddings represent words as?",
+    "options": [
+      "Images",
+      "Rules",
+      "Probabilities only",
+      "Numbers/Vectors"
+    ],
+    "answer": "Numbers/Vectors",
+    "explanation": "The correct answer is Numbers/Vectors."
+  },
+  {
+    "question": "LLM stands for?",
+    "options": [
+      "Linear Layer Model",
+      "Logical Learning Machine",
+      "Large Language Model",
+      "None"
+    ],
+    "answer": "Large Language Model",
+    "explanation": "The correct answer is Large Language Model."
+  },
+  {
+    "question": "Transformers process words?",
+    "options": [
+      "Backwards only",
+      "One at a time",
+      "Randomly",
+      "All at once in parallel"
+    ],
+    "answer": "All at once in parallel",
+    "explanation": "The correct answer is All at once in parallel."
+  }
+]

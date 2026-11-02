@@ -1,0 +1,23 @@
+[
+  {
+    "id": "maze_bfs_trace",
+    "title": "Trace BFS Through a Maze",
+    "description": "Given this grid maze, trace the path that BFS would take — mark each cell in the order visited.\n\nMaze (S = start, G = goal, # = wall, . = open path):\nS . . # .\n# . # . .\n. . . . G\n\nYour task: Mark each cell in the order BFS would visit it.\nHint: BFS uses a queue (FIFO). Process nodes in discovery order, level by level.",
+    "difficulty": "easy",
+    "starterCode": "# Activity: Trace BFS visit order\n# Write the visit order for each cell\n# Example format: S=1, then neighbors=2,3...\n\n# Your answer:",
+    "solution": "# BFS visits level by level from S\n# Order depends on neighbor expansion order\n# Key: BFS guarantees shortest path to G",
+    "testCases": []
+  },
+  {
+    "id": "graph_neighbors",
+    "title": "Graph Representation",
+    "description": "Write Python code to represent a simple graph as a dictionary and print all neighbors of a given node.\n\nExample graph:\ngraph = {'A': ['B', 'C'], 'B': ['A', 'D'], 'C': ['A'], 'D': ['B']}\n\nYour program should:\n1. Define a graph\n2. Ask for a node name\n3. Print all neighbors\n\nSample Input: B\nSample Output: Neighbors of B: ['A', 'D']",
+    "difficulty": "easy",
+    "starterCode": "# Represent a graph as a dictionary\ngraph = {\n    'A': ['B', 'C'],\n    'B': ['A', 'D'],\n    'C': ['A'],\n    'D': ['B']\n}\n\nnode = input()\n# Print neighbors of the node",
+    "solution": "graph = {'A': ['B', 'C'], 'B': ['A', 'D'], 'C': ['A'], 'D': ['B']}\nnode = input()\nprint(f'Neighbors of {node}: {graph[node]}')",
+    "testCases": [
+      {"label": "Neighbors of B", "input": "B", "expectedOutput": "Neighbors of B: ['A', 'D']\n"},
+      {"label": "Neighbors of A", "input": "A", "expectedOutput": "Neighbors of A: ['B', 'C']\n"}
+    ]
+  }
+]

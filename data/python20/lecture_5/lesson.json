@@ -1,0 +1,438 @@
+{
+  "id": "python20-lecture-5",
+  "courseSlug": "python20",
+  "number": 5,
+  "title": "For Loops",
+  "overview": "Repetition is one of the most powerful things a computer can do. A task that would take you hours — done in milliseconds. For loops let you repeat an action over a sequence of items, making your programs dramatically more powerful.",
+  "estimatedMinutes": 55,
+  "sections": [
+    {
+      "id": "what-is-a-loop",
+      "label": "What is a Loop?",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Imagine you need to wish all 50 students in your class a happy birthday. Without loops, you'd write 50 separate print statements. With a loop, you write one."
+        },
+        {
+          "type": "text",
+          "content": "A **for loop** repeats a block of code for each item in a sequence. The loop goes through the items one by one, running the same instructions each time."
+        },
+        {
+          "type": "text",
+          "content": "The syntax:\n```\nfor variable in sequence:\n    do this\n```\nEach time the loop runs, `variable` holds the current item from the sequence."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Your First Loop",
+          "language": "python",
+          "code": "fruits = [\"apple\", \"banana\", \"cherry\"]\n\nfor fruit in fruits:\n    print(fruit)\n\nprint(\"Loop complete!\")",
+          "expectedOutput": "apple\nbanana\ncherry\nLoop complete!",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "The loop ran 3 times — once for each item. Each time, `fruit` held a different item: first `\"apple\"`, then `\"banana\"`, then `\"cherry\"`."
+        },
+        {
+          "type": "text",
+          "content": "The code after the loop (`print(\"Loop complete!\")`) runs once, after all iterations are done."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Attendance Roll Call",
+            "description": "A teacher calls out student names one by one from the register. For each name, they perform the same action: mark present or absent. A for loop does exactly this — iterate through a list, performing the same action on each item.",
+            "image": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80",
+            "bullets": [
+              "The teacher reads each name from the list, one by one.",
+              "For every name, the same action is taken — present or absent.",
+              "The process repeats until every student has been checked."
+            ],
+            "highlightCard": "A for loop goes through each item in a list and runs the same code for each one."
+          },
+          "visualization": {
+            "type": "repetition",
+            "title": "For Loop Iteration",
+            "items": [
+              "Ravi → print(Ravi)",
+              "Priya → print(Priya)",
+              "Arjun → print(Arjun)",
+              "...and so on"
+            ],
+            "bullets": [
+              "for item in list: visits each element of the list in order.",
+              "The variable 'item' holds the current element on each pass.",
+              "Python repeats the loop body once for every element in the list."
+            ],
+            "highlightCard": "for item in collection: — the simplest and most powerful loop in Python."
+          },
+          "code": {
+            "language": "python",
+            "code": "students = [\"Ravi\", \"Priya\", \"Arjun\"]\nfor student in students:\n    print(f\"{student}: Present\")",
+            "output": "Ravi: Present\nPriya: Present\nArjun: Present",
+            "highlights": [
+              "The variable 'student' takes the value of each list item in turn.",
+              "The indented block runs once for every item in the students list.",
+              "The loop ends automatically when it reaches the last item."
+            ],
+            "highlightCard": "for loops eliminate repetition — write the logic once, Python applies it to every item."
+          },
+          "reflection": {
+            "question": "How many times does a for loop run if the sequence has 5 items?",
+            "answer": "5 times — once for each item in the sequence.",
+            "options": [
+              "1",
+              "Until a condition is False",
+              "5 times — once per item",
+              "Infinitely"
+            ]
+          },
+          "stage1Transition": "Python's for loop does exactly this — iterates over a list automatically. Let's see.",
+          "stage2Transition": "Here is how a for loop looks iterating over a real list.",
+          "takeaway": "A for loop is like an attendance roll call — it goes through every name in the list and performs the same action for each one. No name is skipped, no name is repeated."
+        },
+        {
+          "type": "practice",
+          "title": "Print the Shopping List",
+          "instructions": "Your flatmate left a shopping list but forgot to number each item. Write a loop that prints each item from the list ['milk', 'bread', 'eggs', 'butter', 'cheese'].",
+          "starterCode": "shopping = [\"milk\", \"bread\", \"eggs\", \"butter\", \"cheese\"]\n\n# Loop through and print each item\n",
+          "solution": "shopping = [\"milk\", \"bread\", \"eggs\", \"butter\", \"cheese\"]\n\nfor item in shopping:\n    print(item)",
+          "hint": "Use: for item in shopping: then print(item) indented below.",
+          "expectedOutput": "milk\nbread\neggs\nbutter\ncheese"
+        }
+      ]
+    },
+    {
+      "id": "range-function",
+      "label": "The range() Function",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "What if you don't have a list, but you just want to repeat something a specific number of times?"
+        },
+        {
+          "type": "text",
+          "content": "Python's `range()` function generates a sequence of numbers on demand. It's the most common way to control how many times a loop runs."
+        },
+        {
+          "type": "text",
+          "content": "`range(5)` generates: 0, 1, 2, 3, 4 (starts at 0, stops before 5)\n\n`range(1, 6)` generates: 1, 2, 3, 4, 5 (start, stop — stops before stop)\n\n`range(0, 10, 2)` generates: 0, 2, 4, 6, 8 (start, stop, step)"
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — range() Variations",
+          "language": "python",
+          "code": "# Count from 1 to 5\nfor i in range(1, 6):\n    print(i)\n\nprint(\"---\")\n\n# Even numbers from 0 to 10\nfor num in range(0, 11, 2):\n    print(num)",
+          "expectedOutput": "1\n2\n3\n4\n5\n---\n0\n2\n4\n6\n8\n10",
+          "editable": true
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Countdown",
+          "language": "python",
+          "code": "# Countdown from 5 to 1\nfor i in range(5, 0, -1):\n    print(i)\nprint(\"Blast off!\")",
+          "expectedOutput": "5\n4\n3\n2\n1\nBlast off!",
+          "editable": true
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Alarm Clock Snooze Button",
+            "description": "You set your alarm to ring 5 times, starting at 6:00 AM, every 10 minutes. range(6, 11, 1) works like this: start time, end time, interval. You know exactly how many times it will repeat.",
+            "image": "https://images.unsplash.com/photo-1495364141860-b0d03eccd065?w=800&q=80",
+            "bullets": [
+              "The alarm goes off for the first time and you hit snooze.",
+              "It rings again after 9 minutes — you hit snooze again.",
+              "This repeats a fixed number of times before you finally get up."
+            ],
+            "highlightCard": "range() creates a sequence of numbers your for loop can count through."
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "range(1, 6)",
+            "items": [
+              "Start: 1",
+              "Generate: 1, 2, 3, 4, 5",
+              "Stop before: 6"
+            ],
+            "bullets": [
+              "range(5) generates 0, 1, 2, 3, 4 — five numbers starting from 0.",
+              "range(1, 6) generates 1, 2, 3, 4, 5 — start included, stop excluded.",
+              "range(start, stop, step) lets you count by any interval you choose."
+            ],
+            "highlightCard": "range(1, 6) counts from 1 to 5 — the stop value is never included."
+          },
+          "code": {
+            "language": "python",
+            "code": "for i in range(1, 4):\n    print(f\"Attempt {i}\")",
+            "output": "Attempt 1\nAttempt 2\nAttempt 3",
+            "highlights": [
+              "range(1, 6) creates numbers 1 through 5 — the 6 is excluded.",
+              "i takes each value from range in order: 1, then 2, then 3, and so on.",
+              "range() is memory-efficient — it generates numbers one at a time, not all at once."
+            ],
+            "highlightCard": "range() gives your for loop a precise count — start, stop, and step."
+          },
+          "reflection": {
+            "question": "What does range(2, 10, 3) generate?",
+            "answer": "2, 5, 8 — starts at 2, adds 3 each time, stops before 10.",
+            "options": [
+              "2, 3, 4, 5, 6, 7, 8, 9",
+              "2, 5, 8",
+              "2, 5, 8, 11",
+              "3, 6, 9"
+            ]
+          },
+          "stage1Transition": "Python's range() generates numbers for your loop to iterate over. Let's see it.",
+          "stage2Transition": "Here is how range() works inside a for loop in Python.",
+          "takeaway": "range() is like an alarm that snoozes a fixed number of times — it counts from start to stop-1, giving your loop exactly the iterations it needs. No more, no less."
+        },
+        {
+          "type": "practice",
+          "title": "Multiplication Table",
+          "instructions": "A student needs a multiplication table for the number 7. Use range() to print the 7 times table from 7×1 to 7×10. Format each line as '7 x [n] = [result]'.",
+          "starterCode": "num = 7\n\n# Print multiplication table\n",
+          "solution": "num = 7\n\nfor i in range(1, 11):\n    print(f\"{num} x {i} = {num * i}\")",
+          "hint": "Use range(1, 11) to get numbers 1-10. Multiply num by i in each iteration.",
+          "expectedOutput": "7 x 1 = 7\n7 x 2 = 14\n7 x 3 = 21\n7 x 4 = 28\n7 x 5 = 35\n7 x 6 = 42\n7 x 7 = 49\n7 x 8 = 56\n7 x 9 = 63\n7 x 10 = 70"
+        }
+      ]
+    },
+    {
+      "id": "looping-patterns",
+      "label": "Useful Loop Patterns",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Once you have the basics down, a few patterns show up in almost every Python program."
+        },
+        {
+          "type": "text",
+          "content": "**Accumulation:** Start with a value and build it up inside a loop. This is how you calculate sums, products, and totals."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Summing Numbers",
+          "language": "python",
+          "code": "marks = [78, 85, 92, 67, 88]\ntotal = 0\n\nfor mark in marks:\n    total = total + mark\n\naverage = total / len(marks)\nprint(f\"Total: {total}\")\nprint(f\"Average: {average}\")",
+          "expectedOutput": "Total: 410\nAverage: 82.0",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "**Enumerate:** When you need both the index and the value, use `enumerate()`. It gives you both at once."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Numbered List",
+          "language": "python",
+          "code": "tasks = [\"Submit assignment\", \"Attend lab\", \"Revise notes\"]\n\nfor i, task in enumerate(tasks, start=1):\n    print(f\"{i}. {task}\")",
+          "expectedOutput": "1. Submit assignment\n2. Attend lab\n3. Revise notes",
+          "editable": true
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Bank Passbook",
+            "description": "Your passbook accumulates transactions: each deposit adds to the running total. A for loop with an accumulator variable works the same — each iteration adds to or builds on the previous total.",
+            "image": "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&q=80",
+            "bullets": [
+              "Each page of your passbook shows a transaction and the running total.",
+              "The running total grows with every deposit added to it.",
+              "By the last page, the total reflects every transaction that happened."
+            ],
+            "highlightCard": "An accumulator variable collects values across loop iterations — growing with each pass."
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Accumulator Pattern",
+            "items": [
+              "total = 0",
+              "Loop: total = total + item",
+              "After loop: total = grand total"
+            ],
+            "bullets": [
+              "Start with a total variable set to 0 before the loop begins.",
+              "On each iteration, add the current item's value to the total.",
+              "After the loop, the total holds the combined result of all iterations."
+            ],
+            "highlightCard": "total = 0 before the loop, total += value inside — the accumulator pattern."
+          },
+          "code": {
+            "language": "python",
+            "code": "scores = [10, 20, 30]\ntotal = 0\nfor s in scores:\n    total += s\nprint(\"Sum:\", total)",
+            "output": "Sum: 60",
+            "highlights": [
+              "total = 0 initializes the accumulator before any loop runs.",
+              "total += score adds each score to the running total on every iteration.",
+              "After the loop, total holds the sum of all values in the list."
+            ],
+            "highlightCard": "The accumulator pattern is the foundation of summing, counting, and collecting in Python."
+          },
+          "reflection": {
+            "question": "Why do we initialize total = 0 BEFORE the loop?",
+            "answer": "So we have a starting point to accumulate into. If we put it inside the loop, it would reset to 0 on every iteration.",
+            "options": [
+              "Python requires it",
+              "So we have a starting point to add to",
+              "To avoid errors with empty lists",
+              "It doesn't matter where we put it"
+            ]
+          },
+          "stage1Transition": "Python uses a variable outside the loop to accumulate results. Let's see this pattern.",
+          "stage2Transition": "Here is the accumulator pattern in Python code.",
+          "takeaway": "A passbook accumulates transaction totals — just like an accumulator variable collects values across loop iterations. Initialize before the loop, add inside it, read after."
+        },
+        {
+          "type": "practice",
+          "title": "Grade Calculator",
+          "instructions": "A teacher has 5 students' marks: [92, 78, 85, 63, 95]. Use a for loop to: 1) Calculate and print the total. 2) Calculate and print the class average. 3) Count and print how many students scored above 80.",
+          "starterCode": "marks = [92, 78, 85, 63, 95]\ntotal = 0\nabove_80 = 0\n\n# Loop through marks\n\n\n# Print results\nprint(f\"Total: {total}\")\nprint(f\"Average: {total / len(marks)}\")\nprint(f\"Above 80: {above_80}\")",
+          "solution": "marks = [92, 78, 85, 63, 95]\ntotal = 0\nabove_80 = 0\n\nfor mark in marks:\n    total = total + mark\n    if mark > 80:\n        above_80 = above_80 + 1\n\nprint(f\"Total: {total}\")\nprint(f\"Average: {total / len(marks)}\")\nprint(f\"Above 80: {above_80}\")",
+          "hint": "Inside the loop, add each mark to total. Use an if statement to check if mark > 80 and increment above_80.",
+          "expectedOutput": "Total: 413\nAverage: 82.6\nAbove 80: 3"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "A for loop repeats a block of code for each item in a sequence."
+      },
+      {
+        "text": "The loop variable holds the current item on each iteration."
+      },
+      {
+        "text": "range(stop), range(start, stop), range(start, stop, step) generate number sequences."
+      },
+      {
+        "text": "range(5, 0, -1) counts down: 5, 4, 3, 2, 1."
+      },
+      {
+        "text": "The accumulator pattern: initialize before the loop, update inside the loop."
+      },
+      {
+        "text": "enumerate() gives you both the index and the value in a single loop."
+      },
+      {
+        "text": "len() returns the number of items in a list — useful for averages."
+      }
+    ],
+    "whatYouLearned": [
+      "How for loops work and how to write one",
+      "How to use range() with start, stop, and step",
+      "The accumulator pattern for computing totals and averages",
+      "How to use enumerate() for numbered iteration"
+    ],
+    "nextUp": "While Loops"
+  },
+  "quiz": [
+    {
+      "question": "How many times will this loop run?\nfor i in range(3):",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "3",
+      "explanation": "range(3) generates 0, 1, 2 — three numbers. The loop runs once for each value, so it runs 3 times."
+    },
+    {
+      "question": "What does range(2, 8, 2) generate?",
+      "options": [
+        "2, 4, 6",
+        "2, 4, 6, 8",
+        "2, 3, 4, 5, 6, 7",
+        "2, 8"
+      ],
+      "answer": "2, 4, 6",
+      "explanation": "range(2, 8, 2) starts at 2, goes up in steps of 2, and stops before 8. So: 2, 4, 6. It does NOT include 8."
+    },
+    {
+      "question": "What is the purpose of the variable total = 0 before a loop that sums numbers?",
+      "options": [
+        "It tells Python the loop type",
+        "It provides a starting point to accumulate the sum",
+        "It is required syntax",
+        "It limits the number of iterations"
+      ],
+      "answer": "It provides a starting point to accumulate the sum",
+      "explanation": "The accumulator variable must be initialised before the loop. If it were inside the loop, it would reset to 0 every iteration, making the final sum always equal the last element."
+    },
+    {
+      "question": "What will enumerate(['a', 'b', 'c'], start=1) produce?",
+      "options": [
+        "(0, 'a'), (1, 'b'), (2, 'c')",
+        "(1, 'a'), (2, 'b'), (3, 'c')",
+        "('a', 1), ('b', 2), ('c', 3)",
+        "1, 2, 3"
+      ],
+      "answer": "(1, 'a'), (2, 'b'), (3, 'c')",
+      "explanation": "enumerate() produces (index, value) pairs. start=1 makes the index begin at 1 instead of the default 0."
+    },
+    {
+      "question": "What is the output of:\ntotal = 0\nfor n in [2, 4, 6]:\n    total += n\nprint(total)",
+      "options": [
+        "2",
+        "6",
+        "12",
+        "24"
+      ],
+      "answer": "12",
+      "explanation": "total starts at 0. After each iteration: 0+2=2, 2+4=6, 6+6=12. The final total is 12. The += operator is shorthand for total = total + n."
+    }
+  ],
+  "problems": [
+    {
+      "id": "python20-l5-p1",
+      "title": "Star Pattern",
+      "description": "Print a right triangle of stars with 5 rows:\n*\n**\n***\n****\n*****\n\nHint: Use range(1, 6) and print '*' * i",
+      "difficulty": "easy",
+      "starterCode": "# Print 5 rows of stars\n",
+      "solution": "for i in range(1, 6):\n    print('*' * i)",
+      "testCases": [
+        {
+          "label": "Star triangle",
+          "input": "",
+          "expectedOutput": "*\n**\n***\n****\n*****",
+          "matchType": "exact"
+        }
+      ]
+    },
+    {
+      "id": "python20-l5-p2",
+      "title": "FizzBuzz Classic",
+      "description": "Print numbers 1 to 20. But:\n- If divisible by 3, print 'Fizz' instead\n- If divisible by 5, print 'Buzz' instead\n- If divisible by both 3 and 5, print 'FizzBuzz'",
+      "difficulty": "medium",
+      "starterCode": "for i in range(1, 21):\n    # Check conditions\n    pass",
+      "solution": "for i in range(1, 21):\n    if i % 3 == 0 and i % 5 == 0:\n        print(\"FizzBuzz\")\n    elif i % 3 == 0:\n        print(\"Fizz\")\n    elif i % 5 == 0:\n        print(\"Buzz\")\n    else:\n        print(i)",
+      "testCases": [
+        {
+          "label": "FizzBuzz 1-20",
+          "input": "",
+          "expectedOutput": "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz\n16\n17\nFizz\n19\nBuzz",
+          "matchType": "exact"
+        }
+      ]
+    },
+    {
+      "id": "python20-l5-p3",
+      "title": "Find the Maximum",
+      "description": "Given the list scores = [45, 92, 78, 88, 35, 96, 61], use a loop (no max() function!) to find and print the highest score.\n\nExpected output:\nHighest score: 96",
+      "difficulty": "medium",
+      "starterCode": "scores = [45, 92, 78, 88, 35, 96, 61]\nhighest = scores[0]  # Start with first element\n\n# Loop to find maximum\n",
+      "solution": "scores = [45, 92, 78, 88, 35, 96, 61]\nhighest = scores[0]\n\nfor score in scores:\n    if score > highest:\n        highest = score\n\nprint(f\"Highest score: {highest}\")",
+      "testCases": [
+        {
+          "label": "Maximum is 96",
+          "input": "",
+          "expectedOutput": "Highest score: 96",
+          "matchType": "exact"
+        }
+      ]
+    }
+  ]
+}

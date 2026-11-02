@@ -1,0 +1,72 @@
+{
+  "id": "java-beginners-lecture-4",
+  "courseSlug": "java-beginners",
+  "number": 4,
+  "title": "Conditionals",
+  "overview": "Overview of Conditionals",
+  "estimatedMinutes": 45,
+  "sections": [
+    {
+      "id": "section-1-lecture-4",
+      "label": "Theory Part 1",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "blue",
+          "title": "Introduction to Conditionals",
+          "body": "Content for Conditionals...",
+          "bullets": [
+            "Point 1",
+            "Point 2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-2-lecture-4",
+      "label": "Theory Part 2",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "Deep dive into Conditionals",
+          "body": "More content for Conditionals...",
+          "bullets": [
+            "Point 1",
+            "Point 2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-3-lecture-4",
+      "label": "Theory Part 3",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "green",
+          "title": "Mastering Conditionals",
+          "body": "Advanced content for Conditionals...",
+          "bullets": [
+            "Point 1",
+            "Point 2"
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Takeaway 1 for Conditionals"
+      },
+      {
+        "text": "Takeaway 2 for Conditionals"
+      }
+    ],
+    "whatYouLearned": [
+      "You learned about Conditionals"
+    ],
+    "nextUp": "Loops"
+  }
+}

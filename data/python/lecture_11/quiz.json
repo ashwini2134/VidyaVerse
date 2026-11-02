@@ -1,0 +1,57 @@
+[
+  {
+    "question": "What does \"hello\".upper() return?",
+    "options": [
+      "hello",
+      "Error",
+      "HELLO",
+      "Hello"
+    ],
+    "answer": "HELLO",
+    "explanation": "The upper() method converts all characters in a string to uppercase."
+  },
+  {
+    "question": "What does find() return if the substring is not found?",
+    "options": [
+      "None",
+      "False",
+      "0",
+      "-1"
+    ],
+    "answer": "-1",
+    "explanation": "find() returns -1 when the substring is not found in the string."
+  },
+  {
+    "question": "What is the result of \"a b c\".split()?",
+    "options": [
+      "[\"a b c\"]",
+      "[\"a\", \"b\", \"c\"]",
+      "[\"abc\"]",
+      "[\"a\", \"b\", \"c\"]"
+    ],
+    "answer": "[\"a\", \"b\", \"c\"]",
+    "explanation": "split() with no argument splits on any whitespace."
+  },
+  {
+    "question": "What does strip() do to a string?",
+    "options": [
+      "Removes leading/trailing whitespace",
+      "Reverses the string",
+      "Converts to uppercase",
+      "Removes all spaces"
+    ],
+    "answer": "Removes leading/trailing whitespace",
+    "explanation": "strip() removes whitespace from both the beginning and end of a string."
+  },
+  {
+    "question": "How do you check if a string ends with \".py\"?",
+    "options": [
+      "string.last(\".py\")",
+      "string.endswith(\".py\")",
+      "string.ends(\".py\")",
+      "string.finish(\".py\")"
+    ],
+    "answer": "string.endswith(\".py\")",
+    "explanation": "endswith() returns True if the string ends with the specified substring."
+  }
+]

@@ -1,0 +1,195 @@
+{
+  "id": "cs50ai-lecture-8",
+  "courseSlug": "cs50ai",
+  "number": 8,
+  "title": "AI Ethics & Responsible Use",
+  "overview": "AI can be unfair and invasive if not built carefully. Bias and privacy are two of the biggest ethical challenges.",
+  "estimatedMinutes": 60,
+  "nextUp": "Final Project",
+  "sections": [
+    {
+      "id": "ai-bias",
+      "label": "AI Bias & Privacy",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "What is AI Bias & Privacy?",
+          "body": "AI can be unfair and invasive if not built carefully. Bias and privacy are two of the biggest ethical challenges.",
+          "bullets": [
+            "AI Bias — when training data reflects unfairness, AI inherits and amplifies it",
+            "Example: a hiring AI trained on historical male-dominated data may reject female applicants unfairly",
+            "Privacy — AI systems collect and process massive amounts of personal data",
+            "Your data (searches, clicks, location) is used to train and improve AI systems",
+            "This concept is fundamental to AI development."
+          ],
+          "accentColor": "blue"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Think of AI Bias as a One-Sided Story",
+            "description": "Biased training data leads to unfair outcomes",
+            "image": "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&q=80"
+          },
+          "visualization": {
+            "type": "decision",
+            "title": "Bias = Unfair Outcomes",
+            "condition": "Data balanced?",
+            "trueLabel": "Fair AI",
+            "falseLabel": "Biased AI"
+          },
+          "code": {
+            "language": "python",
+            "code": "scores = [(\"Alice\", 85), (\"Bob\", 78), (\"Eve\", 92)]\navg = sum(s for _, s in scores[:2]) / 2\nprint(f\"Trained on male-only: avg {avg}\")\nprint(\"Eve scored higher but was excluded\")",
+            "output": "Trained on male-only: avg 81.5\nEve scored higher but was excluded"
+          }
+        },
+        {
+          "type": "practice",
+          "title": "Detecting Bias in Training Data",
+          "instructions": "Analyze training data to detect gender bias when data excludes certain groups.",
+          "starterCode": "# Detect bias in training data\napplicants = [\n    {\"name\": \"Alice\", \"gender\": \"F\", \"score\": 92},\n    {\"name\": \"Bob\", \"gender\": \"M\", \"score\": 78},\n    {\"name\": \"Eve\", \"gender\": \"F\", \"score\": 95},\n    {\"name\": \"Dave\", \"gender\": \"M\", \"score\": 85},\n]\nmale_scores = [a[\"score\"] for a in applicants if a[\"gender\"] == \"M\"]\navg = sum(male_scores) / len(male_scores)\nprint(f\"Model trained on {len(male_scores)} male applicants\")\nprint(f\"Average male score: {avg}\")\nprint(f\"Alice ({applicants[0]['score']}) would be compared to male average: {avg}\")\nprint(\"Issue: Female applicants excluded from training data!\")",
+          "solution": "applicants = [{\"name\": \"Alice\", \"gender\": \"F\", \"score\": 92}, {\"name\": \"Bob\", \"gender\": \"M\", \"score\": 78}, {\"name\": \"Eve\", \"gender\": \"F\", \"score\": 95}, {\"name\": \"Dave\", \"gender\": \"M\", \"score\": 85}]\nmale_scores = [a[\"score\"] for a in applicants if a[\"gender\"] == \"M\"]\navg = sum(male_scores) / len(male_scores)\nprint(f\"Model trained on {len(male_scores)} male applicants\")\nprint(f\"Average male score: {avg}\")\nprint(f\"Alice ({applicants[0]['score']}) would be compared to male average: {avg}\")",
+          "hint": "Bias occurs when training data doesn't represent all groups fairly."
+        }
+      ]
+    },
+    {
+      "id": "hallucinations-deepfakes",
+      "label": "Hallucinations, Deepfakes & Accountability",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "What is Hallucinations, Deepfakes & Accountability?",
+          "body": "AI can generate false information confidently and create fake media. Accountability asks who is responsible when AI causes harm.",
+          "bullets": [
+            "AI Hallucinations — AI confidently stating things that are factually wrong",
+            "Why hallucinations happen — model predicts plausible-sounding text, not verified facts",
+            "Deepfakes — AI-generated fake videos or audio that can spread misinformation",
+            "Transparency — people should always know when they are interacting with AI",
+            "Accountability — who is responsible when AI makes a harmful decision?",
+            "Fairness — AI should perform equally well for all groups of people"
+          ],
+          "accentColor": "blue"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Think of Hallucination as an Over-Confident Friend",
+            "description": "AI confidently generates false information",
+            "image": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Hallucination = False Confidence",
+            "items": [
+              "Unknown Question",
+              "LLM guesses confidently",
+              "False but Plausible"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "# AI confidently guesses\nfacts = {\"capital\": \"Paris\"}\nprint(facts.get(\"capital\", \"Unknown\"))\nprint(facts.get(\"population\", \"Unknown (hallucinated)\"))",
+            "output": "Paris\nUnknown (hallucinated)"
+          }
+        },
+        {
+          "type": "practice",
+          "title": "Simulating AI Hallucination",
+          "instructions": "Simulate how an AI responds to known vs unknown questions — and see when hallucination can occur.",
+          "starterCode": "# Simulating AI responses\nknowledge_base = {\n    \"capital of France\": \"Paris\",\n    \"largest ocean\": \"Pacific\",\n}\nquestions = [\"capital of France\", \"population of Mars\", \"largest ocean\"]\nprint(\"AI Responses:\")\nfor q in questions:\n    if q in knowledge_base:\n        print(f\"  Q: {q}\\n  A: {knowledge_base[q]} ✅\")\n    else:\n        print(f\"  Q: {q}\\n  A: (AI might hallucinate a plausible answer) ❌\")\nprint(\"\\nAlways verify AI outputs!\")",
+          "solution": "knowledge_base = {\"capital of France\": \"Paris\", \"largest ocean\": \"Pacific\"}\nquestions = [\"capital of France\", \"population of Mars\", \"largest ocean\"]\nfor q in questions:\n    if q in knowledge_base:\n        print(f\"  Q: {q}\\n  A: {knowledge_base[q]} ✅\")\n    else:\n        print(f\"  Q: {q}\\n  A: (AI might hallucinate) ❌\")\nprint(\"Always verify AI outputs!\")",
+          "hint": "Hallucinations happen when AI confidently generates false information because it doesn't know the answer."
+        }
+      ]
+    },
+    {
+      "id": "getting-started",
+      "label": "Ethical AI in Practice",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "What is Ethical Steps?",
+          "body": "How to use AI ethically.",
+          "bullets": [
+            "Step 1: Always verify AI outputs before using them — especially for important decisions",
+            "Step 2: Check if training data is diverse and representative",
+            "Step 3: Be transparent — tell users when AI is involved",
+            "Step 4: Assign accountability — define who is responsible for AI decisions",
+            "Step 5: Report harmful AI uses — do not misuse AI tools"
+          ],
+          "accentColor": "blue"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Think of Responsible AI as a Safety Checklist",
+            "description": "Ensure AI is transparent, fair, and private",
+            "image": "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Responsible AI Checklist",
+            "items": [
+              "Fairness",
+              "Privacy",
+              "Transparency",
+              "Safety Test",
+              "Monitor"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "def audit(transparent, fair, private):\n    passed = sum([transparent, fair, private])\n    print(\"Pass\" if passed == 3 else f\"{3-passed} fail(s)\")\naudit(True, False, True)",
+            "output": "1 fail(s)"
+          }
+        },
+        {
+          "type": "code_example",
+          "title": "Detecting Bias in Data",
+          "language": "python",
+          "code": "# Demonstrate bias in training data\napplicants = [\n    {\"gender\": \"M\", \"score\": 85},\n    {\"gender\": \"M\", \"score\": 78},\n    {\"gender\": \"F\", \"score\": 92},\n    {\"gender\": \"M\", \"score\": 70},\n]\n\n# Model selects top 50% by score\nsorted_apps = sorted(applicants, key=lambda x: x[\"score\"], reverse=True)[:2]\nselected_male = sum(1 for a in sorted_apps if a[\"gender\"] == \"M\")\nselected_female = sum(1 for a in sorted_apps if a[\"gender\"] == \"F\")\n\nprint(f\"Selected: {selected_male} male, {selected_female} female\")\nprint(f\"Bias: {selected_male}/{len(sorted_apps)} selected are male\")",
+          "expectedOutput": "Selected: 1 male, 1 female\nBias: 1/2 selected are male"
+        },
+        {
+          "type": "practice",
+          "title": "Practice Exercise",
+          "instructions": "Find a real news story about AI causing harm — identify which ethical issue it relates to and write 3 sentences",
+          "starterCode": "# Write your summary\n",
+          "solution": "# Discuss bias, privacy, or hallucination",
+          "hint": "Look up recent AI news."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "AI bias comes from unfair or unrepresentative training data"
+      },
+      {
+        "text": "Privacy is at risk when AI collects and processes personal data"
+      },
+      {
+        "text": "AI hallucinations are confident but factually wrong statements"
+      },
+      {
+        "text": "Deepfakes use AI to generate convincing fake videos and audio"
+      },
+      {
+        "text": "Transparency means people should know when AI is involved"
+      },
+      {
+        "text": "Accountability asks who is responsible when AI causes harm"
+      }
+    ],
+    "whatYouLearned": [
+      "What AI Bias and Hallucinations are",
+      "The danger of Deepfakes and Misinformation",
+      "Why Transparency and Accountability are important",
+      "How to use AI safely and responsibly"
+    ],
+    "nextUp": "Final Project"
+  }
+}

@@ -1,0 +1,57 @@
+[
+  {
+    "question": "Which AI concept does a chatbot use?",
+    "options": [
+      "Optimization",
+      "NLP",
+      "Logic only",
+      "Search"
+    ],
+    "answer": "NLP",
+    "explanation": "The correct answer is NLP."
+  },
+  {
+    "question": "A story generator uses which technique?",
+    "options": [
+      "CSP",
+      "BFS",
+      "Probability only",
+      "Language Models"
+    ],
+    "answer": "Language Models",
+    "explanation": "The correct answer is Language Models."
+  },
+  {
+    "question": "Search Visualizer demonstrates?",
+    "options": [
+      "Neural Networks",
+      "Search Algorithms",
+      "NLP",
+      "Ethics"
+    ],
+    "answer": "Search Algorithms",
+    "explanation": "The correct answer is Search Algorithms."
+  },
+  {
+    "question": "Every project must include?",
+    "options": [
+      "A neural network",
+      "Supervised learning",
+      "A database",
+      "An ethical consideration"
+    ],
+    "answer": "An ethical consideration",
+    "explanation": "The correct answer is An ethical consideration."
+  },
+  {
+    "question": "The final reflection should cover?",
+    "options": [
+      "Your grade",
+      "Your code length",
+      "Your time spent",
+      "What surprised you about how AI actually works"
+    ],
+    "answer": "What surprised you about how AI actually works",
+    "explanation": "The correct answer is What surprised you about how AI actually works."
+  }
+]

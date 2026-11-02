@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ai_daily_tools",
+    "title": "AI Tools You Use Daily",
+    "description": "List 5 AI tools or services you use daily and identify what task each one performs.\n\nFor each tool, write:\n1. The name of the AI tool/service\n2. The primary task it performs\n3. A brief sentence about how it uses AI\n\nExample:\n- Google Maps: Routes traffic using AI to predict fastest paths\n- Spotify: Recommends songs based on your listening history using ML\n- Gmail: Filters spam emails using AI\n\nNo code editor needed for this problem — submit your written answer in the editor as comments.",
+    "difficulty": "easy",
+    "starterCode": "# Activity: List 5 AI tools you use daily\n# Tool 1:\n# Task:\n# How it uses AI:\n\n# Tool 2:\n# ... (repeat for 5 tools)",
+    "solution": "# Example answers:\n# 1. Google Maps - navigation - uses search and optimization\n# 2. Spotify - music recommendations - uses ML\n# 3. Gmail - spam filtering - uses AI classification\n# 4. Siri/Alexa - voice commands - uses NLP\n# 5. Netflix - show recommendations - uses ML",
+    "testCases": []
+  },
+  {
+    "id": "ai_classifier",
+    "title": "AI/ML/DL Classifier",
+    "description": "Write a Python program that takes a user's input and prints whether it sounds like AI, Machine Learning, or Deep Learning based on keywords in their answer.\n\nKeyword matching rules:\n- If input contains keywords like 'learn', 'data', 'pattern', 'train', 'example' → Machine Learning\n- If input contains keywords like 'brain', 'network', 'layer', 'neuron', 'node' → Deep Learning\n- Otherwise or with keywords like 'task', 'perform', 'think', 'compute' → Artificial Intelligence\n\nSample Input: A system that learns patterns from examples\nSample Output: This sounds like Machine Learning!",
+    "difficulty": "easy",
+    "starterCode": "# AI/ML/DL Classifier\nuser_input = input().lower()\n\n# Check keywords and classify\n# Hint: use 'in' to check if keyword is in user_input",
+    "solution": "user_input = input().lower()\ndl_keywords = ['brain', 'network', 'layer', 'neuron', 'node']\nml_keywords = ['learn', 'data', 'pattern', 'train', 'example']\nif any(k in user_input for k in dl_keywords):\n    print('This sounds like Deep Learning!')\nelif any(k in user_input for k in ml_keywords):\n    print('This sounds like Machine Learning!')\nelse:\n    print('This sounds like Artificial Intelligence!')",
+    "testCases": [
+      {"label": "Machine Learning keywords", "input": "A system that learns patterns from examples", "expectedOutput": "This sounds like Machine Learning!\n"},
+      {"label": "Deep Learning keywords", "input": "Brain-like networks with many layers", "expectedOutput": "This sounds like Deep Learning!\n"}
+    ]
+  }
+]

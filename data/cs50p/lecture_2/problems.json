@@ -1,0 +1,37 @@
+[
+  {
+    "id": "camel_case",
+    "title": "camelCase",
+    "description": "In some languages, it's common to use camel case for variables' names when those names comprise multiple words, whereby the first letter of the first word is lowercase but the first letter of each subsequent word is uppercase (e.g., `preferredFirstName`). Python, by contrast, recommends snake case, whereby words are separated by underscores with all letters in lowercase (e.g., `preferred_first_name`).\n\nIn a file called `camel.py`, implement a program that prompts the user for the name of a variable in camel case and outputs the corresponding name in snake case. Assume that the user's input will indeed be in camel case.\n\n**How to Test:**\n```\nInput:  name\nOutput: name\n```\n```\nInput:  firstName\nOutput: first_name\n```\n```\nInput:  preferredFirstName\nOutput: preferred_first_name\n```",
+    "check50_slug": "cs50/problems/2022/python/camel",
+    "difficulty": "easy"
+  },
+  {
+    "id": "coke_machine",
+    "title": "Coke Machine",
+    "description": "Suppose that a machine sells bottles of Coca-Cola (Coke) for 50 cents and only accepts coins in these denominations: 25 cents, 10 cents, and 5 cents.\n\nIn a file called `coke.py`, implement a program that prompts the user to insert a coin, one at a time, each time informing the user of the amount due. Once the user has inputted at least 50 cents, output how many cents in change the user is owed. Assume that the user will only input integers, and ignore any integer that isn't an accepted denomination.\n\n**How to Test:**\n```\nAmount Due: 50\nInsert Coin: 25\nAmount Due: 25\nInsert Coin: 25\nChange Owed: 0\n```\n```\nAmount Due: 50\nInsert Coin: 25\nAmount Due: 25\nInsert Coin: 10\nAmount Due: 15\nInsert Coin: 25\nChange Owed: 10\n```",
+    "check50_slug": "cs50/problems/2022/python/coke",
+    "difficulty": "medium"
+  },
+  {
+    "id": "just_setting_up",
+    "title": "Just Setting Up My Twttr",
+    "description": "When texting or tweeting, it's not uncommon to shorten words to save time or space, as by omitting vowels, much like Twitter was originally called *twttr*.\n\nIn a file called `twttr.py`, implement a program that prompts the user for a `str` of text and then outputs that same text but with all vowels (A, E, I, O, and U) omitted, whether inputted in uppercase or lowercase.\n\n**How to Test:**\n```\nInput:  Twitter\nOutput: Twttr\n```\n```\nInput:  What's your name?\nOutput: Wht's yr nm?\n```\n```\nInput:  CS50\nOutput: CS50\n```",
+    "check50_slug": "cs50/problems/2022/python/twttr",
+    "difficulty": "easy"
+  },
+  {
+    "id": "vanity_plates",
+    "title": "Vanity Plates",
+    "description": "In Massachusetts, it's possible to request a vanity license plate, with your choice of letters and numbers. Among the requirements are:\n\n- All vanity plates must start with at least two letters.\n- Vanity plates may contain a maximum of 6 characters (letters or numbers) and a minimum of 2 characters.\n- Numbers cannot be used in the middle of a plate; they must come at the end. For example, `AAA222` would be acceptable; `AAA22A` would not. The first number used cannot be a `0`.\n- No periods, spaces, or punctuation marks are allowed.\n\nIn `plates.py`, implement a program that prompts the user for a vanity plate and then outputs `Valid` if it meets all of the requirements or `Invalid` if it does not. Assume that any letters in the input will be uppercase. Structure your program so that `is_valid` returns `True` if `s` meets all requirements and `False` otherwise.\n\n**How to Test:**\n```\nInput:  CS50\nOutput: Valid\n```\n```\nInput:  CS05\nOutput: Invalid\n```\n```\nInput:  CS50P\nOutput: Invalid\n```\n```\nInput:  PI3.14\nOutput: Invalid\n```",
+    "check50_slug": "cs50/problems/2022/python/plates",
+    "difficulty": "medium"
+  },
+  {
+    "id": "nutrition_facts",
+    "title": "Nutrition Facts",
+    "description": "The U.S. Food & Drug Administration (FDA) offers posters that show nutrition information for the most frequently consumed raw fruits in the United States.\n\nIn a file called `nutrition.py`, implement a program that prompts users to input a fruit (case-insensitively) and then outputs the number of calories in one portion of that fruit, per the FDA's poster for fruits. Capitalization aside, assume that users will input fruits exactly as written in the poster (e.g., `strawberries`). Ignore any input that isn't a fruit.\n\n**How to Test:**\n```\nInput:  Apple\nOutput: Calories: 130\n```\n```\nInput:  Avocado\nOutput: Calories: 50\n```\n```\nInput:  Sweet Cherries\nOutput: Calories: 100\n```\n```\nInput:  Tomato\nOutput: (nothing)\n```",
+    "check50_slug": "cs50/problems/2022/python/nutrition",
+    "difficulty": "easy"
+  }
+]

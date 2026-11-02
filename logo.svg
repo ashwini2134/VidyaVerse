@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" role="img" aria-labelledby="title">
+  <title id="title">GyanSetu</title>
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#1E3A8A"/>
+    </linearGradient>
+  </defs>
+  <!-- Bridge icon - geometric representation -->
+  <g transform="translate(4, 8)">
+    <!-- Bridge arch -->
+    <path d="M8 48 L8 24 Q28 8 48 24 L48 48" fill="none" stroke="url(#g)" stroke-width="4" stroke-linecap="round"/>
+    <!-- Bridge deck -->
+    <line x1="4" y1="32" x2="52" y2="32" stroke="url(#g)" stroke-width="3" stroke-linecap="round"/>
+    <!-- Book pages underneath -->
+    <path d="M12 44 L12 52 L44 52 L44 44" fill="none" stroke="url(#g)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M16 44 L16 50 L40 50 L40 44" fill="none" stroke="url(#g)" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+  <!-- GYANSETU wordmark -->
+  <text x="72" y="46" font-family="DM Sans,system-ui,sans-serif" font-size="26" font-weight="700" fill="#1E3A8A" letter-spacing="0.02em">GYANSETU</text>
+  <text x="72" y="62" font-family="DM Sans,system-ui,sans-serif" font-size="10" font-weight="500" letter-spacing="0.15em" fill="#64748B">Bridge Your Learning. Build Your Future.</text>
+</svg>

@@ -1,0 +1,57 @@
+[
+  {
+    "question": "Optimization means?",
+    "options": [
+      "Finding a random solution",
+      "Finding the first solution",
+      "Finding the best solution",
+      "Finding any solution"
+    ],
+    "answer": "Finding the best solution",
+    "explanation": "The correct answer is Finding the best solution."
+  },
+  {
+    "question": "Hill Climbing always moves?",
+    "options": [
+      "Randomly",
+      "To the start",
+      "Toward a better neighbor",
+      "Downward"
+    ],
+    "answer": "Toward a better neighbor",
+    "explanation": "The correct answer is Toward a better neighbor."
+  },
+  {
+    "question": "Hill Climbing's main problem?",
+    "options": [
+      "Gets stuck at local best",
+      "Uses too much memory",
+      "Too slow",
+      "Cannot start"
+    ],
+    "answer": "Gets stuck at local best",
+    "explanation": "The correct answer is Gets stuck at local best."
+  },
+  {
+    "question": "Simulated Annealing fixes this by?",
+    "options": [
+      "Always accepting worse",
+      "Never accepting worse",
+      "Restarting",
+      "Sometimes accepting a worse option"
+    ],
+    "answer": "Sometimes accepting a worse option",
+    "explanation": "The correct answer is Sometimes accepting a worse option."
+  },
+  {
+    "question": "Sudoku is an example of?",
+    "options": [
+      "Neural Network",
+      "Search",
+      "Probability",
+      "CSP"
+    ],
+    "answer": "CSP",
+    "explanation": "The correct answer is CSP."
+  }
+]

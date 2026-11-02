@@ -1,0 +1,30 @@
+[
+  {
+    "id": "lines",
+    "title": "Lines of Code",
+    "description": "One way to measure the complexity of a program is to count its number of lines of code (LOC), excluding blank lines and comments.\n\nIn a file called `lines.py`, implement a program that expects exactly one command-line argument, the name (or path) of a Python file, and outputs the number of lines of code in that file, excluding comments and blank lines. If the user does not specify exactly one command-line argument, or if the specified file's name does not end in `.py`, or if the specified file does not exist, the program should instead exit via `sys.exit`.\n\nAssume that any line that starts with `#`, optionally preceded by whitespace, is a comment. (A docstring should not be considered a comment.) Assume that any line that only contains whitespace is blank.\n\n**How to Test:**\n```\npython lines.py                     -> exits: Too few command-line arguments\npython lines.py a.py b.py           -> exits: Too many command-line arguments\npython lines.py notes.txt           -> exits: Not a Python file\npython lines.py missing.py          -> exits: File does not exist\npython lines.py hello.py            -> prints the LOC count\n```",
+    "check50_slug": "cs50/problems/2022/python/lines",
+    "difficulty": "medium"
+  },
+  {
+    "id": "pizza",
+    "title": "Pizza Py",
+    "description": "A CSV file isn't the most customer-friendly format. Prettier might be a table, formatted as ASCII art.\n\nIn a file called `pizza.py`, implement a program that expects exactly one command-line argument, the name (or path) of a CSV file in Pinocchio's format, and outputs a table formatted as ASCII art using `tabulate` (`pip install tabulate`). Format the table using the library's `grid` format. If the user does not specify exactly one command-line argument, or if the specified file's name does not end in `.csv`, or if the specified file does not exist, the program should instead exit via `sys.exit`.\n\n**How to Test:**\n```\npython pizza.py                 -> exits: Too few command-line arguments\npython pizza.py a.csv b.csv     -> exits: Too many command-line arguments\npython pizza.py sicilian.txt    -> exits: Not a CSV file\npython pizza.py missing.csv     -> exits: File does not exist\npython pizza.py regular.csv     -> prints a grid-format table\n```",
+    "check50_slug": "cs50/problems/2022/python/pizza",
+    "difficulty": "medium"
+  },
+  {
+    "id": "scourgify",
+    "title": "Scourgify",
+    "description": "Data often needs to be \"cleaned,\" as by reformatting it so that values are in a consistent format.\n\nIn a file called `scourgify.py`, implement a program that expects the user to provide two command-line arguments: the name of an existing CSV file to read as input (whose columns are, in order, `name` and `house`), and the name of a new CSV file to write as output (whose columns should be, in order, `first`, `last`, and `house`). Convert that input to that output, splitting each `name` into a `first` name and `last` name. Assume that each student has both a first and last name.\n\nIf the user does not provide exactly two command-line arguments, or if the first cannot be read, the program should exit via `sys.exit` with an error message.\n\n**How to Test:**\n```\npython scourgify.py                          -> exits: Too few command-line arguments\npython scourgify.py 1.csv 2.csv 3.csv        -> exits: Too many command-line arguments\npython scourgify.py missing.csv out.csv      -> exits: Could not read missing.csv\npython scourgify.py before.csv after.csv     -> writes after.csv with columns first,last,house\n```",
+    "check50_slug": "cs50/problems/2022/python/scourgify",
+    "difficulty": "medium"
+  },
+  {
+    "id": "shirt",
+    "title": "CS50 P-Shirt",
+    "description": "In a file called `shirt.py`, implement a program that expects exactly two command-line arguments: in `sys.argv[1]`, the name (or path) of a JPEG or PNG to read as input; in `sys.argv[2]`, the name (or path) of a JPEG or PNG to write as output. The program should overlay `shirt.png` (which has a transparent background) on the input after resizing and cropping the input to be the same size, saving the result as its output.\n\nUse `Image.open`, `ImageOps.fit` (with default `method`, `bleed`, and `centering`), `Image.paste`, and `Image.save` from Pillow (`pip install Pillow`).\n\nThe program should instead exit via `sys.exit` if: the user does not specify exactly two arguments; the input's and output's names do not end in `.jpg`, `.jpeg`, or `.png` (case-insensitively); the input's name does not have the same extension as the output's; or the specified input does not exist.\n\n**How to Test:**\n```\npython shirt.py                              -> exits: Too few command-line arguments\npython shirt.py a.jpg b.jpg c.jpg            -> exits: Too many command-line arguments\npython shirt.py before1.jpg out.bmp          -> exits: Invalid output\npython shirt.py before1.jpg after1.png       -> exits: Input and output have different extensions\npython shirt.py missing.jpg after1.jpg       -> exits: Input does not exist\npython shirt.py before1.jpg after1.jpg       -> saves the shirt overlay\n```",
+    "check50_slug": "cs50/problems/2022/python/shirt",
+    "difficulty": "medium"
+  }
+]

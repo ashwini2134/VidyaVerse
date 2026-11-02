@@ -1,0 +1,1 @@
+When analyzing attention diagrams, you’ll often find that many tokens in many attention heads attend strongly to the [SEP] or [CLS] tokens. This can happen in cases where there is no good word to pay attention to in a given attention head.

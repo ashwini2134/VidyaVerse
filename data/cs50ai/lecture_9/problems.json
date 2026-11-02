@@ -1,0 +1,14 @@
+[
+  {
+    "id": "project_plan",
+    "title": "Write project plan",
+    "description": "Write your full project plan — Project name, which AI concept it uses, what input the user gives, what output the AI produces, one ethical consideration, and one thing you expect to learn by building it",
+    "difficulty": "easy"
+  },
+  {
+    "id": "ethics_plan",
+    "title": "Ethical consideration",
+    "description": "Write one ethical consideration for your chosen project and explain in 3 sentences how you would address it responsibly",
+    "difficulty": "easy"
+  }
+]

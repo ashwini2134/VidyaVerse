@@ -1,0 +1,112 @@
+[
+  {
+    "question": "ML learns rules from?",
+    "options": [
+      "Examples and data",
+      "Random guessing",
+      "A programmer writing rules",
+      "Search algorithms"
+    ],
+    "answer": "Examples and data",
+    "explanation": "The correct answer is Examples and data."
+  },
+  {
+    "question": "Supervised learning requires?",
+    "options": [
+      "Unlabeled data",
+      "No data",
+      "Labeled data",
+      "Rewards"
+    ],
+    "answer": "Labeled data",
+    "explanation": "The correct answer is Labeled data."
+  },
+  {
+    "question": "Unsupervised learning finds?",
+    "options": [
+      "Shortest paths",
+      "Labeled patterns",
+      "Rewards",
+      "Patterns without labels"
+    ],
+    "answer": "Patterns without labels",
+    "explanation": "The correct answer is Patterns without labels."
+  },
+  {
+    "question": "Reinforcement learning uses?",
+    "options": [
+      "Rules",
+      "Probability only",
+      "Labels",
+      "Rewards and penalties"
+    ],
+    "answer": "Rewards and penalties",
+    "explanation": "The correct answer is Rewards and penalties."
+  },
+  {
+    "question": "Overfitting means?",
+    "options": [
+      "Model learns too slowly",
+      "Model has too little data",
+      "Model is too simple",
+      "Model memorizes training data and fails on new data"
+    ],
+    "answer": "Model memorizes training data and fails on new data",
+    "explanation": "The correct answer is Model memorizes training data and fails on new data."
+  },
+  {
+    "question": "What does a loss function measure?",
+    "options": [
+      "The speed of training",
+      "The accuracy of predictions on training data",
+      "The penalty for incorrect predictions",
+      "The number of features used"
+    ],
+    "answer": "The penalty for incorrect predictions",
+    "explanation": "The correct answer is The penalty for incorrect predictions."
+  },
+  {
+    "question": "Which loss function penalizes outliers most heavily?",
+    "options": [
+      "0-1 Loss",
+      "L\u2081 Loss",
+      "L\u2082 Loss",
+      "All penalize equally"
+    ],
+    "answer": "L\u2082 Loss",
+    "explanation": "The correct answer is L\u2082 Loss because it squares the error, making large mistakes much more costly."
+  },
+  {
+    "question": "What happens to the perceptron weights when a prediction is correct?",
+    "options": [
+      "They increase",
+      "They decrease",
+      "They stay unchanged",
+      "They are reset to zero"
+    ],
+    "answer": "They stay unchanged",
+    "explanation": "The correct answer is They stay unchanged. The perceptron learning rule only updates weights on mistakes."
+  },
+  {
+    "question": "What distinguishes a Support Vector Machine from a perceptron?",
+    "options": [
+      "SVMs are always faster",
+      "SVMs maximise the margin between classes",
+      "SVMs don't use weights",
+      "SVMs only work with labelled data"
+    ],
+    "answer": "SVMs maximise the margin between classes",
+    "explanation": "The correct answer is SVMs maximise the margin between classes. While a perceptron finds any separating boundary, an SVM finds the one with the widest possible margin."
+  },
+  {
+    "question": "Which points define the decision boundary in an SVM?",
+    "options": [
+      "All training points",
+      "Points farthest from the boundary",
+      "Support vectors \u2014 points closest to the boundary",
+      "Randomly selected points"
+    ],
+    "answer": "Support vectors \u2014 points closest to the boundary",
+    "explanation": "The correct answer is Support vectors \u2014 points closest to the boundary. Only these critical points determine the margin and the boundary."
+  }
+]

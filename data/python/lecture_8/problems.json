@@ -1,0 +1,32 @@
+[
+  {
+    "id": "unique_sorter",
+    "title": "Unique Sorter",
+    "description": "Given a list with duplicates [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5], remove duplicates using a set and sort the result.",
+    "difficulty": "easy",
+    "starterCode": "nums = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]\n\n# Remove duplicates and sort",
+    "solution": "nums = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]\nunique = sorted(set(nums))\nprint(f\"Unique: {unique}\")",
+    "testCases": [
+      {
+        "label": "Unique sort",
+        "input": "",
+        "expectedOutput": "Unique: [1, 2, 3, 4, 5, 6, 9]"
+      }
+    ]
+  },
+  {
+    "id": "tuple_operations",
+    "title": "Tuple Operations",
+    "description": "Create a tuple with coordinates (x, y, z). Unpack it into three variables. Swap x and z using tuple unpacking. Print the result.",
+    "difficulty": "easy",
+    "starterCode": "coords = (10, 20, 30)\nx, y, z = coords\n\n# Swap x and z and print",
+    "solution": "coords = (10, 20, 30)\nx, y, z = coords\nx, z = z, x\nprint(f\"x={x}, y={y}, z={z}\")",
+    "testCases": [
+      {
+        "label": "Swapped coordinates",
+        "input": "",
+        "expectedOutput": "x=30, y=20, z=10"
+      }
+    ]
+  }
+]

@@ -1,0 +1,33 @@
+[
+  {
+    "id": "hello_world",
+    "title": "Hello World",
+    "description": "Write a program that prints 'Hello, World!' to the screen.",
+    "difficulty": "easy",
+    "starterCode": "",
+    "solution": "print(\"Hello, World!\")",
+    "testCases": [
+      {
+        "label": "Prints Hello, World!",
+        "input": "",
+        "expectedOutput": "Hello, World!"
+      }
+    ]
+  },
+  {
+    "id": "personal_info",
+    "title": "Personal Info",
+    "description": "Write a program that prints your name, age, and the city you live in \u2014 each on a separate line using three print() statements.",
+    "difficulty": "easy",
+    "starterCode": "",
+    "solution": "print(\"Your Name\")\nprint(\"Your Age\")\nprint(\"Your City\")",
+    "testCases": [
+      {
+        "label": "Prints 3 lines of output",
+        "input": "",
+        "expectedOutput": "Line 1\nLine 2\nLine 3",
+        "matchType": "any_lines"
+      }
+    ]
+  }
+]

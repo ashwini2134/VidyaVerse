@@ -1,0 +1,57 @@
+[
+  {
+    "question": "Neural networks are inspired by?",
+    "options": [
+      "Logic rules",
+      "Probability",
+      "Search algorithms",
+      "The human brain"
+    ],
+    "answer": "The human brain",
+    "explanation": "The correct answer is The human brain."
+  },
+  {
+    "question": "What does the input layer do?",
+    "options": [
+      "Adjusts weights",
+      "Produces the answer",
+      "Receives the data",
+      "Stores rules"
+    ],
+    "answer": "Receives the data",
+    "explanation": "The correct answer is Receives the data."
+  },
+  {
+    "question": "Weights control?",
+    "options": [
+      "How much each input matters",
+      "The training speed",
+      "The number of layers",
+      "The data size"
+    ],
+    "answer": "How much each input matters",
+    "explanation": "The correct answer is How much each input matters."
+  },
+  {
+    "question": "Deep Learning uses?",
+    "options": [
+      "Search trees",
+      "Many hidden layers",
+      "One layer only",
+      "No layers"
+    ],
+    "answer": "Many hidden layers",
+    "explanation": "The correct answer is Many hidden layers."
+  },
+  {
+    "question": "CNNs are best for?",
+    "options": [
+      "Text generation",
+      "Image recognition",
+      "Route planning",
+      "Logic problems"
+    ],
+    "answer": "Image recognition",
+    "explanation": "The correct answer is Image recognition."
+  }
+]

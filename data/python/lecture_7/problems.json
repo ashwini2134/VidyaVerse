@@ -1,0 +1,38 @@
+[
+  {
+    "id": "marks_manager",
+    "title": "Marks Manager",
+    "description": "Create a list of 5 marks. Add a new mark, remove the lowest mark, sort the list, and print the average.",
+    "difficulty": "medium",
+    "starterCode": "marks = [78, 92, 85, 63, 88]\n\n# Add 95\n# Remove lowest\n# Sort and print average",
+    "solution": "marks = [78, 92, 85, 63, 88]\nmarks.append(95)\nmarks.remove(min(marks))\nmarks.sort()\nprint(f\"Sorted: {marks}\")\nprint(f\"Average: {sum(marks)//len(marks)}\")",
+    "testCases": [
+      {
+        "label": "Marks output",
+        "input": "",
+        "expectedOutput": "Sorted: [78, 85, 88, 92, 95]\nAverage: 87"
+      }
+    ]
+  },
+  {
+    "id": "list_reversal",
+    "title": "List Reversal",
+    "description": "Create a list of 5 numbers. Reverse it using slicing and print both the original and reversed lists.",
+    "difficulty": "easy",
+    "starterCode": "nums = [1, 2, 3, 4, 5]\n\n# Reverse and print",
+    "solution": "nums = [1, 2, 3, 4, 5]\nreversed_nums = nums[::-1]\nprint(f\"Original: {nums}\")\nprint(f\"Reversed: {reversed_nums}\")",
+    "testCases": [
+      {
+        "label": "List reversal",
+        "input": "",
+        "expectedOutput": "Original: [1, 2, 3, 4, 5]\nReversed: [5, 4, 3, 2, 1]"
+      }
+    ]
+  },
+  {
+    "id": "shopping_list",
+    "title": "Shopping List Manager",
+    "description": "Build a menu-driven shopping list with add, remove, and purchase tracking.",
+    "difficulty": "medium"
+  }
+]

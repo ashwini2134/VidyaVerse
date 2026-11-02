@@ -1,0 +1,122 @@
+[
+  {
+    "id": "draw_nn",
+    "title": "3-Layer NN Simulator",
+    "description": "Let's simulate a simple 3-layer neural network (Input -> Hidden -> Output).\n\nYour program must:\n1. Read a float value representing the Input Node.\n2. Calculate the Hidden Node value: `Input * 0.5`.\n3. Calculate the Output Node value: `Hidden * 0.8`.\n4. Print the final Output Node value exactly.\n\nSample Input:\n10.0\n\nSample Output:\n4.0",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "input_val = float(input())\n\n# Calculate hidden_val\n\n# Calculate output_val\n\n# Print output_val\n",
+    "solution": "input_val = float(input())\nhidden_val = input_val * 0.5\noutput_val = hidden_val * 0.8\nprint(output_val)",
+    "hints": [
+      "You just need two multiplication steps in sequence.",
+      "Store the result of the first multiplication in a variable so you can use it in the second."
+    ],
+    "testCases": [
+      {
+        "label": "Input 10",
+        "input": "10.0",
+        "expectedOutput": "4.0\n"
+      },
+      {
+        "label": "Input 0",
+        "input": "0.0",
+        "expectedOutput": "0.0\n"
+      },
+      {
+        "label": "Input 2.5",
+        "input": "2.5",
+        "expectedOutput": "1.0\n"
+      }
+    ]
+  },
+  {
+    "id": "weighted_sum",
+    "title": "Weighted Sum Calculator",
+    "description": "Write Python to calculate a weighted sum of two inputs, like a neuron does.\n\nYour program must:\n1. Read Input 1 as a float. It has a weight of 0.5.\n2. Read Input 2 as a float. It has a weight of -0.2.\n3. Calculate the weighted sum: `(Input1 * 0.5) + (Input2 * -0.2)`.\n4. Print the final calculated sum.\n\nSample Input:\n10.0\n5.0\n\nSample Output:\n4.0",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "in1 = float(input())\nin2 = float(input())\n\n# Your code here\n",
+    "solution": "in1 = float(input())\nin2 = float(input())\ntotal = (in1 * 0.5) + (in2 * -0.2)\nprint(total)",
+    "hints": [
+      "Multiply each input by its respective weight, then add them together.",
+      "Be careful with the negative weight."
+    ],
+    "testCases": [
+      {
+        "label": "Standard",
+        "input": "10.0\n5.0",
+        "expectedOutput": "4.0\n"
+      },
+      {
+        "label": "Both zero",
+        "input": "0.0\n0.0",
+        "expectedOutput": "0.0\n"
+      },
+      {
+        "label": "Negative input",
+        "input": "-10.0\n10.0",
+        "expectedOutput": "-7.0\n"
+      }
+    ]
+  },
+  {
+    "id": "activation_functions_sim1",
+    "title": "ReLU Activation Function (Similar A)",
+    "description": "A very common activation function in deep learning is ReLU (Rectified Linear Unit). It is very simple: if the input is greater than 0, it outputs the input. Otherwise, it outputs 0.\n\nYour program must:\n1. Read a float input.\n2. Apply the ReLU logic.\n3. Print the result.\n\nSample Input:\n-3.5\n\nSample Output:\n0.0",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "val = float(input())\n\n# Apply ReLU logic and print\n",
+    "solution": "val = float(input())\nif val > 0:\n    print(val)\nelse:\n    print(0.0)",
+    "hints": [
+      "Use a simple `if val > 0:` block.",
+      "You can use `max(0.0, val)` as a single-line trick if you know how it works!"
+    ],
+    "testCases": [
+      {
+        "label": "Negative",
+        "input": "-3.5",
+        "expectedOutput": "0.0\n"
+      },
+      {
+        "label": "Positive",
+        "input": "7.2",
+        "expectedOutput": "7.2\n"
+      },
+      {
+        "label": "Zero",
+        "input": "0.0",
+        "expectedOutput": "0.0\n"
+      }
+    ]
+  },
+  {
+    "id": "nn_threshold_sim2",
+    "title": "Step Activation Function (Similar B)",
+    "description": "Write a Python script that acts like a simple Step Activation Function neuron.\n\nYour program must:\n1. Read a float representing a calculated 'weighted sum'.\n2. If the sum is greater than or equal to 0, print '1' (Activated).\n3. Otherwise, print '0' (Deactivated).\n\nSample Input:\n1.5\n\nSample Output:\n1",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "weighted_sum = float(input())\n\n# Your code here\n",
+    "solution": "weighted_sum = float(input())\nif weighted_sum >= 0:\n    print('1')\nelse:\n    print('0')",
+    "hints": [
+      "Use the `>=` operator to check for 'greater than or equal to 0'.",
+      "Make sure to print integers or strings '1' and '0'."
+    ],
+    "testCases": [
+      {
+        "label": "Positive",
+        "input": "1.5",
+        "expectedOutput": "1\n"
+      },
+      {
+        "label": "Negative",
+        "input": "-0.1",
+        "expectedOutput": "0\n"
+      },
+      {
+        "label": "Zero boundary",
+        "input": "0.0",
+        "expectedOutput": "1\n"
+      }
+    ]
+  }
+]

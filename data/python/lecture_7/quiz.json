@@ -1,0 +1,57 @@
+[
+  {
+    "question": "What is the index of the first element in a list?",
+    "options": [
+      "1",
+      "-1",
+      "0",
+      "First"
+    ],
+    "answer": "0",
+    "explanation": "Python uses zero-based indexing. The first element is at index 0."
+  },
+  {
+    "question": "What does fruits[-1] give you?",
+    "options": [
+      "The first element",
+      "An error",
+      "The last element",
+      "The second-to-last element"
+    ],
+    "answer": "The last element",
+    "explanation": "Negative indices count from the end. -1 is the last element."
+  },
+  {
+    "question": "What does [1, 2, 3, 4, 5][1:4] return?",
+    "options": [
+      "[1, 2, 3, 4]",
+      "[2, 3, 4]",
+      "[2, 3, 4, 5]",
+      "[1, 2, 3]"
+    ],
+    "answer": "[2, 3, 4]",
+    "explanation": "Slicing [1:4] starts at index 1 and goes up to (not including) index 4."
+  },
+  {
+    "question": "Which method adds an item to the end of a list?",
+    "options": [
+      "append()",
+      "insert()",
+      "add()",
+      "push()"
+    ],
+    "answer": "append()",
+    "explanation": "append(item) adds the item to the end of the list."
+  },
+  {
+    "question": "What does [3, 1, 2].sort() do?",
+    "options": [
+      "Creates a new sorted list",
+      "Returns None",
+      "Sorts the list in place to [1, 2, 3]",
+      "Returns [1, 2, 3]"
+    ],
+    "answer": "Sorts the list in place to [1, 2, 3]",
+    "explanation": "sort() sorts the list in-place, modifying the original list."
+  }
+]

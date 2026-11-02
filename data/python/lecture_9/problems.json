@@ -1,0 +1,38 @@
+[
+  {
+    "id": "student_grades",
+    "title": "Student Grades",
+    "description": "Create a dictionary with student names as keys and their grades as values. Add a new student, update an existing grade, and print each student with their grade.",
+    "difficulty": "easy",
+    "starterCode": "grades = {\"Alice\": 85, \"Bob\": 92, \"Charlie\": 78}\n\n# Add Diana with grade 88\n# Update Bob to 95\n# Print all",
+    "solution": "grades = {\"Alice\": 85, \"Bob\": 92, \"Charlie\": 78}\ngrades[\"Diana\"] = 88\ngrades[\"Bob\"] = 95\nfor name, grade in grades.items():\n    print(f\"{name}: {grade}\")",
+    "testCases": [
+      {
+        "label": "Grades output",
+        "input": "",
+        "expectedOutput": "Alice: 85\nBob: 95\nCharlie: 78\nDiana: 88"
+      }
+    ]
+  },
+  {
+    "id": "word_frequency",
+    "title": "Word Frequency",
+    "description": "Count how many times each word appears in the sentence 'the cat and the dog and the bird'. Use a dictionary.",
+    "difficulty": "medium",
+    "starterCode": "sentence = \"the cat and the dog and the bird\"\nwords = sentence.split()\ncounts = {}\n\n# Count word frequencies",
+    "solution": "sentence = \"the cat and the dog and the bird\"\nwords = sentence.split()\ncounts = {}\nfor word in words:\n    if word in counts:\n        counts[word] += 1\n    else:\n        counts[word] = 1\nprint(counts)",
+    "testCases": [
+      {
+        "label": "Word frequencies",
+        "input": "",
+        "expectedOutput": "{'the': 3, 'cat': 1, 'and': 2, 'dog': 1, 'bird': 1}"
+      }
+    ]
+  },
+  {
+    "id": "contact_book",
+    "title": "Contact Book",
+    "description": "Manage contacts using a dictionary with search and update features.",
+    "difficulty": "medium"
+  }
+]

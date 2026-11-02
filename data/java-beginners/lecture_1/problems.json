@@ -1,0 +1,47 @@
+[
+  {
+    "id": "problem_1_lecture_1",
+    "title": "Problem 1 - Variables & Data Types",
+    "description": "Solve this problem related to Variables & Data Types.",
+    "difficulty": "easy",
+    "starterCode": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "solution": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "testCases": [
+      {
+        "label": "Test case 1",
+        "input": "",
+        "expectedOutput": ""
+      }
+    ]
+  },
+  {
+    "id": "problem_2_lecture_1",
+    "title": "Problem 2 - Variables & Data Types",
+    "description": "Solve this problem related to Variables & Data Types.",
+    "difficulty": "medium",
+    "starterCode": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "solution": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "testCases": [
+      {
+        "label": "Test case 1",
+        "input": "",
+        "expectedOutput": ""
+      }
+    ]
+  },
+  {
+    "id": "problem_3_lecture_1",
+    "title": "Problem 3 - Variables & Data Types",
+    "description": "Solve this problem related to Variables & Data Types.",
+    "difficulty": "hard",
+    "starterCode": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "solution": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "testCases": [
+      {
+        "label": "Test case 1",
+        "input": "",
+        "expectedOutput": ""
+      }
+    ]
+  }
+]

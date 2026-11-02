@@ -1,0 +1,47 @@
+[
+  {
+    "id": "problem_1_lecture_2",
+    "title": "Problem 1 - Methods & Multiplication Table",
+    "description": "Solve this problem related to Methods & Multiplication Table.",
+    "difficulty": "easy",
+    "starterCode": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "solution": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "testCases": [
+      {
+        "label": "Test case 1",
+        "input": "",
+        "expectedOutput": ""
+      }
+    ]
+  },
+  {
+    "id": "problem_2_lecture_2",
+    "title": "Problem 2 - Methods & Multiplication Table",
+    "description": "Solve this problem related to Methods & Multiplication Table.",
+    "difficulty": "medium",
+    "starterCode": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "solution": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "testCases": [
+      {
+        "label": "Test case 1",
+        "input": "",
+        "expectedOutput": ""
+      }
+    ]
+  },
+  {
+    "id": "problem_3_lecture_2",
+    "title": "Problem 3 - Methods & Multiplication Table",
+    "description": "Solve this problem related to Methods & Multiplication Table.",
+    "difficulty": "hard",
+    "starterCode": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "solution": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "testCases": [
+      {
+        "label": "Test case 1",
+        "input": "",
+        "expectedOutput": ""
+      }
+    ]
+  }
+]

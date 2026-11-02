@@ -1,0 +1,433 @@
+{
+  "id": "python20-lecture-12",
+  "courseSlug": "python20",
+  "number": 12,
+  "title": "File Handling",
+  "overview": "Real programs don't lose data when they close. File handling lets your programs save data permanently, read existing files, and create a conversation between your program and the file system.",
+  "estimatedMinutes": 55,
+  "sections": [
+    {
+      "id": "reading-files",
+      "label": "Reading Files",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Until now, all your program's data disappears when it ends. File handling changes that. You can read from and write to files that persist on disk."
+        },
+        {
+          "type": "text",
+          "content": "Python uses the built-in `open()` function. It takes two arguments: the file path, and the **mode** (`'r'` for read, `'w'` for write, `'a'` for append)."
+        },
+        {
+          "type": "text",
+          "content": "The recommended way is using a `with` block — it automatically closes the file when done, even if an error occurs."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Reading a File",
+          "language": "python",
+          "code": "# Create a demo file first\nwith open(\"demo.txt\", \"w\") as f:\n    f.write(\"Hello from Python!\\nLine 2\\nLine 3\")\n\n# Now read it\nwith open(\"demo.txt\", \"r\") as f:\n    content = f.read()  # Read entire file as string\n\nprint(content)\nprint(\"---\")\n\n# Read line by line\nwith open(\"demo.txt\", \"r\") as f:\n    for line in f:\n        print(line.strip())",
+          "expectedOutput": "Hello from Python!\nLine 2\nLine 3\n---\nHello from Python!\nLine 2\nLine 3",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "**Reading methods:**\n\n`f.read()` — reads the entire file as one string.\n\n`f.readlines()` — reads all lines into a list.\n\n`for line in f:` — iterates line by line (most memory-efficient)."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Library Book",
+            "description": "Opening a file is like checking out a library book. You open it (open()), read what you need (read/readlines), and return it (close, which with does automatically). While you have it open, you can also write notes in the margins.",
+            "image": "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800&q=80",
+            "bullets": [
+              "Walk into the library and ask for a specific book by title.",
+              "Open it, read the content page by page.",
+              "Close it and return it to the shelf when you're done."
+            ],
+            "highlightCard": "Reading a file follows the same pattern: open, read, close."
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Reading a File",
+            "items": [
+              "open(filename, 'r') → open for reading",
+              "f.read() → get all content",
+              "with block → auto-closes after"
+            ],
+            "bullets": [
+              "open('file.txt', 'r') opens the file in read mode.",
+              "file.read() loads the entire content as a string.",
+              "Always close the file after — or use 'with' to close it automatically."
+            ],
+            "highlightCard": "with open('file.txt', 'r') as f: is the safest way to read a file in Python."
+          },
+          "code": {
+            "language": "python",
+            "code": "with open(\"notes.txt\", \"r\") as f:\n    lines = f.readlines()\nprint(f\"{len(lines)} lines found\")",
+            "output": "3 lines found",
+            "highlights": [
+              "with open(...) as f: automatically closes the file when the block ends.",
+              "f.read() returns the entire file content as a single string.",
+              "f.readlines() returns a list — one element per line of the file."
+            ],
+            "highlightCard": "Always use 'with open()' — it handles closing automatically, even if an error occurs."
+          },
+          "reflection": {
+            "question": "Why is the 'with' statement recommended for file operations?",
+            "answer": "It automatically closes the file after the block ends — even if an error occurs. This prevents resource leaks and data corruption.",
+            "options": [
+              "It makes reading faster",
+              "It automatically closes the file, preventing resource leaks",
+              "It's required by Python 3",
+              "It encrypts the file"
+            ]
+          },
+          "stage1Transition": "Python reads files exactly like borrowing a library book. Let's see the syntax.",
+          "stage2Transition": "Here is how to read a file safely in Python.",
+          "takeaway": "Reading a file is like borrowing a library book: open it, read what you need, then close it. Python's 'with open()' handles the closing automatically so you never forget."
+        },
+        {
+          "type": "practice",
+          "title": "File Line Counter",
+          "instructions": "Create a file called 'students.txt' with 3 student names (one per line). Then open it and print: each line (stripped of whitespace) and the total line count at the end.",
+          "starterCode": "# Create the file\nwith open(\"students.txt\", \"w\") as f:\n    f.write(\"Priya Sharma\\nRavi Kumar\\nMeera Nair\")\n\n# Read and print\ncount = 0\nwith open(\"students.txt\", \"r\") as f:\n    for line in f:\n        print(line.strip())\n        count += 1\n\nprint(f\"Total students: {count}\")",
+          "solution": "with open(\"students.txt\", \"w\") as f:\n    f.write(\"Priya Sharma\\nRavi Kumar\\nMeera Nair\")\n\ncount = 0\nwith open(\"students.txt\", \"r\") as f:\n    for line in f:\n        print(line.strip())\n        count += 1\n\nprint(f\"Total students: {count}\")",
+          "hint": "Use for line in f: to iterate, .strip() to clean each line, and a counter variable.",
+          "expectedOutput": "Priya Sharma\nRavi Kumar\nMeera Nair\nTotal students: 3"
+        }
+      ]
+    },
+    {
+      "id": "writing-files",
+      "label": "Writing and Appending Files",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Writing to a file is just as straightforward. Open with mode `'w'` and use `f.write()`."
+        },
+        {
+          "type": "text",
+          "content": "**Critical difference:**\n\n`'w'` (write) — creates the file if it doesn't exist. If it DOES exist, it **overwrites everything inside**.\n\n`'a'` (append) — adds to the end of the file without deleting existing content."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Writing vs Appending",
+          "language": "python",
+          "code": "# Write mode — overwrites\nwith open(\"log.txt\", \"w\") as f:\n    f.write(\"Session 1 started\\n\")\n    f.write(\"User logged in\\n\")\n\n# Append mode — adds to existing\nwith open(\"log.txt\", \"a\") as f:\n    f.write(\"Session 2 started\\n\")\n\n# Read result\nwith open(\"log.txt\", \"r\") as f:\n    print(f.read())",
+          "expectedOutput": "Session 1 started\nUser logged in\nSession 2 started\n",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "Notice that `write()` doesn't add a newline automatically. You must include `\\n` at the end of each line if you want them on separate lines."
+        },
+        {
+          "type": "text",
+          "content": "**`writelines()`** lets you write a list of strings at once — but again, you need `\\n` in each string."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Writing Multiple Lines",
+          "language": "python",
+          "code": "students = [\"Arjun\", \"Priya\", \"Ravi\", \"Meera\"]\n\n# Write list to file\nwith open(\"roster.txt\", \"w\") as f:\n    for student in students:\n        f.write(student + \"\\n\")\n\n# Verify\nwith open(\"roster.txt\", \"r\") as f:\n    print(f.read())",
+          "expectedOutput": "Arjun\nPriya\nRavi\nMeera\n",
+          "editable": true
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Whiteboard vs Notebook",
+            "description": "'w' mode is a whiteboard — clean slate every time you open it. 'a' mode is a notebook — you flip to the next empty page and keep writing. Choose based on whether you want to replace or accumulate.",
+            "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+            "bullets": [
+              "A whiteboard is erased and rewritten completely each use.",
+              "A notebook has new pages added — previous content stays intact.",
+              "Choosing wrong means either losing data or creating a confusing mess."
+            ],
+            "highlightCard": "'w' mode overwrites completely. 'a' mode appends — previous content is preserved."
+          },
+          "visualization": {
+            "type": "decision",
+            "title": "Write or Append?",
+            "condition": "Do I want to keep existing content?",
+            "trueLabel": "Use 'a' (append)",
+            "falseLabel": "Use 'w' (overwrite)",
+            "bullets": [
+              "'w' (write) creates a new file or erases an existing one before writing.",
+              "'a' (append) opens the file and adds new content after everything already there.",
+              "Choose 'w' to replace, choose 'a' to grow — the wrong choice loses data."
+            ],
+            "highlightCard": "'w' = whiteboard (erase and rewrite). 'a' = notebook (add to the end)."
+          },
+          "code": {
+            "language": "python",
+            "code": "# Log entry each run (append)\nwith open(\"activity.log\", \"a\") as f:\n    f.write(\"User visited dashboard\\n\")",
+            "output": "Writes to end of file",
+            "highlights": [
+              "open('log.txt', 'w') erases the file and starts fresh every time.",
+              "open('log.txt', 'a') keeps existing content and appends after it.",
+              "\\n at the end of each write ensures new entries start on new lines."
+            ],
+            "highlightCard": "Choose your file mode carefully — the wrong one can silently destroy existing data."
+          },
+          "reflection": {
+            "question": "You want to add a new entry to an existing log file each day. Which mode?",
+            "answer": "'a' (append) — it adds to the end without deleting previous entries. 'w' would erase all previous logs.",
+            "options": [
+              "'r'",
+              "'w'",
+              "'a'",
+              "'x'"
+            ]
+          },
+          "stage1Transition": "Python gives you two write modes for very different purposes. Let's compare them.",
+          "stage2Transition": "Here is how 'w' and 'a' modes behave differently in Python.",
+          "takeaway": "A whiteboard is 'w' mode (erase and rewrite), a notebook is 'a' mode (add pages). Python's file writing modes work identically — choose based on whether you need to replace or grow."
+        },
+        {
+          "type": "practice",
+          "title": "Expense Logger",
+          "instructions": "Build an expense logger. Create a file 'expenses.txt' and write 3 expenses (each on its own line in format: 'Item: Rs.Amount'). Then append a 4th expense. Finally read and print the entire file.",
+          "starterCode": "# Write 3 initial expenses\nwith open(\"expenses.txt\", \"w\") as f:\n    f.write(\"Canteen: Rs.45\\n\")\n    f.write(\"Bus: Rs.20\\n\")\n    f.write(\"Stationery: Rs.150\\n\")\n\n# Append a new expense\n\n\n# Read and display\nwith open(\"expenses.txt\", \"r\") as f:\n    print(f.read())",
+          "solution": "with open(\"expenses.txt\", \"w\") as f:\n    f.write(\"Canteen: Rs.45\\n\")\n    f.write(\"Bus: Rs.20\\n\")\n    f.write(\"Stationery: Rs.150\\n\")\n\nwith open(\"expenses.txt\", \"a\") as f:\n    f.write(\"Coffee: Rs.30\\n\")\n\nwith open(\"expenses.txt\", \"r\") as f:\n    print(f.read())",
+          "hint": "Use mode 'a' for the 4th expense. Remember to include \\n at the end of each line.",
+          "expectedOutput": "Canteen: Rs.45\nBus: Rs.20\nStationery: Rs.150\nCoffee: Rs.30\n"
+        }
+      ]
+    },
+    {
+      "id": "file-modes-errors",
+      "label": "File Modes and Error Handling",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "What happens when you try to read a file that doesn't exist? Python raises a `FileNotFoundError` and your program crashes."
+        },
+        {
+          "type": "text",
+          "content": "The `try-except` block lets you handle these errors gracefully instead of crashing."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Handling File Errors",
+          "language": "python",
+          "code": "filename = \"nonexistent.txt\"\n\ntry:\n    with open(filename, \"r\") as f:\n        content = f.read()\n    print(content)\nexcept FileNotFoundError:\n    print(f\"Error: '{filename}' was not found.\")\nexcept PermissionError:\n    print(\"Error: You don't have permission to read this file.\")",
+          "expectedOutput": "Error: 'nonexistent.txt' was not found.",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "Complete file mode reference:\n\n`'r'` — Read (file must exist)\n`'w'` — Write (creates new, or overwrites)\n`'a'` — Append (creates new, or adds to end)\n`'x'` — Create (creates new, fails if exists)\n`'r+'` — Read + Write\n`'b'` suffix — Binary mode (e.g., `'rb'` for binary read)"
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Check File Existence Before Opening",
+          "language": "python",
+          "code": "import os\n\nfilename = \"data.txt\"\n\nif os.path.exists(filename):\n    with open(filename, \"r\") as f:\n        print(f.read())\nelse:\n    print(f\"{filename} does not exist. Creating it...\")\n    with open(filename, \"w\") as f:\n        f.write(\"New file created!\\n\")\n    print(\"File created.\")",
+          "expectedOutput": "data.txt does not exist. Creating it...\nFile created.",
+          "editable": true
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "ATM Safety Net",
+            "description": "An ATM doesn't crash when you enter a wrong PIN — it shows an error message and gives you another chance. try-except is your code's safety net. Handle the problem gracefully instead of crashing the program.",
+            "image": "https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=800&q=80",
+            "bullets": [
+              "The ATM handles network errors, wrong PINs, and empty accounts gracefully.",
+              "Each error type triggers a specific helpful message, not a crash.",
+              "The machine stays online and useful even when something goes wrong."
+            ],
+            "highlightCard": "try-except catches errors and handles them gracefully instead of crashing."
+          },
+          "visualization": {
+            "type": "decision",
+            "title": "Error Handling Flow",
+            "condition": "Did an error occur?",
+            "trueLabel": "except block runs → handle gracefully",
+            "falseLabel": "try block completes normally",
+            "bullets": [
+              "try: contains the code that might raise an error.",
+              "except ErrorType: runs only if that specific error occurs in the try block.",
+              "finally: always runs — whether an error occurred or not."
+            ],
+            "highlightCard": "try → except → finally: the three-part structure of every error handler in Python."
+          },
+          "code": {
+            "language": "python",
+            "code": "try:\n    with open(\"data.txt\", \"r\") as f:\n        print(f.read())\nexcept FileNotFoundError:\n    print(\"File not found!\")",
+            "output": "File not found!",
+            "highlights": [
+              "The try block runs first — if no error, except is completely skipped.",
+              "except FileNotFoundError catches only that specific error type.",
+              "finally always runs — perfect for cleanup like closing files."
+            ],
+            "highlightCard": "Error handling keeps your program running gracefully when the unexpected happens."
+          },
+          "reflection": {
+            "question": "What is the advantage of try-except over letting the program crash?",
+            "answer": "The program continues running and shows a friendly error message instead of an ugly traceback. You can also take corrective action — like creating the missing file.",
+            "options": [
+              "try-except is faster",
+              "The program continues and shows a friendly message instead of crashing",
+              "It automatically fixes the error",
+              "It's required for file operations"
+            ]
+          },
+          "stage1Transition": "Python's try-except is your program's safety net. Let's see how error handling works.",
+          "stage2Transition": "Here is how try-except-finally looks in Python.",
+          "takeaway": "An ATM handles errors gracefully without crashing — that's try-except. Python's error handling lets your program respond to problems intelligently instead of failing abruptly."
+        },
+        {
+          "type": "practice",
+          "title": "Safe File Reader",
+          "instructions": "Write a function read_file(filename) that: tries to open and read the file, prints its contents if successful, and prints a friendly error message if the file doesn't exist. Test with both a valid file ('students.txt') and an invalid one ('missing.txt').",
+          "starterCode": "def read_file(filename):\n    try:\n        with open(filename, \"r\") as f:\n            print(f.read())\n    except FileNotFoundError:\n        print(f\"Sorry, '{filename}' could not be found.\")\n\n# Test\nread_file(\"students.txt\")\nread_file(\"missing.txt\")",
+          "solution": "def read_file(filename):\n    try:\n        with open(filename, \"r\") as f:\n            print(f.read())\n    except FileNotFoundError:\n        print(f\"Sorry, '{filename}' could not be found.\")\n\nread_file(\"students.txt\")\nread_file(\"missing.txt\")",
+          "hint": "Wrap the open() call in try, and handle FileNotFoundError in except.",
+          "expectedOutput": "Priya Sharma\nRavi Kumar\nMeera Nair\n\nSorry, 'missing.txt' could not be found."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "open(filename, mode) opens a file. Use 'r' to read, 'w' to write, 'a' to append."
+      },
+      {
+        "text": "The 'with' block automatically closes the file — always use it."
+      },
+      {
+        "text": "f.read() reads the entire file; f.readlines() returns a list of lines."
+      },
+      {
+        "text": "f.write() writes a string. Remember to include \\n for new lines."
+      },
+      {
+        "text": "'w' overwrites the file. 'a' adds to the end without erasing."
+      },
+      {
+        "text": "Use try-except FileNotFoundError to handle missing files gracefully."
+      },
+      {
+        "text": "os.path.exists() checks if a file exists before opening it."
+      }
+    ],
+    "whatYouLearned": [
+      "How to read files using read(), readlines(), and line-by-line iteration",
+      "How to write and append to files",
+      "The difference between write mode and append mode",
+      "How to handle file errors gracefully with try-except"
+    ],
+    "nextUp": "Mini Project"
+  },
+  "quiz": [
+    {
+      "question": "Which mode erases the file contents before writing?",
+      "options": [
+        "'a'",
+        "'r'",
+        "'w'",
+        "'r+'"
+      ],
+      "answer": "'w'",
+      "explanation": "'w' (write mode) creates the file if it doesn't exist, or completely overwrites it if it does. 'a' (append) preserves existing content and writes to the end."
+    },
+    {
+      "question": "Why is 'with open(...) as f:' preferred over 'f = open(...)'?",
+      "options": [
+        "It reads faster",
+        "It automatically closes the file even if an error occurs",
+        "It's required for Python 3",
+        "It enables concurrent access"
+      ],
+      "answer": "It automatically closes the file even if an error occurs",
+      "explanation": "The with statement is a context manager. It guarantees the file is closed after the block exits — even if an exception is raised inside the block."
+    },
+    {
+      "question": "What does f.readlines() return?",
+      "options": [
+        "A single string with all content",
+        "A list where each item is one line",
+        "The number of lines",
+        "Only the first line"
+      ],
+      "answer": "A list where each item is one line",
+      "explanation": "readlines() returns a list where each element is one line of text, including the newline character at the end. Use .strip() on each line to remove it."
+    },
+    {
+      "question": "What error does Python raise when you try to open a file that doesn't exist with 'r' mode?",
+      "options": [
+        "ValueError",
+        "OSError",
+        "FileNotFoundError",
+        "IOError"
+      ],
+      "answer": "FileNotFoundError",
+      "explanation": "FileNotFoundError is raised when Python can't locate the file you specified. Catch it with: except FileNotFoundError: to handle the case gracefully."
+    },
+    {
+      "question": "After writing 'Hello' with f.write('Hello'), what does the file contain?",
+      "options": [
+        "'Hello\\n'",
+        "'Hello'",
+        "'Hello '",
+        "Nothing — you need print()"
+      ],
+      "answer": "'Hello'",
+      "explanation": "Unlike print(), f.write() does NOT automatically add a newline. The file contains exactly what you write. Add '\\n' explicitly if you want a new line: f.write('Hello\\n')."
+    }
+  ],
+  "problems": [
+    {
+      "id": "python20-l12-p1",
+      "title": "Student Marks File",
+      "description": "Create a file 'marks.txt' with 5 student records, each on its own line in the format 'Name:Score'.\nThen read the file, parse each line, and print the student name and score separately.\nAlso print the class average.\n\nExample lines: Arjun:88\\nPriya:92\\nRavi:75\\nMeera:83\\nKaran:69",
+      "difficulty": "medium",
+      "starterCode": "# Write student data\nwith open(\"marks.txt\", \"w\") as f:\n    f.write(\"Arjun:88\\nPriya:92\\nRavi:75\\nMeera:83\\nKaran:69\")\n\n# Read and process\ntotal = 0\ncount = 0\n\nwith open(\"marks.txt\", \"r\") as f:\n    for line in f:\n        # Parse name and score\n        \nprint(f\"\\nClass average: {total/count:.1f}\")",
+      "solution": "with open(\"marks.txt\", \"w\") as f:\n    f.write(\"Arjun:88\\nPriya:92\\nRavi:75\\nMeera:83\\nKaran:69\")\n\ntotal = 0\ncount = 0\n\nwith open(\"marks.txt\", \"r\") as f:\n    for line in f:\n        name, score = line.strip().split(\":\")\n        score = int(score)\n        print(f\"{name}: {score}\")\n        total += score\n        count += 1\n\nprint(f\"\\nClass average: {total/count:.1f}\")",
+      "testCases": [
+        {
+          "label": "File parsing",
+          "input": "",
+          "expectedOutput": "Arjun: 88\nPriya: 92\nRavi: 75\nMeera: 83\nKaran: 69\n\nClass average: 81.4",
+          "matchType": "exact"
+        }
+      ]
+    },
+    {
+      "id": "python20-l12-p2",
+      "title": "Todo List App",
+      "description": "Build a simple to-do list that persists to a file.\n\n1. If 'todo.txt' exists, read and print current tasks\n2. Ask user to enter a new task\n3. Append the task to 'todo.txt'\n4. Print 'Task added: [task]'\n\nRun this simulation without actual input() — hardcode task = 'Buy groceries'",
+      "difficulty": "medium",
+      "starterCode": "import os\n\ntodo_file = \"todo.txt\"\n\n# Clear any existing file for testing\nwith open(todo_file, \"w\") as f:\n    f.write(\"Finish Python homework\\nStudy for exams\\n\")\n\n# Step 1: Read and display current tasks\nif os.path.exists(todo_file):\n    print(\"Current tasks:\")\n    with open(todo_file, \"r\") as f:\n        for line in f:\n            print(\"-\", line.strip())\n\n# Step 2 & 3: Add new task\nnew_task = \"Buy groceries\"\nwith open(todo_file, \"a\") as f:\n    f.write(new_task + \"\\n\")\n\nprint(f\"Task added: {new_task}\")",
+      "solution": "import os\n\ntodo_file = \"todo.txt\"\n\nwith open(todo_file, \"w\") as f:\n    f.write(\"Finish Python homework\\nStudy for exams\\n\")\n\nif os.path.exists(todo_file):\n    print(\"Current tasks:\")\n    with open(todo_file, \"r\") as f:\n        for line in f:\n            print(\"-\", line.strip())\n\nnew_task = \"Buy groceries\"\nwith open(todo_file, \"a\") as f:\n    f.write(new_task + \"\\n\")\n\nprint(f\"Task added: {new_task}\")",
+      "testCases": [
+        {
+          "label": "Todo list output",
+          "input": "",
+          "expectedOutput": "Current tasks:\n- Finish Python homework\n- Study for exams\nTask added: Buy groceries",
+          "matchType": "exact"
+        }
+      ]
+    },
+    {
+      "id": "python20-l12-p3",
+      "title": "File Statistics",
+      "description": "Create a text file with at least 5 lines of any content. Write a function file_stats(filename) that reads the file and returns a dictionary with:\n- 'lines': total number of lines\n- 'words': total number of words\n- 'chars': total number of characters (excluding newlines)\n\nPrint all three statistics.",
+      "difficulty": "medium",
+      "starterCode": "def file_stats(filename):\n    lines = 0\n    words = 0\n    chars = 0\n    with open(filename, \"r\") as f:\n        for line in f:\n            lines += 1\n            words += len(line.split())\n            chars += len(line.strip())\n    return {\"lines\": lines, \"words\": words, \"chars\": chars}\n\n# Create test file\nwith open(\"sample.txt\", \"w\") as f:\n    f.write(\"The quick brown fox\\njumps over the lazy dog\\nPython is awesome\\nI love coding\\nKeep learning every day\")\n\nstats = file_stats(\"sample.txt\")\nprint(f\"Lines: {stats['lines']}\")\nprint(f\"Words: {stats['words']}\")\nprint(f\"Characters: {stats['chars']}\")",
+      "solution": "def file_stats(filename):\n    lines = 0\n    words = 0\n    chars = 0\n    with open(filename, \"r\") as f:\n        for line in f:\n            lines += 1\n            words += len(line.split())\n            chars += len(line.strip())\n    return {\"lines\": lines, \"words\": words, \"chars\": chars}\n\nwith open(\"sample.txt\", \"w\") as f:\n    f.write(\"The quick brown fox\\njumps over the lazy dog\\nPython is awesome\\nI love coding\\nKeep learning every day\")\n\nstats = file_stats(\"sample.txt\")\nprint(f\"Lines: {stats['lines']}\")\nprint(f\"Words: {stats['words']}\")\nprint(f\"Characters: {stats['chars']}\")",
+      "testCases": [
+        {
+          "label": "File statistics",
+          "input": "",
+          "expectedOutput": "Lines: 5\nWords: 19\nCharacters: 91",
+          "matchType": "exact"
+        }
+      ]
+    }
+  ]
+}

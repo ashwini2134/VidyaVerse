@@ -1,0 +1,193 @@
+{
+  "id": "cs50ai-lecture-3",
+  "courseSlug": "cs50ai",
+  "number": 3,
+  "title": "Probability & Uncertainty",
+  "overview": "The real world is rarely certain — AI uses probability to handle situations that are not clearly True or False",
+  "estimatedMinutes": 60,
+  "nextUp": "Optimization",
+  "sections": [
+    {
+      "id": "prob-basics",
+      "label": "Probability Basics",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "What is Probability Basics?",
+          "body": "The real world is rarely certain — AI uses probability to handle situations that are not clearly True or False",
+          "bullets": [
+            "Probability is a number between 0 and 1 showing how likely something is",
+            "0 = impossible, 1 = certain, 0.7 = 70% likely",
+            "Every day examples: 70% chance of rain, 50% chance of heads on a coin flip",
+            "AI uses probability to make decisions even when it is not 100% sure",
+            "This concept is fundamental to AI development."
+          ],
+          "accentColor": "blue"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Think of Probability as a Weather Forecast",
+            "description": "Quantify uncertainty with numbers between 0 and 1",
+            "image": "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Probability = Handling Uncertainty",
+            "items": [
+              "Evidence",
+              "Probability Model",
+              "Likelihood"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "# Weather prediction: probability\ncloudy = 0.6\nrain_given_cloudy = 0.8\np_rain = cloudy * rain_given_cloudy\nprint(f\"P(rain) = {p_rain:.0%}\")",
+            "output": "P(rain) = 48%"
+          }
+        },
+        {
+          "type": "practice",
+          "title": "Calculating Simple Probabilities",
+          "instructions": "Calculate probabilities for coin flips and dice rolls.",
+          "starterCode": "# Calculate simple probabilities\np_head = 1 / 2\nprint(f\"P(Heads) = {p_head}\")\np_six = 1 / 6\nprint(f\"P(Rolling 6) = {p_six:.2f}\")\np_even = 3 / 6\nprint(f\"P(Even on die) = {p_even:.2f}\")",
+          "solution": "p_head = 1 / 2\nprint(f\"P(Heads) = {p_head}\")\np_six = 1 / 6\nprint(f\"P(Rolling 6) = {p_six:.2f}\")\np_even = 3 / 6\nprint(f\"P(Even on die) = {p_even:.2f}\")",
+          "hint": "Probability = number of favorable outcomes / total possible outcomes."
+        }
+      ]
+    },
+    {
+      "id": "bayes-theorem",
+      "label": "Conditional Probability & Bayes Theorem",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "What is Conditional Probability & Bayes Theorem?",
+          "body": "Conditional probability asks — what is the chance of X given that Y already happened? Bayes Theorem lets AI update its belief when new evidence arrives.",
+          "bullets": [
+            "Conditional probability: P(A|B) — probability of A given B is already true",
+            "Example: probability of wet roads given it rained = very high",
+            "Bayes Theorem updates probability when new evidence arrives",
+            "Spam filter example: AI updates its confidence that an email is spam as it reads more words",
+            "This concept is fundamental to AI development."
+          ],
+          "accentColor": "blue"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Think of Bayes' Rule as Updating Your Belief",
+            "description": "Update probabilities when new evidence arrives",
+            "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Bayes' Rule = Belief Update",
+            "items": [
+              "Prior Belief",
+              "New Evidence",
+              "Updated Belief"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "prior, sens, fp = 0.3, 0.8, 0.1\npost = (prior * sens) / (prior * sens + (1 - prior) * fp)\nprint(f\"P(spam | word) = {post:.0%}\")",
+            "output": "P(spam | word) = 77%"
+          }
+        },
+        {
+          "type": "practice",
+          "title": "Applying Bayes Theorem",
+          "instructions": "Use Bayes Theorem to calculate the probability an email is spam given it contains the word 'free'.",
+          "starterCode": "# Bayes Theorem: spam detection\nprior = 0.4       # P(spam) = 40% of emails are spam\nlikelihood = 0.9  # P('free' | spam) = 90% of spam has 'free'\nevidence = 0.5    # P('free') = 50% of all emails have 'free'\nposterior = (prior * likelihood) / evidence\nprint(f\"P(spam | contains 'free') = {posterior:.0%}\")",
+          "solution": "prior = 0.4\nlikelihood = 0.9\nevidence = 0.5\nposterior = (prior * likelihood) / evidence\nprint(f\"P(spam | 'free') = {posterior:.0%}\")",
+          "hint": "Bayes Theorem: posterior = (prior × likelihood) / evidence."
+        }
+      ]
+    },
+    {
+      "id": "getting-started",
+      "label": "Probability in Action",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "What is Steps for Probability?",
+          "body": "Using probability in practice involves these steps.",
+          "bullets": [
+            "Step 1: Assign a starting probability to your belief (prior)",
+            "Step 2: Observe new evidence",
+            "Step 3: Update your probability using Bayes Theorem",
+            "Step 4: Make a decision based on the updated probability",
+            "This concept is fundamental to AI development."
+          ],
+          "accentColor": "blue"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Think of Probability Flow as a Branching Path",
+            "description": "Each decision leads to different possible outcomes",
+            "image": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=800&q=80"
+          },
+          "visualization": {
+            "type": "decision",
+            "title": "Probability Tree",
+            "condition": "Flip coin?",
+            "trueLabel": "Heads (50%)",
+            "falseLabel": "Tails (50%)"
+          },
+          "code": {
+            "language": "python",
+            "code": "# Probability tree: coin flips\np = 0.5 ** 3\nprint(f\"P(HHH) = {p:.0%}\")\nprint(f\"P(at least 1 H) = {1 - 0.5**3:.0%}\")",
+            "output": "P(HHH) = 12%\nP(at least 1 H) = 88%"
+          }
+        },
+        {
+          "type": "code_example",
+          "title": "Probability & Bayes Theorem",
+          "language": "python",
+          "code": "# Calculate simple probability\ndef probability(favorable, total):\n    return round(favorable / total, 2)\n\n# Bayes: P(spam | word) = P(word | spam) * P(spam) / P(word)\np_spam = 0.3  # 30% of emails are spam\np_word_given_spam = 0.8  # 80% of spam contains 'free'\np_word = 0.4  # 40% of all emails contain 'free'\n\np_spam_given_word = (p_word_given_spam * p_spam) / p_word\nprint(f\"P(spam | 'free') = {p_spam_given_word:.0%}\")\n\n# Coin flip probability\nprint(f\"P(Heads) = {probability(1, 2)}\")",
+          "expectedOutput": "P(spam | 'free') = 60%\nP(Heads) = 0.5"
+        },
+        {
+          "type": "practice",
+          "title": "Practice Exercise",
+          "instructions": "Flip a coin 10 times, record results, calculate actual probability of heads",
+          "starterCode": "# Write your coin flip simulation or manually calculate\n",
+          "solution": "# Actual heads / Total flips",
+          "hint": "Count the heads and divide by 10."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Probability is a number between 0 (impossible) and 1 (certain)"
+      },
+      {
+        "text": "Real world decisions are rarely 100% certain — AI uses probability"
+      },
+      {
+        "text": "Conditional probability: chance of X given Y already happened"
+      },
+      {
+        "text": "Bayes Theorem updates probability when new evidence arrives"
+      },
+      {
+        "text": "Spam filters use probability to decide if an email is spam"
+      },
+      {
+        "text": "Weather forecasts, medical tests, and recommendations all use probability"
+      }
+    ],
+    "whatYouLearned": [
+      "What probability is on a 0 to 1 scale",
+      "How to understand conditional probability",
+      "How Bayes Theorem updates beliefs",
+      "How spam filters use probability",
+      "How to model real-world uncertainty"
+    ],
+    "nextUp": "Optimization"
+  }
+}

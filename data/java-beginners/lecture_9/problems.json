@@ -1,0 +1,47 @@
+[
+  {
+    "id": "problem_1_lecture_9",
+    "title": "Problem 1 - Functional Programming",
+    "description": "Solve this problem related to Functional Programming.",
+    "difficulty": "easy",
+    "starterCode": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "solution": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "testCases": [
+      {
+        "label": "Test case 1",
+        "input": "",
+        "expectedOutput": ""
+      }
+    ]
+  },
+  {
+    "id": "problem_2_lecture_9",
+    "title": "Problem 2 - Functional Programming",
+    "description": "Solve this problem related to Functional Programming.",
+    "difficulty": "medium",
+    "starterCode": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "solution": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "testCases": [
+      {
+        "label": "Test case 1",
+        "input": "",
+        "expectedOutput": ""
+      }
+    ]
+  },
+  {
+    "id": "problem_3_lecture_9",
+    "title": "Problem 3 - Functional Programming",
+    "description": "Solve this problem related to Functional Programming.",
+    "difficulty": "hard",
+    "starterCode": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "solution": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "testCases": [
+      {
+        "label": "Test case 1",
+        "input": "",
+        "expectedOutput": ""
+      }
+    ]
+  }
+]

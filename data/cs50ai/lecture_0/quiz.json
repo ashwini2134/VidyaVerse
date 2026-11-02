@@ -1,0 +1,57 @@
+[
+  {
+    "question": "What does AI stand for?",
+    "options": [
+      "Advanced Internet",
+      "Automated Input",
+      "Analog Interface",
+      "Artificial Intelligence"
+    ],
+    "answer": "Artificial Intelligence",
+    "explanation": "AI stands for Artificial Intelligence, which refers to computers performing tasks that normally require human thinking."
+  },
+  {
+    "question": "Which is the broadest term?",
+    "options": [
+      "Machine Learning",
+      "None of the above",
+      "Deep Learning",
+      "AI"
+    ],
+    "answer": "AI",
+    "explanation": "AI is the broadest umbrella term. Machine Learning is a subset of AI, and Deep Learning is a subset of Machine Learning."
+  },
+  {
+    "question": "What type of AI do we have today?",
+    "options": [
+      "General AI",
+      "Narrow AI",
+      "Human AI",
+      "Super AI"
+    ],
+    "answer": "Narrow AI",
+    "explanation": "All of today's AI is Narrow AI, meaning it performs one specific task well, rather than General AI which would be capable of any intellectual task."
+  },
+  {
+    "question": "Which AI technology uses brain-like networks?",
+    "options": [
+      "Deep Learning",
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Programming"
+    ],
+    "answer": "Deep Learning",
+    "explanation": "Deep Learning uses neural networks inspired by the human brain structure, with multiple layers of connected nodes."
+  },
+  {
+    "question": "Which of the following is NOT an AI application?",
+    "options": [
+      "A voice assistant like Alexa",
+      "Netflix movie recommendations",
+      "A spam filter in email",
+      "A calculator performing basic arithmetic"
+    ],
+    "answer": "A calculator performing basic arithmetic",
+    "explanation": "A basic calculator simply follows programmed rules. AI applications like spam filters and recommendation systems learn from data and adapt to new situations."
+  }
+]

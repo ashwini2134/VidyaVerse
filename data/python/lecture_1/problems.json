@@ -1,0 +1,32 @@
+[
+  {
+    "id": "personal_card",
+    "title": "Personal Card",
+    "description": "Create variables for your name, age, and favorite color. Print each on a separate line. Then update the age by adding 1 and print the new age.",
+    "difficulty": "easy",
+    "starterCode": "# Create variables\nname = \"\"\nage = \nfav_color = \"\"\n\n# Print them\n\n# Update age and print",
+    "solution": "name = \"Lakshanya\"\nage = 20\nfav_color = \"Blue\"\nprint(name)\nprint(age)\nprint(fav_color)\nage = age + 1\nprint(age)",
+    "testCases": [
+      {
+        "label": "Variables output",
+        "input": "",
+        "expectedOutput": "Lakshanya\n20\nBlue\n21"
+      }
+    ]
+  },
+  {
+    "id": "type_checker",
+    "title": "Type Checker",
+    "description": "Print the type of each of these values: 42, 3.14, 'Hello', True. Use the type() function.",
+    "difficulty": "easy",
+    "starterCode": "# Print the type of each value\nprint(type())\nprint(type())\nprint(type())\nprint(type())",
+    "solution": "print(type(42))\nprint(type(3.14))\nprint(type(\"Hello\"))\nprint(type(True))",
+    "testCases": [
+      {
+        "label": "Type output",
+        "input": "",
+        "expectedOutput": "<class 'int'>\n<class 'float'>\n<class 'str'>\n<class 'bool'>"
+      }
+    ]
+  }
+]

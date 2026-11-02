@@ -1,0 +1,140 @@
+{
+  "id": "python-lecture-10",
+  "courseSlug": "python",
+  "number": 10,
+  "title": "Functions",
+  "overview": "Functions are the building blocks of organized code. They let you package logic into reusable units \u2014 write once, use anywhere.",
+  "estimatedMinutes": 50,
+  "sections": [
+    {
+      "id": "why-functions",
+      "label": "Why Functions?",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "blue",
+          "title": "Why Do We Need Functions?",
+          "body": "Without functions, you copy-paste the same code everywhere. Functions let you **define once, use many times**.",
+          "bullets": [
+            "Avoid repeating the same code",
+            "Make programs easier to read and understand",
+            "Fix bugs in one place instead of everywhere",
+            "Break complex problems into smaller pieces"
+          ]
+        },
+        {
+          "type": "analogy",
+          "title": "A Function is Like a Vending Machine",
+          "emoji": "",
+          "text": "You press A3 (parameters), the machine runs its code (function body), and out comes a snack (return value). You don't care HOW it works inside \u2014 just press the button and get the result."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Vending Machine",
+            "description": "Insert coins (input) \u2192 Press button (call) \u2192 Get item (output)",
+            "image": "https://images.unsplash.com/photo-1618506557292-ec1862b3c506?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Function = Recipe",
+            "items": [
+              "Input",
+              "Function Call",
+              "Return Value"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "def vending(code):\n    return f\"Dispensing {code}\"\n\nprint(vending(\"A1\"))",
+            "output": "Dispensing A1"
+          }
+        },
+        {
+          "type": "code_example",
+          "title": "Without Functions vs With Functions",
+          "language": "python",
+          "code": "# WITHOUT functions:\nprint(\"Hello, Alice!\")\nprint(\"Hello, Bob!\")\nprint(\"Hello, Charlie!\")\n\n# WITH functions:\ndef greet(name):\n    print(f\"Hello, {name}!\")\n\ngreet(\"Alice\")\ngreet(\"Bob\")\ngreet(\"Charlie\")",
+          "expectedOutput": "Hello, Alice!\nHello, Bob!\nHello, Charlie!\nHello, Alice!\nHello, Bob!\nHello, Charlie!"
+        }
+      ]
+    },
+    {
+      "id": "defining-functions",
+      "label": "Defining Functions",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "How to Define a Function",
+          "body": "Use `def` followed by the function name, parentheses for parameters, a colon, and an indented body.",
+          "bullets": [
+            "def function_name(): \u2014 define a function",
+            "Parameters go inside parentheses: def add(a, b):",
+            "Use return to send a value back",
+            "If no return, the function returns None"
+          ]
+        },
+        {
+          "type": "code_example",
+          "title": "Functions with and without Return",
+          "language": "python",
+          "code": "def say_hello():\n    print(\"Hello!\")\n\nresult = say_hello()\nprint(f\"Return value: {result}\")\n\ndef add(a, b):\n    return a + b\n\nresult = add(3, 4)\nprint(f\"3 + 4 = {result}\")",
+          "expectedOutput": "Hello!\nReturn value: None\n3 + 4 = 7"
+        },
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "Default Parameters",
+          "body": "You can give parameters **default values**. If the caller doesn't provide that argument, the default is used.",
+          "bullets": [
+            "def greet(name=\"Guest\"): \u2014 default value",
+            "greet() uses \"Guest\", greet(\"Alice\") uses \"Alice\"",
+            "Parameters with defaults must come LAST"
+          ]
+        },
+        {
+          "type": "reflection",
+          "question": "What happens if you put a parameter with a default BEFORE one without? Like def add(a=5, b):",
+          "answer": "Python gives a SyntaxError! Parameters with defaults must come AFTER those without."
+        },
+        {
+          "type": "practice",
+          "title": "Square Perimeter",
+          "instructions": "Define a function square_perimeter(side) that returns the perimeter of a square. Test it with sides 5 and 12.",
+          "starterCode": "def square_perimeter(side):\n    \n\nprint(square_perimeter(5))\nprint(square_perimeter(12))",
+          "solution": "def square_perimeter(side):\n    return side * 4\n\nprint(square_perimeter(5))\nprint(square_perimeter(12))",
+          "hint": "The perimeter of a square is 4 times the side length. Use return to send the result back.",
+          "expectedOutput": "20\n48"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Functions let you write code once and reuse it"
+      },
+      {
+        "text": "Use def to define, return to send back a value"
+      },
+      {
+        "text": "Parameters are inputs; return values are outputs"
+      },
+      {
+        "text": "Default parameters make functions flexible"
+      },
+      {
+        "text": "Break complex programs into small, reusable functions"
+      }
+    ],
+    "whatYouLearned": [
+      "Why functions are essential for organized code",
+      "How to define functions with def",
+      "How to use parameters and return values",
+      "How to create functions with default parameters",
+      "How to build reusable calculation functions"
+    ],
+    "nextUp": "String Operations"
+  }
+}

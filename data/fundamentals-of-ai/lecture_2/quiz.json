@@ -1,0 +1,57 @@
+[
+  {
+    "question": "What does BFS stand for?",
+    "options": [
+      "Bidirectional Search",
+      "Bottom-First Search",
+      "Breadth-First Search",
+      "Best-First Search"
+    ],
+    "answer": "Breadth-First Search",
+    "explanation": "BFS stands for Breadth-First Search. It explores all nodes at the present depth level before moving to nodes at the next depth level."
+  },
+  {
+    "question": "Which search explores the deepest path first?",
+    "options": [
+      "Greedy Search",
+      "Depth-First Search",
+      "A* Search",
+      "Breadth-First Search"
+    ],
+    "answer": "Depth-First Search",
+    "explanation": "Depth-First Search (DFS) goes deep into one path before backtracking and trying other paths."
+  },
+  {
+    "question": "Which search guarantees finding the shortest path?",
+    "options": [
+      "DFS",
+      "A*",
+      "BFS",
+      "Greedy Best-First"
+    ],
+    "answer": "BFS",
+    "explanation": "BFS explores level by level, so the first path it finds to the goal is guaranteed to be the shortest path."
+  },
+  {
+    "question": "What does A* search use that Greedy Best-First does not?",
+    "options": [
+      "Only estimated cost to goal",
+      "Only actual cost from start",
+      "Both cost so far AND estimated cost to goal",
+      "Random exploration"
+    ],
+    "answer": "Both cost so far AND estimated cost to goal",
+    "explanation": "A* evaluates f(n) = g(n) + h(n), where g(n) is the cost to reach the current node and h(n) is the estimated cost to the goal."
+  },
+  {
+    "question": "In a search problem, the destination is called?",
+    "options": [
+      "Initial state",
+      "Goal state",
+      "Path cost",
+      "Action"
+    ],
+    "answer": "Goal state",
+    "explanation": "In search terminology, the destination or objective is called the goal state."
+  }
+]

@@ -1,0 +1,124 @@
+[
+  {
+    "id": "maze_bfs_trace",
+    "title": "BFS Queue Simulator",
+    "description": "In Breadth-First Search (BFS), we use a Queue (First-In, First-Out) to explore nodes. Write a program that simulates a single step of a BFS queue.\n\nYour program must:\n1. Read a comma-separated string of current queue nodes (e.g., 'A,B,C').\n2. Read a new node to add to the queue (e.g., 'D').\n3. Remove the FIRST node from the queue.\n4. Add the new node to the END of the queue.\n5. Print the removed node and the new queue.\n\nSample Input:\nA,B,C\nD\n\nSample Output:\nRemoved: A\nNew Queue: ['B', 'C', 'D']",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "current_queue = input().strip().split(',')\nnew_node = input().strip()\n\n# Your code here\n",
+    "solution": "current_queue = input().strip().split(',')\nnew_node = input().strip()\nremoved = current_queue.pop(0)\ncurrent_queue.append(new_node)\nprint(f'Removed: {removed}')\nprint(f'New Queue: {current_queue}')",
+    "hints": [
+      "Use `.pop(0)` to remove the first element of the list.",
+      "Use `.append()` to add the new node to the end.",
+      "Use f-strings to match the exact output format."
+    ],
+    "testCases": [
+      {
+        "label": "Standard Queue",
+        "input": "A,B,C\nD",
+        "expectedOutput": "Removed: A\nNew Queue: ['B', 'C', 'D']\n"
+      },
+      {
+        "label": "Two items",
+        "input": "X,Y\nZ",
+        "expectedOutput": "Removed: X\nNew Queue: ['Y', 'Z']\n"
+      },
+      {
+        "label": "Single item",
+        "input": "A\nB",
+        "expectedOutput": "Removed: A\nNew Queue: ['B']\n"
+      }
+    ]
+  },
+  {
+    "id": "graph_neighbors",
+    "title": "Graph Representation",
+    "description": "Write a Python program that defines a hardcoded graph and prints the neighbors of a given node.\n\nYour program must:\n1. Use this exact dictionary for the graph:\n   `graph = {'A': ['B', 'C'], 'B': ['A', 'D'], 'C': ['A'], 'D': ['B']}`\n2. Ask the user to input a node letter.\n3. Print the list of neighbors for that node. If the node doesn't exist, print 'Node not found'.\n\nSample Input:\nB\n\nSample Output:\n['A', 'D']",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "graph = {'A': ['B', 'C'], 'B': ['A', 'D'], 'C': ['A'], 'D': ['B']}\nnode = input().strip().upper()\n\n# Your code here\n",
+    "solution": "graph = {'A': ['B', 'C'], 'B': ['A', 'D'], 'C': ['A'], 'D': ['B']}\nnode = input().strip().upper()\nif node in graph:\n    print(graph[node])\nelse:\n    print('Node not found')",
+    "hints": [
+      "Use the `in` keyword to check if the node exists as a key in the dictionary.",
+      "If it exists, you can access the neighbors using `graph[node]`."
+    ],
+    "testCases": [
+      {
+        "label": "Node A",
+        "input": "A",
+        "expectedOutput": "['B', 'C']\n"
+      },
+      {
+        "label": "Node C",
+        "input": "C",
+        "expectedOutput": "['A']\n"
+      },
+      {
+        "label": "Invalid Node",
+        "input": "Z",
+        "expectedOutput": "Node not found\n"
+      }
+    ]
+  },
+  {
+    "id": "maze_dfs_trace_sim1",
+    "title": "DFS Stack Simulator (Similar A)",
+    "description": "In Depth-First Search (DFS), we use a Stack (Last-In, First-Out) to explore nodes. Write a program that simulates a single step of a DFS stack.\n\nYour program must:\n1. Read a comma-separated string of current stack nodes (e.g., 'A,B,C').\n2. Read a new node to add to the stack (e.g., 'D').\n3. Remove the LAST node from the stack.\n4. Add the new node to the END of the stack.\n5. Print the removed node and the new stack.\n\nSample Input:\nA,B,C\nD\n\nSample Output:\nRemoved: C\nNew Stack: ['A', 'B', 'D']",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "current_stack = input().strip().split(',')\nnew_node = input().strip()\n\n# Your code here\n",
+    "solution": "current_stack = input().strip().split(',')\nnew_node = input().strip()\nremoved = current_stack.pop()\ncurrent_stack.append(new_node)\nprint(f'Removed: {removed}')\nprint(f'New Stack: {current_stack}')",
+    "hints": [
+      "Use `.pop()` (without an index) to remove the last element of the list.",
+      "Use `.append()` to add the new node to the top of the stack.",
+      "Compare this LIFO behavior to the FIFO behavior of BFS!"
+    ],
+    "testCases": [
+      {
+        "label": "Standard Stack",
+        "input": "A,B,C\nD",
+        "expectedOutput": "Removed: C\nNew Stack: ['A', 'B', 'D']\n"
+      },
+      {
+        "label": "Two items",
+        "input": "X,Y\nZ",
+        "expectedOutput": "Removed: Y\nNew Stack: ['X', 'Z']\n"
+      },
+      {
+        "label": "Single item",
+        "input": "A\nB",
+        "expectedOutput": "Removed: A\nNew Stack: ['B']\n"
+      }
+    ]
+  },
+  {
+    "id": "graph_connection_sim2",
+    "title": "Graph Connection Check (Similar B)",
+    "description": "Write a Python program that checks if two nodes are directly connected in a graph.\n\nYour program must:\n1. Use this exact dictionary for the graph:\n   `graph = {'A': ['B', 'C'], 'B': ['A', 'D'], 'C': ['A'], 'D': ['B']}`\n2. Ask the user for Node 1.\n3. Ask the user for Node 2.\n4. If Node 2 is in Node 1's neighbor list, print 'Connected'. Otherwise, print 'Not Connected'.\n\nSample Input:\nA\nC\n\nSample Output:\nConnected",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "graph = {'A': ['B', 'C'], 'B': ['A', 'D'], 'C': ['A'], 'D': ['B']}\nnode1 = input().strip().upper()\nnode2 = input().strip().upper()\n\n# Your code here\n",
+    "solution": "graph = {'A': ['B', 'C'], 'B': ['A', 'D'], 'C': ['A'], 'D': ['B']}\nnode1 = input().strip().upper()\nnode2 = input().strip().upper()\nif node1 in graph and node2 in graph[node1]:\n    print('Connected')\nelse:\n    print('Not Connected')",
+    "hints": [
+      "First, make sure Node 1 actually exists in the graph dictionary.",
+      "Then, check if Node 2 is `in` the list `graph[node1]`."
+    ],
+    "testCases": [
+      {
+        "label": "Connected nodes",
+        "input": "A\nC",
+        "expectedOutput": "Connected\n"
+      },
+      {
+        "label": "Not connected",
+        "input": "C\nD",
+        "expectedOutput": "Not Connected\n"
+      },
+      {
+        "label": "Invalid node",
+        "input": "Z\nA",
+        "expectedOutput": "Not Connected\n"
+      }
+    ]
+  }
+]

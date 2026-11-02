@@ -1,0 +1,47 @@
+[
+  {
+    "id": "problem_1_lecture_4",
+    "title": "Problem 1 - Conditionals",
+    "description": "Solve this problem related to Conditionals.",
+    "difficulty": "easy",
+    "starterCode": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "solution": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "testCases": [
+      {
+        "label": "Test case 1",
+        "input": "",
+        "expectedOutput": ""
+      }
+    ]
+  },
+  {
+    "id": "problem_2_lecture_4",
+    "title": "Problem 2 - Conditionals",
+    "description": "Solve this problem related to Conditionals.",
+    "difficulty": "medium",
+    "starterCode": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "solution": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "testCases": [
+      {
+        "label": "Test case 1",
+        "input": "",
+        "expectedOutput": ""
+      }
+    ]
+  },
+  {
+    "id": "problem_3_lecture_4",
+    "title": "Problem 3 - Conditionals",
+    "description": "Solve this problem related to Conditionals.",
+    "difficulty": "hard",
+    "starterCode": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "solution": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "testCases": [
+      {
+        "label": "Test case 1",
+        "input": "",
+        "expectedOutput": ""
+      }
+    ]
+  }
+]

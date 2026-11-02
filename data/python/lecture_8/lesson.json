@@ -1,0 +1,176 @@
+{
+  "id": "python-lecture-8",
+  "courseSlug": "python",
+  "number": 8,
+  "title": "Tuples & Sets",
+  "overview": "Python offers more ways to store collections. Tuples are ordered and unchangeable; sets are unordered with unique items.",
+  "estimatedMinutes": 40,
+  "sections": [
+    {
+      "id": "tuples",
+      "label": "Tuples",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "blue",
+          "title": "What is a Tuple?",
+          "body": "A **tuple** is like a list but **immutable** — you cannot change it after creation. Use parentheses ().",
+          "bullets": [
+            "Tuples are created with (): coordinates = (10, 20)",
+            "Items cannot be added, removed, or changed",
+            "Tuples are faster than lists and protect data from modification",
+            "Use tuples for data that should stay constant"
+          ]
+        },
+        {
+          "type": "analogy",
+          "title": "A Tuple is Like a Sealed Envelope",
+          "emoji": "",
+          "text": "Once sealed with coordinates inside, you can read them but not change them. Tuples work the same — great for fixed data like RGB colors or dates."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Sealed Envelope",
+            "description": "Once sealed, contents cannot change. Safe and tamper-proof.",
+            "image": "https://images.unsplash.com/photo-1649019489428-70f505daacd6?w=800&q=80"
+          },
+          "visualization": {
+            "type": "categories",
+            "title": "Immutable Container",
+            "centerLabel": "coords",
+            "items": [
+              "Store value",
+              "Access by name"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "coords = (10, 20)\nprint(\"Read:\", coords[0])\nprint(\"Sealed:\", coords)",
+            "output": "Read: 10\nSealed: (10, 20)"
+          }
+        },
+        {
+          "type": "code_example",
+          "title": "Creating and Using Tuples",
+          "language": "python",
+          "code": "colors = (255, 0, 0)\ncoordinates = (10.5, 20.3)\nperson = (\"Alice\", 25, \"Engineer\")\n\nprint(colors[0])\nprint(coordinates)\nprint(person[1])\n\n# This would FAIL:\n# colors[0] = 128  # TypeError!",
+          "expectedOutput": "255\n(10.5, 20.3)\n25"
+        },
+        {
+          "type": "explanation",
+          "accentColor": "blue",
+          "title": "Tuple Packing and Unpacking",
+          "body": "**Packing** creates a tuple by grouping values. **Unpacking** extracts values into separate variables.",
+          "bullets": [
+            "Packing: point = 10, 20 (parentheses optional)",
+            "Unpacking: x, y = point",
+            "Swap variables: a, b = b, a (uses tuple unpacking)",
+            "Great for returning multiple values from functions"
+          ]
+        },
+        {
+          "type": "practice",
+          "title": "Work with Tuples",
+          "instructions": "Create a tuple with your name, age, and city. Unpack it and print each value.",
+          "starterCode": "my_info = (\"\", , \"\")\nname, age, city = my_info",
+          "solution": "my_info = (\"Lakshanya\", 20, \"Chennai\")\nname, age, city = my_info\nprint(f\"Name: {name}\")\nprint(f\"Age: {age}\")\nprint(f\"City: {city}\")",
+          "hint": "Unpack by putting variable names separated by commas on the left.",
+          "expectedOutput": "Name: {name}\nAge: {age}\nCity: {city}"
+        }
+      ]
+    },
+    {
+      "id": "sets",
+      "label": "Sets",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "What is a Set?",
+          "body": "A **set** is an unordered collection of **unique** items. Duplicates are automatically removed.",
+          "bullets": [
+            "Sets have no duplicates — each item appears once",
+            "Sets are unordered — cannot access by index",
+            "Great for removing duplicates and membership tests"
+          ]
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Bag Of Unique Items",
+            "description": "Every marble appears only once. No duplicates allowed.",
+            "image": "https://images.unsplash.com/photo-1544457070-4cd773b4d71e?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Unique Set Elements",
+            "items": [
+              "{1, 2, 3}"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "numbers = {1, 2, 2, 3}\nprint(numbers)",
+            "output": "{1, 2, 3}"
+          }
+        },
+        {
+          "type": "code_example",
+          "title": "Creating Sets",
+          "language": "python",
+          "code": "numbers = {1, 2, 3, 2, 1, 4, 3}\nprint(numbers)",
+          "expectedOutput": "{1, 2, 3, 4}"
+        },
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "Set Operations",
+          "body": "Sets support mathematical operations like union, intersection, and difference.",
+          "bullets": [
+            "union (|) — all items from both sets",
+            "intersection (&) — items in BOTH sets",
+            "difference (-) — items in first but NOT second",
+            "in — check membership (very fast in sets)"
+          ]
+        },
+        {
+          "type": "practice",
+          "title": "Remove Duplicates",
+          "instructions": "Remove duplicates from [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5] using a set, then sort.",
+          "starterCode": "numbers = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]\nunique = sorted()\nprint(f\"Unique sorted: {unique}\")",
+          "solution": "numbers = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]\nunique = sorted(set(numbers))\nprint(f\"Unique sorted: {unique}\")",
+          "hint": "Use set(numbers) to remove duplicates, then sorted() to sort.",
+          "expectedOutput": "Unique sorted: [1, 2, 3, 4, 5, 6, 9]"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Tuples are immutable ordered collections with ()"
+      },
+      {
+        "text": "Tuple packing groups values; unpacking extracts them"
+      },
+      {
+        "text": "Use tuples for swapping: a, b = b, a"
+      },
+      {
+        "text": "Sets store unique items only"
+      },
+      {
+        "text": "Set operations: | union, & intersection, - difference"
+      }
+    ],
+    "whatYouLearned": [
+      "How to create and use tuples",
+      "How tuple packing and unpacking works",
+      "How to swap variables with tuple unpacking",
+      "How to create sets and remove duplicates",
+      "How to perform set operations"
+    ],
+    "nextUp": "Dictionaries"
+  }
+}

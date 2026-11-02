@@ -1,0 +1,461 @@
+{
+  "id": "python20-lecture-4",
+  "courseSlug": "python20",
+  "number": 4,
+  "title": "Conditional Statements",
+  "overview": "Programs need to make decisions. Without conditionals, a program just executes every line from top to bottom — no exceptions. Conditionals give your code the ability to think, choose, and respond differently based on what's happening.",
+  "estimatedMinutes": 55,
+  "sections": [
+    {
+      "id": "if-statement",
+      "label": "The if Statement",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Every day you make decisions based on conditions. If it's raining, take an umbrella. If the traffic light is red, stop."
+        },
+        {
+          "type": "text",
+          "content": "Python's `if` statement works exactly the same way. It checks a condition, and only runs the indented code below it if that condition is `True`."
+        },
+        {
+          "type": "text",
+          "content": "The structure is simple:\n\n```\nif condition:\n    do this\n```\n\nThe colon `:` is required. The indented block (4 spaces or 1 tab) only runs when the condition is True."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Basic if",
+          "language": "python",
+          "code": "temperature = 38.5\n\nif temperature > 37.5:\n    print(\"You have a fever.\")\n    print(\"Please rest and drink water.\")\n\nprint(\"Check complete.\")",
+          "expectedOutput": "You have a fever.\nPlease rest and drink water.\nCheck complete.",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "Notice that `print(\"Check complete.\")` runs regardless — it's at the same indentation level as `if`, so it's not inside the block."
+        },
+        {
+          "type": "text",
+          "content": "**Indentation is everything in Python.** Unlike other languages that use `{}` curly braces, Python uses whitespace to define code blocks. Use exactly 4 spaces (or one Tab consistently)."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Traffic Light",
+            "description": "A traffic light checks: is the light red? If yes → stop. The condition determines what happens. If the light isn't red, you keep driving. The if statement works identically.",
+            "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80",
+            "bullets": [
+              "The traffic light checks the current color and takes action.",
+              "Red means stop, green means go, yellow means slow down.",
+              "Only one action happens at a time — based on what the light shows."
+            ],
+            "highlightCard": "An if-statement checks a condition and runs the matching block of code."
+          },
+          "visualization": {
+            "type": "decision",
+            "title": "if condition: block runs",
+            "condition": "Is the condition True?",
+            "trueLabel": "Run the indented block",
+            "falseLabel": "Skip the block entirely",
+            "bullets": [
+              "Python evaluates the condition after 'if' — is it True or False?",
+              "If True, the indented code block runs.",
+              "If False, Python skips that block entirely."
+            ],
+            "highlightCard": "if condition: → run this block. That's the core of all decision-making in Python."
+          },
+          "code": {
+            "language": "python",
+            "code": "light = \"red\"\nif light == \"red\":\n    print(\"Stop!\")\nprint(\"Light checked.\")",
+            "output": "Stop!\nLight checked.",
+            "highlights": [
+              "The condition after 'if' must evaluate to True or False.",
+              "The colon : at the end marks the start of the code block.",
+              "Indented lines (4 spaces) belong to the if-block and run only when True."
+            ],
+            "highlightCard": "if-statements let your program choose what to do based on the current situation."
+          },
+          "reflection": {
+            "question": "What happens to code indented inside an if block when the condition is False?",
+            "answer": "It is completely skipped — Python jumps past the entire indented block.",
+            "options": [
+              "It runs anyway",
+              "It causes an error",
+              "It is completely skipped",
+              "It runs but produces no output"
+            ]
+          },
+          "stage1Transition": "Python's if-statement works exactly like a traffic light. Let's see how.",
+          "stage2Transition": "Here is how an if-statement looks in Python code.",
+          "takeaway": "A traffic light is a perfect if-statement — it checks the condition (current color) and runs the matching action (stop/go/slow). Python's if works exactly the same way."
+        },
+        {
+          "type": "practice",
+          "title": "Age Verification",
+          "instructions": "You're building an age gate for a website. The minimum age is 18. Ask the user for their age. If they are 18 or older, print 'Access granted'. The program should always print 'Verification complete.' at the end.",
+          "starterCode": "age = int(input(\"Enter your age: \"))\n\n# Check if age is 18 or above\n\nprint(\"Verification complete.\")",
+          "solution": "age = int(input(\"Enter your age: \"))\n\nif age >= 18:\n    print(\"Access granted.\")\n\nprint(\"Verification complete.\")",
+          "hint": "Use if age >= 18: and indent the print statement below it.",
+          "expectedOutput": "Enter your age: Access granted.\nVerification complete."
+        }
+      ]
+    },
+    {
+      "id": "if-else",
+      "label": "if-else and if-elif-else",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "An `if` by itself handles one scenario. But what do you do when you need to handle both the True case AND the False case?"
+        },
+        {
+          "type": "text",
+          "content": "Enter `else`. The `else` block runs only when the `if` condition is `False`."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — if-else",
+          "language": "python",
+          "code": "marks = 45\n\nif marks >= 50:\n    print(\"Result: PASS\")\nelse:\n    print(\"Result: FAIL\")",
+          "expectedOutput": "Result: FAIL",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "But what if there are more than two possible outcomes? That's where `elif` (else if) comes in. You can chain as many `elif` blocks as you need."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — if-elif-else",
+          "language": "python",
+          "code": "marks = 82\n\nif marks >= 90:\n    grade = \"S (Outstanding)\"\nelif marks >= 75:\n    grade = \"A (Excellent)\"\nelif marks >= 60:\n    grade = \"B (Good)\"\nelif marks >= 50:\n    grade = \"C (Average)\"\nelse:\n    grade = \"F (Fail)\"\n\nprint(f\"Grade: {grade}\")",
+          "expectedOutput": "Grade: A (Excellent)",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "Python checks each condition top to bottom. The moment one is True, it runs that block and skips all the rest. So order matters — always put more specific conditions first."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Airport Security Lanes",
+            "description": "At an airport: Business class → fast lane. Premium Economy → medium lane. Economy → standard lane. No ticket → denied. Python's elif chain works the same — check conditions in order, use the first match.",
+            "image": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80",
+            "bullets": [
+              "Business class passengers take lane 1, economy take lane 2.",
+              "Children under 12 get a special lane, seniors get another.",
+              "Each traveler is checked against multiple conditions until one matches."
+            ],
+            "highlightCard": "elif lets you check multiple conditions in sequence — only one block runs."
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "elif Chain",
+            "items": [
+              "Check if marks >= 90",
+              "Else check if >= 75",
+              "Else check if >= 60",
+              "Else: use the default (else)"
+            ],
+            "bullets": [
+              "elif stands for 'else if' — it's checked only if the previous if was False.",
+              "You can chain as many elif blocks as you need.",
+              "Once one condition matches, Python skips all remaining elif and else blocks."
+            ],
+            "highlightCard": "if → elif → elif → else: Python checks each in order, runs only the first match."
+          },
+          "code": {
+            "language": "python",
+            "code": "score = 72\nif score >= 90:\n    print(\"A\")\nelif score >= 70:\n    print(\"B\")\nelse:\n    print(\"C\")",
+            "output": "B",
+            "highlights": [
+              "Python evaluates each condition from top to bottom.",
+              "The first True condition's block runs — everything else is skipped.",
+              "else at the end is the fallback — it runs if nothing else matched."
+            ],
+            "highlightCard": "elif chains let you handle any number of distinct cases cleanly and clearly."
+          },
+          "reflection": {
+            "question": "In an if-elif-else chain, when does the else block run?",
+            "answer": "When none of the if or elif conditions are True — else is the catch-all fallback.",
+            "options": [
+              "Always",
+              "When the if condition is True",
+              "When none of the if or elif conditions are True",
+              "When elif is skipped"
+            ]
+          },
+          "stage1Transition": "When you have more than two options, Python uses elif. Let's see how it chains.",
+          "stage2Transition": "Here is how an if-elif-else chain looks in Python.",
+          "takeaway": "Airport security lanes are like elif chains — each traveler is checked against one condition at a time until a match is found, then directed to the right lane."
+        },
+        {
+          "type": "practice",
+          "title": "ATM Withdrawal Check",
+          "instructions": "Build an ATM check: the account has Rs.5000. The user wants to withdraw an amount (input). If the amount is greater than the balance, print 'Insufficient funds'. If the amount is 0 or less, print 'Invalid amount'. Otherwise print 'Withdrawal successful. Balance: Rs.[remaining]'.",
+          "starterCode": "balance = 5000\nwithdraw = int(input(\"Enter withdrawal amount: \"))\n\n# Check withdrawal conditions\n",
+          "solution": "balance = 5000\nwithdraw = int(input(\"Enter withdrawal amount: \"))\n\nif withdraw <= 0:\n    print(\"Invalid amount.\")\nelif withdraw > balance:\n    print(\"Insufficient funds.\")\nelse:\n    balance = balance - withdraw\n    print(f\"Withdrawal successful. Balance: Rs.{balance}\")",
+          "hint": "Check invalid (<=0) first, then insufficient funds, then allow withdrawal.",
+          "expectedOutput": "Enter withdrawal amount: Withdrawal successful. Balance: Rs.3500"
+        }
+      ]
+    },
+    {
+      "id": "nested-conditions",
+      "label": "Nested Conditions",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Sometimes a condition check isn't enough — you need to check another condition inside the first one."
+        },
+        {
+          "type": "text",
+          "content": "This is called **nesting** — putting an `if` statement inside another `if` statement. Each nested level adds another 4 spaces of indentation."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Nested if",
+          "language": "python",
+          "code": "age = 20\nhas_id = True\n\nif age >= 18:\n    print(\"Age check: Passed\")\n    if has_id:\n        print(\"ID check: Passed\")\n        print(\"Entry allowed.\")\n    else:\n        print(\"ID check: Failed\")\n        print(\"Entry denied — no ID.\")\nelse:\n    print(\"Age check: Failed\")\n    print(\"Entry denied — underage.\")",
+          "expectedOutput": "Age check: Passed\nID check: Passed\nEntry allowed.",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "Notice how the output matches exactly what the conditions dictate. Try changing `has_id = False` and see what happens."
+        },
+        {
+          "type": "text",
+          "content": "**A word of caution:** Deep nesting (if inside if inside if) makes code hard to read. Often you can rewrite nested conditions using `and` or `or`. For example, `if age >= 18 and has_id:` achieves the same result with less nesting."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Buying a Movie Ticket Online",
+            "description": "First check: Is the movie available? If yes → check: Are there seats left? If yes → check: Is the user logged in? Each condition unlocks the next. Nested ifs represent this layered checking process.",
+            "image": "https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?w=800&q=80",
+            "bullets": [
+              "First check: are you logged in? If not, redirect to login.",
+              "Then check: is the movie available in your city? If not, show alternatives.",
+              "Then check: do you have enough balance? If not, ask to top up."
+            ],
+            "highlightCard": "Nested if-statements let you make decisions within decisions."
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Nested Decision Tree",
+            "items": [
+              "Outer if: Is movie available?",
+              "  Inner if: Are seats available?",
+              "    Innermost: Is user logged in?",
+              "      Then: Proceed to payment"
+            ],
+            "bullets": [
+              "A nested if is an if-statement placed inside another if-block.",
+              "The inner if only runs when the outer if is already True.",
+              "This lets you check a series of conditions in a logical sequence."
+            ],
+            "highlightCard": "Nest if-statements when the second question only makes sense after the first is answered."
+          },
+          "code": {
+            "language": "python",
+            "code": "available = True\nseats = 5\nif available:\n    if seats > 0:\n        print(\"Book your ticket!\")",
+            "output": "Book your ticket!",
+            "highlights": [
+              "The outer if runs first — if it's True, the inner if is evaluated next.",
+              "Each level of nesting adds 4 more spaces of indentation.",
+              "Avoid deeply nested ifs — more than 3 levels often means you need a redesign."
+            ],
+            "highlightCard": "Nested if-statements handle multi-step decision trees — check one condition at a time."
+          },
+          "reflection": {
+            "question": "When should you prefer 'and' over nested if statements?",
+            "answer": "When both conditions must be True at the same level — and keeps the code flatter and easier to read.",
+            "options": [
+              "Never — nested ifs are always better",
+              "When conditions are unrelated",
+              "When both conditions must be True at the same level",
+              "Only in Python 3"
+            ]
+          },
+          "stage1Transition": "Python lets you put if-statements inside other if-statements. Let's see how.",
+          "stage2Transition": "Here is how nested if-statements look in Python.",
+          "takeaway": "Buying a ticket involves nested decisions — log in first, then check availability, then check balance. Nested if-statements in Python work the same way: step by step."
+        },
+        {
+          "type": "practice",
+          "title": "Scholarship Eligibility",
+          "instructions": "A scholarship has two levels: If marks >= 90 AND attendance >= 90: print 'Full scholarship'. If marks >= 75 AND attendance >= 75: print 'Partial scholarship'. Otherwise: print 'Not eligible'. Use nested or combined conditions. Test with marks=85, attendance=80.",
+          "starterCode": "marks = 85\nattendance = 80\n\n# Check scholarship eligibility\n",
+          "solution": "marks = 85\nattendance = 80\n\nif marks >= 90 and attendance >= 90:\n    print(\"Full scholarship\")\nelif marks >= 75 and attendance >= 75:\n    print(\"Partial scholarship\")\nelse:\n    print(\"Not eligible\")",
+          "hint": "Use elif with 'and' to combine both conditions for each scholarship level.",
+          "expectedOutput": "Partial scholarship"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "if checks a condition and runs the indented block only when True."
+      },
+      {
+        "text": "Indentation (4 spaces) defines what's inside the if block — it's not optional in Python."
+      },
+      {
+        "text": "else runs when the if condition is False — a two-way choice."
+      },
+      {
+        "text": "elif adds more conditions between if and else — checked in order, first match wins."
+      },
+      {
+        "text": "In an if-elif-else chain, once a condition is True, all remaining conditions are skipped."
+      },
+      {
+        "text": "Nested ifs put one conditional inside another — useful for layered decisions."
+      },
+      {
+        "text": "Use 'and'/'or' to flatten nested ifs when conditions are at the same decision level."
+      }
+    ],
+    "whatYouLearned": [
+      "The if statement and how indentation defines code blocks",
+      "How to handle two outcomes with if-else",
+      "How to handle multiple outcomes with elif chains",
+      "How to nest conditionals for layered decision making"
+    ],
+    "nextUp": "For Loops"
+  },
+  "quiz": [
+    {
+      "question": "What is the role of indentation in a Python if statement?",
+      "options": [
+        "It makes the code look pretty",
+        "It defines which code belongs to the if block",
+        "It is optional and ignored by Python",
+        "It speeds up execution"
+      ],
+      "answer": "It defines which code belongs to the if block",
+      "explanation": "Python uses indentation (whitespace) to define code blocks, unlike other languages that use {}. Any code indented under an if statement is part of that block and only runs when the condition is True."
+    },
+    {
+      "question": "What will this print if marks = 65?\nif marks >= 75:\n    print(\"A\")\nelif marks >= 50:\n    print(\"B\")\nelse:\n    print(\"C\")",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "B and C"
+      ],
+      "answer": "B",
+      "explanation": "Python checks if marks >= 75 → False (65 < 75). Then checks elif marks >= 50 → True (65 >= 50). Prints B and stops. The else block is skipped."
+    },
+    {
+      "question": "In an if-elif-else chain, when does Python stop checking conditions?",
+      "options": [
+        "After checking all conditions",
+        "The moment one condition is True",
+        "Only when it reaches else",
+        "Never — all blocks always run"
+      ],
+      "answer": "The moment one condition is True",
+      "explanation": "Python evaluates conditions top to bottom. The instant one is True, it runs that block and skips all remaining elif and else blocks."
+    },
+    {
+      "question": "How can you rewrite: if a > 0:\n    if b > 0: as a single line?",
+      "options": [
+        "if a > 0 or b > 0:",
+        "if a > 0 and b > 0:",
+        "if (a, b) > 0:",
+        "if a and b > 0:"
+      ],
+      "answer": "if a > 0 and b > 0:",
+      "explanation": "When both inner conditions must be True simultaneously, 'and' combines them into one condition. This produces identical logic with cleaner, flatter code."
+    },
+    {
+      "question": "What will the else block run on?\nif x > 10:\n    ...\nelif x > 5:\n    ...\nelse:\n    ...",
+      "options": [
+        "When x > 10",
+        "When x > 5",
+        "When x is exactly 5",
+        "When x <= 5"
+      ],
+      "answer": "When x <= 5",
+      "explanation": "The else block runs when no previous condition is True. If x is not > 10 AND not > 5, then x must be <= 5. That's when else executes."
+    }
+  ],
+  "problems": [
+    {
+      "id": "python20-l4-p1",
+      "title": "Number Sign Checker",
+      "description": "Ask the user for a number. Print:\n- 'Positive' if it's greater than 0\n- 'Negative' if it's less than 0\n- 'Zero' if it's exactly 0",
+      "difficulty": "easy",
+      "starterCode": "num = int(input(\"Enter a number: \"))\n\n# Check sign\n",
+      "solution": "num = int(input(\"Enter a number: \"))\n\nif num > 0:\n    print(\"Positive\")\nelif num < 0:\n    print(\"Negative\")\nelse:\n    print(\"Zero\")",
+      "testCases": [
+        {
+          "label": "Positive number",
+          "input": "7",
+          "expectedOutput": "Positive",
+          "matchType": "exact"
+        },
+        {
+          "label": "Negative number",
+          "input": "-3",
+          "expectedOutput": "Negative",
+          "matchType": "exact"
+        },
+        {
+          "label": "Zero",
+          "input": "0",
+          "expectedOutput": "Zero",
+          "matchType": "exact"
+        }
+      ]
+    },
+    {
+      "id": "python20-l4-p2",
+      "title": "Leap Year Checker",
+      "description": "A year is a leap year if:\n- It is divisible by 4 AND\n- It is NOT divisible by 100, OR it is divisible by 400\n\nAsk the user for a year. Print 'Leap year' or 'Not a leap year'.\n\nTest: 2000 → Leap year, 1900 → Not a leap year, 2024 → Leap year",
+      "difficulty": "medium",
+      "starterCode": "year = int(input(\"Enter year: \"))\n\n# Leap year logic\n",
+      "solution": "year = int(input(\"Enter year: \"))\n\nif (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):\n    print(\"Leap year\")\nelse:\n    print(\"Not a leap year\")",
+      "testCases": [
+        {
+          "label": "2000 is leap",
+          "input": "2000",
+          "expectedOutput": "Leap year",
+          "matchType": "exact"
+        },
+        {
+          "label": "1900 is not leap",
+          "input": "1900",
+          "expectedOutput": "Not a leap year",
+          "matchType": "exact"
+        },
+        {
+          "label": "2024 is leap",
+          "input": "2024",
+          "expectedOutput": "Leap year",
+          "matchType": "exact"
+        }
+      ]
+    },
+    {
+      "id": "python20-l4-p3",
+      "title": "E-commerce Discount System",
+      "description": "Build a discount calculator:\n- If cart total >= 2000 AND is_member is True: 20% discount\n- If cart total >= 2000 but not member: 10% discount\n- If cart total >= 500: 5% discount\n- Otherwise: no discount\n\nTest with: total=2500, is_member=True\nPrint: Discount: 20%, Final: Rs.2000.0",
+      "difficulty": "medium",
+      "starterCode": "total = 2500\nis_member = True\n\n# Calculate discount\n",
+      "solution": "total = 2500\nis_member = True\n\nif total >= 2000 and is_member:\n    discount = 20\nelif total >= 2000:\n    discount = 10\nelif total >= 500:\n    discount = 5\nelse:\n    discount = 0\n\nfinal = total * (1 - discount / 100)\nprint(f\"Discount: {discount}%\")\nprint(f\"Final: Rs.{final}\")",
+      "testCases": [
+        {
+          "label": "Member with 2500",
+          "input": "",
+          "expectedOutput": "Discount: 20%\nFinal: Rs.2000.0",
+          "matchType": "exact"
+        }
+      ]
+    }
+  ]
+}

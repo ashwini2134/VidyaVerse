@@ -1,0 +1,57 @@
+[
+  {
+    "question": "Probability of 0 means?",
+    "options": [
+      "Impossible",
+      "Likely",
+      "Unknown",
+      "Certain"
+    ],
+    "answer": "Impossible",
+    "explanation": "The correct answer is Impossible."
+  },
+  {
+    "question": "Probability of 1 means?",
+    "options": [
+      "Unknown",
+      "Certain",
+      "50/50",
+      "Impossible"
+    ],
+    "answer": "Certain",
+    "explanation": "The correct answer is Certain."
+  },
+  {
+    "question": "P(A|B) means?",
+    "options": [
+      "A minus B",
+      "A plus B",
+      "Probability of A given B",
+      "A divided by B"
+    ],
+    "answer": "Probability of A given B",
+    "explanation": "The correct answer is Probability of A given B."
+  },
+  {
+    "question": "Bayes Theorem helps with?",
+    "options": [
+      "Finding shortest path",
+      "Training neural networks",
+      "Updating belief with new evidence",
+      "Sorting data"
+    ],
+    "answer": "Updating belief with new evidence",
+    "explanation": "The correct answer is Updating belief with new evidence."
+  },
+  {
+    "question": "A spam filter uses which concept?",
+    "options": [
+      "Optimization",
+      "Search",
+      "Logic",
+      "Probability"
+    ],
+    "answer": "Probability",
+    "explanation": "The correct answer is Probability."
+  }
+]

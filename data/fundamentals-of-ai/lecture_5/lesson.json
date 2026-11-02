@@ -1,0 +1,1140 @@
+{
+  "id": "fundamentals-of-ai-lecture-4",
+  "courseSlug": "fundamentals-of-ai",
+  "number": 5,
+  "title": "Optimization",
+  "overview": "Many AI problems are not about finding any answer \u2014 they are about finding the best answer. Optimization is how AI navigates huge spaces of possibilities to find solutions that minimize cost or maximize reward.",
+  "estimatedMinutes": 60,
+  "sections": [
+    {
+      "id": "what-is-optimization",
+      "label": "What is Optimization?",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "What is Optimization? \u2014 SVG placeholder",
+            "svgId": "what-is-optimization"
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "What is Optimization?"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Optimization is the art of finding the best answer \u2014 not just any answer. Local search navigates the state-space landscape to minimize cost or maximize reward, one neighbor at a time."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Local Search"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Local search maintains a single candidate solution and improves it by moving to neighboring states. Unlike exhaustive search, it never explores the full space \u2014 it just keeps nudging toward better answers."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "State Space"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Every possible configuration of a problem is a state in the state space. The space can be enormous \u2014 local search navigates it one neighbor at a time."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "State-Space Landscape"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Visualise each state as a point on a landscape. The height of each point is the cost or value of that state \u2014 peaks are good (high value), valleys are bad (high cost)."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Hospitals Problem"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Place two hospitals on a grid to minimize the Manhattan distance to four fixed houses. This classic example shows how local search explores the state space one move at a time."
+          }
+        },
+        {
+          "type": "ai_section",
+          "theme": "light",
+          "hero": {
+            "category": "",
+            "title": "",
+            "intro": ""
+          },
+          "concepts": [],
+          "probabilityContent": {
+            "chapters": [
+              {
+                "title": "Local Search",
+                "interactive": "backpack-optimization",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/5/5b/CityHospital.jpg",
+                "imageAlt": "A hospital building, matching the hospitals placement problem",
+                "sentences": [
+                  "Local search is a search algorithm that maintains a single node and searches by moving to a neighboring node. This is different from previous types of search that we saw.",
+                  "In maze solving, for example, we wanted to find the quickest way to the goal. Local search, by contrast, is interested in finding the best answer to a question.",
+                  "Often, local search will bring you to an answer that is not optimal but 'good enough' \u2014 conserving computational power for problems where perfection is too expensive.",
+                  "Consider this: we have four houses in fixed positions on a grid. We want to build two hospitals such that we minimize the total distance from each house to the nearest hospital."
+                ],
+                "terms": [
+                  {
+                    "term": "Local Search",
+                    "definition": "A search algorithm that maintains a single node and iteratively moves to a neighboring node to find a good enough solution."
+                  },
+                  {
+                    "term": "Cost",
+                    "definition": "The value we are trying to minimize. In our hospitals example, cost = sum of distances from each house to its nearest hospital."
+                  },
+                  {
+                    "term": "Manhattan Distance",
+                    "definition": "Distance measured as the number of moves up/down/left/right between two points, ignoring diagonal movement."
+                  }
+                ]
+              }
+            ]
+          },
+          "keyInsight": ""
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "State Space"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Each configuration of houses and hospitals is one state in the state space. A state encodes the positions of both hospitals \u2014 for example, Hospital A at (2,3) and Hospital B at (5,1)."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The neighbor of a state is another state that can be reached by moving one hospital by one step in any direction (up, down, left, right)."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "This creates a graph where nodes are states and edges connect neighboring states. Local search walks this graph one edge at a time, always looking for a better neighbor."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "State \u2014 A complete configuration of the problem \u2014 in our case, the positions of both hospitals on the grid.",
+              "Neighbor State \u2014 A state reachable from the current state by a single small change \u2014 moving one hospital one step in any direction."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "State-Space Landscape"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Abstractly, we can visualise every possible state as a point on a landscape. The height of each bar represents the cost of that state \u2014 tall bars are bad (high cost), short bars are good (low cost)."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "An Objective Function is a function that we use to maximize the value of the solution (higher is better)."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A Cost Function is a function that we use to minimize the cost of the solution (lower is better). Our hospitals problem uses a cost function."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A Current State is the state that is currently being considered by the algorithm. A Neighbor State is a state the current state can transition to \u2014 in our 1D landscape, the state to the left or right."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Local search works by considering one node (the current state) and then moving to one of its neighbors. Unlike minimax or exhaustive search, it does not explore every state in the space."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Objective Function \u2014 A function we maximize \u2014 higher values are better solutions.",
+              "Cost Function \u2014 A function we minimize \u2014 lower values are better solutions.",
+              "Current State \u2014 The state the algorithm is currently evaluating.",
+              "Neighbor State \u2014 A state reachable from the current state by a single small change."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Step-by-Step"
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "numbered",
+            "items": [
+              "Start with a random solution",
+              "Evaluate its neighbours",
+              "Move to the best neighbour",
+              "Repeat until no better neighbour exists",
+              "Return the best solution found"
+            ]
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "Optimization is not about finding the perfect answer \u2014 it is about finding the best available one given time and resources."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Optimization Finds the Best GPS Route",
+          "subtitle": "GPS doesn't just find a route \u2014 it finds the best route.\nIt optimises over time, distance, and traffic simultaneously.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "There are thousands of possible routes from your home to your destination. GPS doesn't just find one that works \u2014 it finds the one with the minimum combined time, accounting for all current conditions."
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "An objective function scores each route. GPS minimises this score \u2014 balancing distance, speed limits, traffic, and tolls. The best route has the lowest total cost.",
+              "visual": {
+                "type": "flow",
+                "items": [
+                  "All Possible Routes",
+                  "Score Each Route",
+                  "Pick Minimum Cost"
+                ],
+                "conclusion": "Optimal solution found"
+              }
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "AI optimization is identical: define what best means (the objective function), search the space of solutions, and return the one that minimises the cost \u2014 whether routing, scheduling, or training a model."
+            }
+          ],
+          "insight": "Optimization defines best, then searches for it. The objective function is the definition; the algorithm is the search.",
+          "reinforcement": "Every ML training step is optimization. Minimize the loss function \u2192 improve the model."
+        },
+        {
+          "type": "practice",
+          "title": "Organize Your Study Day",
+          "instructions": "Build a schedule to maximize your marks within 5 hours.",
+          "starterCode": "",
+          "solution": "",
+          "hint": ""
+        }
+      ]
+    },
+    {
+      "id": "local-search",
+      "label": "Hill Climbing & Simulated Annealing",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Hill Climbing & Simulated Annealing \u2014 SVG placeholder",
+            "svgId": "local-search"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Hill climbing is the simplest local search algorithm \u2014 at each step it moves to the best neighbor. But it gets stuck at local optima. Simulated annealing fixes this by occasionally accepting worse solutions, and variants like random-restart and beam search offer different trade-offs."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Hill Climbing"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Start anywhere. Compare neighbors to the current state. If any neighbor is better, move there and repeat. The algorithm stops when no neighbor is better \u2014 a local optimum. Simple, fast, but short-sighted."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Local & Global Optima"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A local maximum is higher than all neighbors but not the highest in the whole space. A global maximum is the highest of all states. Flat plateaus and shoulders can also trap the algorithm \u2014 it cannot find a direction to improve."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Hill Climbing Variants"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Steepest-ascent picks the best neighbor. Stochastic picks randomly from any better neighbor. First-choice picks the first better neighbor found. Random-restart runs hill climbing multiple times from random starts. Local beam search tracks k best candidates simultaneously."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Simulated Annealing"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Inspired by annealing in metallurgy: start hot (explore broadly) and cool down slowly. Early on, the algorithm freely accepts worse solutions to escape local traps. As temperature drops, it becomes more selective and converges on the best solution found."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Traveling Salesman Problem"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Find the shortest route visiting every city exactly once and returning home. With just 10 cities there are 3.6 million possible routes. Simulated annealing finds good solutions without enumerating all possibilities \u2014 a perfect use case for local search."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Hill Climbing"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Hill climbing is one type of a local search algorithm. The neighbor states are compared to the current state, and if any of them is better, we change the current node from the current state to that neighbor state."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "What qualifies as better is defined by whether we use an objective function (preferring a higher value) or a cost function (preferring a lower value). In our hospitals problem, lower cost is better."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Formula: function Hill-Climb(problem):\n  current = initial state of problem\n  repeat:\n    neighbor = best valued neighbor of current\n    if neighbor not better than current:\n      return current\n    current = neighbor"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "In this algorithm, we start with a current state. Then we repeat: evaluate the neighbors, select the best one, and compare it to the current state. If the neighbor is better, we switch \u2014 and repeat. The process ends when the best neighbor is worse than the current state."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Using hill climbing on the hospitals problem, after a few transitions the cost drops from 17 to 11 \u2014 an improvement. But this is not the global optimum. A better placement exists with cost 9, but hill climbing can't reach it because all neighbor states are worse than the current one."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "In simple words: Hill climbing is short-sighted \u2014 it settles for solutions that are better than some others, but not necessarily the best of all possible solutions."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Hill Climbing \u2014 A local search algorithm that repeatedly moves to the best neighboring state until no neighbor is better than the current state.",
+              "Steepest-Ascent \u2014 The standard hill climbing variant that chooses the highest-valued neighbor at each step."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Local & Global Optima"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A hill climbing algorithm can get stuck in local maxima or minima. A local maximum is a state that has a higher value than its neighboring states but not the highest value of all states in the state-space."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A global maximum is a state that has the highest value of all states in the entire state-space. When hill climbing stops at a local maximum, it has found a good answer \u2014 but not the best possible one."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Similarly, a local minimum has a lower value than its neighbors but not the lowest overall. A global minimum has the lowest value of all states. The problem is symmetric: hill climbing can get stuck in any local optimum."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Special types include the flat local maximum (or minimum), where multiple states of equal value are adjacent, forming a plateau whose neighbors all have worse values. The algorithm cannot find a direction to improve."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A shoulder is similar \u2014 multiple states of equal value are adjacent, but the neighbors of the plateau can be both better and worse. Starting from the middle of the plateau, the algorithm will not be able to advance in any direction."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Local Maximum \u2014 A state with a higher value than all its neighbors, but not necessarily the highest in the entire state space.",
+              "Global Maximum \u2014 The state with the highest value of all states in the state space.",
+              "Flat Local Maximum \u2014 A plateau of equal-valued states whose neighbors are all worse \u2014 the algorithm cannot find a direction to improve.",
+              "Shoulder \u2014 A plateau where neighboring states can be both better and worse \u2014 starting from the middle, the algorithm cannot advance."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Hill Climbing Variants"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Multiple variants of hill climbing have been developed to overcome the problem of getting stuck in local optima. What they all have in common is that each still has the potential to end up in a local optimum with no means to continue."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Steepest-ascent chooses the highest-valued neighbor. This is the standard variation we discussed above \u2014 always pick the best immediate option."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Stochastic chooses randomly from higher-valued neighbors. Instead of always taking the best move, it picks any direction that improves the current value. This can sometimes avoid the path that leads to a local maximum."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "First-choice chooses the first higher-valued neighbor it finds. Instead of evaluating all neighbors, it checks them one by one and takes the first one that is better \u2014 saving computation when there are many neighbors."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Random-restart conducts hill climbing multiple times, each time starting from a random state. It compares the maxima from every trial and returns the highest among them. Simple and surprisingly effective."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Local beam search chooses the k highest-valued neighbors. Unlike most local search algorithms that maintain a single node, it uses k nodes simultaneously, exploring multiple paths in parallel."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Stochastic Hill Climbing \u2014 A variant that picks randomly from any neighbor that improves the current value, rather than always taking the best neighbor.",
+              "First-Choice Hill Climbing \u2014 A variant that evaluates neighbors one by one and takes the first one that is better than the current state.",
+              "Random-Restart Hill Climbing \u2014 A variant that runs hill climbing multiple times from random starting states and returns the best result found.",
+              "Local Beam Search \u2014 A variant that tracks k candidate states simultaneously, choosing the k best neighbors at each step."
+            ]
+          }
+        },
+        {
+          "type": "ai_section",
+          "theme": "light",
+          "hero": {
+            "category": "",
+            "title": "",
+            "intro": ""
+          },
+          "concepts": [],
+          "probabilityContent": {
+            "chapters": [
+              {
+                "title": "Simulated Annealing",
+                "interactive": "simulated-annealing",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/A_blacksmith_at_work.jpg/960px-A_blacksmith_at_work.jpg",
+                "imageAlt": "A blacksmith heating and hammering metal, the annealing metaphor",
+                "sentences": [
+                  "Although hill climbing variants can improve search, they all share the same fault: once the algorithm reaches a local maximum, it stops running. Simulated annealing allows the algorithm to 'dislodge' itself if it gets stuck.",
+                  "Annealing is the process of heating metal and allowing it to cool slowly, which toughens the metal. The algorithm uses this metaphor: start with a high temperature (more random decisions) and cool down slowly (fewer random decisions).",
+                  "Formula: function Simulated-Annealing(problem, max):\n  current = initial state\n  for t = 1 to max:\n    T = Temperature(t)\n    neighbor = random neighbor of current\n    \u0394E = how much better neighbor is than current\n    if \u0394E > 0:\n      current = neighbor\n    else with probability e^(\u0394E/T) set current = neighbor\n  return current",
+                  "When the neighbor state is worse (\u0394E < 0), we still might set our current state to be that neighbor \u2014 with probability e^(\u0394E/T). A more negative \u0394E gives lower probability. A higher temperature T gives higher probability.",
+                  "This means early on (high T), the algorithm freely explores worse states to escape local traps. As it cools (low T), it becomes more selective and converges. The cooling schedule \u2014 how fast T decreases \u2014 is the key design parameter.",
+                  "In simple words: Simulated annealing sometimes takes two steps back to take three steps forward \u2014 the willingness to detour is high at the start and fades as confidence in the solution grows."
+                ],
+                "terms": [
+                  {
+                    "term": "Simulated Annealing",
+                    "definition": "A local search algorithm that occasionally accepts worse solutions with probability that decreases over time, enabling escape from local optima."
+                  },
+                  {
+                    "term": "Temperature",
+                    "definition": "A parameter that controls the probability of accepting worse solutions \u2014 high temperature means more exploration, low temperature means more exploitation."
+                  },
+                  {
+                    "term": "Cooling Schedule",
+                    "definition": "The rate at which temperature decreases over time, balancing exploration vs exploitation."
+                  }
+                ]
+              }
+            ]
+          },
+          "keyInsight": ""
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Traveling Salesman Problem"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "In the traveling salesman problem (TSP), the task is to connect all points (cities) while choosing the shortest possible distance. This is what delivery companies do: find the shortest route from the depot to all customers' houses and back."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A neighbor state in TSP can be seen as a state where two edges of the route swap places. For example, exchanging the order of two consecutive cities creates a neighboring route with a slightly different total distance."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Calculating every possible combination makes TSP computationally demanding. With just 10 cities, there are 10! (3,628,800) possible routes. With 20 cities, the number is astronomical \u2014 2.4 quintillion."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "This is where simulated annealing shines. Instead of enumerating all routes, SA starts with a random tour and makes small swaps. It occasionally accepts worse routes early on (exploration) and gradually converges on an efficient route."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "TSP is the classic example of why local search exists: when exhaustive search is impossible, algorithms like simulated annealing find good solutions at a fraction of the computational cost."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Traveling Salesman Problem (TSP) \u2014 A classic optimization problem: find the shortest possible route that visits every city exactly once and returns to the starting point.",
+              "Combinatorial Explosion \u2014 The rapid growth of possible solutions as problem size increases \u2014 TSP with n cities has n! possible routes, making exhaustive search infeasible for large n."
+            ]
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "Hill climbing is greedy and fast but shortsighted. Simulated annealing trades speed for escape ability. Together they form a spectrum from 'exploit hard' to 'explore smart'."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Hill Climbing Is Like Finding the Best Detour",
+          "subtitle": "When you're driving and traffic builds up, a greedy driver always takes the first slightly faster road \u2014 but may miss the much better route that first requires a short slowdown.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "You're driving and hit traffic. The GPS suggests a residential detour. It's a little slower at first but shortcuts 10 minutes later. A greedy driver who only looks one block ahead would stay on the highway \u2014 stuck in a local optimum."
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "Hill climbing = always take the immediate best move \u2192 fast but might miss the global best. Simulated annealing = occasionally accept short-term losses to find a better overall route.",
+              "visual": {
+                "type": "flow",
+                "items": [
+                  "Evaluate Neighbors",
+                  "Pick Best (Greedy)",
+                  "Or Accept Worse (SA)",
+                  "Converge on Best"
+                ],
+                "conclusion": "Better overall solution"
+              }
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "In AI, the landscape is the objective function. Hill climbing climbs the steepest slope and stops. Simulated annealing takes calculated detours \u2014 accepting worse states with probability that decreases over time \u2014 to find the global optimum."
+            }
+          ],
+          "insight": "The best route often requires a short-term sacrifice. Simulated annealing is the AI version of taking the scenic detour that turns out to be faster.",
+          "reinforcement": "Temperature controls exploration. Start hot \u2192 explore boldly. Cool down \u2192 exploit the best. The cooling schedule is the key."
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Constraint Satisfaction",
+            "level": "h3"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Constraint Satisfaction Problems (CSPs) have three components: <strong>variables</strong>, each with a domain of possible values; <strong>constraints</strong> that restrict which combinations of values are valid; and the goal of finding an <strong>assignment</strong> satisfying all constraints."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Unlike optimization problems, CSPs have no cost function. We don't need the best solution \u2014 just <strong>any</strong> solution that follows the rules."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Common examples include: <strong>Sudoku</strong> (fill the grid so each row, column, and box has unique digits), <strong>scheduling</strong> (assign time slots without conflicts), and <strong>graph coloring</strong> (assign colors to vertices so adjacent vertices differ)."
+          }
+        },
+        {
+          "type": "practice",
+          "title": "Hill Climbing on a Landscape",
+          "instructions": "Climb the landscape by moving to adjacent positions with higher values.",
+          "starterCode": "",
+          "solution": "",
+          "hint": ""
+        }
+      ]
+    },
+    {
+      "id": "linear-programming",
+      "label": "Linear Programming & Constraint Satisfaction",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Linear Programming & Constraint Satisfaction \u2014 SVG placeholder",
+            "svgId": "linear-programming"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Linear programming optimizes a linear equation subject to linear constraints. Constraint satisfaction finds any solution that satisfies a set of hard rules. Together they cover the two major families of constrained optimization."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Linear Programming"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A cost function defines what we minimize: c\u2081x\u2081 + c\u2082x\u2082 + \u2026 + c\u2099x\u2099. Constraints limit the solution space: a\u2081x\u2081 + a\u2082x\u2082 + \u2026 + a\u2099x\u2099 \u2264 b, plus individual bounds on each variable."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Feasible Region"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The set of all points that satisfy every constraint forms a convex polygon (in 2D) or polytope (in higher dimensions). The optimal solution always lies at a vertex of this region."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Simplex Method"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The Simplex algorithm walks along the vertices of the feasible region, at each step moving to a neighboring vertex that improves the objective. It stops when no neighbor gives a better value."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Constraint Satisfaction"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A CSP has variables, each with a domain of possible values, and constraints that restrict valid combinations. The goal is to find any assignment satisfying all constraints."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Backtracking Search"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Assign values one variable at a time. If a constraint is violated, backtrack to the previous variable and try a different value. Correct but can be slow without good heuristics."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Arc Consistency"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Before searching, remove domain values that cannot possibly lead to a valid solution. This preprocessing dramatically prunes the search space before backtracking begins."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Linear Programming"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Linear programming is a family of problems that optimize a linear equation \u2014 an equation of the form y = a\u2081x\u2081 + a\u2082x\u2082 + \u2026 + a\u2099x\u2099. All relationships in the problem must be linear."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Linear programming has the following components: a cost function we want to minimize (c\u2081x\u2081 + c\u2082x\u2082 + \u2026 + c\u2099x\u2099), constraints (a\u2081x\u2081 + a\u2082x\u2082 + \u2026 + a\u2099x\u2099 \u2264 b or = b), and individual bounds on variables (l\u1d62 \u2264 x\u1d62 \u2264 u\u1d62)."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Consider two machines, X\u2081 and X\u2082. X\u2081 costs $50/hour to run, X\u2082 costs $80/hour. Goal: minimize cost. Cost function: 50x\u2081 + 80x\u2082."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "X\u2081 requires 5 units of labor per hour. X\u2082 requires 2 units of labor per hour. Total labor available: 20 units. Constraint: 5x\u2081 + 2x\u2082 \u2264 20."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "X\u2081 produces 10 units of output per hour. X\u2082 produces 12 units per hour. Company needs 90 units. Constraint: 10x\u2081 + 12x\u2082 \u2265 90. To fit the standard form (\u2264), multiply by -1: (-10x\u2081) + (-12x\u2082) \u2264 -90."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "An optimizing algorithm for linear programming requires background in geometry and linear algebra. Instead of implementing from scratch, we can use proven algorithms like Simplex and Interior-Point."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Linear Programming \u2014 An optimization family that minimizes or maximizes a linear objective function subject to linear equality and inequality constraints.",
+              "Cost Function \u2014 The linear equation we aim to minimize: c\u2081x\u2081 + c\u2082x\u2082 + \u2026 + c\u2099x\u2099, where each variable x\u1d62 has an associated cost c\u1d62.",
+              "Constraint \u2014 A linear inequality or equality that restricts the feasible solution space: a\u2081x\u2081 + a\u2082x\u2082 + \u2026 + a\u2099x\u2099 \u2264 b."
+            ]
+          }
+        },
+        {
+          "type": "ai_section",
+          "theme": "light",
+          "hero": {
+            "category": "",
+            "title": "",
+            "intro": ""
+          },
+          "concepts": [],
+          "probabilityContent": {
+            "chapters": [
+              {
+                "title": "Feasible Region & Vertices",
+                "interactive": "feasible-region",
+                "sentences": [
+                  "The feasible region is the set of all points that satisfy every constraint simultaneously. In two dimensions, it forms a convex polygon. In higher dimensions, it forms a convex polytope.",
+                  "The optimal solution to a linear program always lies at a vertex (corner point) of the feasible region. This is a fundamental theorem of linear programming and is what algorithms like Simplex exploit.",
+                  "In our factory example, the feasible region is bounded by: the labor constraint (5x\u2081 + 2x\u2082 \u2264 20), the output constraint (10x\u2081 + 12x\u2082 \u2265 90), and the non-negativity constraints (x\u2081 \u2265 0, x\u2082 \u2265 0).",
+                  "The vertex where the two constraints intersect is the optimal solution. Finding it by checking every vertex is possible for small problems but becomes infeasible as dimensions grow \u2014 which is why we need algorithms."
+                ],
+                "terms": [
+                  {
+                    "term": "Feasible Region",
+                    "definition": "The set of all points that satisfy every constraint in a linear program. Always forms a convex polytope."
+                  },
+                  {
+                    "term": "Vertex",
+                    "definition": "A corner point of the feasible region where constraint boundaries intersect. The optimal solution always lies at a vertex."
+                  }
+                ]
+              }
+            ]
+          },
+          "keyInsight": ""
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Simplex & Interior-Point Methods"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The Simplex algorithm starts at a vertex of the feasible region and walks along edges to neighboring vertices. At each step, it moves to a neighbor that improves the objective function \u2014 similar to hill climbing on the feasible region."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Simplex stops when no neighboring vertex has a better objective value \u2014 the current vertex is optimal. In the worst case, Simplex can visit exponentially many vertices, but in practice it is very efficient."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Interior-point methods take a different approach: they cut through the interior of the feasible region rather than walking along the boundary. These methods converge toward the optimal vertex from inside the region."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Both Simplex and interior-point methods are widely available in libraries. In Python, scipy.optimize.linprog provides both options and handles the underlying linear algebra automatically."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Simplex Algorithm \u2014 A linear programming algorithm that walks along vertices of the feasible region, moving to better neighbors until the optimal vertex is reached.",
+              "Interior-Point Method \u2014 A linear programming algorithm that traverses the interior of the feasible region, converging to the optimal vertex from inside."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Constraint Satisfaction Problems"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Many problems aren't about optimizing a score \u2014 they're about finding any solution that satisfies a set of hard rules. Scheduling, Sudoku, and graph colouring are all constraint satisfaction problems."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A CSP has three components: variables, each with a domain of possible values; constraints that restrict which combinations of values are valid; and the goal of finding an assignment satisfying all constraints."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A Sudoku constraint: no row, column, or 3\u00d73 box may contain the same digit twice. This is a binary constraint \u2014 it relates pairs of cells in the same row, column, or box."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The key difference from linear programming: CSPs don't have a cost function to optimize. We don't need the best solution \u2014 just any solution that follows the rules."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Constraint Satisfaction Problem (CSP) \u2014 A problem with variables, domains, and constraints \u2014 the goal is to find any assignment of values to variables that satisfies all constraints.",
+              "Variable \u2014 An element of a CSP that needs to be assigned a value from its domain.",
+              "Constraint \u2014 A rule that restricts which combinations of variable assignments are valid."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Backtracking Search"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Backtracking search is the standard algorithm for solving CSPs: assign values to variables one at a time. After each assignment, check whether any constraint is violated."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "If a constraint is violated, backtrack: undo the most recent assignment and try a different value for that variable. If all values for a variable are exhausted, backtrack further."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "This is essentially depth-first search on the CSP's state space. Correct, but can be slow without good heuristics for which variable to assign next and which value to try first."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Heuristics like MRV (Minimum Remaining Values) pick the variable with the fewest legal values left, reducing branching factor early. LCV (Least Constraining Value) picks the value that rules out the fewest options for remaining variables."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Backtracking Search \u2014 A CSP algorithm that assigns values one variable at a time and backtracks when a constraint is violated.",
+              "MRV Heuristic \u2014 Minimum Remaining Values \u2014 pick the variable with the fewest legal values left to reduce branching factor.",
+              "LCV Heuristic \u2014 Least Constraining Value \u2014 pick the value that rules out the fewest choices for remaining variables."
+            ]
+          }
+        },
+        {
+          "type": "ai_section",
+          "theme": "light",
+          "hero": {
+            "category": "",
+            "title": "",
+            "intro": ""
+          },
+          "concepts": [],
+          "probabilityContent": {
+            "chapters": [
+              {
+                "title": "Arc Consistency",
+                "interactive": "arc-consistency",
+                "sentences": [
+                  "Before searching, arc consistency removes domain values that cannot possibly lead to a valid solution. This preprocessing dramatically prunes the search space before backtracking even begins.",
+                  "An arc is a directed connection between two variables. An arc X \u2192 Y is consistent if for every value of X, there exists at least one value of Y that satisfies the constraint between them.",
+                  "If a value of X has no compatible value in Y's domain, that value can be safely removed from X's domain \u2014 it can never be part of a valid solution. This propagates: removing a value may affect other arcs.",
+                  "AC-3 is the standard algorithm: maintain a queue of arcs to check. When a value is removed from a variable's domain, re-check all arcs pointing to that variable. Repeat until no more values can be removed.",
+                  "Arc consistency often solves large parts of a CSP before any backtracking is needed. In many puzzles, AC-3 alone finds the solution or reduces the search space to near-trivial size."
+                ],
+                "terms": [
+                  {
+                    "term": "Arc Consistency",
+                    "definition": "A property: for every value of variable X, there exists a value of Y that satisfies the constraint between them. If not, the value can be safely removed."
+                  },
+                  {
+                    "term": "AC-3",
+                    "definition": "The standard arc consistency algorithm that iteratively removes inconsistent values until the domain stabilizes."
+                  }
+                ]
+              }
+            ]
+          },
+          "keyInsight": ""
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "Linear programming finds the optimal solution under linear constraints. Constraint satisfaction finds any valid solution under hard constraints. Both are essential tools in the optimization toolkit."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Rules & Resources Drive Every Optimization",
+          "subtitle": "A factory has limited labor and must meet production targets (LP). A Sudoku puzzle has rules that every row, column, and box must be unique (CSP). Both use constraints \u2014 one optimizes, the other satisfies.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "In a factory, the manager decides how many hours to run each machine \u2014 balancing labor costs, output targets, and hourly rates. In Sudoku, every digit must follow the row, column, and box rules. Both are constraint-driven problems with different goals."
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "Linear programming: define variables, write an objective function, add linear constraints, and find the optimal vertex. Constraint satisfaction: define variables with domains, add constraints, and find any valid assignment.",
+              "visual": {
+                "type": "flow",
+                "items": [
+                  "Define Variables",
+                  "Add Constraints",
+                  "Optimize (LP) or Satisfy (CSP)",
+                  "Find Solution"
+                ],
+                "conclusion": "Optimal or valid solution"
+              }
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "AI uses LP for supply chains, portfolio optimization, and energy grids \u2014 problems with continuous variables and linear costs. AI uses CSP for scheduling, planning, and configuration \u2014 problems with discrete choices and hard rules."
+            }
+          ],
+          "insight": "Whether optimizing or satisfying, constraints define the boundaries of the possible. LP finds the best point inside; CSP finds any point inside.",
+          "reinforcement": "LP handles continuous variables with linear costs. CSP handles discrete variables with hard constraints. Together they cover most real-world constrained problems."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Local search maintains a single candidate and moves to better neighbors \u2014 it never explores the full space"
+      },
+      {
+        "text": "The state space contains every possible configuration; neighbors are one small change away"
+      },
+      {
+        "text": "The state-space landscape visualizes cost or value across all states \u2014 hills are good, valleys are bad"
+      },
+      {
+        "text": "Manhattan distance measures grid-based distance by summing horizontal and vertical moves"
+      },
+      {
+        "text": "Hill climbing moves to the best neighbor and stops at local optima \u2014 fast but short-sighted"
+      },
+      {
+        "text": "Local vs global optima: hill climbing may get stuck at a peak that's better than neighbors but not the best overall"
+      },
+      {
+        "text": "Hill climbing variants include stochastic, first-choice, random-restart, and local beam search"
+      },
+      {
+        "text": "Simulated annealing escapes local optima by occasionally accepting worse solutions with decreasing probability"
+      },
+      {
+        "text": "The traveling salesman problem finds the shortest route visiting all cities \u2014 simulated annealing solves it efficiently"
+      },
+      {
+        "text": "Linear programming optimizes a linear objective subject to linear constraints \u2014 the solution always lies at a vertex of the feasible region"
+      },
+      {
+        "text": "Simplex walks vertices along the boundary; interior-point methods cut through the feasible region from inside"
+      },
+      {
+        "text": "Constraint satisfaction problems (CSPs) have variables, domains, and constraints \u2014 find any assignment satisfying all constraints"
+      },
+      {
+        "text": "Backtracking search assigns values one by one and backtracks on violation; MRV and LCV heuristics improve performance"
+      },
+      {
+        "text": "Arc consistency (AC-3) prunes impossible domain values before search begins, dramatically reducing the search space"
+      }
+    ],
+    "whatYouLearned": [
+      "What local search is and how it differs from exhaustive search",
+      "How to define a state space and identify neighbor states",
+      "How to read a state-space landscape and distinguish local vs global optima",
+      "How the hospitals problem uses Manhattan distance as a cost function",
+      "Why hill climbing gets stuck at local optima and what flat plateaus and shoulders are",
+      "How hill climbing variants (stochastic, first-choice, random-restart, beam search) differ",
+      "How simulated annealing uses temperature to escape local traps",
+      "What the traveling salesman problem is and how simulated annealing solves it",
+      "What linear programming is and how to formulate cost functions and constraints",
+      "How the feasible region and vertices define the solution space in linear programming",
+      "How Simplex and interior-point methods solve linear programs differently",
+      "What constraint satisfaction problems are and how they differ from optimization problems",
+      "How backtracking search with MRV and LCV heuristics solves CSPs",
+      "How arc consistency (AC-3) prunes domains to make CSPs tractable"
+    ],
+    "nextUp": "Machine Learning"
+  }
+}

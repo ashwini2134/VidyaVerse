@@ -1,0 +1,58 @@
+[
+  {
+    "id": "news_story_ai",
+    "title": "News story about AI",
+    "description": "Find one real news story about AI causing harm (e.g., bias, hallucination, deepfakes, or job displacement). Briefly summarize the story and the specific ethical issue it highlights.\n\nProvide your written answer in the code editor as comments.",
+    "difficulty": "easy",
+    "type": "reflection",
+    "starterCode": "# Summarize your news story here:\n",
+    "solution": "# Example: The Amazon recruiting AI that was biased against women's resumes. It highlighted the issue of historical training data creating algorithmic bias.",
+    "hints": [
+      "Search for terms like 'AI bias in hiring', 'deepfake controversies', or 'facial recognition errors'.",
+      "Focus on what went wrong and why it is an ethical problem."
+    ],
+    "testCases": []
+  },
+  {
+    "id": "medical_decisions_debate",
+    "title": "Medical decisions debate",
+    "description": "Discussion \u2014 Should AI be allowed to make medical diagnoses and treatment decisions without a human doctor reviewing them? Argue for or against, using at least two reasons.\n\nProvide your written answer in the code editor as comments.",
+    "difficulty": "easy",
+    "type": "reflection",
+    "starterCode": "# Write your argument here:\n",
+    "solution": "# Example: No, AI should not make decisions alone. Reason 1: If an AI makes a fatal mistake, accountability is unclear. Reason 2: AI lacks human empathy, which is crucial for bedside manner and patient trust.",
+    "hints": [
+      "Think about accountability: who gets sued if the AI is wrong?",
+      "Consider the accuracy of AI versus human doctors, and the importance of human empathy."
+    ],
+    "testCases": []
+  },
+  {
+    "id": "ai_education_sim1",
+    "title": "AI in Education (Similar A)",
+    "description": "How should schools handle generative AI tools like ChatGPT? Should they be completely banned, fully integrated into the curriculum, or something in between? State your opinion and one supporting reason.\n\nProvide your written answer in the code editor as comments.",
+    "difficulty": "easy",
+    "type": "reflection",
+    "starterCode": "# Write your opinion here:\n",
+    "solution": "# Example: Schools should integrate it. Reason: Students need to learn how to use these tools safely because they will be required in the future workforce.",
+    "hints": [
+      "Consider how difficult it is to actually enforce a total ban.",
+      "Think about what skills students will need when they enter the modern workforce."
+    ],
+    "testCases": []
+  },
+  {
+    "id": "autonomous_vehicles_sim2",
+    "title": "Autonomous Vehicles Debate (Similar B)",
+    "description": "If a self-driving car gets into an accident, who should be held legally responsible: the person sitting in the driver's seat, the software developer, or the car manufacturer? Defend your choice.\n\nProvide your written answer in the code editor as comments.",
+    "difficulty": "easy",
+    "type": "reflection",
+    "starterCode": "# Defend your choice here:\n",
+    "solution": "# Example: The manufacturer should be responsible if the car was in full autonomous mode, because the driver has handed over control to the company's system.",
+    "hints": [
+      "Think about whether the 'driver' actually had the ability to intervene in time.",
+      "How does consumer trust factor into who takes the blame?"
+    ],
+    "testCases": []
+  }
+]

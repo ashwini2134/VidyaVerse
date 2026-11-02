@@ -1,0 +1,425 @@
+{
+  "id": "python20-lecture-8",
+  "courseSlug": "python20",
+  "number": 8,
+  "title": "Tuples & Sets",
+  "overview": "Python gives you the right tool for the job. Lists are great, but sometimes you need data that shouldn't change, or data where duplicates don't matter. Tuples and sets solve exactly these problems.",
+  "estimatedMinutes": 45,
+  "sections": [
+    {
+      "id": "tuples",
+      "label": "Tuples — Ordered and Unchangeable",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Some data should never change. The days of the week. The cardinal directions. Your date of birth. Using a list for this — which can be accidentally modified — is risky."
+        },
+        {
+          "type": "text",
+          "content": "A **tuple** is like a list, but **immutable** — once created, it cannot be changed. You define it with parentheses `()` instead of square brackets."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Creating Tuples",
+          "language": "python",
+          "code": "# Tuple of days\ndays = (\"Mon\", \"Tue\", \"Wed\", \"Thu\", \"Fri\", \"Sat\", \"Sun\")\n\n# Access like a list\nprint(days[0])   # Mon\nprint(days[-1])  # Sun\nprint(len(days)) # 7\n\n# Iterate like a list\nfor day in days:\n    print(day)",
+          "expectedOutput": "Mon\nSun\n7\nMon\nTue\nWed\nThu\nFri\nSat\nSun",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "Tuples support indexing, slicing, and loops — just like lists. The difference: you cannot append, remove, or change any item."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Tuple Unpacking",
+          "language": "python",
+          "code": "# GPS coordinates — should never change\nlocation = (13.0827, 80.2707)  # Chennai\n\n# Unpack into separate variables\nlatitude, longitude = location\n\nprint(f\"Latitude: {latitude}\")\nprint(f\"Longitude: {longitude}\")",
+          "expectedOutput": "Latitude: 13.0827\nLongitude: 80.2707",
+          "editable": true
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Passport Information",
+            "description": "Your passport has fixed details — name, date of birth, nationality. These values should never accidentally change. A tuple is like a digital passport: the data is locked in. You can read it, but not modify it.",
+            "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80",
+            "bullets": [
+              "Your passport contains fixed, official data — name, DOB, nationality.",
+              "Once issued, you cannot change passport details yourself.",
+              "The data must stay unchanged to remain valid and trustworthy."
+            ],
+            "highlightCard": "A tuple stores data that should never change — it's immutable by design."
+          },
+          "visualization": {
+            "type": "decision",
+            "title": "List vs Tuple",
+            "condition": "Does the data need to change?",
+            "trueLabel": "Use a List (mutable)",
+            "falseLabel": "Use a Tuple (immutable)",
+            "bullets": [
+              "Tuples use round brackets (), lists use square brackets [].",
+              "Once created, a tuple cannot be modified — no append, no remove.",
+              "Use tuples for data that must stay constant: coordinates, dates, config."
+            ],
+            "highlightCard": "tuple = immutable. list = mutable. Choose based on whether the data should change."
+          },
+          "code": {
+            "language": "python",
+            "code": "# Fixed constants\nDIRECTIONS = (\"North\", \"South\", \"East\", \"West\")\nprint(DIRECTIONS[0])  # North",
+            "output": "North",
+            "highlights": [
+              "passport = ('Rohan', '2005-03-15', 'Indian') — round brackets for tuple.",
+              "passport[0] accesses 'Rohan' — reading works just like a list.",
+              "Trying to modify passport[0] raises a TypeError — tuples cannot change."
+            ],
+            "highlightCard": "Use a tuple when the data must remain constant. Use a list when it can change."
+          },
+          "reflection": {
+            "question": "When should you use a tuple instead of a list?",
+            "answer": "When the data is fixed and shouldn't change — like coordinates, days of the week, or constant configuration values.",
+            "options": [
+              "When you want faster sorting",
+              "When data is fixed and shouldn't change",
+              "When you need more than 10 items",
+              "When items are all the same type"
+            ]
+          },
+          "stage1Transition": "Python's tuple is like a passport — data that must stay locked. Let's compare it to a list.",
+          "stage2Transition": "Here is how tuples and lists compare in Python code.",
+          "takeaway": "A passport contains permanent data — that's a tuple. Tuples store values that must never change. When permanence and integrity matter, choose a tuple over a list."
+        },
+        {
+          "type": "practice",
+          "title": "RGB Colour Code",
+          "instructions": "Store the RGB values of red as a tuple: (255, 0, 0). Unpack it into three variables: r, g, b. Print each channel label and value: 'Red: 255', 'Green: 0', 'Blue: 0'.",
+          "starterCode": "# Define RGB tuple for red\nred_colour = (255, 0, 0)\n\n# Unpack\n\n\n# Print\nprint(f\"Red: {r}\")\nprint(f\"Green: {g}\")\nprint(f\"Blue: {b}\")",
+          "solution": "red_colour = (255, 0, 0)\n\nr, g, b = red_colour\n\nprint(f\"Red: {r}\")\nprint(f\"Green: {g}\")\nprint(f\"Blue: {b}\")",
+          "hint": "Unpack with: r, g, b = red_colour",
+          "expectedOutput": "Red: 255\nGreen: 0\nBlue: 0"
+        }
+      ]
+    },
+    {
+      "id": "sets",
+      "label": "Sets — Unique and Unordered",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "What if you need to store a collection of unique values where order doesn't matter? That's a set."
+        },
+        {
+          "type": "text",
+          "content": "A **set** automatically removes duplicates. If you add the same value twice, the set keeps only one copy. Sets use curly braces `{}`."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Sets Remove Duplicates",
+          "language": "python",
+          "code": "# Votes cast — may have duplicates\nvotes = {\"Alice\", \"Bob\", \"Alice\", \"Charlie\", \"Bob\", \"Alice\"}\n\nprint(votes)          # Duplicates removed\nprint(len(votes))     # Only 3 unique voters",
+          "expectedOutput": "{'Alice', 'Bob', 'Charlie'}\n3",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "Sets are **unordered** — the items have no guaranteed position. You can't use index `[0]` on a set. But you can iterate, check membership, and perform set operations."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Set Operations",
+          "language": "python",
+          "code": "python_students = {\"Ravi\", \"Meera\", \"Arjun\", \"Priya\"}\njava_students = {\"Meera\", \"Kiran\", \"Priya\", \"Sana\"}\n\n# Union: all students\nprint(\"All:\", python_students | java_students)\n\n# Intersection: both courses\nprint(\"Both:\", python_students & java_students)\n\n# Difference: only Python\nprint(\"Only Python:\", python_students - java_students)",
+          "expectedOutput": "All: {'Ravi', 'Meera', 'Arjun', 'Priya', 'Kiran', 'Sana'}\nBoth: {'Meera', 'Priya'}\nOnly Python: {'Ravi', 'Arjun'}",
+          "editable": true
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "School Club Members",
+            "description": "Two school clubs post their member lists. Some students are in both. The union is everyone in either club. The intersection is students in both clubs. The difference is students in only one club. Set operations answer these real-world questions instantly.",
+            "image": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80",
+            "bullets": [
+              "A club has a unique member list — no one can join twice.",
+              "Adding an existing member has no effect on the roster.",
+              "Membership checks are instant — the list is always clean."
+            ],
+            "highlightCard": "A set stores only unique values — duplicates are automatically removed."
+          },
+          "visualization": {
+            "type": "categories",
+            "title": "Set Operations",
+            "items": [
+              "| (Union): all items from both",
+              "& (Intersection): items in both",
+              "- (Difference): items only in first",
+              "in: check if item exists"
+            ],
+            "bullets": [
+              "Sets use curly braces {} and automatically remove any duplicates.",
+              "You can find which members two sets share (intersection) or who is in either (union).",
+              "Set operations like union, intersection, and difference work instantly."
+            ],
+            "highlightCard": "set = unique values only. union = all of both. intersection = common to both."
+          },
+          "code": {
+            "language": "python",
+            "code": "a = {1, 2, 3, 4}\nb = {3, 4, 5, 6}\nprint(a & b)  # {3, 4}",
+            "output": "{3, 4}",
+            "highlights": [
+              "set() or {} creates a set — duplicates are silently dropped.",
+              "drama | art gives the union (everyone in either club).",
+              "drama & art gives the intersection (members in both clubs)."
+            ],
+            "highlightCard": "Sets handle membership, uniqueness, and group comparisons better than lists."
+          },
+          "reflection": {
+            "question": "What makes a set different from a list?",
+            "answer": "Sets automatically remove duplicates and have no guaranteed order. You can't access items by index in a set.",
+            "options": [
+              "Sets are faster to iterate",
+              "Sets remove duplicates and have no guaranteed order",
+              "Sets can hold more items",
+              "Sets use parentheses instead of brackets"
+            ]
+          },
+          "stage1Transition": "Python's set is like a club membership roster — uniqueness is guaranteed. Let's see.",
+          "stage2Transition": "Here is how sets and their operations work in Python.",
+          "takeaway": "A school club roster is a perfect set — no duplicate members, instant membership checks, and easy comparison between groups. Use sets when uniqueness is what matters."
+        },
+        {
+          "type": "practice",
+          "title": "Unique Tag Finder",
+          "instructions": "A blog has two articles with these tags:\narticle1_tags = [\"python\", \"coding\", \"tips\", \"python\", \"beginner\"]\narticle2_tags = [\"coding\", \"advanced\", \"python\", \"tips\"]\n\nConvert both to sets, then find: all unique tags across both articles, tags that appear in both articles.",
+          "starterCode": "article1_tags = [\"python\", \"coding\", \"tips\", \"python\", \"beginner\"]\narticle2_tags = [\"coding\", \"advanced\", \"python\", \"tips\"]\n\n# Convert to sets\nset1 = set(article1_tags)\nset2 = set(article2_tags)\n\n# All unique tags\nprint(\"All tags:\", )\n\n# Common tags\nprint(\"Common tags:\", )",
+          "solution": "article1_tags = [\"python\", \"coding\", \"tips\", \"python\", \"beginner\"]\narticle2_tags = [\"coding\", \"advanced\", \"python\", \"tips\"]\n\nset1 = set(article1_tags)\nset2 = set(article2_tags)\n\nprint(\"All tags:\", set1 | set2)\nprint(\"Common tags:\", set1 & set2)",
+          "hint": "Use | for union and & for intersection.",
+          "expectedOutput": "All tags: {'python', 'coding', 'tips', 'beginner', 'advanced'}\nCommon tags: {'python', 'coding', 'tips'}"
+        }
+      ]
+    },
+    {
+      "id": "choosing-type",
+      "label": "List vs Tuple vs Set — When to Use Which",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Having three sequence types can feel confusing at first. But each has a clear purpose."
+        },
+        {
+          "type": "text",
+          "content": "**Use a List when:** order matters, items may change, duplicates are allowed.\n\n**Use a Tuple when:** data is fixed and should not be modified, often used for coordinates, RGB values, or function return values.\n\n**Use a Set when:** you need only unique values, order doesn't matter, or you need set math (union, intersection)."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Choosing the Right Type",
+          "language": "python",
+          "code": "# List: student marks that will be updated\nmarks = [78, 85, 90, 67]\nmarks.append(92)\n\n# Tuple: fixed course structure\ncourse = (\"Python 2.0\", 14, \"Beginner\")\n\n# Set: unique enrolled students\nenrolled = {\"Ravi\", \"Priya\", \"Meera\"}\nenrolled.add(\"Arjun\")\n\nprint(marks)\nprint(course)\nprint(enrolled)",
+          "expectedOutput": "[78, 85, 90, 67, 92]\n('Python 2.0', 14, 'Beginner')\n{'Ravi', 'Priya', 'Meera', 'Arjun'}",
+          "editable": true
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Notebook, Stone Tablet, Unique Numbers Box",
+            "description": "A notebook (list) — you write in it, erase, add pages. A stone tablet (tuple) — carved once, read forever, never changed. A box of unique lottery numbers (set) — only one of each number, order doesn't matter, automatically rejects duplicates.",
+            "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=80",
+            "bullets": [
+              "A notebook is flexible — you can add, erase, and reorder content.",
+              "A stone tablet is permanent — once carved, the data cannot change.",
+              "A unique collection discards anything you try to add twice."
+            ],
+            "highlightCard": "list, tuple, and set each solve a different problem — know which to use when."
+          },
+          "visualization": {
+            "type": "categories",
+            "title": "Choosing the Right Tool",
+            "items": [
+              "List → ordered + changeable",
+              "Tuple → ordered + fixed",
+              "Set → unique + unordered"
+            ],
+            "bullets": [
+              "list: ordered, changeable, allows duplicates — your go-to for most collections.",
+              "tuple: ordered, unchangeable, allows duplicates — for permanent, fixed data.",
+              "set: unordered, changeable, no duplicates — for unique items and group operations."
+            ],
+            "highlightCard": "list = flexible. tuple = permanent. set = unique. Match the structure to the need."
+          },
+          "code": {
+            "language": "python",
+            "code": "# Quick type test\nprint(type([1, 2, 3]))    # list\nprint(type((1, 2, 3)))    # tuple\nprint(type({1, 2, 3}))    # set",
+            "output": "<class 'list'>\n<class 'tuple'>\n<class 'set'>",
+            "highlights": [
+              "Use list when order matters and items will be added or removed.",
+              "Use tuple when the data must stay fixed — like coordinates or dates.",
+              "Use set when you only care about what's present, not how many times."
+            ],
+            "highlightCard": "Choosing the right structure makes your code cleaner, faster, and more intentional."
+          },
+          "reflection": {
+            "question": "You're storing the 7 days of the week — which type is best?",
+            "answer": "Tuple — days of the week are fixed (never change) and ordered (Mon through Sun). A tuple communicates that intention clearly.",
+            "options": [
+              "List — because it supports indexing",
+              "Set — because the names are unique",
+              "Tuple — because days never change",
+              "Dictionary — because they have names"
+            ]
+          },
+          "stage1Transition": "Which Python data structure should you choose? Let's map each tool to its purpose.",
+          "stage2Transition": "Here is how all three structures compare in Python code.",
+          "takeaway": "Notebook = list, stone tablet = tuple, unique numbers box = set. Each data structure solves a different problem. Choose based on whether you need order, immutability, or uniqueness."
+        },
+        {
+          "type": "practice",
+          "title": "Data Type Decision",
+          "instructions": "For each scenario below, create the appropriate data type and verify it works:\n1. Store the primary colours as a fixed tuple: red, green, blue\n2. Store a set of unique user IDs from logins: [101, 202, 101, 303, 202]\n3. Print the count of unique users",
+          "starterCode": "# 1. Primary colours (fixed)\nprimary_colours = \n\n# 2. Unique user IDs from login list\nlogins = [101, 202, 101, 303, 202]\nunique_users = \n\n# 3. Print count\nprint(\"Primary colours:\", primary_colours)\nprint(\"Unique users:\", unique_users)\nprint(\"Count:\", )",
+          "solution": "primary_colours = (\"red\", \"green\", \"blue\")\n\nlogins = [101, 202, 101, 303, 202]\nunique_users = set(logins)\n\nprint(\"Primary colours:\", primary_colours)\nprint(\"Unique users:\", unique_users)\nprint(\"Count:\", len(unique_users))",
+          "hint": "Use () for tuple, set() to convert list to set, len() for count.",
+          "expectedOutput": "Primary colours: ('red', 'green', 'blue')\nUnique users: {101, 202, 303}\nCount: 3"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Tuples use () and are immutable — created once, never changed."
+      },
+      {
+        "text": "Tuples support indexing, slicing, and iteration — just like lists."
+      },
+      {
+        "text": "Tuple unpacking: a, b = (1, 2) assigns items to individual variables."
+      },
+      {
+        "text": "Sets use {} and automatically remove duplicates."
+      },
+      {
+        "text": "Sets are unordered — no indexing allowed."
+      },
+      {
+        "text": "Set operations: | (union), & (intersection), - (difference)."
+      },
+      {
+        "text": "Rule of thumb: List = changeable, Tuple = fixed, Set = unique."
+      }
+    ],
+    "whatYouLearned": [
+      "How to create and use tuples for immutable data",
+      "How to unpack tuples into individual variables",
+      "How sets automatically eliminate duplicates",
+      "How to use set operations: union, intersection, difference",
+      "When to choose a list vs a tuple vs a set"
+    ],
+    "nextUp": "Dictionaries"
+  },
+  "quiz": [
+    {
+      "question": "Which of the following is a tuple?",
+      "options": [
+        "[1, 2, 3]",
+        "{1, 2, 3}",
+        "(1, 2, 3)",
+        "{1: 'a'}"
+      ],
+      "answer": "(1, 2, 3)",
+      "explanation": "Tuples use parentheses (). Square brackets [] are lists, curly braces {} without colons are sets, and {} with colons are dictionaries."
+    },
+    {
+      "question": "What happens when you add a duplicate to a set?",
+      "options": [
+        "It raises an error",
+        "It is silently ignored — sets only store unique values",
+        "The original is replaced",
+        "The set becomes a list"
+      ],
+      "answer": "It is silently ignored — sets only store unique values",
+      "explanation": "Sets automatically maintain uniqueness. Adding a value that already exists does nothing — no error, no duplicate. This is actually a feature, not a bug."
+    },
+    {
+      "question": "What does the & operator do with sets?",
+      "options": [
+        "Union — combines all items",
+        "Intersection — items present in BOTH sets",
+        "Difference — items in the first but not second",
+        "Creates a new empty set"
+      ],
+      "answer": "Intersection — items present in BOTH sets",
+      "explanation": "The & operator returns the intersection — only items that appear in both sets. Use | for union (all items from both) and - for difference."
+    },
+    {
+      "question": "Can you modify a tuple after creation?",
+      "options": [
+        "Yes, using .append()",
+        "Yes, using index assignment",
+        "No — tuples are immutable",
+        "Only if it contains numbers"
+      ],
+      "answer": "No — tuples are immutable",
+      "explanation": "Immutability is the defining feature of tuples. Once created, you cannot add, remove, or change any element. This makes tuples safe to use as dictionary keys and guarantees the data won't be accidentally changed."
+    },
+    {
+      "question": "What does set([1, 2, 2, 3, 3, 3]) produce?",
+      "options": [
+        "{1, 2, 2, 3, 3, 3}",
+        "{1, 2, 3}",
+        "{3, 2, 1}",
+        "[1, 2, 3]"
+      ],
+      "answer": "{1, 2, 3}",
+      "explanation": "set() converts a list to a set, automatically removing duplicates. The result {1, 2, 3} has only the unique values."
+    }
+  ],
+  "problems": [
+    {
+      "id": "python20-l8-p1",
+      "title": "Tuple Operations",
+      "description": "Create a tuple: point = (3, 7, 12, 5, 9)\nPrint:\n- The first and last values\n- The number of items\n- A slice of the middle 3 items (indices 1 to 3)",
+      "difficulty": "easy",
+      "starterCode": "point = (3, 7, 12, 5, 9)\n\n# Print required info\n",
+      "solution": "point = (3, 7, 12, 5, 9)\n\nprint(\"First:\", point[0])\nprint(\"Last:\", point[-1])\nprint(\"Count:\", len(point))\nprint(\"Middle 3:\", point[1:4])",
+      "testCases": [
+        {
+          "label": "Tuple operations",
+          "input": "",
+          "expectedOutput": "First: 3\nLast: 9\nCount: 5\nMiddle 3: (7, 12, 5)",
+          "matchType": "exact"
+        }
+      ]
+    },
+    {
+      "id": "python20-l8-p2",
+      "title": "Common Friends",
+      "description": "Find common friends between two people using sets.\n\nalice_friends = {\"Bob\", \"Charlie\", \"Diana\", \"Eve\"}\nbob_friends = {\"Alice\", \"Charlie\", \"Frank\", \"Diana\"}\n\nPrint:\nCommon friends: {Charlie, Diana} (order may vary)\nOnly Alice's friends: {Bob, Eve}\nAll unique friends: {all names}",
+      "difficulty": "easy",
+      "starterCode": "alice_friends = {\"Bob\", \"Charlie\", \"Diana\", \"Eve\"}\nbob_friends = {\"Alice\", \"Charlie\", \"Frank\", \"Diana\"}\n\n# Set operations\n",
+      "solution": "alice_friends = {\"Bob\", \"Charlie\", \"Diana\", \"Eve\"}\nbob_friends = {\"Alice\", \"Charlie\", \"Frank\", \"Diana\"}\n\nprint(\"Common friends:\", alice_friends & bob_friends)\nprint(\"Only Alice's friends:\", alice_friends - bob_friends)\nprint(\"All unique friends:\", alice_friends | bob_friends)",
+      "testCases": [
+        {
+          "label": "Common friends",
+          "input": "",
+          "expectedOutput": "Common friends:",
+          "matchType": "any_lines"
+        }
+      ]
+    },
+    {
+      "id": "python20-l8-p3",
+      "title": "Remove Duplicates and Sort",
+      "description": "Given: data = [5, 3, 8, 1, 3, 5, 9, 1, 2]\nConvert to a set to remove duplicates, then convert back to a sorted list and print it.\n\nExpected output:\n[1, 2, 3, 5, 8, 9]",
+      "difficulty": "medium",
+      "starterCode": "data = [5, 3, 8, 1, 3, 5, 9, 1, 2]\n\n# Remove duplicates and sort\n",
+      "solution": "data = [5, 3, 8, 1, 3, 5, 9, 1, 2]\n\nunique = set(data)\nsorted_data = sorted(unique)\nprint(sorted_data)",
+      "testCases": [
+        {
+          "label": "Deduplicated sorted list",
+          "input": "",
+          "expectedOutput": "[1, 2, 3, 5, 8, 9]",
+          "matchType": "exact"
+        }
+      ]
+    }
+  ]
+}

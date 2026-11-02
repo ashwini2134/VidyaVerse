@@ -1,0 +1,57 @@
+[
+  {
+    "question": "Question 1 about Loops?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answer": "A",
+    "explanation": "A is correct."
+  },
+  {
+    "question": "Question 2 about Loops?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answer": "B",
+    "explanation": "B is correct."
+  },
+  {
+    "question": "Question 3 about Loops?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answer": "C",
+    "explanation": "C is correct."
+  },
+  {
+    "question": "Question 4 about Loops?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answer": "D",
+    "explanation": "D is correct."
+  },
+  {
+    "question": "Question 5 about Loops?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answer": "A",
+    "explanation": "A is correct."
+  }
+]

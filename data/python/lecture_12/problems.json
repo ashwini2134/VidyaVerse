@@ -1,0 +1,32 @@
+[
+  {
+    "id": "notes_app",
+    "title": "Notes App",
+    "description": "Ask the user for 3 notes. Write them to 'notes.txt' (one per line). Then read the file and display each note with a line number.",
+    "difficulty": "medium",
+    "starterCode": "# Get 3 notes\nn1 = input(\"Note 1: \")\nn2 = input(\"Note 2: \")\nn3 = input(\"Note 3: \")\n\n# Write to file\n\n# Read and display",
+    "solution": "n1 = input(\"Note 1: \")\nn2 = input(\"Note 2: \")\nn3 = input(\"Note 3: \")\n\nwith open(\"notes.txt\", \"w\") as f:\n    f.write(n1 + \"\\n\")\n    f.write(n2 + \"\\n\")\n    f.write(n3 + \"\\n\")\n\nwith open(\"notes.txt\", \"r\") as f:\n    for i, line in enumerate(f, 1):\n        print(f\"{i}. {line}\", end=\"\")",
+    "testCases": [
+      {
+        "label": "Adding notes",
+        "input": "Learn Python\nPractice daily\nBuild projects",
+        "expectedOutput": "Note 1: Note 2: Note 3: 1. Learn Python\n2. Practice daily\n3. Build projects"
+      }
+    ]
+  },
+  {
+    "id": "file_copy",
+    "title": "File Copy",
+    "description": "Read all lines from 'source.txt' (create it first) and write them to 'copy.txt' with line numbers. Print the contents of copy.txt.",
+    "difficulty": "medium",
+    "starterCode": "# Create source file\nwith open(\"source.txt\", \"w\") as f:\n    f.write(\"Line A\\nLine B\\nLine C\\n\")\n\n# Read and copy with numbers",
+    "solution": "with open(\"source.txt\", \"w\") as f:\n    f.write(\"Line A\\nLine B\\nLine C\\n\")\n\nwith open(\"source.txt\", \"r\") as f:\n    lines = f.readlines()\n\nwith open(\"copy.txt\", \"w\") as f:\n    for i, line in enumerate(lines, 1):\n        f.write(f\"{i}: {line}\")\n\nwith open(\"copy.txt\", \"r\") as f:\n    print(f.read())",
+    "testCases": [
+      {
+        "label": "Copied with numbers",
+        "input": "",
+        "expectedOutput": "1: Line A\n2: Line B\n3: Line C"
+      }
+    ]
+  }
+]

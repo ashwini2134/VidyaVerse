@@ -1,0 +1,49 @@
+[
+  {
+    "id": "hello_java",
+    "title": "Hello Java",
+    "description": "Write a program that prints 'Hello, World!' to the console.",
+    "difficulty": "easy",
+    "starterCode": "public class Hello {\n  public static void main(String[] args) {\n    // Write your code here\n  }\n}",
+    "solution": "public class Hello {\n  public static void main(String[] args) {\n    System.out.println(\"Hello, World!\");\n  }\n}",
+    "testCases": [
+      {
+        "label": "Prints Hello, World!",
+        "input": "",
+        "expectedOutput": "Hello, World!"
+      }
+    ]
+  },
+  {
+    "id": "print_name",
+    "title": "Print Your Name",
+    "description": "Write a program that prints your name to the console.",
+    "difficulty": "easy",
+    "starterCode": "public class Name {\n  public static void main(String[] args) {\n    // Write your code here\n  }\n}",
+    "solution": "public class Name {\n  public static void main(String[] args) {\n    System.out.println(\"Alice\");\n  }\n}",
+    "testCases": [
+      {
+        "label": "Prints name",
+        "input": "",
+        "expectedOutput": "Alice",
+        "matchType": "any_lines"
+      }
+    ]
+  },
+  {
+    "id": "print_three_lines",
+    "title": "Print Three Lines",
+    "description": "Write a program that prints 3 lines of text.",
+    "difficulty": "easy",
+    "starterCode": "public class Lines {\n  public static void main(String[] args) {\n    // Write your code here\n  }\n}",
+    "solution": "public class Lines {\n  public static void main(String[] args) {\n    System.out.println(\"Line 1\");\n    System.out.println(\"Line 2\");\n    System.out.println(\"Line 3\");\n  }\n}",
+    "testCases": [
+      {
+        "label": "Prints 3 lines",
+        "input": "",
+        "expectedOutput": "Line 1\nLine 2\nLine 3",
+        "matchType": "any_lines"
+      }
+    ]
+  }
+]

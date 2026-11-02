@@ -1,0 +1,429 @@
+{
+  "id": "python20-lecture-9",
+  "courseSlug": "python20",
+  "number": 9,
+  "title": "Dictionaries",
+  "overview": "Lists store data in a numbered order. But what if you want to look up data by name? Dictionaries let you store data as key-value pairs — the most natural way to represent real-world information like student profiles, product catalogues, and app settings.",
+  "estimatedMinutes": 60,
+  "sections": [
+    {
+      "id": "creating-dicts",
+      "label": "Creating Dictionaries",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Imagine a physical dictionary: you look up a **word** (the key) and find its **definition** (the value). Python dictionaries work exactly the same way."
+        },
+        {
+          "type": "text",
+          "content": "A dictionary stores data as **key: value** pairs, wrapped in curly braces `{}`. Every key must be unique."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Creating a Dictionary",
+          "language": "python",
+          "code": "# Student profile as a dictionary\nstudent = {\n    \"name\": \"Priya Sharma\",\n    \"age\": 20,\n    \"cgpa\": 9.1,\n    \"department\": \"Computer Science\",\n    \"is_active\": True\n}\n\nprint(student)\nprint(student[\"name\"])\nprint(student[\"cgpa\"])",
+          "expectedOutput": "{'name': 'Priya Sharma', 'age': 20, 'cgpa': 9.1, 'department': 'Computer Science', 'is_active': True}\nPriya Sharma\n9.1",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "To access a value, use the **key** inside square brackets: `student[\"name\"]`. Unlike lists, you're not guessing positions — you're asking for something by name."
+        },
+        {
+          "type": "text",
+          "content": "Use `.get()` for safe access — it returns `None` (or a default you specify) instead of crashing if the key doesn't exist."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Safe Access with get()",
+          "language": "python",
+          "code": "student = {\"name\": \"Ravi\", \"age\": 21}\n\n# Direct access — crashes if key missing\nprint(student[\"name\"])    # Works\n\n# Safe access\nprint(student.get(\"name\"))          # Ravi\nprint(student.get(\"email\"))         # None\nprint(student.get(\"email\", \"N/A\"))  # N/A (default)",
+          "expectedOutput": "Ravi\nRavi\nNone\nN/A",
+          "editable": true
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Phone Contacts",
+            "description": "In your phone contacts, each name (key) maps to a phone number (value). You look up 'Mum' and instantly get her number — you don't scroll through 500 numbers. Dictionaries give Python the same named lookup capability.",
+            "image": "https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?w=800&q=80",
+            "bullets": [
+              "You search for a person's name and instantly get their number.",
+              "Each contact has exactly one name (key) and one number (value).",
+              "You never scroll through every number — you look up by name."
+            ],
+            "highlightCard": "A dictionary maps keys to values — look up any key instantly, like a contact name."
+          },
+          "visualization": {
+            "type": "categories",
+            "title": "Key → Value Pairs",
+            "items": [
+              "\"name\" → \"Priya\"",
+              "\"age\" → 20",
+              "\"cgpa\" → 9.1",
+              "\"is_active\" → True"
+            ],
+            "bullets": [
+              "A dictionary stores pairs — each key maps to exactly one value.",
+              "Keys must be unique — like contact names in your phone.",
+              "Access any value directly by its key: contacts['Rohan']."
+            ],
+            "highlightCard": "dict = key → value. Fast lookup, clear structure, no searching required."
+          },
+          "code": {
+            "language": "python",
+            "code": "contacts = {\"Mum\": \"9876543210\", \"Dad\": \"9123456789\"}\nprint(contacts[\"Mum\"])",
+            "output": "9876543210",
+            "highlights": [
+              "contacts = {'Rohan': '9876', 'Ananya': '8765'} creates a dictionary.",
+              "contacts['Rohan'] looks up the value for 'Rohan' immediately.",
+              "Add a new entry with contacts['Priya'] = '7654' — no need to redefine."
+            ],
+            "highlightCard": "Dictionaries are Python's fastest lookup structure — access any value in constant time."
+          },
+          "reflection": {
+            "question": "What happens if you access a key that doesn't exist using []?",
+            "answer": "Python raises a KeyError and crashes. Use .get() for safe access — it returns None or a default value instead.",
+            "options": [
+              "Returns None",
+              "Returns an empty string",
+              "Raises a KeyError and crashes",
+              "Creates the key automatically"
+            ]
+          },
+          "stage1Transition": "Python's dict stores key-value pairs, just like contacts on your phone. Let's see.",
+          "stage2Transition": "Here is how a dictionary looks and works in Python.",
+          "takeaway": "Phone contacts are dictionaries — you store name-number pairs and look up any number instantly by name. Python dictionaries work identically: keys map to values, lookups are instant."
+        },
+        {
+          "type": "practice",
+          "title": "Course Catalogue",
+          "instructions": "Build a dictionary for a course: 'Python 2.0'. Include keys: title, instructor, duration (in weeks), level, and is_free (boolean). Then print the title, instructor, and level using key access.",
+          "starterCode": "# Course catalogue entry\ncourse = {\n    # Add key-value pairs here\n}\n\n# Print course info\nprint(\"Title:\", )\nprint(\"Instructor:\", )\nprint(\"Level:\", )",
+          "solution": "course = {\n    \"title\": \"Python 2.0\",\n    \"instructor\": \"Dr. Krishnan\",\n    \"duration\": 14,\n    \"level\": \"Beginner\",\n    \"is_free\": False\n}\n\nprint(\"Title:\", course[\"title\"])\nprint(\"Instructor:\", course[\"instructor\"])\nprint(\"Level:\", course[\"level\"])",
+          "hint": "Create the dictionary with 5 key-value pairs, then access with course[\"key\"].",
+          "expectedOutput": "Title: Python 2.0\nInstructor: Dr. Krishnan\nLevel: Beginner"
+        }
+      ]
+    },
+    {
+      "id": "modifying-dicts",
+      "label": "Adding, Updating, and Removing",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Dictionaries are mutable. You can add new keys, update existing values, and remove entries at any time."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Modifying Dictionaries",
+          "language": "python",
+          "code": "student = {\"name\": \"Arjun\", \"age\": 20}\n\n# Add a new key\nstudent[\"cgpa\"] = 8.5\nprint(\"After add:\", student)\n\n# Update an existing key\nstudent[\"age\"] = 21\nprint(\"After update:\", student)\n\n# Remove a key\ndel student[\"cgpa\"]\nprint(\"After delete:\", student)\n\n# Remove and get the value\nage = student.pop(\"age\")\nprint(f\"Removed age: {age}\")\nprint(\"Final:\", student)",
+          "expectedOutput": "After add: {'name': 'Arjun', 'age': 20, 'cgpa': 8.5}\nAfter update: {'name': 'Arjun', 'age': 21, 'cgpa': 8.5}\nAfter delete: {'name': 'Arjun', 'age': 21}\nRemoved age: 21\nFinal: {'name': 'Arjun'}",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "Adding and updating use the same syntax: `dict[key] = value`. If the key exists, it updates. If not, it creates it."
+        },
+        {
+          "type": "text",
+          "content": "You can also check if a key exists using the `in` keyword before accessing it: `if \"email\" in student:`"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Bank Account",
+            "description": "Your bank account has fields: balance, account number, owner. You can update your balance (modify), add an email for notifications (add new key), or close a linked card (remove). Dictionaries work like a live, editable record.",
+            "image": "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&q=80",
+            "bullets": [
+              "Your account starts with an opening balance when it's created.",
+              "Each transaction updates your balance — deposits add, withdrawals subtract.",
+              "The bank keeps a complete history of every operation on the account."
+            ],
+            "highlightCard": "A dictionary's values can be updated, added, and removed — it's a living data structure."
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Dictionary Lifecycle",
+            "items": [
+              "Create: dict = {}",
+              "Add: dict[key] = value",
+              "Update: dict[key] = new_value",
+              "Delete: del dict[key]"
+            ],
+            "bullets": [
+              "Create: account = {'name': 'Rohan', 'balance': 1000}",
+              "Update: account['balance'] += 500 adds to the existing value.",
+              "Delete: del account['overdraft'] removes a key-value pair entirely."
+            ],
+            "highlightCard": "Create, read, update, delete — a dictionary supports the full CRUD lifecycle."
+          },
+          "code": {
+            "language": "python",
+            "code": "profile = {\"username\": \"ravi99\"}\nprofile[\"level\"] = 5\nprofile[\"level\"] = 6  # update\nprint(profile)",
+            "output": "{'username': 'ravi99', 'level': 6}",
+            "highlights": [
+              "account['balance'] += 500 updates the value for an existing key.",
+              "account['overdraft'] = True adds a completely new key-value pair.",
+              "del account['overdraft'] removes that key and its value permanently."
+            ],
+            "highlightCard": "Dictionaries are dynamic — create them empty and build them up as your program runs."
+          },
+          "reflection": {
+            "question": "What happens when you do dict[existing_key] = new_value?",
+            "answer": "The value is updated in place. Dictionary keys are unique — assigning to an existing key replaces its value.",
+            "options": [
+              "A duplicate key is created",
+              "An error is raised",
+              "The value is updated in place",
+              "A new dictionary is returned"
+            ]
+          },
+          "stage1Transition": "Python dictionaries aren't static — they grow and change over time. Let's see the full lifecycle.",
+          "stage2Transition": "Here is a complete dictionary lifecycle in Python.",
+          "takeaway": "A bank account goes through create, update, and delete operations — so does a Python dictionary. It's not static; it's a living data structure that evolves with your program."
+        },
+        {
+          "type": "practice",
+          "title": "Update Student Records",
+          "instructions": "Start with: student = {'name': 'Meera', 'age': 19, 'cgpa': 7.8}. Do: 1) Update age to 20. 2) Add email as 'meera@college.edu'. 3) Remove cgpa. Print the final dictionary.",
+          "starterCode": "student = {\"name\": \"Meera\", \"age\": 19, \"cgpa\": 7.8}\n\n# 1. Update age\n\n# 2. Add email\n\n# 3. Remove cgpa\n\nprint(student)",
+          "solution": "student = {\"name\": \"Meera\", \"age\": 19, \"cgpa\": 7.8}\n\nstudent[\"age\"] = 20\nstudent[\"email\"] = \"meera@college.edu\"\ndel student[\"cgpa\"]\n\nprint(student)",
+          "hint": "Use dict[key] = value for add/update. Use del dict[key] for removal.",
+          "expectedOutput": "{'name': 'Meera', 'age': 20, 'email': 'meera@college.edu'}"
+        }
+      ]
+    },
+    {
+      "id": "dict-methods",
+      "label": "Dictionary Methods and Loops",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Dictionaries have powerful built-in methods. The most useful ones let you iterate over keys, values, or both at the same time."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Iterating Dictionaries",
+          "language": "python",
+          "code": "marks = {\"Maths\": 92, \"Physics\": 87, \"Chemistry\": 78, \"English\": 95}\n\n# Iterate over keys\nfor subject in marks:\n    print(subject)\n\nprint(\"---\")\n\n# Iterate over values\nfor score in marks.values():\n    print(score)\n\nprint(\"---\")\n\n# Iterate over both\nfor subject, score in marks.items():\n    print(f\"{subject}: {score}\")",
+          "expectedOutput": "Maths\nPhysics\nChemistry\nEnglish\n---\n92\n87\n78\n95\n---\nMaths: 92\nPhysics: 87\nChemistry: 78\nEnglish: 95",
+          "editable": true
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Useful Dictionary Methods",
+          "language": "python",
+          "code": "inventory = {\"apple\": 50, \"banana\": 30, \"mango\": 20}\n\nprint(\"Keys:\", list(inventory.keys()))\nprint(\"Values:\", list(inventory.values()))\nprint(\"Items:\", list(inventory.items()))\n\n# Update from another dictionary\ninventory.update({\"mango\": 25, \"grape\": 40})\nprint(\"After update:\", inventory)",
+          "expectedOutput": "Keys: ['apple', 'banana', 'mango']\nValues: [50, 30, 20]\nItems: [('apple', 50), ('banana', 30), ('mango', 20)]\nAfter update: {'apple': 50, 'banana': 30, 'mango': 25, 'grape': 40}",
+          "editable": true
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Restaurant Menu",
+            "description": "A restaurant menu has dish names (keys) and prices (values). You might want to see all dish names (keys()), all prices for budget planning (values()), or both together for a full display (items()). Dictionary methods work exactly like this.",
+            "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
+            "bullets": [
+              "The menu lists all available dishes with prices right next to each name.",
+              "You can ask what's on the menu, or look up the price of any specific dish.",
+              "The chef can add a new dish or remove one that's no longer available."
+            ],
+            "highlightCard": "Dictionary methods give you powerful ways to query, iterate, and manage your data."
+          },
+          "visualization": {
+            "type": "categories",
+            "title": "Dictionary Methods",
+            "items": [
+              ".keys() → all keys",
+              ".values() → all values",
+              ".items() → (key, value) pairs",
+              ".get(k, default) → safe access",
+              ".update({...}) → merge dicts"
+            ],
+            "bullets": [
+              "menu.keys() returns all the dish names (all dictionary keys).",
+              "menu.values() returns all the prices (all dictionary values).",
+              "menu.items() returns both together as (key, value) pairs for easy iteration."
+            ],
+            "highlightCard": "keys(), values(), items() — three methods for iterating over any dictionary."
+          },
+          "code": {
+            "language": "python",
+            "code": "prices = {\"Dosa\": 60, \"Idli\": 40}\nfor dish, price in prices.items():\n    print(f\"{dish}: Rs.{price}\")",
+            "output": "Dosa: Rs.60\nIdli: Rs.40",
+            "highlights": [
+              "for dish, price in menu.items(): iterates over key-value pairs together.",
+              "menu.get('Pasta', 'Not available') returns a default if the key is missing.",
+              "len(menu) tells you how many items (key-value pairs) the dictionary has."
+            ],
+            "highlightCard": "Dictionary methods make it easy to iterate, search, and manage your data safely."
+          },
+          "reflection": {
+            "question": "Which method gives you both keys and values simultaneously in a loop?",
+            "answer": ".items() — it returns (key, value) pairs that you can unpack into two variables in the for loop.",
+            "options": [
+              ".keys()",
+              ".values()",
+              ".items()",
+              ".get()"
+            ]
+          },
+          "stage1Transition": "Python dictionaries have built-in methods for every common operation. Let's explore them.",
+          "stage2Transition": "Here is how dictionary methods work in Python code.",
+          "takeaway": "A restaurant menu demonstrates every dictionary method — list all dishes (keys), list all prices (values), iterate dish-price pairs (items). Python dictionaries have all of these built in."
+        },
+        {
+          "type": "practice",
+          "title": "Subject Average Calculator",
+          "instructions": "Given marks = {'Maths': 88, 'Physics': 76, 'Chemistry': 92, 'Biology': 84}, use .items() to loop through and: 1) Print each subject and its marks. 2) Calculate and print the total and average.",
+          "starterCode": "marks = {\"Maths\": 88, \"Physics\": 76, \"Chemistry\": 92, \"Biology\": 84}\ntotal = 0\n\n# Loop and print each subject\n\n\n# Print total and average\nprint(f\"Total: {total}\")\nprint(f\"Average: {total / len(marks)}\")",
+          "solution": "marks = {\"Maths\": 88, \"Physics\": 76, \"Chemistry\": 92, \"Biology\": 84}\ntotal = 0\n\nfor subject, score in marks.items():\n    print(f\"{subject}: {score}\")\n    total += score\n\nprint(f\"Total: {total}\")\nprint(f\"Average: {total / len(marks)}\")",
+          "hint": "Use for subject, score in marks.items(): to get both key and value.",
+          "expectedOutput": "Maths: 88\nPhysics: 76\nChemistry: 92\nBiology: 84\nTotal: 340\nAverage: 85.0"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Dictionaries store key-value pairs: {\"key\": value}. Keys must be unique."
+      },
+      {
+        "text": "Access values by key: dict[\"key\"]. Use .get(key, default) for safe access."
+      },
+      {
+        "text": "Adding and updating use the same syntax: dict[key] = value."
+      },
+      {
+        "text": "del dict[key] removes a key. .pop(key) removes it and returns its value."
+      },
+      {
+        "text": "Use 'key in dict' to check existence before accessing."
+      },
+      {
+        "text": ".keys() returns all keys, .values() all values, .items() all (key, value) pairs."
+      },
+      {
+        "text": "Iterate with .items() to get both key and value in one loop."
+      }
+    ],
+    "whatYouLearned": [
+      "How to create dictionaries and access values by key",
+      "Safe access with .get() and key existence check with 'in'",
+      "How to add, update, and remove dictionary entries",
+      "How to iterate with .keys(), .values(), and .items()"
+    ],
+    "nextUp": "Functions"
+  },
+  "quiz": [
+    {
+      "question": "How do you access the value for key 'name' in a dictionary d?",
+      "options": [
+        "d.name",
+        "d(\"name\")",
+        "d[\"name\"]",
+        "d.get[\"name\"]"
+      ],
+      "answer": "d[\"name\"]",
+      "explanation": "Dictionary values are accessed using square brackets with the key inside: d[\"name\"]. Using d.name would work for object attributes, not dictionary keys."
+    },
+    {
+      "question": "What does .get('missing_key') return when the key doesn't exist?",
+      "options": [
+        "Raises KeyError",
+        "Returns 0",
+        "Returns None",
+        "Returns False"
+      ],
+      "answer": "Returns None",
+      "explanation": ".get() is the safe way to access dictionary values. If the key doesn't exist, it returns None (or a custom default if specified), instead of raising a KeyError."
+    },
+    {
+      "question": "Which method returns both keys and values as pairs?",
+      "options": [
+        ".keys()",
+        ".values()",
+        ".pairs()",
+        ".items()"
+      ],
+      "answer": ".items()",
+      "explanation": ".items() returns (key, value) tuples. This is ideal for looping when you need both pieces of information: for key, value in d.items():"
+    },
+    {
+      "question": "What happens when you do: d['existing_key'] = new_value?",
+      "options": [
+        "Creates a duplicate key",
+        "Raises an error",
+        "Updates the value for that key",
+        "Adds a new key"
+      ],
+      "answer": "Updates the value for that key",
+      "explanation": "Dictionaries enforce key uniqueness. If you assign to an existing key, its value is updated in place — no duplicate is created."
+    },
+    {
+      "question": "How do you check if 'email' is a key in dictionary d?",
+      "options": [
+        "d.has('email')",
+        "'email' in d",
+        "'email' == d",
+        "d.contains('email')"
+      ],
+      "answer": "'email' in d",
+      "explanation": "The 'in' operator checks for key existence. 'email' in d returns True if 'email' is a key in d. This is the Pythonic way to check before accessing."
+    }
+  ],
+  "problems": [
+    {
+      "id": "python20-l9-p1",
+      "title": "Word Counter",
+      "description": "Count the frequency of each word in a sentence.\n\nsentence = \"the cat sat on the mat the cat\"\n\nPrint each word and its count:\nthe: 3\ncat: 2\nsat: 1\non: 1\nmat: 1",
+      "difficulty": "medium",
+      "starterCode": "sentence = \"the cat sat on the mat the cat\"\nwords = sentence.split()\ncount = {}\n\n# Count each word\n\n\n# Print results\n",
+      "solution": "sentence = \"the cat sat on the mat the cat\"\nwords = sentence.split()\ncount = {}\n\nfor word in words:\n    if word in count:\n        count[word] += 1\n    else:\n        count[word] = 1\n\nfor word, freq in count.items():\n    print(f\"{word}: {freq}\")",
+      "testCases": [
+        {
+          "label": "Word frequencies",
+          "input": "",
+          "expectedOutput": "the: 3\ncat: 2\nsat: 1\non: 1\nmat: 1",
+          "matchType": "exact"
+        }
+      ]
+    },
+    {
+      "id": "python20-l9-p2",
+      "title": "Student Grade Book",
+      "description": "Given: grades = {'Arjun': 88, 'Priya': 95, 'Ravi': 72, 'Meera': 91, 'Karan': 65}\n\nPrint:\n1. The student with the highest marks\n2. The number of students who passed (>=75)\n3. The class average",
+      "difficulty": "medium",
+      "starterCode": "grades = {\"Arjun\": 88, \"Priya\": 95, \"Ravi\": 72, \"Meera\": 91, \"Karan\": 65}\n\n# 1. Highest scorer\n\n# 2. Count who passed\n\n# 3. Average\n",
+      "solution": "grades = {\"Arjun\": 88, \"Priya\": 95, \"Ravi\": 72, \"Meera\": 91, \"Karan\": 65}\n\ntop_student = max(grades, key=grades.get)\nprint(f\"Top student: {top_student} ({grades[top_student]})\")\n\npassed = sum(1 for g in grades.values() if g >= 75)\nprint(f\"Passed: {passed}\")\n\naverage = sum(grades.values()) / len(grades)\nprint(f\"Average: {average}\")",
+      "testCases": [
+        {
+          "label": "Grade book analysis",
+          "input": "",
+          "expectedOutput": "Top student: Priya (95)\nPassed: 3\nAverage: 82.2",
+          "matchType": "exact"
+        }
+      ]
+    },
+    {
+      "id": "python20-l9-p3",
+      "title": "Inventory System",
+      "description": "Build a simple inventory manager:\n1. Start with: inventory = {'Apple': 100, 'Banana': 50, 'Mango': 30}\n2. Add 'Grape' with quantity 75\n3. Update 'Banana' quantity to 60\n4. Remove 'Mango'\n5. Print all items with low stock (< 70): show name and quantity",
+      "difficulty": "medium",
+      "starterCode": "inventory = {\"Apple\": 100, \"Banana\": 50, \"Mango\": 30}\n\n# Make modifications\n\n\n# Print low stock items\nprint(\"Low stock items:\")\n",
+      "solution": "inventory = {\"Apple\": 100, \"Banana\": 50, \"Mango\": 30}\n\ninventory[\"Grape\"] = 75\ninventory[\"Banana\"] = 60\ndel inventory[\"Mango\"]\n\nprint(\"Low stock items:\")\nfor item, qty in inventory.items():\n    if qty < 70:\n        print(f\"  {item}: {qty}\")",
+      "testCases": [
+        {
+          "label": "Low stock report",
+          "input": "",
+          "expectedOutput": "Low stock items:\n  Banana: 60",
+          "matchType": "exact"
+        }
+      ]
+    }
+  ]
+}

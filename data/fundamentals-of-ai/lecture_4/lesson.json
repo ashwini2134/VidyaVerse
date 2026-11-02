@@ -1,0 +1,1774 @@
+{
+  "id": "fundamentals-of-ai-lecture-3",
+  "courseSlug": "fundamentals-of-ai",
+  "number": 4,
+  "title": "Probability & Uncertainty",
+  "overview": "Real-world AI rarely has perfect information. Probability lets AI act under uncertainty \u2014 representing beliefs, updating on evidence, and making rational decisions without knowing the full picture.",
+  "estimatedMinutes": 80,
+  "sections": [
+    {
+      "id": "prob-basics",
+      "label": "Probability Basics",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Probability Basics \u2014 SVG placeholder",
+            "svgId": "probability-basics"
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "Probability & Uncertainty"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Probability is how AI acts rationally when it does not know the full truth. A number between 0 and 1 quantifies how likely something is \u2014 and every new observation updates that number."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Sample Space"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The set of all possible outcomes of an experiment. Rolling a die has a sample space of {1, 2, 3, 4, 5, 6}. Every probability calculation starts by defining this space."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Events & Probability"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "An event is a subset of the sample space. P(event) is a number between 0 and 1. 0 means impossible; 1 means certain; 0.7 means likely. All probabilities in a sample space sum to 1."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Conditional Probability"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "P(A"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "B) is the probability of A given that B has already occurred. It updates the probability based on known information \u2014 the foundation of all Bayesian reasoning."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Independence"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Two events are independent if knowing one tells you nothing about the other. Coin flips are independent \u2014 the second toss is not affected by what the first showed."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Joint Probability"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "P(A AND B) is the probability that both events occur. For independent events: P(A AND B) = P(A) \u00d7 P(B). For dependent events, you must account for how A affects B."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Basic Terms"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Before calculating any probability, you must define the experiment and its possible outcomes."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The sample space is the foundation \u2014 every probability flows from understanding what could happen."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Experiment \u2014 A process with well-defined possible outcomes, like rolling a die or flipping a coin.",
+              "Outcome \u2014 A single result of an experiment, such as rolling a 4 or flipping Heads.",
+              "Sample Space \u2014 The set of all possible outcomes. A die has sample space {1, 2, 3, 4, 5, 6}.",
+              "Event \u2014 A subset of the sample space \u2014 one or more outcomes you care about, like 'rolling an even number'."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Types of Events"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Events are not all the same. Understanding event types helps you choose the right probability rule."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Simple Event \u2014 An event with exactly one outcome, like rolling a 3.",
+              "Compound Event \u2014 An event with two or more outcomes, like rolling an even number (2, 4, 6).",
+              "Certain Event \u2014 An event that is guaranteed to happen \u2014 its probability is 1.",
+              "Impossible Event \u2014 An event that cannot happen \u2014 its probability is 0.",
+              "Complementary Events \u2014 Two events that together cover the entire sample space. If P(A) = 0.3, then P(not A) = 0.7."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Rules of Probability"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "These three rules are the arithmetic of uncertainty \u2014 combine them to solve almost any probability problem."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Addition Rule \u2014 P(A or B) = P(A) + P(B) \u2212 P(A and B). For mutually exclusive events, P(A and B) = 0.",
+              "Multiplication Rule \u2014 P(A and B) = P(A) \u00d7 P(B|A). For independent events, P(B|A) = P(B), so P(A and B) = P(A) \u00d7 P(B).",
+              "Complement Rule \u2014 P(not A) = 1 \u2212 P(A). When you know the probability of something happening, subtract from 1 to find the probability of it not happening."
+            ]
+          }
+        },
+        {
+          "type": "ai_section",
+          "theme": "light",
+          "hero": {
+            "category": "",
+            "title": "",
+            "intro": ""
+          },
+          "concepts": [],
+          "probabilityContent": {
+            "chapters": [
+              {
+                "title": "Conditional Probability",
+                "interactive": "conditional-probability",
+                "sentences": [
+                  "Conditional probability is how AI updates beliefs when new evidence arrives. It answers: 'Given what we now know, how should our prediction change?'",
+                  "Formula: P(A | B) = P(A \u2227 B) / P(B). The numerator counts outcomes where both A and B happen; the denominator restricts us to worlds where B is true.",
+                  "In simple words: we are interested in events where both A and B are true, but only from the worlds where we already know B to be true."
+                ],
+                "terms": [
+                  {
+                    "term": "P(A | B) \u2014 Conditional Probability",
+                    "definition": "The probability of event A occurring given that event B has already occurred. Read as 'probability of A given B'."
+                  },
+                  {
+                    "term": "Equivalent Forms",
+                    "definition": "P(A \u2227 B) = P(B) \u00d7 P(A|B). Also: P(A \u2227 B) = P(A) \u00d7 P(B|A). Both rearrange the same formula to solve for different unknowns."
+                  },
+                  {
+                    "term": "Real-Life Example",
+                    "definition": "What is P(rain today | rain yesterday)? Or P(disease | positive test)? Conditional probability is the math behind every AI prediction that uses partial information."
+                  }
+                ]
+              }
+            ]
+          },
+          "keyInsight": ""
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Independent vs Dependent Events"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Knowing whether events are independent or dependent determines which multiplication rule to use."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Independent Events \u2014 Knowing one event happened tells you nothing about the other. Coin flips are independent \u2014 the second flip does not remember the first.",
+              "Dependent Events \u2014 Knowing one event changes the probability of the other. Drawing two cards without replacement \u2014 the first draw changes the deck."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Permutations and Combinations"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "When outcomes are equally likely, counting how many ways something can happen is the first step to finding its probability."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Use permutations when order matters. Use combinations when only the selection matters, not the arrangement."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Permutation \u2014 An arrangement where order matters. Number of ways to arrange 3 books on a shelf = 3! = 6.",
+              "Combination \u2014 A selection where order does not matter. Number of ways to choose 2 fruits from 5 = 5! / (2! \u00d7 3!) = 10."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Probability Distributions"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A probability distribution maps every possible outcome to its probability. It is the complete description of a random process."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Random Variable \u2014 A variable whose value depends on the outcome of a random process. Example: 'Number of heads in 3 coin flips' can be 0, 1, 2, or 3.",
+              "Discrete Distribution \u2014 Outcomes are countable and separate. Coin flips, dice rolls, and number of emails in a day are all discrete.",
+              "Continuous Distribution \u2014 Outcomes are measured on a continuous scale. Height, temperature, and time are continuous \u2014 any value within a range is possible."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Expected Value"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Expected value is the average outcome you would see if you repeated an experiment many times \u2014 it is not what will happen, but what tends to happen."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Expectation E(X) \u2014 The weighted average of all possible outcomes, where each outcome is weighted by its probability. E(X) = sum of x \u00d7 P(x).",
+              "Real-Life Example \u2014 A game costs $5 to play. You win $10 with probability 0.4 and nothing otherwise. Expected value = (10 \u00d7 0.4) + (0 \u00d7 0.6) \u2212 5 = \u2212$1. On average, you lose $1 per game."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Step-by-Step"
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "numbered",
+            "items": [
+              "Define Sample Space: List every possible outcome. A die has {1,2,3,4,5,6}. Coin has {H,T}.",
+              "Identify Event: An event is one or more outcomes. 'Rolling an even number' = {2,4,6}.",
+              "Compute Probability: P(event) = count(event outcomes) / count(total outcomes). P(even) = 3/6 = 0.5.",
+              "Condition on Evidence: P(A|B) = P(A and B) / P(B). 'What is the probability it rained given wet grass?'",
+              "Update Belief: Each new piece of evidence refines your probability. Belief converges on truth over time."
+            ]
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "Probability is not guessing. It is a precise mathematical language for reasoning under uncertainty."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Weather Forecast Uses Probability",
+          "subtitle": "A forecaster doesn't guess. They look at pressure, humidity, and satellite images \u2014 then assign a number that quantifies how likely rain really is.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "Forecasters study pressure, humidity, and satellite data before predicting rain.",
+              "caption": "Real-world predictions begin with gathering evidence."
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "Each new observation shifts the probability. A drop in pressure updates the chance of rain from 50% to 80%.",
+              "caption": "New evidence refines the probability."
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "AI uses the same Bayesian update cycle: prior belief \u00d7 new evidence = updated belief.",
+              "caption": "AI updates probabilities the same way."
+            }
+          ],
+          "insight": "Probability is a precise number that quantifies uncertainty and updates with every new observation.",
+          "reinforcement": "Every forecast is a probability, not a guarantee. AI does the same \u2014 it assigns likelihoods, not certainties."
+        },
+        {
+          "type": "practice",
+          "title": "Calculating Simple Probabilities",
+          "instructions": "Calculate probabilities for coin flips and dice rolls.",
+          "starterCode": "# Calculate simple probabilities\np_head = 1 / 2\nprint(f\"P(Heads) = {p_head}\")\np_six = 1 / 6\nprint(f\"P(Rolling 6) = {p_six:.2f}\")\np_even = 3 / 6\nprint(f\"P(Even on die) = {p_even:.2f}\")",
+          "solution": "p_head = 1 / 2\nprint(f\"P(Heads) = {p_head}\")\np_six = 1 / 6\nprint(f\"P(Rolling 6) = {p_six:.2f}\")\np_even = 3 / 6\nprint(f\"P(Even on die) = {p_even:.2f}\")",
+          "hint": "Probability = number of favorable outcomes / total possible outcomes."
+        }
+      ]
+    },
+    {
+      "id": "random-variables",
+      "label": "Random Variables",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Random Variables \u2014 SVG placeholder",
+            "svgId": "random-variables"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A random variable is a variable whose value depends on the outcome of a random process."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "It maps possible outcomes to numbers \u2014 the foundation of every probability distribution in AI."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "What is a Random Variable"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A variable in probability theory whose value is determined by a random process. A die roll can be represented by a random variable Roll that takes values {1, 2, 3, 4, 5, 6}."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Domain of a Random Variable"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The set of all possible values a random variable can take. For a flight status, the domain is {on time, delayed, canceled}. Every value in the domain has a probability."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Probability Distribution"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Each value of a random variable has a probability. For Flight: P(on time) = 0.6, P(delayed) = 0.3, P(canceled) = 0.1. The sum of all probabilities always equals 1."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Distribution as a Vector"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A probability distribution can be written compactly as a vector. P(Flight) = \u27e80.6, 0.3, 0.1\u27e9 \u2014 the order of values determines which probability is which."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Independence"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Two events are independent if one does not affect the other. Rolling a 4 on the first die does not change the probability of the second die. Formula: P(a \u2227 b) = P(a) \u00d7 P(b)."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Random Variable Defined"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A random variable is a variable in probability theory with a domain of possible values that it can take on."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "For example, to represent possible outcomes when rolling a die, we can define a random variable Roll, that can take on the values {1, 2, 3, 4, 5, 6}."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "To represent the status of a flight, we can define a variable Flight that takes on the values {on time, delayed, canceled}."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Random Variable \u2014 A variable whose value depends on the outcome of a random process, with a defined set of possible values called its domain.",
+              "Domain \u2014 The complete set of values a random variable can take. Example: Roll has domain {1, 2, 3, 4, 5, 6}.",
+              "Outcome \u2014 A single realized value of a random variable after the random process occurs."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Probability Distribution"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Often, we are interested in the probability with which each value occurs. We represent this using a probability distribution."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "P(Flight = on time) = 0.6, P(Flight = delayed) = 0.3, P(Flight = canceled) = 0.1"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "This means there is a 60% chance the flight is on time, 30% chance it is delayed, and 10% chance it is canceled. The sum of all probabilities is 1."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Probability Distribution \u2014 A mapping from every value in a random variable's domain to its probability of occurring.",
+              "Sum to One \u2014 The probabilities of all possible outcomes of a random variable always add up to 1 \u2014 something must happen."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Vector Notation"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A probability distribution can be represented more succinctly as a vector."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "For example, P(Flight) = \u27e80.6, 0.3, 0.1\u27e9. For this notation to be interpretable, the values have a set order \u2014 in our case, on time, delayed, canceled."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Probability Vector \u2014 A compact representation of a probability distribution as an ordered list of numbers, each corresponding to a value in the domain."
+            ]
+          }
+        },
+        {
+          "type": "ai_section",
+          "theme": "light",
+          "hero": {
+            "category": "",
+            "title": "",
+            "intro": ""
+          },
+          "concepts": [],
+          "probabilityContent": {
+            "chapters": [
+              {
+                "title": "Independence",
+                "interactive": "random-variable",
+                "sentences": [
+                  "Independence is the knowledge that the occurrence of one event does not affect the probability of the other event.",
+                  "For example, when rolling two dice, the result of each die is independent from the other. Rolling a 4 with the first die does not influence the value of the second die that we roll.",
+                  "This is opposed to dependent events, like clouds in the morning and rain in the afternoon. If it is cloudy in the morning, it is more likely that it will rain in the afternoon, so these events are dependent.",
+                  "Independence can be defined mathematically: events a and b are independent if and only if P(a \u2227 b) = P(a)P(b)."
+                ],
+                "terms": [
+                  {
+                    "term": "Independent Events",
+                    "definition": "Events where the occurrence of one does not affect the probability of the other. Example: rolling two dice."
+                  },
+                  {
+                    "term": "Dependent Events",
+                    "definition": "Events where one occurrence changes the probability of the other. Example: clouds in the morning and rain in the afternoon."
+                  },
+                  {
+                    "term": "Independence Formula",
+                    "definition": "P(a \u2227 b) = P(a) \u00d7 P(b). If this equation holds, the events are independent."
+                  }
+                ]
+              }
+            ]
+          },
+          "keyInsight": ""
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Step-by-Step"
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "numbered",
+            "items": [
+              "Define the Variable: Identify what you are measuring. Example: Roll of a die has values {1,2,3,4,5,6}.",
+              "List the Domain: Every possible value the variable can take. Flight status can be on time, delayed, or canceled.",
+              "Assign Probabilities: Each value gets a probability between 0 and 1. The sum of all probabilities equals 1.",
+              "Write as Vector: Arrange probabilities in a fixed order as a vector. P(Flight) = \u27e80.6, 0.3, 0.1\u27e9.",
+              "Check Independence: Does event A affect event B? If P(A \u2227 B) = P(A) \u00d7 P(B), they are independent."
+            ]
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "A random variable turns uncertainty into math \u2014 it assigns numbers to outcomes so we can compute with probability."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Rolling Dice Teaches Random Variables",
+          "subtitle": "Before a die lands, we don't know which number will appear. That uncertainty is exactly what a random variable captures \u2014 turning unpredictable outcomes into numbers we can analyze.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "A child rolls a six-sided die on a table. The die is spinning in the air \u2014 the outcome is unknown. All six numbers (1 through 6) are possible, but we don't yet know which one will show.",
+              "caption": "Every outcome has a number. Before the die lands, we don't know which will appear."
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "The die lands showing 4. A random variable X records the result: X = 4. Other examples: coin flip (Heads \u2192 X = 1, Tails \u2192 X = 0) and a spinner (Red \u2192 X = 1, Blue \u2192 X = 2).",
+              "caption": "A random variable assigns a numerical value to the outcome of a random event."
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "Each die outcome maps to a number, forming a probability distribution. P(X = 1) = 1/6, ..., P(X = 6) = 1/6. This lets AI calculate probabilities and make predictions from uncertain events.",
+              "caption": "A random variable describes uncertain events using numbers \u2014 making them easy to analyze with probability."
+            }
+          ],
+          "insight": "A random variable does not create randomness. It simply assigns a numerical value to the outcome of a random event, allowing us to calculate probabilities and make predictions.",
+          "reinforcement": "Every uncertain outcome can be described by a random variable. AI uses this to turn unpredictability into measurable probability."
+        }
+      ]
+    },
+    {
+      "id": "bayes-theorem",
+      "label": "Bayes' Theorem",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Bayes' Theorem \u2014 SVG placeholder",
+            "svgId": "bayes-theorem"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Bayes' Theorem is the mathematical formula for changing your mind correctly."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "It tells you exactly how to update beliefs when new evidence arrives \u2014 the foundation of spam filters, diagnosis, and AI reasoning."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Prior P(H)"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Your belief in a hypothesis before seeing any evidence. If 1 in 1000 people have a disease, the prior probability of having it is 0.001."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Likelihood P(E | H)"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "How probable is the observed evidence, assuming the hypothesis is true? A positive test is very likely if you have the disease \u2014 but less certain than you might think."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Posterior P(H | E)"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Your updated belief in the hypothesis after seeing the evidence. This is what Bayes computes: P(H"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "E) = P(E"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "H) \u00d7 P(H) / P(E). Prior belief corrected by new data."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Base Rate Fallacy"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A test that is 99% accurate can still produce mostly false positives if the disease is rare. Ignoring the prior (base rate) leads to dramatically wrong conclusions \u2014 a trap humans and AI alike must avoid."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Bayesian Updating"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Each new piece of evidence updates your belief. Yesterday's posterior becomes today's prior. Evidence accumulates into an increasingly confident belief \u2014 this is how learning works mathematically."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "The Need for Bayes"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "We often want to know P(H | E) \u2014 the probability that our hypothesis is true, given the evidence we observed."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "But what we usually have is P(E | H) \u2014 the probability of seeing the evidence if the hypothesis were true."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Bayes' Theorem bridges this gap: it tells you how to 'invert' the conditional probability using what you already know."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "P(H | E) \u2014 Posterior \u2014 The probability of the hypothesis being true after seeing the evidence. This is what we ultimately want.",
+              "P(E | H) \u2014 Likelihood \u2014 The probability of observing the evidence given that the hypothesis is true. This is often easier to measure.",
+              "Inversion Problem \u2014 We observe P(E|H) but need P(H|E). Bayes' Theorem is the mathematical tool that performs this inversion."
+            ]
+          }
+        },
+        {
+          "type": "ai_section",
+          "theme": "light",
+          "hero": {
+            "category": "",
+            "title": "",
+            "intro": ""
+          },
+          "concepts": [],
+          "probabilityContent": {
+            "chapters": [
+              {
+                "title": "Joint Probability",
+                "interactive": "joint-probability",
+                "sentences": [
+                  "Before Bayes, we need joint probability: P(A \u2227 B) is the probability that both events A and B occur simultaneously.",
+                  "For independent events, P(A \u2227 B) = P(A) \u00d7 P(B). But most real-world events are dependent, so we need the general formula.",
+                  "The joint probability table shows every combination of two events and their probabilities \u2014 the complete picture of how A and B relate."
+                ],
+                "terms": [
+                  {
+                    "term": "Joint Probability P(A \u2227 B)",
+                    "definition": "The probability that both events A and B happen at the same time. The foundation of all Bayesian reasoning."
+                  },
+                  {
+                    "term": "Marginal Probability P(A)",
+                    "definition": "The probability of A occurring, ignoring B entirely. You get this by summing all joint probabilities where A is true."
+                  },
+                  {
+                    "term": "Joint Probability Table",
+                    "definition": "A table listing probabilities for every combination of two events (A and not A, B and not B). Shows the full relationship."
+                  }
+                ]
+              }
+            ]
+          },
+          "keyInsight": ""
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Bayes' Formula"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Formula: P(H | E) = P(E | H) \u00d7 P(H) / P(E)"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The numerator multiplies the likelihood P(E|H) by the prior P(H). The denominator P(E) is the total probability of the evidence under all hypotheses."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "P(E) can be expanded using the law of total probability: P(E) = P(E|H) \u00d7 P(H) + P(E|\u00acH) \u00d7 P(\u00acH)."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Numerator \u2014 P(E|H) \u00d7 P(H) \u2014 how strongly the evidence supports the hypothesis, weighted by how likely the hypothesis was to begin with.",
+              "Denominator P(E) \u2014 The total probability of the evidence under all possible hypotheses \u2014 it normalizes the result so the posterior is a valid probability between 0 and 1.",
+              "Posterior P(H|E) \u2014 Your updated belief after seeing the evidence. It is proportional to likelihood \u00d7 prior."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Applying Bayes: Disease Example"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A disease affects 1 in 1000 people. P(H) = 0.001. A test is 99% accurate: P(positive | disease) = 0.99. The false positive rate is 5%: P(positive | no disease) = 0.05."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "P(E) = 0.99 \u00d7 0.001 + 0.05 \u00d7 0.999 = 0.05094. Even with a positive test, the posterior P(H|E) = (0.99 \u00d7 0.001) / 0.05094 \u2248 0.019 or just 1.9%."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A 99% accurate test still gives only 1.9% probability of having the disease! This is the base rate fallacy \u2014 ignoring the rarity of the disease leads to dramatically overestimating the risk."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Base Rate Fallacy \u2014 The mistake of ignoring the prior probability (base rate) when interpreting new evidence. A rare disease + accurate test still mostly produces false positives.",
+              "Bayesian Updating \u2014 The process of repeatedly applying Bayes' Theorem: each posterior becomes the next prior as new evidence arrives, converging toward the truth."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Step-by-Step"
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "numbered",
+            "items": [
+              "Start with Prior: P(H) \u2014 your belief in the hypothesis before any evidence. Example: P(disease) = 0.001.",
+              "Observe Evidence: Collect new data: a test result, an email containing a word, a patient's symptom.",
+              "Compute Likelihood: P(E|H) \u2014 how likely is this evidence if the hypothesis is true? Also compute P(E) \u2014 overall evidence probability.",
+              "Apply Bayes Formula: P(H|E) = P(E|H) \u00d7 P(H) / P(E). Multiply prior by likelihood, divide by total evidence probability.",
+              "Update and Repeat: The posterior becomes the new prior. Each new observation refines your belief further."
+            ]
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "Bayes' Theorem is how AI learns from evidence: prior \u00d7 likelihood \u2192 posterior. Each observation makes the AI smarter."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Bayes Theorem Updates Beliefs",
+          "subtitle": "A doctor doesn't guess a diagnosis. They start with what they know about a disease \u2014 then update that belief when test results come in.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "A rare disease affects only 1 in 1000 people. That's the starting assumption before any test \u2014 a doctor knows the disease is unlikely before checking.",
+              "caption": "Prior belief is the starting point before new evidence."
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "A test that is 99% accurate arrives. The doctor combines what they knew beforehand with this new evidence to arrive at a revised, more accurate belief.",
+              "caption": "Bayes combines prior and evidence to produce an updated belief."
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "Spam filters, diagnosis tools, and recommendation systems all start with a belief, receive new evidence, and update their conclusion accordingly.",
+              "caption": "AI systems update beliefs using Bayes' Theorem with every new observation."
+            }
+          ],
+          "insight": "Bayes' Theorem tells you exactly how to change your mind: posterior = likelihood \u00d7 prior \u00f7 evidence.",
+          "reinforcement": "AI doesn't guess \u2014 it updates. Each new observation refines the probability toward truth."
+        },
+        {
+          "type": "practice",
+          "title": "Applying Bayes Theorem",
+          "instructions": "Use Bayes Theorem to calculate the probability an email is spam given it contains the word 'free'.",
+          "starterCode": "# Bayes Theorem: spam detection\nprior = 0.4       # P(spam) = 40% of emails are spam\nlikelihood = 0.9  # P('free' | spam) = 90% of spam has 'free'\nevidence = 0.5    # P('free') = 50% of all emails have 'free'\nposterior = (prior * likelihood) / evidence\nprint(f\"P(spam | contains 'free') = {posterior:.0%}\")",
+          "solution": "prior = 0.4\nlikelihood = 0.9\nevidence = 0.5\nposterior = (prior * likelihood) / evidence\nprint(f\"P(spam | 'free') = {posterior:.0%}\")",
+          "hint": "Bayes Theorem: posterior = (prior \u00d7 likelihood) / evidence."
+        }
+      ]
+    },
+    {
+      "id": "bayesian-networks",
+      "label": "Bayesian Networks",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Bayesian Networks \u2014 SVG placeholder",
+            "svgId": "bayesian-networks"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The real world has webs of cause and effect \u2014 rain causes traffic, traffic causes lateness."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Bayesian Networks model all these dependencies at once and update everything when new evidence arrives."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Nodes & Edges"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Each node is a random variable (Rain, Maintenance, Train, Appointment). Each directed edge means causes or influences. The graph encodes what depends on what."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Conditional Probability Tables"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Each node has a CPT listing its probability for each combination of its parent values. The entire joint distribution of all variables is encoded by these tables."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Conditional Independence"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "If Rain directly causes TrafficJam, and TrafficJam directly causes LateToBus, then given TrafficJam, Rain and LateToBus are independent. Knowing the middle breaks the chain."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Inference in Networks"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Given observed evidence (Traffic is heavy), compute posterior probabilities for unobserved variables (how likely is Rain?). This is what makes Bayesian Networks useful."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "What is a Bayesian Network"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A Bayesian network is a data structure that represents the dependencies among random variables. It is a directed graph where each node represents a random variable."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "An arrow from X to Y represents that X is a parent of Y. That is, the probability distribution of Y depends on the value of X."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Each node X has a probability distribution P(X | Parents(X)). If a node has no parents, it is a root node with a simple prior distribution."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Bayesian Network \u2014 A directed graph where each node is a random variable and arrows represent causal dependencies. The structure encodes how variables influence each other.",
+              "Parent Node \u2014 If an arrow goes from X to Y, then X is a parent of Y. Y's probability distribution depends on the value of X.",
+              "Root Node \u2014 A node with no parents. Its probability distribution is not reliant on any prior event. It has a simple prior probability table."
+            ]
+          }
+        },
+        {
+          "type": "ai_section",
+          "theme": "light",
+          "hero": {
+            "category": "",
+            "title": "",
+            "intro": ""
+          },
+          "concepts": [],
+          "probabilityContent": {
+            "chapters": [
+              {
+                "title": "The Appointment Network",
+                "interactive": "bayesian-network",
+                "sentences": [
+                  "Let\u2019s consider a Bayesian network that models whether we get to our appointment on time. The network has four variables: Rain, Maintenance, Train, and Appointment.",
+                  "Rain is the root node with values {none, light, heavy} and distribution P(none)=0.7, P(light)=0.2, P(heavy)=0.1. Maintenance indicates track work with values {yes, no}, and its distribution depends on Rain.",
+                  "Train has values {on time, delayed} and depends on both Rain and Maintenance. Appointment has values {attend, miss} and depends only on Train. Each CPT encodes the full joint distribution.",
+                  "To compute a joint probability like P(light, no, delayed, miss), we multiply: P(light) \u00d7 P(no|light) \u00d7 P(delayed|light, no) \u00d7 P(miss|delayed). Each value comes from the respective CPT."
+                ],
+                "terms": [
+                  {
+                    "term": "Joint Probability Factorization",
+                    "definition": "P(Rain, Maintenance, Train, Appointment) = P(Rain) \u00d7 P(Maintenance|Rain) \u00d7 P(Train|Rain, Maintenance) \u00d7 P(Appointment|Train). The product of all CPTs gives the full joint distribution."
+                  },
+                  {
+                    "term": "Conditional Probability Table (CPT)",
+                    "definition": "A table listing the probability of a node\u2019s values for every combination of its parent values. Root nodes have a simple prior table instead."
+                  },
+                  {
+                    "term": "Direct Relations Only",
+                    "definition": "Parents include only direct relations. Appointment\u2019s only parent is Train, not Rain or Maintenance. If the train came on time, rain and maintenance do not directly affect attendance."
+                  }
+                ]
+              }
+            ]
+          },
+          "keyInsight": ""
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Inference in Networks"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Inference in a Bayesian Network means computing the probability distribution of a query variable given observed evidence."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Query X is the variable we want the distribution for. Evidence variables E have been observed (e.g., light rain). Hidden variables Y are neither the query nor observed (e.g., Maintenance)."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The goal: calculate P(X | e). For example, compute the probability distribution of Appointment given evidence of light rain and no maintenance: P(Appointment | light, no)."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Query (X) \u2014 The variable for which we want to compute the probability distribution. We ask: what is P(X | observed evidence)?",
+              "Evidence (E) \u2014 Variables that have been observed. Their values are known and fixed. Evidence updates beliefs about all connected variables.",
+              "Hidden Variables (Y) \u2014 Variables that are neither the query nor observed. They must be marginalized out (summed over) during inference."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Inference by Enumeration"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Inference by enumeration finds P(X | e) by summing probabilities over all values of hidden variables Y: P(X | e) = \u03b1 \u03a3_y P(X, e, y)."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The \u03b1 normalizes the result so probabilities sum to 1. We sum over every possible value of the hidden variables to account for all scenarios consistent with the evidence."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "For example, P(Appointment | light, no) = \u03b1[P(Appointment, light, no, delayed) + P(Appointment, light, no, on time)]. We marginalize Train since it is hidden."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Inference by Enumeration \u2014 Summing the joint probabilities over all values of hidden variables to compute P(X | e). Simple but computationally expensive for many variables.",
+              "Marginalization \u2014 Summing over all values of a hidden variable to remove it from the equation. P(X, e) = \u03a3_y P(X, e, y).",
+              "Normalization Constant \u03b1 \u2014 A scaling factor that ensures the resulting probabilities sum to 1. Computed as 1 / \u03a3_x P(X, e)."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Sampling"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Sampling is an approximate inference technique. Instead of exact computation, we generate many random samples following the network\u2019s distributions and count results."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Start by sampling Rain according to its prior: none (0.7), light (0.2), or heavy (0.1). Then sample Maintenance conditional on the sampled Rain value. Continue through all nodes in topological order."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "To answer P(Train = on time), count the fraction of samples where Train = on time. For P(Rain = light | Train = on time), keep only samples matching the evidence and normalize."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Repeating this thousands of times generates an approximate distribution. More samples yield more accurate estimates, but some precision is traded for scalability."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Sampling \u2014 Generating random values for each variable according to its probability distribution. Used for approximate inference when exact inference is too expensive.",
+              "Rejection Sampling \u2014 A sampling method where we discard samples that don\u2019t match the observed evidence, then compute probabilities from the remaining samples.",
+              "Topological Order \u2014 Sampling nodes in order from parents to children, ensuring parent values are known before sampling dependent children."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Likelihood Weighting"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Rejection sampling discards samples that don\u2019t match evidence, which is inefficient. Likelihood weighting fixes this by always matching evidence and assigning weights."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Start by fixing evidence variables to their observed values. Sample non-evidence variables using conditional probabilities. When you reach an evidence variable, always use its observed value."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Weight each sample by the conditional probability of the observed evidence given its sampled parents. This weight reflects how likely the evidence is under the sampled scenario."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "For example, if we observe Train = on time and sample Rain = light, Maintenance = yes, the weight is P(Train = on time | light, yes). Accumulate weighted counts for accurate inference."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Likelihood Weighting \u2014 An improved sampling method that never discards samples. Evidence variables are always fixed, and each sample is weighted by the likelihood of the evidence.",
+              "Sample Weight \u2014 The conditional probability of the observed evidence given its parents\u2019 sampled values. Higher weight means the evidence is more consistent with the sampled scenario.",
+              "Approximate Inference \u2014 Trading some precision for scalability. Likelihood weighting is more efficient than rejection sampling because no samples are discarded."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Step-by-Step"
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "numbered",
+            "items": [
+              "Define Variables: Identify the random variables: Rain {none, light, heavy}, Maintenance {yes, no}, Train {on time, delayed}, Appointment {attend, miss}.",
+              "Draw Edges: Rain \u2192 Maintenance, Rain \u2192 Train, Maintenance \u2192 Train, Train \u2192 Appointment.",
+              "Build CPTs: For each node, list its probability for every combination of parent values. Rain has a 3-row prior; Train has a 2\u00d73=6 row table.",
+              "Compute Joint Probability: P(light, no, delayed, miss) = P(light) \u00d7 P(no|light) \u00d7 P(delayed|light, no) \u00d7 P(miss|delayed).",
+              "Infer with Evidence: Given observed evidence (e.g., light rain), compute the posterior distribution of any query variable (e.g., Appointment) by marginalizing hidden variables."
+            ]
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "Bayesian Networks encode causality as a graph. Observe one variable, and the entire network updates its beliefs."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Bayesian Networks Connect Causes",
+          "subtitle": "Rain causes wet grass. Wet grass causes slippery ground. One event leads to another \u2014 a network of cause and effect that updates everything when something changes.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "Rain makes grass wet. Wet grass makes paths slippery. Each cause triggers an effect, creating a chain of dependencies.",
+              "caption": "Real-world events form chains of cause and effect."
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "When you observe one thing (wet grass), it updates the probability of everything connected to it (rain, slippery paths, accidents).",
+              "caption": "Observing one variable updates all connected variables."
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "AI connects these cause-effect chains into a map. When one observation arrives \u2014 wet grass \u2014 it revises what the AI believes about everything connected: rain, slippery paths, and accidents.",
+              "caption": "AI uses networks of dependencies where evidence flows through connected nodes."
+            }
+          ],
+          "insight": "Bayesian Networks encode causality as a graph. Observe one variable, and the entire network updates its beliefs.",
+          "reinforcement": "AI doesn't treat events in isolation. Every observation changes what it believes about everything connected."
+        },
+        {
+          "type": "practice",
+          "title": "Practice Exercise",
+          "instructions": "Run the simulation and watch how the observed probability of heads gets closer to 0.5 as you flip more coins. This is the Law of Large Numbers \u2014 the foundation of all probabilistic AI systems.",
+          "starterCode": "import random\nrandom.seed(42)\n\nfor n_flips in [10, 50, 200, 1000]:\n    flips = [random.choice(['H', 'T']) for _ in range(n_flips)]\n    heads = flips.count('H')\n    prob  = heads / n_flips\n    bar   = '\u2588' * int(prob * 20) + '\u2591' * (20 - int(prob * 20))\n    print(f\"n={n_flips:5d} | P(H)={prob:.3f} | {bar}\")\n\nprint()\nprint(\"As n grows, P(H) converges to the true probability 0.500\")\nprint(\"AI models need large datasets for the same reason.\")",
+          "solution": "import random\nrandom.seed(42)\nfor n in [10,50,200,1000]:\n    h=sum(random.choice([0,1]) for _ in range(n))\n    print(f\"n={n:5d} P(H)={h/n:.3f}\")\nprint(\"Law of Large Numbers: more data \u2192 more accurate probability estimates\")",
+          "hint": "Try changing random.seed() to a different number. The pattern of convergence stays the same \u2014 only the exact values change. That is why probability is reliable even though individual outcomes are random."
+        }
+      ]
+    },
+    {
+      "id": "markov-models",
+      "label": "Markov Models",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Markov Models \u2014 SVG placeholder",
+            "svgId": "markov-models"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The world changes over time \u2014 weather shifts, speech flows, robots move."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Markov Models capture this temporal dimension, letting AI predict what comes next by remembering only what matters."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Time in Probability"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Probability so far has been timeless \u2014 events are observed, not sequenced. Markov Models introduce the variable X\u209c, where t represents time, letting us reason about sequences and predictions."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "The Markov Assumption"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The future depends only on a finite, fixed number of past states. Predicting tomorrow's weather doesn't need data from 365 days ago \u2014 today's weather is enough. This makes reasoning tractable."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Markov Chains"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A sequence of random variables where each depends only on the one before it. The transition model defines P(X\u209c\u208a\u2081"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "X\u209c) \u2014 the probability of moving from one state to the next."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Hidden Markov Models"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The true state is hidden \u2014 an AI only sees observations. For example, a robot's sensors see readings (observations) but the true position (hidden state) must be inferred."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Time in Probability"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "So far, we have looked at questions of probability given some information that we observed. In this kind of paradigm, the dimension of time is not represented in any way."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "However, many tasks do rely on the dimension of time, such as prediction. To represent the variable of time we will create a new variable, X, and change it based on the event of interest."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "X\u209c is the current event, X\u209c\u208a\u2081 is the next event, and so on. To be able to predict events in the future, we will use Markov Models."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Formula: P(X\u209c\u208a\u2081 = x\u209c\u208a\u2081 | X\u209c = x\u209c, X\u209c\u208b\u2081 = x\u209c\u208b\u2081, ...) \u2014 the probability of the next state given all previous states."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Markov Model \u2014 A probabilistic model that represents a sequence of events where the probability of each event depends on previous events."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "The Markov Assumption"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The Markov assumption states that the current state depends on only a finite fixed number of previous states. This is what makes prediction computationally feasible."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Think of predicting weather. In theory, we could use all the data from the past year. But it is infeasible \u2014 both computationally and because the weather 365 days ago has negligible influence on tomorrow."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Using the Markov assumption, we restrict our previous states to a manageable number. This gives a rough approximation of the probabilities \u2014 but often good enough."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The simplest case is a first-order Markov model: P(X\u209c\u208a\u2081 | X\u209c). Each event depends only on the one immediately before it."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Markov Assumption \u2014 The assumption that the current state depends only on a finite fixed number of previous states, making probabilistic prediction tractable.",
+              "First-Order Markov Model \u2014 A Markov model where each state depends only on the immediately preceding state: P(X\u209c\u208a\u2081 | X\u209c)."
+            ]
+          }
+        },
+        {
+          "type": "ai_section",
+          "theme": "light",
+          "hero": {
+            "category": "",
+            "title": "",
+            "intro": ""
+          },
+          "concepts": [],
+          "probabilityContent": {
+            "chapters": [
+              {
+                "title": "Markov Chains",
+                "interactive": "markov-chain",
+                "sentences": [
+                  "A Markov chain is a sequence of random variables where the distribution of each variable follows the Markov assumption. Each event occurs based on the probability of the event before it.",
+                  "To construct a Markov chain, we need a transition model that specifies the probability distribution of the next event given the current event.",
+                  "For example, if today is sunny, the probability that tomorrow is rainy could be 0.3 and 0.7 for sunny. This can be represented with a transition model and a transition table.",
+                  "Formula: P(X\u209c\u208a\u2081 | X\u209c) defines the transition model. The Markov chain then samples from this distribution at each time step."
+                ],
+                "terms": [
+                  {
+                    "term": "Markov Chain",
+                    "definition": "A sequence of random variables where each variable depends only on the previous one, governed by a transition model."
+                  },
+                  {
+                    "term": "Transition Model",
+                    "definition": "The probability distribution of the next state given the current state in a Markov chain."
+                  }
+                ],
+                "example": {
+                  "title": "Two-State Weather Chain",
+                  "table": [
+                    [
+                      "",
+                      "Tomorrow Sunny",
+                      "Tomorrow Rainy"
+                    ],
+                    [
+                      "Today Sunny",
+                      "0.7",
+                      "0.3"
+                    ],
+                    [
+                      "Today Rainy",
+                      "0.5",
+                      "0.5"
+                    ]
+                  ],
+                  "note": "Each row sums to 1.0. From Sunny, there is a 70% chance of staying Sunny and 30% chance of Rain."
+                }
+              }
+            ]
+          },
+          "keyInsight": ""
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Hidden Markov Models"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "In a Hidden Markov Model (HMM), the state is not directly observable. Instead, we see observations that are generated by the hidden state."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "For example, a robot in a building knows its sensor readings but not its true position. The hidden state (position) generates observations (sensor readings) with some probability."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "We need to consider X\u209c (the hidden state at time t) and E\u209c (the evidence/observation at time t). X\u209c evolves in a Markov chain, and each X\u209c generates E\u209c."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "HMM makes two assumptions: (1) The Markov Assumption: X\u209c\u208a\u2081 depends only on X\u209c. (2) The Sensor Markov Assumption: E\u209c depends only on X\u209c."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Hidden Markov Model (HMM) \u2014 A Markov model where the state is hidden and observations provide probabilistic evidence about the state.",
+              "Sensor Markov Assumption \u2014 The assumption that the current observation depends only on the current state, not on past states or observations."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "HMM Tasks"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Filtering: Given all evidence up to time t, compute the probability distribution of X\u209c (the current state). This is updating beliefs as new evidence arrives."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Prediction: Given all evidence up to time t, compute the probability distribution of X\u209c\u208a\u2096 (a future state). This is forecasting what might happen next."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Smoothing: Given all evidence up to time t (including some after time k), compute the probability distribution of X\u2096 (a past state). This is retroactively improving past estimates using future evidence."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Most Likely Explanation (MLE): Given all evidence up to time t, compute the most likely sequence of hidden states. This is finding the best path through the hidden states."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Formula for filtering: P(X\u209c | e\u2081, e\u2082, ..., e\u209c). For prediction: P(X\u209c\u208a\u2096 | e\u2081, e\u2082, ..., e\u209c). For smoothing: P(X\u2096 | e\u2081, e\u2082, ..., e\u209c) where k < t."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Filtering \u2014 Computing P(X\u209c | e\u2081...e\u209c) \u2014 the probability of the current hidden state given all evidence so far.",
+              "Prediction \u2014 Computing P(X\u209c\u208a\u2096 | e\u2081...e\u209c) \u2014 the probability of a future hidden state given current evidence.",
+              "Smoothing \u2014 Computing P(X\u2096 | e\u2081...e\u209c) where k < t \u2014 improving past state estimates using future evidence.",
+              "Most Likely Explanation \u2014 Finding the most probable sequence of hidden states given all observations."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Step-by-Step"
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "numbered",
+            "items": [
+              "Introduce time as a variable X\u209c in probability",
+              "Apply the Markov Assumption to limit dependency",
+              "Build Markov chains using transition models",
+              "Separate hidden states from observations in HMMs",
+              "Solve filtering, prediction, smoothing, and MLE tasks"
+            ]
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "Markov Models transform time from a mystery into a probability distribution. The past fades quickly \u2014 only the present matters for predicting tomorrow."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Hidden States & Observations",
+          "subtitle": "A doctor can't see the disease directly \u2014 only symptoms. The disease is the hidden state; the symptoms are observations. HMMs solve this exact puzzle.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World: Diagnosis",
+              "description": "A patient has a hidden disease. The doctor only observes symptoms \u2014 cough, fever, rash. The hidden state (disease) generates the observations (symptoms).",
+              "caption": "Symptoms are evidence of a hidden cause."
+            },
+            {
+              "number": 2,
+              "label": "Two Layers of HMM",
+              "description": "HMMs have two layers: the hidden state sequence (X\u2081 \u2192 X\u2082 \u2192 X\u2083 \u2192 ...) evolves as a Markov chain. Each X\u209c generates an observation E\u209c. We see the E sequence and must infer the X sequence.",
+              "caption": "Hidden states chain above, observations below."
+            },
+            {
+              "number": 3,
+              "label": "Inference Over Time",
+              "description": "As each new observation arrives, the AI updates its belief about the hidden state (filtering). It can also look backward after more data arrives (smoothing) or predict what comes next.",
+              "caption": "Beliefs update with every new observation."
+            }
+          ],
+          "insight": "Hidden Markov Models mirror how humans reason \u2014 we see effects and infer causes, updating our beliefs as new evidence arrives over time.",
+          "reinforcement": "Your brain does HMM inference constantly \u2014 you hear a sound, infer its source, and revise that inference as more sounds arrive."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Probability assigns a number between 0 and 1 to every possible outcome"
+      },
+      {
+        "text": "A random variable maps uncertain outcomes to values in a defined domain"
+      },
+      {
+        "text": "A probability distribution assigns a probability to each value of a random variable"
+      },
+      {
+        "text": "Independent events: P(A \u2227 B) = P(A) \u00d7 P(B)"
+      },
+      {
+        "text": "Conditional probability P(A|B) updates belief when some evidence B is observed"
+      },
+      {
+        "text": "Bayes' Theorem: P(H|E) = P(E|H) \u00d7 P(H) / P(E)"
+      },
+      {
+        "text": "The base rate fallacy: ignoring the prior leads to dramatically wrong conclusions"
+      },
+      {
+        "text": "Each new observation updates your belief \u2014 yesterday's posterior becomes today's prior"
+      },
+      {
+        "text": "Bayesian Networks encode complex dependencies compactly and enable efficient inference"
+      },
+      {
+        "text": "Markov Models add the dimension of time to probability \u2014 the future depends on the present"
+      },
+      {
+        "text": "The Markov Assumption makes prediction tractable by limiting dependency to recent states"
+      },
+      {
+        "text": "HMMs separate hidden states from observations, enabling inference over time"
+      }
+    ],
+    "whatYouLearned": [
+      "How probability quantifies uncertainty in a mathematically rigorous way",
+      "What a random variable is and how to define its domain",
+      "How probability distributions map values to probabilities",
+      "How to test whether two events are independent",
+      "What conditional probability means and how to compute it",
+      "How Bayes' Theorem updates beliefs when new evidence arrives",
+      "Why base rates matter and how to avoid the base rate fallacy",
+      "How Bayesian Networks represent dependencies between random variables",
+      "How evidence propagates through a network to update all connected beliefs",
+      "How Markov Models bring time into probability with the X\u209c variable",
+      "How the Markov Assumption limits dependency to make prediction feasible",
+      "How Markov chains use transition models to sample future states",
+      "How HMMs separate hidden states from observations with the Sensor Markov Assumption",
+      "The four key HMM tasks: filtering, prediction, smoothing, and most likely explanation"
+    ],
+    "nextUp": "Optimization"
+  }
+}

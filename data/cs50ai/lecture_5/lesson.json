@@ -1,0 +1,197 @@
+{
+  "id": "cs50ai-lecture-5",
+  "courseSlug": "cs50ai",
+  "number": 5,
+  "title": "Machine Learning",
+  "overview": "Machine Learning is AI that learns rules from examples instead of being told the rules directly.",
+  "estimatedMinutes": 60,
+  "nextUp": "Neural Networks",
+  "sections": [
+    {
+      "id": "what-is-ml",
+      "label": "What is Machine Learning & Supervised Learning",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "What is What is Machine Learning & Supervised Learning?",
+          "body": "Machine Learning is AI that learns rules from examples instead of being told the rules directly.",
+          "bullets": [
+            "Traditional programming: rules + data = answers",
+            "Machine Learning: data + correct answers = rules (AI figures out the rules itself)",
+            "Supervised Learning: training with labeled examples — input + correct output given",
+            "Classification: predict a category (spam or not spam, pass or fail)",
+            "Regression: predict a number (house price, student score)"
+          ],
+          "accentColor": "blue"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Think of ML as Learning to Sort Laundry",
+            "description": "Learn patterns from labeled examples",
+            "image": "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "ML = Pattern Learning",
+            "items": [
+              "Examples",
+              "Learn Patterns",
+              "Predictions"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "seen = {\"t-shirt\": \"small\", \"jeans\": \"large\"}\nnew = \"shirt\"\nprint(seen.get(new, \"predicting small\"))",
+            "output": "predicting small"
+          }
+        },
+        {
+          "type": "practice",
+          "title": "Classifying ML Problems",
+          "instructions": "Classify each problem as classification or regression.",
+          "starterCode": "# Classify each problem\nproblems = [\n    \"Predict house price\",\n    \"Spam or not spam\",\n    \"Student exam score\",\n    \"Image: cat or dog\",\n]\nfor problem in problems:\n    if problem in [\"Predict house price\", \"Student exam score\"]:\n        print(f\"{problem}: regression\")\n    else:\n        print(f\"{problem}: classification\")",
+          "solution": "problems = [\"Predict house price\", \"Spam or not spam\", \"Student exam score\", \"Image: cat or dog\"]\nfor problem in problems:\n    if problem in [\"Predict house price\", \"Student exam score\"]:\n        print(f\"{problem}: regression\")\n    else:\n        print(f\"{problem}: classification\")",
+          "hint": "Classification predicts a category. Regression predicts a number."
+        }
+      ]
+    },
+    {
+      "id": "unsupervised-rl",
+      "label": "Unsupervised & Reinforcement Learning",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "What is Unsupervised & Reinforcement Learning?",
+          "body": "Not all learning needs labels. Unsupervised learning finds patterns on its own. Reinforcement learning learns by trying and getting rewards.",
+          "bullets": [
+            "Unsupervised Learning: finds patterns with no labels — grouping similar customers",
+            "Clustering: grouping similar data points together automatically",
+            "Reinforcement Learning: AI tries an action, gets a reward or penalty, learns over time",
+            "Example: chess AI learns by playing millions of games — rewarded for winning",
+            "Overfitting: model memorizes training data but fails on new data"
+          ],
+          "accentColor": "blue"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Think of Reinforcement Learning as Training a Puppy",
+            "description": "Learn by trial and error with rewards",
+            "image": "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=800&q=80"
+          },
+          "visualization": {
+            "type": "repetition",
+            "title": "RL: Actions → Rewards",
+            "items": [
+              "Observe",
+              "Act",
+              "Get Reward",
+              "Improve"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "rewards = {\"sit\": 5, \"stay\": 3, \"jump\": -1}\nbest = max(rewards, key=rewards.get)\nprint(f\"Learned: {best} is best\")",
+            "output": "Learned: sit is best"
+          }
+        },
+        {
+          "type": "practice",
+          "title": "Identifying Learning Paradigms",
+          "instructions": "Match each scenario to the correct learning paradigm: supervised, unsupervised, or reinforcement.",
+          "starterCode": "# Identify the learning paradigm\nscenarios = [\n    \"Chess AI learns by playing games\",\n    \"Grouping customers by purchase patterns\",\n    \"Email spam detector trained on labeled emails\",\n]\nfor scenario in scenarios:\n    if \"labeled\" in scenario:\n        print(f\"{scenario}: supervised\")\n    elif \"grouping\" in scenario.lower():\n        print(f\"{scenario}: unsupervised\")\n    else:\n        print(f\"{scenario}: reinforcement\")",
+          "solution": "scenarios = [\n    \"Chess AI learns by playing games\",\n    \"Grouping customers by purchase patterns\",\n    \"Email spam detector trained on labeled emails\",\n]\nfor scenario in scenarios:\n    if \"labeled\" in scenario:\n        print(f\"{scenario}: supervised\")\n    elif \"grouping\" in scenario.lower():\n        print(f\"{scenario}: unsupervised\")\n    else:\n        print(f\"{scenario}: reinforcement\")",
+          "hint": "Supervised uses labeled data, Unsupervised finds patterns, Reinforcement uses rewards."
+        }
+      ]
+    },
+    {
+      "id": "getting-started",
+      "label": "ML Workflow",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "What is ML Steps?",
+          "body": "The Machine Learning workflow.",
+          "bullets": [
+            "Step 1: Collect data — gather examples of inputs and correct outputs",
+            "Step 2: Clean data — remove errors, fill missing values",
+            "Step 3: Train model — feed data to algorithm, it learns the pattern",
+            "Step 4: Test model — give it new unseen data, check accuracy",
+            "Step 5: Predict — use trained model on real-world inputs"
+          ],
+          "accentColor": "blue"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Think of ML Pipeline as a Factory Assembly Line",
+            "description": "Raw data goes through stages to produce predictions",
+            "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "ML Pipeline Steps",
+            "items": [
+              "Raw Data",
+              "Clean",
+              "Features",
+              "Train",
+              "Evaluate"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "raw = [\"  Hello  \", \"WORLD\", \"  AI  \"]\nclean = [s.strip().lower() for s in raw]\nprint(f\"Cleaned: {clean}\")",
+            "output": "Cleaned: ['hello', 'world', 'ai']"
+          }
+        },
+        {
+          "type": "code_example",
+          "title": "Simple Linear Regression",
+          "language": "python",
+          "code": "# Simple linear regression: y = mx + b\n# Training data: hours studied vs exam score\nhours = [1, 2, 3, 4, 5]\nscores = [50, 55, 65, 70, 75]\n\n# Calculate slope (m) and intercept (b)\nn = len(hours)\nm = (n * sum(h*s for h,s in zip(hours, scores)) - sum(hours)*sum(scores)) / (n*sum(h*h for h in hours) - sum(hours)**2)\nb = (sum(scores) - m * sum(hours)) / n\n\nprint(f\"Formula: score = {m:.1f} * hours + {b:.1f}\")\nprint(f\"Predicted score for 6 hours: {m*6+b:.0f}\")",
+          "expectedOutput": "Formula: score = 6.5 * hours + 44.0\nPredicted score for 6 hours: 83"
+        },
+        {
+          "type": "practice",
+          "title": "Practice Exercise",
+          "instructions": "Classify each example — Supervised / Unsupervised / Reinforcement: spam filter, Netflix recommendations, chess AI, customer grouping",
+          "starterCode": "# Write your classifications\n",
+          "solution": "# Example: spam filter -> Supervised",
+          "hint": "Think about whether labels or rewards are present."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "ML learns rules from data instead of being told rules directly"
+      },
+      {
+        "text": "Supervised learning uses labeled data — input + correct output"
+      },
+      {
+        "text": "Classification predicts categories; Regression predicts numbers"
+      },
+      {
+        "text": "Unsupervised learning finds patterns with no labels"
+      },
+      {
+        "text": "Reinforcement learning learns through rewards and penalties"
+      },
+      {
+        "text": "Overfitting is when a model memorizes data instead of learning the pattern"
+      }
+    ],
+    "whatYouLearned": [
+      "What ML is and the difference from traditional programming",
+      "Supervised vs Unsupervised vs Reinforcement Learning",
+      "What overfitting means",
+      "The standard ML pipeline"
+    ],
+    "nextUp": "Neural Networks"
+  }
+}

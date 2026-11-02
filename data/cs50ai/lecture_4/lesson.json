@@ -1,0 +1,197 @@
+{
+  "id": "cs50ai-lecture-4",
+  "courseSlug": "cs50ai",
+  "number": 4,
+  "title": "Optimization",
+  "overview": "Optimization means finding the best solution among many possible options.",
+  "estimatedMinutes": 60,
+  "nextUp": "Machine Learning",
+  "sections": [
+    {
+      "id": "what-is-optimization",
+      "label": "What is Optimization & Hill Climbing",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "What is What is Optimization & Hill Climbing?",
+          "body": "Optimization means finding the best solution among many possible options. Hill Climbing is the simplest approach — always move toward a better nearby option.",
+          "bullets": [
+            "Optimization = finding the best solution (cheapest, fastest, most accurate)",
+            "Real example: finding the cheapest flight with fewest stops",
+            "Hill Climbing: start somewhere, always step toward a better neighbor",
+            "Problem: Hill Climbing can get stuck at a local best that is not the global best",
+            "This concept is fundamental to AI development."
+          ],
+          "accentColor": "blue"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Think of Optimization as Packing a Suitcase",
+            "description": "Choose the best combination within constraints",
+            "image": "https://images.unsplash.com/photo-1561023680-2a8b83ccc4a8?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Optimization = Best Choice",
+            "items": [
+              "Constraints",
+              "Optimizer",
+              "Best Solution"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "items = [(\"phone\",1,800), (\"laptop\",3,1000)]\ncap = 4\nfor name, w, _ in sorted(items, key=lambda x: -x[2]/x[1]):\n    if w <= cap: print(name); cap -= w",
+            "output": "phone\nlaptop"
+          }
+        },
+        {
+          "type": "practice",
+          "title": "Hill Climbing on a Landscape",
+          "instructions": "Use hill climbing to find the peak in a numerical landscape.",
+          "starterCode": "# Hill climbing: find the peak\nlandscape = [1, 3, 6, 9, 7, 4, 2]\ncurrent = 0\nwhile current + 1 < len(landscape) and landscape[current + 1] > landscape[current]:\n    current += 1\nprint(f\"Peak at position {current}: value {landscape[current]}\")\nprint(f\"Global max: {max(landscape)} at position {landscape.index(max(landscape))}\")\nprint(f\"Stuck at local peak? {landscape[current] != max(landscape)}\")",
+          "solution": "landscape = [1, 3, 6, 9, 7, 4, 2]\ncurrent = 0\nwhile current + 1 < len(landscape) and landscape[current + 1] > landscape[current]:\n    current += 1\nprint(f\"Peak at position {current}: value {landscape[current]}\")\nprint(f\"Global max: {max(landscape)} at position {landscape.index(max(landscape))}\")",
+          "hint": "Hill climbing always moves uphill. It may get stuck at a local peak instead of the global peak."
+        }
+      ]
+    },
+    {
+      "id": "simulated-annealing",
+      "label": "Simulated Annealing & Constraint Satisfaction",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "What is Simulated Annealing & Constraint Satisfaction?",
+          "body": "Simulated Annealing fixes Hill Climbing by occasionally accepting a worse option to escape being stuck. Constraint Satisfaction Problems have rules the solution must follow.",
+          "bullets": [
+            "Simulated Annealing: sometimes accept a worse option — like shaking a puzzle to unstick pieces",
+            "As time goes on, accept worse options less often (temperature cools down)",
+            "CSP: a problem where the solution must satisfy a set of constraints (rules)",
+            "CSP example: exam scheduling — no student should have two exams at the same time",
+            "Sudoku is a classic CSP — every row, column, box must have digits 1-9 with no repeats"
+          ],
+          "accentColor": "blue"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Think of CSP as a Classroom Seating Chart",
+            "description": "Assign values to variables while respecting constraints",
+            "image": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80"
+          },
+          "visualization": {
+            "type": "categories",
+            "title": "CSP: Variables → Values",
+            "centerLabel": "CSP: Variables → Values",
+            "items": [
+              "Seat 1",
+              "Seat 2",
+              "Seat 3"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "enemies = {\"Alice\": {\"Bob\"}, \"Bob\": {\"Alice\"}}\nseats = [\"Alice\", \"Bob\"]\nif seats[1] in enemies[seats[0]]:\n    print(\"Conflict: adjacent enemies\")",
+            "output": "Conflict: adjacent enemies"
+          }
+        },
+        {
+          "type": "practice",
+          "title": "Checking CSP Constraints",
+          "instructions": "Check if a course schedule satisfies all constraints (no student has two exams on the same day).",
+          "starterCode": "# CSP: Exam schedule without conflicts\nstudents = {\"Math\": [\"Alice\", \"Bob\"], \"Physics\": [\"Bob\", \"Eve\"], \"CS\": [\"Alice\", \"Eve\"]}\nschedule = {\"Math\": \"Mon\", \"Physics\": \"Tue\", \"CS\": \"Wed\"}\ndays = {}\nfor course, day in schedule.items():\n    if day not in days:\n        days[day] = []\n    days[day].append(course)\nfor day, courses in days.items():\n    status = '✅' if len(courses) == 1 else '❌ CONFLICT'\n    print(f\"{day}: {courses} {status}\")",
+          "solution": "students = {\"Math\": [\"Alice\", \"Bob\"], \"Physics\": [\"Bob\", \"Eve\"], \"CS\": [\"Alice\", \"Eve\"]}\nschedule = {\"Math\": \"Mon\", \"Physics\": \"Tue\", \"CS\": \"Wed\"}\ndays = {}\nfor course, day in schedule.items():\n    days.setdefault(day, []).append(course)\nfor day, courses in days.items():\n    status = '✅' if len(courses) == 1 else '❌ CONFLICT'\n    print(f\"{day}: {courses} {status}\")",
+          "hint": "In CSP, every variable (course) gets a value (day) that must satisfy all constraints (no student double-booked)."
+        }
+      ]
+    },
+    {
+      "id": "getting-started",
+      "label": "Optimization in Action",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "What is Optimization Steps?",
+          "body": "How to optimize solutions.",
+          "bullets": [
+            "Step 1: Define your problem — what are you trying to optimize?",
+            "Step 2: Choose a starting solution",
+            "Step 3: Check neighboring solutions — is any better?",
+            "Step 4: Move to the better solution (Hill Climbing) or sometimes move to worse (Simulated Annealing)",
+            "Step 5: Repeat until no improvement found"
+          ],
+          "accentColor": "blue"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Think of Optimization Flow as a Delivery Route",
+            "description": "Find the shortest or cheapest path through a network",
+            "image": "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Route Optimization",
+            "items": [
+              "Warehouse",
+              "Stop A",
+              "Stop B",
+              "Stop C",
+              "Return"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "# Shortest delivery route\nstops = {\"WH\": {\"A\": 5, \"B\": 10}, \"A\": {\"B\": 3, \"C\": 8}, \"B\": {\"C\": 2}, \"C\": {\"WH\": 7}}\nroute = [\"WH\", \"A\", \"B\", \"C\", \"WH\"]\ntotal = sum(stops[route[i]][route[i+1]] for i in range(len(route)-1))\nprint(f\"Total: {total} km\")",
+            "output": "Total: 17 km"
+          }
+        },
+        {
+          "type": "code_example",
+          "title": "Hill Climbing Optimization",
+          "language": "python",
+          "code": "# Simple hill climbing: find peak in a landscape\nlandscape = [1, 3, 7, 9, 6, 4, 2]\ncurrent = 0\n\nwhile True:\n    next_pos = current\n    if current + 1 < len(landscape) and landscape[current + 1] > landscape[current]:\n        next_pos = current + 1\n    elif current - 1 >= 0 and landscape[current - 1] > landscape[current]:\n        next_pos = current - 1\n    \n    if next_pos == current:\n        print(f\"Peak found at position {current}: value {landscape[current]}\")\n        break\n    current = next_pos",
+          "expectedOutput": "Peak found at position 3: value 9"
+        },
+        {
+          "type": "practice",
+          "title": "Practice Exercise",
+          "instructions": "Solve a simple Sudoku and write which constraint (rule) you used at each step",
+          "starterCode": "# Write your notes\n",
+          "solution": "# Notes here",
+          "hint": "Follow row, column, and block constraints."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Optimization finds the best solution from many possible options"
+      },
+      {
+        "text": "Hill Climbing always moves toward a better nearby option"
+      },
+      {
+        "text": "Hill Climbing can get stuck at a local best — not always the global best"
+      },
+      {
+        "text": "Simulated Annealing escapes by occasionally accepting worse options"
+      },
+      {
+        "text": "CSP problems have constraints (rules) the solution must satisfy"
+      },
+      {
+        "text": "Sudoku, exam scheduling, and delivery routing are all optimization problems"
+      }
+    ],
+    "whatYouLearned": [
+      "What Optimization is",
+      "How Hill Climbing and Simulated Annealing work",
+      "What CSP means and how it applies to Sudoku",
+      "How to define states and neighbors"
+    ],
+    "nextUp": "Machine Learning"
+  }
+}

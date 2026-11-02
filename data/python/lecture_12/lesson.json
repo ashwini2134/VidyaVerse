@@ -1,0 +1,170 @@
+{
+  "id": "python-lecture-12",
+  "courseSlug": "python",
+  "number": 12,
+  "title": "File Handling",
+  "overview": "Programs that only work with in-memory data are limited. File handling lets you save data permanently — read from files, write to files, and build applications that persist information.",
+  "estimatedMinutes": 45,
+  "sections": [
+    {
+      "id": "why-files",
+      "label": "Why Files?",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "blue",
+          "title": "Why Do We Need File Handling?",
+          "body": "Without files, all data disappears when your program ends. Files let you save data permanently.",
+          "bullets": [
+            "Variables disappear when the program closes — files persist",
+            "Files let you share data between different programs",
+            "Real applications save user data, settings, and logs to files",
+            "Python handles text files (.txt) and structured files (.csv, .json)"
+          ]
+        },
+        {
+          "type": "analogy",
+          "title": "File Handling is Like a Notebook",
+          "emoji": "",
+          "text": "Writing in a notebook saves information even after you close it. Open it tomorrow and the information is still there. File handling does the same for your programs."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Notebook",
+            "description": "Open it, read/write pages, close it when done.",
+            "image": "https://images.unsplash.com/photo-1517842645767-c639042777db?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "File Operations",
+            "items": [
+              "Open File",
+              "Read / Write",
+              "Close File"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "with open(\"notes.txt\", \"w\") as f:\n    f.write(\"Hello\")",
+            "output": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "reading-files",
+      "label": "Reading Files",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "Opening and Reading Files",
+          "body": "Use the open() function to work with files. The default mode is 'read' (r).",
+          "bullets": [
+            "file = open(\"filename.txt\", \"r\") — opens for reading",
+            "file.read() — reads the entire file as one string",
+            "file.readlines() — reads all lines into a list",
+            "Always close the file: file.close()"
+          ]
+        },
+        {
+          "type": "code_example",
+          "title": "Reading a File",
+          "language": "python",
+          "code": "# First create a file\nwith open(\"notes.txt\", \"w\") as f:\n    f.write(\"Line 1\\nLine 2\\nLine 3\")\n\n# Now read it\nwith open(\"notes.txt\", \"r\") as file:\n    content = file.read()\n    print(content)",
+          "expectedOutput": "Line 1\nLine 2\nLine 3"
+        },
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "The with Statement",
+          "body": "The `with` statement automatically closes the file even if an error occurs.",
+          "bullets": [
+            "with open(\"file.txt\", \"r\") as f: — auto-closes when done",
+            "No need to call .close() manually",
+            "Safer and cleaner than manual open/close"
+          ]
+        },
+        {
+          "type": "practice",
+          "title": "Read and Greet",
+          "instructions": "Write 3 names to students.txt. Read them back and greet each: 'Hello, [name]!'",
+          "starterCode": "with open(\"students.txt\", \"w\") as f:\n    f.write(\"Alice\\nBob\\nCharlie\\n\")\n\nwith open(\"students.txt\", \"r\") as f:\n    for name in f:\n        print(f\"Hello, {name.strip()}!\")",
+          "solution": "with open(\"students.txt\", \"w\") as f:\n    f.write(\"Alice\\nBob\\nCharlie\\n\")\n\nwith open(\"students.txt\", \"r\") as f:\n    for name in f:\n        print(f\"Hello, {name.strip()}!\")",
+          "hint": "Use strip() on each line to remove the newline character."
+        },
+        {
+          "type": "reflection",
+          "question": "Does this concept make sense so far? Try to explain it in your own words.",
+          "answer": "If you can explain this concept to someone else, you have understood it well. Practice with the exercises below to reinforce your learning."
+        }
+      ]
+    },
+    {
+      "id": "writing-files",
+      "label": "Writing Files",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "green",
+          "title": "Writing and Appending",
+          "body": "Python has three main file modes: read (r), write (w), and append (a).",
+          "bullets": [
+            "\"w\" mode — WRITE: creates or overwrites",
+            "\"a\" mode — APPEND: adds to end of existing file",
+            "\"r\" mode — READ: reads from existing file",
+            "Use \"w\" carefully — it deletes existing content!"
+          ]
+        },
+        {
+          "type": "code_example",
+          "title": "Write vs Append",
+          "language": "python",
+          "code": "with open(\"diary.txt\", \"w\") as f:\n    f.write(\"Day 1: Started Python\\n\")\n\nwith open(\"diary.txt\", \"a\") as f:\n    f.write(\"Day 2: File handling!\\n\")\n\nwith open(\"diary.txt\", \"r\") as f:\n    print(f.read())",
+          "expectedOutput": "Day 1: Started Python\nDay 2: File handling!"
+        },
+        {
+          "type": "practice",
+          "title": "Diary Entry",
+          "instructions": "Ask for today's date and a diary entry. Append the entry to 'diary.txt'. Then read and display the full diary.",
+          "starterCode": "date = input(\"Date: \")\nentry = input(\"Diary entry: \")\n\nwith open(\"diary.txt\", \"a\") as f:\n    f.write(date + \"\\n\")\n    f.write(entry + \"\\n\\n\")\n\nwith open(\"diary.txt\", \"r\") as f:\n    print(f.read())",
+          "solution": "date = input(\"Date: \")\nentry = input(\"Diary entry: \")\nwith open(\"diary.txt\", \"a\") as f:\n    f.write(date + \"\\n\")\n    f.write(entry + \"\\n\\n\")\nwith open(\"diary.txt\", \"r\") as f:\n    print(f.read())",
+          "hint": "Use \"a\" mode to append without deleting previous entries. Write date on one line, entry on the next."
+        },
+        {
+          "type": "reflection",
+          "question": "Does this concept make sense so far? Try to explain it in your own words.",
+          "answer": "If you can explain this concept to someone else, you have understood it well. Practice with the exercises below to reinforce your learning."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Files persist data beyond program execution"
+      },
+      {
+        "text": "Use open(\"file\", \"r\") to read, \"w\" to write, \"a\" to append"
+      },
+      {
+        "text": "Always close files — use with open() for automatic closing"
+      },
+      {
+        "text": "\"w\" mode overwrites existing files — use carefully!"
+      },
+      {
+        "text": "Append mode (\"a\") adds to the end without deleting"
+      }
+    ],
+    "whatYouLearned": [
+      "Why file handling is essential for data persistence",
+      "How to open files in read, write, and append modes",
+      "How to use with open() for automatic closing",
+      "How to read and write to files",
+      "How to build a simple notes application"
+    ],
+    "nextUp": "Mini Project"
+  }
+}

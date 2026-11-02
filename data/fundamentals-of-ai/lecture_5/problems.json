@@ -1,0 +1,122 @@
+[
+  {
+    "id": "simple_sudoku",
+    "title": "Sudoku Row Validator",
+    "description": "In Constraint Satisfaction, Sudoku requires each row to have exactly one of each digit (1-9). Let's validate a mini 1x3 Sudoku row (digits 1-3).\n\nYour program must:\n1. Read a comma-separated string of 3 integers (e.g., '1,2,3').\n2. Check if the numbers contain exactly one '1', one '2', and one '3'.\n3. Print 'Valid' if it satisfies the constraint, or 'Invalid' if it has duplicates or missing numbers.\n\nSample Input:\n1,2,3\n\nSample Output:\nValid",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "row_input = input().strip().split(',')\n\n# Convert strings to integers, or keep as strings and check for '1', '2', '3'\n# Your code here\n",
+    "solution": "row_input = input().strip().split(',')\nif sorted(row_input) == ['1', '2', '3']:\n    print('Valid')\nelse:\n    print('Invalid')",
+    "hints": [
+      "You can use the `sorted()` function on the list and check if it equals `['1', '2', '3']`.",
+      "Alternatively, use `if '1' in row_input and '2' in row_input and '3' in row_input:`."
+    ],
+    "testCases": [
+      {
+        "label": "Valid row",
+        "input": "3,1,2",
+        "expectedOutput": "Valid\n"
+      },
+      {
+        "label": "Duplicate 1s",
+        "input": "1,1,3",
+        "expectedOutput": "Invalid\n"
+      },
+      {
+        "label": "Wrong numbers",
+        "input": "4,5,6",
+        "expectedOutput": "Invalid\n"
+      }
+    ]
+  },
+  {
+    "id": "hill_climbing_code",
+    "title": "Hill Climbing Code",
+    "description": "Write Python to find the local maximum value in a list by checking neighbors one step at a time (like Hill Climbing).\n\nYour program must:\n1. Read a comma-separated list of integers.\n2. Start at index 0.\n3. Compare the current value with the next value (index + 1).\n4. If the next value is strictly GREATER, move to it and repeat.\n5. If the next value is smaller or equal, STOP and print the current value.\n\nSample Input:\n1,3,7,5,8\n\nSample Output:\n7",
+    "difficulty": "medium",
+    "type": "coding",
+    "starterCode": "nums = [int(x) for x in input().strip().split(',')]\ncurrent_idx = 0\n\n# Your loop here\n\nprint(nums[current_idx])",
+    "solution": "nums = [int(x) for x in input().strip().split(',')]\ncurrent_idx = 0\nwhile current_idx < len(nums) - 1:\n    if nums[current_idx + 1] > nums[current_idx]:\n        current_idx += 1\n    else:\n        break\nprint(nums[current_idx])",
+    "hints": [
+      "Use a `while` loop to ensure `current_idx` doesn't go beyond `len(nums) - 1`.",
+      "Compare `nums[current_idx + 1]` with `nums[current_idx]`. If greater, increment `current_idx`. Else, `break` the loop."
+    ],
+    "testCases": [
+      {
+        "label": "Peak in middle",
+        "input": "1,3,7,5,8",
+        "expectedOutput": "7\n"
+      },
+      {
+        "label": "Peak at start",
+        "input": "9,4,5",
+        "expectedOutput": "9\n"
+      },
+      {
+        "label": "Peak at end",
+        "input": "1,2,3",
+        "expectedOutput": "3\n"
+      }
+    ]
+  },
+  {
+    "id": "crossword_constraint_sim1",
+    "title": "Crossword Constraint Checker (Similar A)",
+    "description": "In a crossword puzzle, if 1-Across and 1-Down intersect at the first letter, those first letters MUST be identical. Let's validate this constraint.\n\nYour program must:\n1. Read Word 1 (the Across word).\n2. Read Word 2 (the Down word).\n3. Check if the first character of Word 1 matches the first character of Word 2 (case-insensitive!).\n4. Print 'Constraint Satisfied' if they match, or 'Constraint Failed' if they do not.\n\nSample Input:\nfeline\nfire\n\nSample Output:\nConstraint Satisfied",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "word1 = input().strip().lower()\nword2 = input().strip().lower()\n\n# Your code here\n",
+    "solution": "word1 = input().strip().lower()\nword2 = input().strip().lower()\nif word1[0] == word2[0]:\n    print('Constraint Satisfied')\nelse:\n    print('Constraint Failed')",
+    "hints": [
+      "Use string indexing `[0]` to grab the very first letter of each word.",
+      "Ensure you apply `.lower()` to both words so that 'Feline' and 'fire' match correctly."
+    ],
+    "testCases": [
+      {
+        "label": "Match",
+        "input": "feline\nfire",
+        "expectedOutput": "Constraint Satisfied\n"
+      },
+      {
+        "label": "No Match",
+        "input": "cat\ndog",
+        "expectedOutput": "Constraint Failed\n"
+      },
+      {
+        "label": "Case match",
+        "input": "Apple\nAnt",
+        "expectedOutput": "Constraint Satisfied\n"
+      }
+    ]
+  },
+  {
+    "id": "simulated_annealing_sim2",
+    "title": "Simulated Annealing Concept (Similar B)",
+    "description": "Simulated Annealing sometimes accepts worse moves to escape local maximums. Let's build the decision logic.\n\nYour program must:\n1. Read an integer for `current_value`.\n2. Read an integer for `next_value`.\n3. If `next_value` > `current_value`, print 'Accept' (we always take improvements!).\n4. If `next_value` <= `current_value`, print 'Maybe' (representing the random chance to accept a worse move).\n\nSample Input:\n10\n8\n\nSample Output:\nMaybe",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "current_value = int(input())\nnext_value = int(input())\n\n# Your code here\n",
+    "solution": "current_value = int(input())\nnext_value = int(input())\nif next_value > current_value:\n    print('Accept')\nelse:\n    print('Maybe')",
+    "hints": [
+      "Use a simple `if/else` block.",
+      "Check `next_value > current_value` for the 'Accept' condition."
+    ],
+    "testCases": [
+      {
+        "label": "Worse move",
+        "input": "10\n8",
+        "expectedOutput": "Maybe\n"
+      },
+      {
+        "label": "Better move",
+        "input": "5\n20",
+        "expectedOutput": "Accept\n"
+      },
+      {
+        "label": "Equal move",
+        "input": "7\n7",
+        "expectedOutput": "Maybe\n"
+      }
+    ]
+  }
+]

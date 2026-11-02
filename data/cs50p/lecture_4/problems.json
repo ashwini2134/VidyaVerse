@@ -1,0 +1,44 @@
+[
+  {
+    "id": "emojize",
+    "title": "Emojize",
+    "description": "Because emoji aren't quite as easy to type as text, some programs support \"codes,\" whereby you can type, for instance, `:thumbs_up:`, which will be automatically converted to . Some programs additionally support aliases, e.g. `:thumbsup:`.\n\nIn a file called `emojize.py`, implement a program that prompts the user for a `str` in English and then outputs the \"emojized\" version of that `str`, converting any codes (or aliases) therein to their corresponding emoji. (Uses the third-party `emoji` module: `pip install emoji`.)\n\n**How to Test:**\n```\nInput:  :1st_place_medal:\nOutput: \n```\n```\nInput:  :money_bag:\nOutput: \n```",
+    "check50_slug": "cs50/problems/2022/python/emojize",
+    "difficulty": "easy"
+  },
+  {
+    "id": "figlet",
+    "title": "Frank, Ian and Glen's Letters",
+    "description": "FIGlet is a program for making large letters out of ordinary text (ASCII art), since ported to Python as a module called `pyfiglet` (`pip install pyfiglet`).\n\nIn a file called `figlet.py`, implement a program that expects zero or two command-line arguments:\n\n- Zero if the user would like to output text in a random font.\n- Two if the user would like a specific font, in which case the first should be `-f` or `--font`, and the second should be the name of the font.\n\nThe program prompts the user for a `str` of text and outputs that text in the desired font. If the user provides two command-line arguments and the first is not `-f`/`--font` or the second is not the name of a font, the program should exit via `sys.exit` with an error message.\n\n**How to Test:**\n```\npython figlet.py test          -> exits: Invalid usage\npython figlet.py -f invalid     -> exits: Invalid usage\npython figlet.py -f slant       -> prompts for text, prints it in the slant font\n```",
+    "check50_slug": "cs50/problems/2022/python/figlet",
+    "difficulty": "medium"
+  },
+  {
+    "id": "adieu",
+    "title": "Adieu, Adieu",
+    "description": "In *The Sound of Music*, there's a song with the line \"Adieu, adieu, to yieu and yieu and yieu\".\n\nIn a file called `adieu.py`, implement a program that prompts the user for names, one per line, until the user inputs control-d (EOF). Assume that the user will input at least one name. Then bid adieu to those names, separating two names with one `and`, three names with two commas and one `and`, and n names with n−1 commas and one `and` (Oxford comma).\n\n(Uses the third-party `inflect` module: `pip install inflect`.)\n\n**How to Test:**\n```\nName: Liesl   ^D   -> Adieu, adieu, to Liesl\n```\n```\nLiesl, Friedrich   ^D   -> Adieu, adieu, to Liesl and Friedrich\n```\n```\nLiesl, Friedrich, Louisa   ^D   -> Adieu, adieu, to Liesl, Friedrich, and Louisa\n```",
+    "check50_slug": "cs50/problems/2022/python/adieu",
+    "difficulty": "medium"
+  },
+  {
+    "id": "game",
+    "title": "Guessing Game",
+    "description": "In a file called `game.py`, implement a program that:\n\n- Prompts the user for a level, `n`. If the user does not input a positive integer, the program should prompt again.\n- Randomly generates an integer between 1 and `n`, inclusive, using the `random` module.\n- Prompts the user to guess that integer. If the guess is not a positive integer, the program should prompt again.\n  - If the guess is smaller than that integer, output `Too small!` and prompt again.\n  - If the guess is larger than that integer, output `Too large!` and prompt again.\n  - If the guess is the same as that integer, output `Just right!` and exit.\n\n**How to Test:**\n```\nLevel: cat   -> reprompt\nLevel: 10\nGuess: 100   -> Too large!\nGuess: 1     -> Too small!\nGuess: ...   -> Just right!\n```",
+    "check50_slug": "cs50/problems/2022/python/game",
+    "difficulty": "medium"
+  },
+  {
+    "id": "professor",
+    "title": "Little Professor",
+    "description": "Little Professor is a \"calculator\" that generates ten math problems. If the user answers incorrectly, it displays `EEE`; after three incorrect answers for the same problem, it displays the correct answer.\n\nIn a file called `professor.py`, implement a program that:\n\n- Prompts the user for a level, `n`. If the user does not input `1`, `2`, or `3`, prompt again.\n- Randomly generates ten math problems formatted as `X + Y = `, wherein each of `X` and `Y` is a non-negative integer with `n` digits.\n- Prompts the user to solve each. If an answer is not correct (or not a number), output `EEE` and prompt again, up to three tries per problem; after three tries, output the correct answer.\n- Ultimately outputs the user's score out of 10.\n\nStructure your program with `get_level` (returns 1, 2, or 3) and `generate_integer(level)` (returns a random non-negative integer with `level` digits or raises `ValueError`).\n\n**How to Test:**\n```\nLevel: 4   -> reprompt\nLevel: 1   -> poses 10 problems like \"6 + 6 =\"\nWrong answer -> EEE; after 3 wrong -> shows \"6 + 6 = 12\"\nEnds by printing Score: <n>\n```",
+    "check50_slug": "cs50/problems/2022/python/professor",
+    "difficulty": "hard"
+  },
+  {
+    "id": "bitcoin",
+    "title": "Bitcoin Price Index",
+    "description": "In a file called `bitcoin.py`, implement a program that:\n\n- Expects the user to specify as a command-line argument the number of Bitcoins, `n`, that they would like to buy. If that argument cannot be converted to a `float`, exit via `sys.exit` with an error message. If no argument is given, also exit with an error message.\n- Queries an API for the current Bitcoin price (e.g. CoinCap / CoinDesk), which returns a JSON object whose nested keys include the current price of Bitcoin as a `float`. Catch any `requests.RequestException`.\n- Outputs the current cost of `n` Bitcoins in USD to four decimal places, using `,` as a thousands separator (e.g. `$38,761.0833`).\n\n(Uses the third-party `requests` module: `pip install requests`.)\n\n**How to Test:**\n```\npython bitcoin.py        -> exits: Missing command-line argument\npython bitcoin.py cat    -> exits: Command-line argument is not a number\npython bitcoin.py 1      -> prints the price of 1 BTC, e.g. $38,761.0833\n```",
+    "check50_slug": "cs50/problems/2022/python/bitcoin",
+    "difficulty": "medium"
+  }
+]

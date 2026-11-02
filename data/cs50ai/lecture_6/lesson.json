@@ -1,0 +1,199 @@
+{
+  "id": "cs50ai-lecture-6",
+  "courseSlug": "cs50ai",
+  "number": 6,
+  "title": "Neural Networks",
+  "overview": "A neural network is a system of connected nodes inspired by how the human brain works.",
+  "estimatedMinutes": 60,
+  "nextUp": "Natural Language Processing",
+  "sections": [
+    {
+      "id": "what-is-nn",
+      "label": "What is a Neural Network",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "What is What is a Neural Network?",
+          "body": "A neural network is a system of connected nodes inspired by how the human brain works.",
+          "bullets": [
+            "Human neurons pass electrical signals; AI nodes pass numbers",
+            "Each node takes inputs, multiplies by weights, adds them up, produces output",
+            "Layers: Input Layer (receives data) → Hidden Layers (processes) → Output Layer (gives result)",
+            "Training adjusts weights over thousands of examples until outputs are correct",
+            "This concept is fundamental to AI development."
+          ],
+          "accentColor": "blue"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Think of Neural Networks as a Team of Detectives",
+            "description": "Each neuron detects a specific pattern",
+            "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
+          },
+          "visualization": {
+            "type": "categories",
+            "title": "Neuron = Pattern Detector",
+            "centerLabel": "Input",
+            "items": [
+              "Neuron 1: Edges",
+              "Neuron 2: Shapes",
+              "Neuron 3: Objects",
+              "Neuron 4: Faces"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "inputs = [0.5, 0.8, 0.2]\nweights = [0.4, -0.3, 0.6]\noutput = sum(i * w for i, w in zip(inputs, weights))\nprint(f\"Output: {output:.2f}\")\nprint(\"Fired!\" if output > 0 else \"Silent\")",
+            "output": "Output: 0.08\nFired!"
+          }
+        },
+        {
+          "type": "practice",
+          "title": "Computing a Neuron Output",
+          "instructions": "Calculate the output of a single neuron: weighted sum + bias, then apply ReLU activation.",
+          "starterCode": "# Single neuron computation\ninputs = [1.0, 0.5, 0.2]\nweights = [0.4, -0.3, 0.1]\nbias = 0.1\noutput = sum(i * w for i, w in zip(inputs, weights)) + bias\nprint(f\"Weighted sum + bias: {output:.2f}\")\nactivated = max(0, output)\nprint(f\"After ReLU: {activated:.2f}\")",
+          "solution": "inputs = [1.0, 0.5, 0.2]\nweights = [0.4, -0.3, 0.1]\nbias = 0.1\noutput = sum(i * w for i, w in zip(inputs, weights)) + bias\nprint(f\"Weighted sum + bias: {output:.2f}\")\nactivated = max(0, output)\nprint(f\"After ReLU: {activated:.2f}\")",
+          "hint": "Each neuron computes: sum(input × weight) + bias, then applies an activation function like ReLU."
+        }
+      ]
+    },
+    {
+      "id": "deep-learning-cnns",
+      "label": "Deep Learning & CNNs",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "What is Deep Learning & CNNs?",
+          "body": "Deep Learning uses neural networks with many hidden layers. CNNs are specialized for images.",
+          "bullets": [
+            "Deep Learning = neural networks with many hidden layers",
+            "More layers = ability to learn more complex patterns",
+            "CNNs (Convolutional Neural Networks) — specialized for recognizing patterns in images",
+            "Real-world uses: face unlock on phones, voice recognition (Alexa, Siri), medical image diagnosis",
+            "Why neural networks need lots of data — more examples = better and more reliable learning"
+          ],
+          "accentColor": "blue"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Think of CNN as a Magnifying Glass Scanning a Photo",
+            "description": "A filter slides across the image to detect features",
+            "image": "https://images.unsplash.com/photo-1588616319944-81976676762d?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "CNN Processing Layers",
+            "items": [
+              "Input Image",
+              "Edge Detect",
+              "Texture Detect",
+              "Object Detect",
+              "Classify"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "image = [1, 0, 1, 0, 1]\nfilter = [1, -1]\nout = [image[i]*filter[0] + image[i+1]*filter[1] for i in range(4)]\nprint(f\"Convolved: {out}\")",
+            "output": "Convolved: [1, -1, 1, -1]"
+          }
+        },
+        {
+          "type": "practice",
+          "title": "Applying a Convolution Filter",
+          "instructions": "Apply a 1D convolution filter to detect edges in a signal.",
+          "starterCode": "# Simple 1D convolution\nimage = [0, 1, 0, 1, 0, 1]\nfilter_kernel = [1, -1, 1]\noutput = []\nfor i in range(len(image) - len(filter_kernel) + 1):\n    result = sum(image[i+j] * filter_kernel[j] for j in range(len(filter_kernel)))\n    output.append(result)\nprint(f\"Original: {image}\")\nprint(f\"Filter: {filter_kernel}\")\nprint(f\"Output: {output}\")",
+          "solution": "image = [0, 1, 0, 1, 0, 1]\nfilter_kernel = [1, -1, 1]\noutput = []\nfor i in range(len(image) - len(filter_kernel) + 1):\n    result = sum(image[i+j] * filter_kernel[j] for j in range(len(filter_kernel)))\n    output.append(result)\nprint(f\"Original: {image}\")\nprint(f\"Filter: {filter_kernel}\")\nprint(f\"Output: {output}\")",
+          "hint": "A convolution filter slides over the input, multiplying and summing at each position."
+        }
+      ]
+    },
+    {
+      "id": "getting-started",
+      "label": "Neural Networks Step by Step",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "What is NN Steps?",
+          "body": "Building a neural network.",
+          "bullets": [
+            "Step 1: Define input — what data goes into the network (numbers, image pixels, text)",
+            "Step 2: Set up layers — input layer, hidden layers, output layer",
+            "Step 3: Initialize weights — start with random numbers",
+            "Step 4: Train — feed examples, compare output to correct answer, adjust weights",
+            "Step 5: Test — give new unseen data, measure accuracy"
+          ],
+          "accentColor": "blue"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Think of Neural Network Layers as a Factory Assembly Line",
+            "description": "Each layer transforms data before passing it forward",
+            "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Network Layer Flow",
+            "items": [
+              "Input Layer",
+              "Hidden Layer 1",
+              "Hidden Layer 2",
+              "Output Layer"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "x = [1, 0, 1]\nw = [[0.5, -0.2, 0.1], [-0.3, 0.8, -0.1]]\nh1 = [max(0, sum(i*w for i,w in zip(x,row))) for row in w]\nprint(f\"After layer 1: {h1}\")",
+            "output": "After layer 1: [0.6, 0]"
+          }
+        },
+        {
+          "type": "code_example",
+          "title": "Simple Neuron (Perceptron)",
+          "language": "python",
+          "code": "# Single neuron: weighted sum + activation\nimport math\n\ndef neuron(inputs, weights, bias):\n    total = sum(i*w for i,w in zip(inputs, weights)) + bias\n    # ReLU activation\n    return max(0, total)\n\n# Input: [attendance, hours_studied]\ninputs = [0.9, 0.8]\nweights = [0.5, 0.7]\nbias = -0.3\n\noutput = neuron(inputs, weights, bias)\nprint(f\"Neuron output: {output:.2f}\")\n\n# Sigmoid activation\ndef sigmoid(x):\n    return 1 / (1 + math.exp(-x))\n\nprint(f\"Probability: {sigmoid(output):.2%}\")",
+          "expectedOutput": "Neuron output: 0.98\nProbability: 72.70%"
+        },
+        {
+          "type": "practice",
+          "title": "Practice Exercise",
+          "instructions": "Draw a simple 3-layer neural network for predicting if a student passes — inputs: attendance and marks",
+          "starterCode": "# Draw/describe your network\n",
+          "solution": "# Input layer (2 nodes) -> Hidden layer -> Output layer (1 node)",
+          "hint": "Ensure nodes are connected."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Neural networks are inspired by how the human brain processes information"
+      },
+      {
+        "text": "Each node takes inputs, multiplies by weights, and produces an output"
+      },
+      {
+        "text": "Layers: Input → Hidden → Output"
+      },
+      {
+        "text": "Training adjusts weights until the network makes correct predictions"
+      },
+      {
+        "text": "Deep Learning uses many hidden layers for complex tasks"
+      },
+      {
+        "text": "CNNs specialize in image recognition — used in face unlock, medical scans"
+      }
+    ],
+    "whatYouLearned": [
+      "How a neural network is structured",
+      "What Deep Learning and CNNs are",
+      "The components of a network: layers, weights, nodes",
+      "How networks are trained"
+    ],
+    "nextUp": "Natural Language Processing"
+  }
+}

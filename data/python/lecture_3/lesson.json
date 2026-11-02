@@ -1,0 +1,203 @@
+{
+  "id": "python-lecture-3",
+  "courseSlug": "python",
+  "number": 3,
+  "title": "Operators",
+  "overview": "Operators let you perform calculations, compare values, and make logical decisions. In this lecture you'll master Python's arithmetic, comparison, and logical operators.",
+  "estimatedMinutes": 50,
+  "sections": [
+    {
+      "id": "arithmetic",
+      "label": "Arithmetic Operators",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "blue",
+          "title": "Math in Python",
+          "body": "Python can do all the math you learned in school. Arithmetic operators let you add, subtract, multiply, divide, and perform advanced operations.",
+          "bullets": [
+            "+ addition, - subtraction, * multiplication, / division",
+            "// floor division — divides and rounds down",
+            "% modulo — returns the remainder of division",
+            "** power (exponent) — raises a number to a power"
+          ]
+        },
+        {
+          "type": "code_example",
+          "title": "Basic Arithmetic",
+          "language": "python",
+          "code": "print(10 + 5)\nprint(10 - 5)\nprint(10 * 5)\nprint(10 / 5)",
+          "expectedOutput": "15\n5\n50\n2.0"
+        },
+        {
+          "type": "explanation",
+          "accentColor": "blue",
+          "title": "PEMDAS — Order of Operations",
+          "body": "Python follows standard math rules: Parentheses, Exponents, Multiplication/Division, Addition/Subtraction.",
+          "bullets": [
+            "Parentheses () have the highest priority",
+            "Exponents ** come next",
+            "Multiplication *, Division /, Floor Division //, Modulo % are next",
+            "Addition + and Subtraction - are last"
+          ]
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "The Order Rulebook",
+            "description": "PEMDAS tells Python which math operation to perform first",
+            "image": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Operator Precedence",
+            "items": [
+              "Expression",
+              "PEMDAS Rules",
+              "Result"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "result = 2 + 3 * 4\nprint(result)",
+            "output": "14"
+          }
+        },
+        {
+          "type": "practice",
+          "title": "Percentage Calculator",
+          "instructions": "Ask the user for marks obtained and total marks. Calculate percentage = (obtained / total) * 100. Print with 2 decimal places.",
+          "starterCode": "obtained = int(input(\"Marks obtained: \"))\ntotal = int(input(\"Total marks: \"))\n\npercentage = \nprint(f\"Percentage: {percentage:.2f}%\")",
+          "solution": "obtained = int(input(\"Marks obtained: \"))\ntotal = int(input(\"Total marks: \"))\npercentage = (obtained / total) * 100\nprint(f\"Percentage: {percentage:.2f}%\")",
+          "hint": "Use (obtained / total) * 100. The :.2f in f-string rounds to 2 decimal places.",
+          "expectedOutput": "Percentage: 100.00%"
+        }
+      ]
+    },
+    {
+      "id": "comparison",
+      "label": "Comparison Operators",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "Comparing Values",
+          "body": "**Comparison operators** compare two values and return either True or False.",
+          "bullets": [
+            "== equal to (not = which is assignment)",
+            "!= not equal to",
+            "< less than, > greater than",
+            "<= less than or equal, >= greater than or equal"
+          ]
+        },
+        {
+          "type": "code_example",
+          "title": "Comparison in Action",
+          "language": "python",
+          "code": "print(5 == 5)\nprint(5 != 5)\nprint(10 > 5)\nprint(3 < 1)\nprint(7 >= 7)\nprint(8 <= 4)",
+          "expectedOutput": "True\nFalse\nTrue\nFalse\nTrue\nFalse"
+        },
+        {
+          "type": "reflection",
+          "question": "What is the difference between = and == in Python?",
+          "answer": "= is assignment (puts a value in a variable). == is comparison (checks if values are equal)."
+        },
+        {
+          "type": "practice",
+          "title": "Eligibility Checker",
+          "instructions": "Ask the user for their age. Check if they are eligible to vote (age >= 18). Print the result.",
+          "starterCode": "age = int(input(\"Enter your age: \"))\neligible = \nprint(f\"Eligible to vote: {eligible}\")",
+          "solution": "age = int(input(\"Enter your age: \"))\neligible = age >= 18\nprint(f\"Eligible to vote: {eligible}\")",
+          "hint": "Use age >= 18 as the comparison. This gives a boolean True or False.",
+          "expectedOutput": "Eligible to vote: true"
+        }
+      ]
+    },
+    {
+      "id": "logical",
+      "label": "Logical Operators",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "green",
+          "title": "Combining Conditions",
+          "body": "**Logical operators** let you combine multiple conditions to make complex decisions.",
+          "bullets": [
+            "and — True only if BOTH sides are True",
+            "or — True if AT LEAST ONE side is True",
+            "not — reverses the result (True becomes False)"
+          ]
+        },
+        {
+          "type": "analogy",
+          "title": "Think of and/or as Gatekeepers",
+          "emoji": "",
+          "text": "Two guards at a door. With and: both must say yes. With or: if either says yes, you enter. With not: the guard says the opposite."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Gatekeepers",
+            "description": "and = BOTH must pass. or = AT LEAST ONE must pass.",
+            "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80"
+          },
+          "visualization": {
+            "type": "decision",
+            "title": "Logical Operators",
+            "condition": "and / or",
+            "trueLabel": "Pass",
+            "falseLabel": "Fail"
+          },
+          "code": {
+            "language": "python",
+            "code": "has_key = True\nhas_pass = False\nprint(\"and:\", has_key and has_pass)\nprint(\"or:\", has_key or has_pass)",
+            "output": "and: False\nor: True"
+          }
+        },
+        {
+          "type": "code_example",
+          "title": "Logical Operators",
+          "language": "python",
+          "code": "age = 20\nhas_id = True\nprint(age >= 18 and has_id)\nprint(age >= 18 or has_id)\nprint(not has_id)\n\nscore = 85\nextra = False\nprint(score >= 80 or extra)",
+          "expectedOutput": "True\nTrue\nFalse\nTrue"
+        },
+        {
+          "type": "practice",
+          "title": "Scholarship Checker",
+          "instructions": "Ask for marks and family income. Qualifies if marks >= 85 AND income < 50000.",
+          "starterCode": "marks = int(input(\"Marks: \"))\nincome = int(input(\"Income: \"))\nqualifies = \nprint(f\"Qualifies: {qualifies}\")",
+          "solution": "marks = int(input(\"Marks: \"))\nincome = int(input(\"Income: \"))\nqualifies = marks >= 85 and income < 50000\nprint(f\"Qualifies: {qualifies}\")",
+          "hint": "Use marks >= 85 and income < 50000 with the and operator.",
+          "expectedOutput": "Qualifies: true"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Arithmetic operators: +, -, *, /, //, %, **"
+      },
+      {
+        "text": "PEMDAS rules apply — parentheses first, then exponents, etc."
+      },
+      {
+        "text": "Comparison operators: ==, !=, <, >, <=, >="
+      },
+      {
+        "text": "Logical operators: and, or, not combine conditions"
+      },
+      {
+        "text": "= is assignment, == is comparison — don't mix them up"
+      }
+    ],
+    "whatYouLearned": [
+      "All arithmetic operators including floor division and modulo",
+      "How PEMDAS determines the order of calculations",
+      "How to compare values with comparison operators",
+      "How to combine conditions with and, or, not",
+      "How to build a percentage calculator and eligibility checker"
+    ],
+    "nextUp": "Conditional Statements"
+  }
+}

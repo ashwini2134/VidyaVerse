@@ -1,0 +1,57 @@
+[
+  {
+    "question": "Which of the following creates a tuple?",
+    "options": [
+      "(1, 2, 3)",
+      "[1, 2, 3]",
+      "{1, 2, 3}",
+      "<1, 2, 3>"
+    ],
+    "answer": "(1, 2, 3)",
+    "explanation": "Tuples are created with parentheses ()."
+  },
+  {
+    "question": "Can you change an element in a tuple after creation?",
+    "options": [
+      "Yes, using tuple[0] = value",
+      "Yes, using append()",
+      "Only if it's a number",
+      "No, tuples are immutable"
+    ],
+    "answer": "No, tuples are immutable",
+    "explanation": "Tuples cannot be modified after creation."
+  },
+  {
+    "question": "If a = {1, 2, 3} and b = {3, 4, 5}, what is a | b?",
+    "options": [
+      "{1, 2, 3, 4, 5}",
+      "{3}",
+      "{1, 2, 4, 5}",
+      "{1, 2, 3, 3, 4, 5}"
+    ],
+    "answer": "{1, 2, 3, 4, 5}",
+    "explanation": "The | operator performs union — all unique items from both sets."
+  },
+  {
+    "question": "What does {1, 2, 3, 2, 1} evaluate to?",
+    "options": [
+      "Error",
+      "[1, 2, 3, 2, 1]",
+      "{1, 2, 3, 2, 1}",
+      "{1, 2, 3}"
+    ],
+    "answer": "{1, 2, 3}",
+    "explanation": "Sets automatically remove duplicates."
+  },
+  {
+    "question": "What is a primary use of sets?",
+    "options": [
+      "Fast indexed access",
+      "Removing duplicates",
+      "Mutable data",
+      "Ordered storage"
+    ],
+    "answer": "Removing duplicates",
+    "explanation": "Sets are commonly used to remove duplicate values from collections."
+  }
+]

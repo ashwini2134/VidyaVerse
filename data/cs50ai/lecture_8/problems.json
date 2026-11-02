@@ -1,0 +1,14 @@
+[
+  {
+    "id": "ai_harm_news",
+    "title": "News story about AI",
+    "description": "Find one real news story about AI causing harm (bias, hallucination, deepfake, or privacy issue). Write: What happened? Which ethical issue does it relate to? What could have been done differently?",
+    "difficulty": "easy"
+  },
+  {
+    "id": "medical_ai_debate",
+    "title": "Medical decisions debate",
+    "description": "Discussion — Should AI be allowed to make medical decisions without a doctor confirming them? Write your reasoning in 5 sentences. Consider: accuracy, accountability, patient safety, and trust.",
+    "difficulty": "easy"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "ml_flowchart",
+    "title": "ML Workflow Flowchart",
+    "description": "Draw the ML workflow as a flowchart — Collect Data → Clean → Train → Test → Predict. Add a one-line note at each step explaining what happens.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "python_classifier",
+    "title": "Simple Classifier",
+    "description": "Write Python to classify a number entered by the user as Positive / Negative / Zero. This simulates a simple classifier.",
+    "difficulty": "easy"
+  }
+]

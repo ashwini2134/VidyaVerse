@@ -1,0 +1,57 @@
+[
+  {
+    "question": "Which creates a dictionary?",
+    "options": [
+      "[\"a\": 1, \"b\": 2]",
+      "(\"a\": 1, \"b\": 2)",
+      "{\"a\": 1, \"b\": 2}",
+      "{1, 2, 3}"
+    ],
+    "answer": "{\"a\": 1, \"b\": 2}",
+    "explanation": "Dictionaries use curly braces with key-value pairs separated by colons."
+  },
+  {
+    "question": "How do you access the value for key \"name\" in a dictionary?",
+    "options": [
+      "dictionary(name)",
+      "dictionary.\"name\"",
+      "dictionary[\"name\"]",
+      "dictionary{\"name\"}"
+    ],
+    "answer": "dictionary[\"name\"]",
+    "explanation": "Access dictionary values using square brackets with the key inside."
+  },
+  {
+    "question": "What happens if you try to access a key that doesn't exist?",
+    "options": [
+      "Creates the key",
+      "Raises KeyError",
+      "Returns 0",
+      "Returns None"
+    ],
+    "answer": "Raises KeyError",
+    "explanation": "Accessing a non-existent key raises a KeyError. Use .get() to safely handle missing keys."
+  },
+  {
+    "question": "Which method returns all key-value pairs as tuples?",
+    "options": [
+      ".values()",
+      ".items()",
+      ".pairs()",
+      ".keys()"
+    ],
+    "answer": ".items()",
+    "explanation": "The .items() method returns a view of (key, value) tuples that you can iterate through."
+  },
+  {
+    "question": "How do you check if a key exists in a dictionary?",
+    "options": [
+      "exists(key)",
+      "dict.contains(key)",
+      "dict.has(key)",
+      "key in dict"
+    ],
+    "answer": "key in dict",
+    "explanation": "Use the in operator: \"name\" in student returns True if that key exists."
+  }
+]

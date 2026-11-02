@@ -1,0 +1,14 @@
+[
+  {
+    "id": "logic_puzzle",
+    "title": "Logic Puzzle",
+    "description": "Given these 3 clues: (1) Alice has a cat or a dog. (2) Alice does not have a cat. (3) If Alice has a dog, she also has a fish. — Figure out what pets Alice has. Solve step by step using AND/OR/NOT.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "daily_rules",
+    "title": "Daily Rules",
+    "description": "Write a Python program with 3 IF-THEN rules about daily life. Example: if alarm_rings and is_monday: print('Go to class'). Create your own 3 rules and test them.",
+    "difficulty": "easy"
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "deep_thought",
+    "title": "Deep Thought",
+    "description": "In *The Hitchhiker's Guide to the Galaxy*, the supercomputer Deep Thought determines that the Answer to the Great Question of Life, the Universe and Everything is 42.\n\nIn `deep.py`, implement a program that prompts the user for the answer to the Great Question, outputting `Yes` if the user inputs `42` or (case-insensitively) `forty-two` or `forty two`. Otherwise output `No`.\n\n**How to Test:**\n```\nInput:  42\nOutput: Yes\n```\n```\nInput:  Forty Two\nOutput: Yes\n```\n```\nInput:  forty-two\nOutput: Yes\n```\n```\nInput:  50\nOutput: No\n```\n\nYour program should behave case- and space-insensitively.",
+    "check50_slug": "cs50/problems/2022/python/deep",
+    "difficulty": "easy"
+  },
+  {
+    "id": "home_federal",
+    "title": "Home Federal Savings Bank",
+    "description": "In a file called `bank.py`, implement a program that prompts the user for a greeting. If the greeting starts with `hello`, output `$0`. If the greeting starts with an `h` (but not `hello`), output `$20`. Otherwise, output `$100`. Ignore any leading whitespace in the user's greeting, and treat the user's greeting case-insensitively.\n\n**How to Test:**\n```\nGreeting: Hello\n$0\n```\n```\nGreeting: Hello, Newman\n$0\n```\n```\nGreeting: How you doing?\n$20\n```\n```\nGreeting: What's happening?\n$100\n```",
+    "check50_slug": "cs50/problems/2022/python/bank",
+    "difficulty": "easy"
+  },
+  {
+    "id": "file_extensions",
+    "title": "File Extensions",
+    "description": "Web browsers rely on media types (formerly MIME types) to determine how to display files. For instance, the media type for a GIF is `image/gif`, and the media type for a JPEG is `image/jpeg`.\n\nIn a file called `extensions.py`, implement a program that prompts the user for the name of a file and then outputs that file's media type if the file's name ends, case-insensitively, in any of these suffixes:\n\n- `.gif` → `image/gif`\n- `.jpg` → `image/jpeg`\n- `.jpeg` → `image/jpeg`\n- `.png` → `image/png`\n- `.pdf` → `application/pdf`\n- `.txt` → `text/plain`\n- `.zip` → `application/zip`\n\nIf the file's name ends with some other suffix or has no suffix at all, output `application/octet-stream` instead.\n\n**How to Test:**\n```\nInput:  happy.jpg\nOutput: image/jpeg\n```\n```\nInput:  document.pdf\nOutput: application/pdf\n```",
+    "check50_slug": "cs50/problems/2022/python/extensions",
+    "difficulty": "easy"
+  },
+  {
+    "id": "math_interpreter",
+    "title": "Math Interpreter",
+    "description": "Let's write a program that enables users to do math, even without knowing Python.\n\nIn a file called `interpreter.py`, implement a program that prompts the user for an arithmetic expression and then calculates and outputs the result as a floating-point value formatted to one decimal place. Assume that the user's input will be formatted as `x y z`, with one space between each, wherein:\n\n- `x` is an integer\n- `y` is `+`, `-`, `*`, or `/`\n- `z` is an integer\n\nFor instance, if the user inputs `1 + 1`, your program should output `2.0`. Assume that, if `y` is `/`, then `z` will not be `0`.\n\n**How to Test:**\n```\nInput:  1 + 1\nOutput: 2.0\n```\n```\nInput:  2 * 2\nOutput: 4.0\n```\n```\nInput:  50 / 5\nOutput: 10.0\n```",
+    "check50_slug": "cs50/problems/2022/python/interpreter",
+    "difficulty": "medium"
+  },
+  {
+    "id": "meal_time",
+    "title": "Meal Time",
+    "description": "Suppose that you're in a country where it's customary to eat breakfast between 7:00 and 8:00, lunch between 12:00 and 13:00, and dinner between 18:00 and 19:00.\n\nIn `meal.py`, implement a program that prompts the user for a time and outputs whether it's `breakfast time`, `lunch time`, or `dinner time`. If it's not time for a meal, don't output anything at all. Assume that the user's input will be formatted in 24-hour time as `#:##` or `##:##`, and that each meal's time range is inclusive.\n\nStructure your program so that `convert` is a function (callable by `main`) that converts `time`, a `str` in 24-hour format, to the corresponding number of hours as a `float`. For instance, given `\"7:30\"`, `convert` should return `7.5`.\n\n**How to Test:**\n```\nInput:  7:00\nOutput: breakfast time\n```\n```\nInput:  12:42\nOutput: lunch time\n```\n```\nInput:  18:32\nOutput: dinner time\n```\n```\nInput:  11:11\nOutput: (nothing)\n```",
+    "check50_slug": "cs50/problems/2022/python/meal",
+    "difficulty": "medium"
+  }
+]

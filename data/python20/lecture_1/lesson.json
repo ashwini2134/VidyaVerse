@@ -1,0 +1,455 @@
+{
+  "id": "python20-lecture-1",
+  "courseSlug": "python20",
+  "number": 1,
+  "title": "Variables & Data Types",
+  "overview": "Every program works with data. In this lecture you'll learn how to store data using variables, and understand the different kinds of data Python can handle — numbers, text, and more.",
+  "estimatedMinutes": 55,
+  "sections": [
+    {
+      "id": "variables",
+      "label": "What is a Variable?",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Imagine you write your friend's phone number on a sticky note and stick it to your desk. Whenever you need to call them, you don't try to memorize it again — you just look at the sticky note."
+        },
+        {
+          "type": "text",
+          "content": "**Variables work exactly like that sticky note.** They give a name to a piece of information so you can use it later without having to repeat yourself."
+        },
+        {
+          "type": "text",
+          "content": "In Python, you create a variable using the `=` sign. The name goes on the left, the value goes on the right."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Creating Variables",
+          "language": "python",
+          "code": "name = \"Lakshanya\"\nage = 20\ncity = \"Chennai\"\n\nprint(name)\nprint(age)\nprint(city)",
+          "expectedOutput": "Lakshanya\n20\nChennai",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "Notice that we only wrote `\"Lakshanya\"` once, but we can use the variable `name` as many times as we want. That's the whole point — store once, use anywhere."
+        },
+        {
+          "type": "text",
+          "content": "Variables can also be updated. The new value simply replaces the old one."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Updating a Variable",
+          "language": "python",
+          "code": "score = 0\nprint(score)\n\nscore = 10\nprint(score)\n\nscore = score + 5\nprint(score)",
+          "expectedOutput": "0\n10\n15",
+          "editable": true
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Labeled Sticky Note",
+            "description": "A sticky note has a label (the variable name) and a value written on it. You can update the note any time by erasing and rewriting.",
+            "image": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80",
+            "bullets": [
+              "It has a label on the front that tells you what it contains.",
+              "The note itself stores information you want to keep.",
+              "You can peel it off and rewrite the content any time you want."
+            ],
+            "highlightCard": "A sticky note has a label and stores a value — exactly like a Python variable."
+          },
+          "visualization": {
+            "type": "categories",
+            "title": "Variable = Label + Value",
+            "items": [
+              "name → Lakshanya",
+              "age → 20",
+              "score → 15"
+            ],
+            "bullets": [
+              "A variable has a name, just like the label on the sticky note.",
+              "It stores a value, just like the information written on the note.",
+              "You can read or update the variable at any point in your program."
+            ],
+            "highlightCard": "variable = name + value. That's the entire idea."
+          },
+          "code": {
+            "language": "python",
+            "code": "name = \"Lakshanya\"\nprint(\"Hello,\", name)",
+            "output": "Hello, Lakshanya",
+            "highlights": [
+              "name = assigns a value to the variable on the left.",
+              "Use the variable name to access its stored value later.",
+              "Python remembers the value for the entire program after assignment."
+            ],
+            "highlightCard": "Variables let Python store and remember information throughout your program."
+          },
+          "reflection": {
+            "question": "What does a variable store?",
+            "answer": "A variable stores a named value that can be used and updated throughout your program.",
+            "options": [
+              "Only numbers",
+              "Only text",
+              "A named value of any type",
+              "Just a label"
+            ]
+          },
+          "stage1Transition": "So how does Python remember information? Let's translate this into code.",
+          "stage2Transition": "Here is how variables look in actual Python code.",
+          "takeaway": "A variable is like a labeled sticky note in Python's memory — it has a name and stores a value you can read and change at any time."
+        },
+        {
+          "type": "practice",
+          "title": "Store a Student Profile",
+          "instructions": "Your college management system needs to store basic student info. Create three variables — student_name, roll_number, and department — then print each one.",
+          "starterCode": "# Store student information\nstudent_name = \"\"\nroll_number = \"\"\ndepartment = \"\"\n\n# Print each variable",
+          "solution": "student_name = \"Priya\"\nroll_number = \"RA2011004\"\ndepartment = \"Computer Science\"\n\nprint(student_name)\nprint(roll_number)\nprint(department)",
+          "hint": "Text values need quotes. Numbers don't require quotes but you can use them as strings here since roll numbers often have letters.",
+          "expectedOutput": "Priya\nRA2011004\nComputer Science"
+        }
+      ]
+    },
+    {
+      "id": "naming-rules",
+      "label": "Naming Variables",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Variable names can be almost anything — but Python has a few rules you must follow."
+        },
+        {
+          "type": "text",
+          "content": "**Rule 1:** Start with a letter or underscore (`_`), never a number.\n\n**Rule 2:** Use only letters, numbers, and underscores.\n\n**Rule 3:** Python is case-sensitive. `name` and `Name` are two completely different variables.\n\n**Rule 4:** Never use Python's reserved keywords as variable names (like `if`, `for`, `print`, `while`)."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Valid vs Invalid Names",
+          "language": "python",
+          "code": "# Valid names\nstudent_name = \"Ravi\"\nage2 = 21\n_score = 95\n\n# These would cause errors:\n# 2name = \"Ravi\"   ← starts with number\n# my-score = 95   ← hyphen not allowed\n\nprint(student_name, age2, _score)",
+          "expectedOutput": "Ravi 21 95",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "A convention (not a rule) is to use **snake_case** — lowercase words separated by underscores. Python developers worldwide use this style."
+        },
+        {
+          "type": "text",
+          "content": "Good names: `student_name`, `total_marks`, `phone_number`\n\nBad names: `x`, `a1`, `data2` — these tell you nothing about what's stored inside."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Folder Label in an Office",
+            "description": "In a filing cabinet, folders have clear labels: 'Tax Documents 2024', 'Medical Records'. A vague label like 'Stuff' wastes everyone's time. Variable names work the same way.",
+            "image": "https://images.unsplash.com/photo-1568667256549-094345857637?w=800&q=80",
+            "bullets": [
+              "Clear labels let you find the right folder immediately.",
+              "A label like 'Stuff' is useless — you have no idea what's inside.",
+              "Good labels tell you exactly what a folder contains at a glance."
+            ],
+            "highlightCard": "Good variable names make your code self-explanatory to anyone who reads it."
+          },
+          "visualization": {
+            "type": "decision",
+            "title": "Is this a good variable name?",
+            "condition": "Is the name descriptive and follows rules?",
+            "trueLabel": "Use it",
+            "falseLabel": "Rename it",
+            "bullets": [
+              "Descriptive names like student_score are immediately clear.",
+              "Vague names like x or a tell nobody anything about the value.",
+              "Python uses underscores to separate words in variable names."
+            ],
+            "highlightCard": "Name variables so clearly that a stranger instantly understands what they store."
+          },
+          "code": {
+            "language": "python",
+            "code": "# Bad\nx = 89\n\n# Good\nstudent_score = 89\n\nprint(student_score)",
+            "output": "89",
+            "highlights": [
+              "x = 89 is valid Python but tells nobody what 89 means.",
+              "student_score = 89 makes the purpose obvious to any reader.",
+              "Python convention: use lowercase_with_underscores for variable names."
+            ],
+            "highlightCard": "Always choose variable names that clearly describe what they store."
+          },
+          "reflection": {
+            "question": "Which is the best variable name for storing a phone number?",
+            "answer": "phone_number — it's descriptive, follows Python naming conventions, and is immediately clear.",
+            "options": [
+              "pn",
+              "phone1",
+              "phone_number",
+              "PhoneNumber"
+            ]
+          },
+          "stage1Transition": "How do we name our variables well in Python? Let's see what good naming looks like.",
+          "stage2Transition": "Here is the difference between good and bad variable names in Python.",
+          "takeaway": "Just like filing cabinet folders need clear labels, your variable names should instantly communicate what they store. Clear names make programs easy to read and maintain."
+        },
+        {
+          "type": "practice",
+          "title": "Fix the Variable Names",
+          "instructions": "A junior developer wrote the code below with poor variable names. Rewrite it using proper snake_case names that actually describe what's stored. The output should stay the same.",
+          "starterCode": "# Rename these variables properly\nx = \"Mumbai\"\na = 28\nb = 92.5\n\nprint(x)\nprint(a)\nprint(b)",
+          "solution": "city_name = \"Mumbai\"\nstudent_age = 28\naverage_score = 92.5\n\nprint(city_name)\nprint(student_age)\nprint(average_score)",
+          "hint": "x is a city name, a is someone's age, b is an average score. Use snake_case.",
+          "expectedOutput": "Mumbai\n28\n92.5"
+        }
+      ]
+    },
+    {
+      "id": "data-types",
+      "label": "Data Types in Python",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Not all data is the same. A person's name is different from their age, which is different from their bank balance, which is different from whether they passed an exam."
+        },
+        {
+          "type": "text",
+          "content": "Python has different **data types** to handle different kinds of information. The four you'll use most often:"
+        },
+        {
+          "type": "text",
+          "content": "**int** — whole numbers. `age = 20`, `students = 45`\n\n**float** — decimal numbers. `gpa = 8.75`, `price = 299.99`\n\n**str** — text (string). `name = \"Priya\"`, `city = \"Delhi\"`\n\n**bool** — True or False. `is_enrolled = True`, `has_id = False`"
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — All Four Types",
+          "language": "python",
+          "code": "name = \"Arjun\"          # str\nage = 19               # int\ngpa = 9.2              # float\nis_enrolled = True     # bool\n\nprint(type(name))\nprint(type(age))\nprint(type(gpa))\nprint(type(is_enrolled))",
+          "expectedOutput": "<class 'str'>\n<class 'int'>\n<class 'float'>\n<class 'bool'>",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "`type()` is a built-in function that tells you what type of data a variable holds. It's extremely useful when debugging."
+        },
+        {
+          "type": "text",
+          "content": "Python is **dynamically typed** — you don't need to declare the type. Python figures it out from what you assign. `age = 20` makes it an int automatically."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Different Containers for Different Items",
+            "description": "In a kitchen: eggs go in egg cartons, milk goes in bottles, spices go in small jars. Each container matches the type of content. Python data types work the same way.",
+            "image": "https://images.unsplash.com/photo-1606914501449-5a96b6ce24ca?w=800&q=80",
+            "bullets": [
+              "Eggs go in egg cartons — not milk bottles or spice jars.",
+              "Each container is specifically designed for its content type.",
+              "Forcing the wrong content into the wrong container causes problems."
+            ],
+            "highlightCard": "Python has different data types — each one holds a different kind of value."
+          },
+          "visualization": {
+            "type": "categories",
+            "title": "Data Type Containers",
+            "items": [
+              "str → Text (\"Hello\")",
+              "int → Whole numbers (42)",
+              "float → Decimals (3.14)",
+              "bool → True/False"
+            ],
+            "bullets": [
+              "str holds text wrapped in quotes — like 'Hello' or 'Rohan'.",
+              "int holds whole numbers like 42 or 100.",
+              "float holds decimal numbers like 3.14 or 8.75.",
+              "bool holds only True or False — nothing else."
+            ],
+            "highlightCard": "Use the right type for the right value — int, float, str, or bool."
+          },
+          "code": {
+            "language": "python",
+            "code": "marks = 87      # int\npercentage = 87.5  # float\ngrade = \"A\"    # str\npassed = True  # bool\nprint(marks, percentage, grade, passed)",
+            "output": "87 87.5 A True",
+            "highlights": [
+              "87 without quotes is an int — Python stores it as a whole number.",
+              "87.5 is a float — the decimal point makes it different from int.",
+              "\"A\" in quotes is a str — Python treats it as text, not a number."
+            ],
+            "highlightCard": "Python automatically detects the type from the value you assign."
+          },
+          "reflection": {
+            "question": "What type would you use to store a student's CGPA like 8.75?",
+            "answer": "float — because 8.75 has a decimal point. int would truncate it to 8.",
+            "options": [
+              "int",
+              "str",
+              "float",
+              "bool"
+            ]
+          },
+          "stage1Transition": "How does Python know what type of value is stored? That's where data types come in.",
+          "stage2Transition": "Here is how different data types look in real Python code.",
+          "takeaway": "Python data types are like containers — int for whole numbers, float for decimals, str for text, bool for True/False. Always put your data in the right container."
+        },
+        {
+          "type": "practice",
+          "title": "Build a Student ID Card",
+          "instructions": "Your college wants you to code a digital student ID. Create variables for: full_name (str), roll_number (str), cgpa (float), year_of_study (int), and is_active (bool). Then print all five.",
+          "starterCode": "# Student ID Card\nfull_name = \"\"\nroll_number = \"\"\ncgpa = \nyear_of_study = \nis_active = \n\n# Print all five variables",
+          "solution": "full_name = \"Nithya Krishnan\"\nroll_number = \"CB22CS008\"\ncgpa = 8.9\nyear_of_study = 2\nis_active = True\n\nprint(full_name)\nprint(roll_number)\nprint(cgpa)\nprint(year_of_study)\nprint(is_active)",
+          "hint": "Strings need quotes, floats need a decimal point, booleans are written as True or False (capital T/F, no quotes).",
+          "expectedOutput": "Nithya Krishnan\nCB22CS008\n8.9\n2\nTrue"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "A variable is a named container that stores a value you can use later."
+      },
+      {
+        "text": "Create a variable with the = sign: name = \"value\"."
+      },
+      {
+        "text": "Variable names must start with a letter or underscore, not a number."
+      },
+      {
+        "text": "Python is case-sensitive: name and Name are different variables."
+      },
+      {
+        "text": "Use snake_case for readability: student_name, not studentname."
+      },
+      {
+        "text": "int stores whole numbers, float stores decimals, str stores text, bool stores True/False."
+      },
+      {
+        "text": "Python automatically figures out the data type — you don't need to declare it."
+      },
+      {
+        "text": "Use type() to check the data type of any variable."
+      }
+    ],
+    "whatYouLearned": [
+      "What a variable is and how to create one",
+      "How to update a variable's value",
+      "Python naming rules and snake_case convention",
+      "The four main data types: int, float, str, bool"
+    ],
+    "nextUp": "Input & Output"
+  },
+  "quiz": [
+    {
+      "question": "Which of the following is a valid Python variable name?",
+      "options": [
+        "2score",
+        "my-score",
+        "my_score",
+        "my score"
+      ],
+      "answer": "my_score",
+      "explanation": "Variable names cannot start with a number (2score), cannot contain hyphens (my-score), and cannot contain spaces (my score). Only my_score follows all Python naming rules."
+    },
+    {
+      "question": "What will this code print?\nx = 5\nx = x + 3\nprint(x)",
+      "options": [
+        "5",
+        "3",
+        "8",
+        "x + 3"
+      ],
+      "answer": "8",
+      "explanation": "x starts as 5. Then x = x + 3 means x = 5 + 3 = 8. The variable is updated, and print(x) outputs the new value 8."
+    },
+    {
+      "question": "What data type is the value 3.14?",
+      "options": [
+        "int",
+        "str",
+        "float",
+        "bool"
+      ],
+      "answer": "float",
+      "explanation": "Any number with a decimal point is a float in Python. Whole numbers (no decimal) are int. 3.14 has a decimal point, so it's a float."
+    },
+    {
+      "question": "What will type(\"Hello\") return?",
+      "options": [
+        "str",
+        "<class 'str'>",
+        "string",
+        "text"
+      ],
+      "answer": "<class 'str'>",
+      "explanation": "Python's type() function returns the full class name. For text values, it returns <class 'str'>. The quotes make \"Hello\" a string (str)."
+    },
+    {
+      "question": "Which value is a boolean?",
+      "options": [
+        "\"True\"",
+        "1",
+        "True",
+        "yes"
+      ],
+      "answer": "True",
+      "explanation": "Python booleans are the keywords True and False (capital first letter, no quotes). \"True\" in quotes is a string, 1 is an integer, and yes is neither a Python keyword nor a boolean."
+    },
+    {
+      "question": "What is the purpose of using descriptive variable names like student_name instead of x?",
+      "options": [
+        "The program runs faster",
+        "Python requires it",
+        "It makes code easier to read and understand",
+        "It uses less memory"
+      ],
+      "answer": "It makes code easier to read and understand",
+      "explanation": "Descriptive names are a convention that makes your code self-documenting. When you or someone else reads the code later, student_name immediately tells you what's stored. x tells you nothing."
+    }
+  ],
+  "problems": [
+    {
+      "id": "python20-l1-p1",
+      "title": "Shop Item Card",
+      "description": "Create variables to represent a product in a shop:\n- product_name (str): any product you like\n- price (float): its price with decimal\n- quantity (int): how many in stock\n- is_available (bool): True if in stock\n\nPrint all four variables.",
+      "difficulty": "easy",
+      "starterCode": "# Create product variables\n",
+      "solution": "product_name = \"Wireless Mouse\"\nprice = 799.99\nquantity = 50\nis_available = True\n\nprint(product_name)\nprint(price)\nprint(quantity)\nprint(is_available)",
+      "testCases": [
+        {
+          "label": "Prints four lines",
+          "input": "",
+          "expectedOutput": "True",
+          "matchType": "any_lines"
+        }
+      ]
+    },
+    {
+      "id": "python20-l1-p2",
+      "title": "Temperature Converter Variables",
+      "description": "Store two temperatures:\n- temp_celsius as 37.5 (float)\n- temp_unit as \"Celsius\" (str)\n\nThen update temp_celsius to 100.0 and print both variables again.\n\nExpected output:\n37.5\nCelsius\n100.0\nCelsius",
+      "difficulty": "medium",
+      "starterCode": "# Temperature variables\n",
+      "solution": "temp_celsius = 37.5\ntemp_unit = \"Celsius\"\n\nprint(temp_celsius)\nprint(temp_unit)\n\ntemp_celsius = 100.0\nprint(temp_celsius)\nprint(temp_unit)",
+      "testCases": [
+        {
+          "label": "Shows 37.5 then 100.0",
+          "input": "",
+          "expectedOutput": "37.5\nCelsius\n100.0\nCelsius",
+          "matchType": "exact"
+        }
+      ]
+    },
+    {
+      "id": "python20-l1-p3",
+      "title": "Swap Two Variables",
+      "description": "Create two variables:\n- a = \"Hello\"\n- b = \"World\"\n\nSwap their values so that a becomes \"World\" and b becomes \"Hello\".\nPrint a and b after the swap.\n\nExpected output:\nWorld\nHello",
+      "difficulty": "medium",
+      "starterCode": "a = \"Hello\"\nb = \"World\"\n\n# Swap the values of a and b\n# (Hint: you might need a temporary variable)\n",
+      "solution": "a = \"Hello\"\nb = \"World\"\n\ntemp = a\na = b\nb = temp\n\nprint(a)\nprint(b)",
+      "testCases": [
+        {
+          "label": "a is World, b is Hello",
+          "input": "",
+          "expectedOutput": "World\nHello",
+          "matchType": "exact"
+        }
+      ]
+    }
+  ]
+}

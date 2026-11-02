@@ -1,0 +1,72 @@
+{
+  "id": "java-beginners-lecture-9",
+  "courseSlug": "java-beginners",
+  "number": 9,
+  "title": "Functional Programming",
+  "overview": "Overview of Functional Programming",
+  "estimatedMinutes": 45,
+  "sections": [
+    {
+      "id": "section-1-lecture-9",
+      "label": "Theory Part 1",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "blue",
+          "title": "Introduction to Functional Programming",
+          "body": "Content for Functional Programming...",
+          "bullets": [
+            "Point 1",
+            "Point 2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-2-lecture-9",
+      "label": "Theory Part 2",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "Deep dive into Functional Programming",
+          "body": "More content for Functional Programming...",
+          "bullets": [
+            "Point 1",
+            "Point 2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-3-lecture-9",
+      "label": "Theory Part 3",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "green",
+          "title": "Mastering Functional Programming",
+          "body": "Advanced content for Functional Programming...",
+          "bullets": [
+            "Point 1",
+            "Point 2"
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Takeaway 1 for Functional Programming"
+      },
+      {
+        "text": "Takeaway 2 for Functional Programming"
+      }
+    ],
+    "whatYouLearned": [
+      "You learned about Functional Programming"
+    ],
+    "nextUp": "Final Project"
+  }
+}

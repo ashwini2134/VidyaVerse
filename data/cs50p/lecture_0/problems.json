@@ -1,0 +1,82 @@
+[
+  {
+    "id": "indoor_voice",
+    "title": "Indoor Voice",
+    "description": "WRITING IN ALL CAPS IS LIKE YELLING. Best to use your \"indoor voice\" sometimes, writing entirely in lowercase.\n\nWrite a function called indoor that takes a string and returns it in all lowercase. Then print the result.\n\nExpected outputs:\n- Input \"HELLO\" → Output \"hello\"\n- Input \"THIS IS CS50\" → Output \"this is cs50\"\n- Input \"50\" → Output \"50\"",
+    "check50_slug": "cs50/problems/2022/python/indoor",
+    "difficulty": "easy",
+    "starterCode": "def indoor(text):\n    # Return text in lowercase\n    pass\n\nword = \"HELLO\"\nprint(indoor(word))",
+    "solution": "def indoor(text):\n    return text.lower()\n\nword = \"HELLO\"\nprint(indoor(word))",
+    "testCases": [
+      {
+        "label": "Uppercase input",
+        "input": "HELLO",
+        "expectedOutput": "hello"
+      }
+    ]
+  },
+  {
+    "id": "playback_speed",
+    "title": "Playback Speed",
+    "description": "Some people speak quickly. Slow them down by replacing every space with \"...\" (three periods).\n\nWrite a function called slow_down that takes a string and returns it with spaces replaced by \"...\".\n\nExpected outputs:\n- Input \"This is CS50\" → Output \"This...is...CS50\"\n- Input \"hello world\" → Output \"hello...world\"",
+    "check50_slug": "cs50/problems/2022/python/playback",
+    "difficulty": "easy",
+    "starterCode": "def slow_down(text):\n    # Replace spaces with '...'\n    pass\n\nphrase = \"This is CS50\"\nprint(slow_down(phrase))",
+    "solution": "def slow_down(text):\n    return text.replace(\" \", \"...\")\n\nphrase = \"This is CS50\"\nprint(slow_down(phrase))",
+    "testCases": [
+      {
+        "label": "Multi-word phrase",
+        "input": "This is CS50",
+        "expectedOutput": "This...is...CS50"
+      }
+    ]
+  },
+  {
+    "id": "making_faces",
+    "title": "Making Faces",
+    "description": "Before there were emoji, there were emoticons like :) and :(. Write a function called convert that replaces :) with  and :( with .\n\nExpected outputs:\n- Input \"Hello :)\" → Output \"Hello \"\n- Input \"Goodbye :(\" → Output \"Goodbye \"",
+    "check50_slug": "cs50/problems/2022/python/faces",
+    "difficulty": "easy",
+    "starterCode": "def convert(text):\n    # Replace :) with  and :( with \n    pass\n\nmessage = \"Hello :)\"\nprint(convert(message))",
+    "solution": "def convert(text):\n    text = text.replace(\":)\", \"\")\n    text = text.replace(\":(\", \"\")\n    return text\n\nmessage = \"Hello :)\"\nprint(convert(message))",
+    "testCases": [
+      {
+        "label": "Happy face",
+        "input": "Hello :)",
+        "expectedOutput": "Hello"
+      }
+    ]
+  },
+  {
+    "id": "einstein",
+    "title": "Einstein",
+    "description": "E = mc² — mass and energy are equivalent! Write a program that stores a mass value in kg in a variable called mass, calculates E = m * (300000000 ** 2), and prints the energy in Joules.\n\nFor mass = 1 kg, the output should be 90000000000000000.",
+    "check50_slug": "cs50/problems/2022/python/einstein",
+    "difficulty": "easy",
+    "starterCode": "# Store mass in kilograms\nmass = 1\n\n# Speed of light\nc = 300000000\n\n# Calculate energy: E = mc^2\n# Print the result",
+    "solution": "mass = 1\nc = 300000000\nenergy = mass * c * c\nprint(energy)",
+    "testCases": [
+      {
+        "label": "1 kg of mass",
+        "input": "1",
+        "expectedOutput": "90000000000000000"
+      }
+    ]
+  },
+  {
+    "id": "tip_calculator",
+    "title": "Tip Calculator",
+    "description": "Calculate a restaurant tip! Write a program that:\n1. Stores a meal cost (as a number)\n2. Stores a tip percentage (as a decimal, e.g. 0.15 for 15%)\n3. Calculates the tip amount\n4. Prints the tip\n\nFor a $50.00 meal with 15% tip, print: 7.5",
+    "check50_slug": "cs50/problems/2022/python/tip",
+    "difficulty": "easy",
+    "starterCode": "# Meal cost in dollars\nmeal = 50.0\n\n# Tip percentage (0.15 = 15%)\ntip_percent = 0.15\n\n# Calculate tip\n# Print the tip amount",
+    "solution": "meal = 50.0\ntip_percent = 0.15\ntip = meal * tip_percent\nprint(tip)",
+    "testCases": [
+      {
+        "label": "$50 meal, 15% tip",
+        "input": "50 0.15",
+        "expectedOutput": "7.5"
+      }
+    ]
+  }
+]

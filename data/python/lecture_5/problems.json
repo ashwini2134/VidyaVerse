@@ -1,0 +1,38 @@
+[
+  {
+    "id": "sum_1_to_n",
+    "title": "Sum from 1 to N",
+    "description": "Ask for a number N. Use a for loop with range() to calculate the sum of all numbers from 1 to N. Print the result.",
+    "difficulty": "easy",
+    "starterCode": "n = int(input(\"Enter N: \"))\ntotal = 0\n\n# Use a for loop to sum 1 to N",
+    "solution": "n = int(input(\"Enter N: \"))\ntotal = 0\nfor i in range(1, n + 1):\n    total += i\nprint(f\"Sum: {total}\")",
+    "testCases": [
+      {
+        "label": "N = 5",
+        "input": "5",
+        "expectedOutput": "Enter N: Sum: 15"
+      }
+    ]
+  },
+  {
+    "id": "factorial",
+    "title": "Factorial Calculator",
+    "description": "Ask for a number N. Calculate N! (N factorial) using a for loop. N! = 1 * 2 * 3 * ... * N",
+    "difficulty": "medium",
+    "starterCode": "n = int(input(\"Enter N: \"))\nfact = 1\n\n# Calculate factorial",
+    "solution": "n = int(input(\"Enter N: \"))\nfact = 1\nfor i in range(1, n + 1):\n    fact *= i\nprint(f\"Factorial: {fact}\")",
+    "testCases": [
+      {
+        "label": "N = 5",
+        "input": "5",
+        "expectedOutput": "Enter N: Factorial: 120"
+      }
+    ]
+  },
+  {
+    "id": "multiplication_explorer",
+    "title": "Multiplication Explorer",
+    "description": "Print a customizable multiplication table using nested loops.",
+    "difficulty": "easy"
+  }
+]

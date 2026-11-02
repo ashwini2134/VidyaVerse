@@ -1,0 +1,1468 @@
+{
+  "id": "fundamentals-of-ai-lecture-6",
+  "courseSlug": "fundamentals-of-ai",
+  "number": 7,
+  "title": "Neural Networks",
+  "overview": "Neural networks are the engine behind almost every breakthrough in modern AI \u2014 from image recognition to language models. They are inspired by the brain but implemented as pure mathematics. Understand how they learn, and you understand the era we are living in.",
+  "estimatedMinutes": 90,
+  "sections": [
+    {
+      "id": "neurons-architecture",
+      "label": "Neurons & Architecture",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Neurons & Network Architecture — SVG placeholder",
+            "svgId": "neurons-architecture"
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "Neurons & Network Architecture"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A neural network is a graph of connected mathematical units called neurons. Each neuron receives inputs, multiplies them by learned weights, sums the results, passes them through a function, and sends the output forward. Stack millions of these in layers and you have a model that can learn almost anything."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Artificial Neuron"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Each neuron computes: output = activation(w\u2081x\u2081 + w\u2082x\u2082 + ... + w\u2099x\u2099 + bias). The weights control how much each input matters. The bias shifts the decision boundary. The activation function decides whether the neuron fires."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Weights & Bias"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Weights are the learnable parameters \u2014 they encode what the network has learned. A large positive weight means the input strongly activates the neuron. A large negative weight suppresses it. The bias lets the neuron fire even when all inputs are zero."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Layers"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Neurons are organised in layers. The input layer receives raw data. Hidden layers transform it step by step, building increasingly abstract representations. The output layer produces the final prediction."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Depth vs Width"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Depth is the number of layers \u2014 deep networks extract hierarchical features. Width is the number of neurons per layer \u2014 wider layers have more capacity to represent variation. Both are architectural choices that dramatically affect what a network can learn."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Forward Pass"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Information flows forward through the network: input to hidden layers to output. Each layer transforms its inputs into new representations. This one-direction computation is called inference \u2014 running the network to get a prediction."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Parameters"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Every weight and bias is a parameter \u2014 a number that changes during training. GPT-4 has over one trillion parameters. A single convolutional layer in image recognition may have millions. Parameters are the encoded knowledge of the network."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "What is a Neural Network?"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A neural network is inspired by the human brain \u2014 a web of connected units that process information in parallel."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The biological brain has billions of neurons connected by synapses. Mathematical neural networks simplify this into small computational units called 'neurons'."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Each neuron receives input signals, processes them, and passes the result to the next layer of neurons."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The flow is simple: Input -> Processing -> Output. Information travels forward through the network."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Neuron \u2014 The basic unit of a neural network. It receives inputs, applies weights, sums them, and passes the result through an activation function.",
+              "Synapse / Connection \u2014 A weighted connection between two neurons. The weight determines how much influence one neuron has on another."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Structure of a Neural Network"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A neural network is organised into layers: the input layer, one or more hidden layers, and the output layer."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The input layer receives the raw data \u2014 each input feature is assigned to one neuron in this layer."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Hidden layers sit between input and output. Each hidden layer transforms the data into increasingly abstract representations."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The output layer produces the final prediction \u2014 a class label, a number, or a probability distribution."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Every connection between layers has a weight. Each neuron has a bias. These are the learnable parameters of the network."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Input Layer \u2014 The first layer of the network. It receives raw data and passes it to the first hidden layer.",
+              "Hidden Layer \u2014 A layer between input and output that transforms data. Deep networks have many hidden layers.",
+              "Output Layer \u2014 The final layer that produces the network's prediction \u2014 a class, a number, or a probability.",
+              "Weight \u2014 A learnable parameter that determines the strength of a connection between two neurons."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "How a Neural Network Learns"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Learning in neural networks is an iterative process: forward pass, compute error, update weights, and repeat."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Forward pass: feed input data through the network layer by layer to produce a prediction."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Compare the prediction to the true label to compute the error (loss). This tells the network how wrong it is."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Update the weights slightly to reduce the error. Repeat this cycle thousands or millions of times."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "With enough iterations, the network converges to a set of weights that produces accurate predictions."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Forward Pass \u2014 The process of passing input data through the network from input to output to generate a prediction.",
+              "Prediction \u2014 The output produced by the network for a given input. Compared against the true label to compute loss.",
+              "Error / Loss \u2014 A measure of how far the network's prediction is from the correct answer. Lower loss means better performance.",
+              "Weight Update \u2014 The process of adjusting weights to reduce the loss. Done iteratively during training."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Activation Functions"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Activation functions introduce non-linearity into the network. Without them, stacked layers would behave like a single linear layer."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Formula: output = activation(sum of weighted inputs + bias)"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "ReLU (Rectified Linear Unit) is the most popular activation. It outputs the input if positive, zero otherwise. Simple and effective."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Sigmoid squashes values between 0 and 1. Useful for binary classification output, but can cause vanishing gradients in deep networks."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Softmax converts raw scores into a probability distribution over multiple classes. The output sums to 1, so it reads like probabilities."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "ReLU \u2014 Rectified Linear Unit. Outputs x if x > 0, otherwise 0. The default activation for hidden layers.",
+              "Sigmoid \u2014 Squashes any value to a range between 0 and 1. Used for binary classification output.",
+              "Softmax \u2014 Converts a vector of raw scores into probabilities that sum to 1. Used for multi-class classification."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Loss Function"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The loss function measures how far the network's prediction is from the true answer. It is the score the network tries to minimise."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Formula: loss = measure(prediction, true_label). A smaller loss means a more accurate network."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "For classification, cross-entropy loss penalises confident wrong predictions heavily. For regression, mean squared error is common."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The goal of training is to find the set of weights that minimises the loss across all training examples."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Visualise it as a landscape: the weights are coordinates and the loss is the height. Training is walking downhill to find the lowest point."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Loss Function \u2014 A mathematical function that quantifies the difference between the network's prediction and the true label.",
+              "Cross-Entropy \u2014 A loss function used for classification. Penalises incorrect confident predictions more than uncertain ones.",
+              "Mean Squared Error \u2014 A loss function used for regression. Measures the average squared difference between predictions and true values."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Backpropagation (Concept Only)"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Backpropagation is the algorithm that tells each weight how much it contributed to the error."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "In simple words: the network looks at its mistake, traces it backwards through the layers, and adjusts each weight just a little."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Weights that caused more error get adjusted more. Weights that caused less error get adjusted less."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "No mathematical derivation needed here \u2014 think of it as the network learning from its mistakes by assigning credit and blame to each connection."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Backpropagation made deep learning possible. Before it, training networks with many layers was computationally impractical."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Backpropagation \u2014 The algorithm that computes the gradient of the loss with respect to every weight by propagating error backwards through the network.",
+              "Gradient \u2014 The direction and magnitude of steepest increase in loss. Weights are adjusted in the opposite direction to reduce loss."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Epochs, Batch Size & Learning Rate"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "An epoch is one complete pass through the entire training dataset. Training typically runs for many epochs."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Instead of processing the whole dataset at once, we split it into batches. Each batch gives a gradient estimate used to update weights."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The learning rate controls how big each weight update is. Too large and the network overshoots. Too small and training takes forever."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Analogy: learning rate is like the step size when walking down a hill. Big steps get you down fast but you might overshoot. Small steps are safe but slow."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Together, epochs, batch size, and learning rate determine how quickly and effectively the network learns."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Epoch \u2014 One complete pass through the entire training dataset. Training typically requires many epochs.",
+              "Batch \u2014 A subset of the training data processed together. The gradient is computed per batch, not per example.",
+              "Learning Rate \u2014 A hyperparameter controlling how much weights are updated per step. Too high causes instability, too low causes slow convergence."
+            ]
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "A neural network is not magic \u2014 it is millions of multiplications and additions, organised in layers, repeated with different numbers until it works."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Neural Networks Learn Through Layers of Activation",
+          "subtitle": "Security staff don't read a list of rules. They train on thousands of examples, develop intuition about patterns, and make instant judgements. Neural networks do exactly this \u2014 at scale.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "A new security officer sees thousands of bags over months of training. They learn to recognise subtle patterns \u2014 wire arrangements, liquid shapes, unusual densities \u2014 without being explicitly told what each pattern means."
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "Layer 1 detects edges and shapes. Layer 2 combines shapes into objects. Layer 3 recognises dangerous configurations from objects. Each layer builds on the one before it \u2014 hierarchical, automatic feature learning.",
+              "visual": {
+                "type": "flow",
+                "items": [
+                  "Raw Pixels",
+                  "Edges & Shapes",
+                  "Objects & Arrangements",
+                  "Dangerous or Safe"
+                ],
+                "conclusion": "Hierarchical understanding"
+              }
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "Deep networks learn the same hierarchy. Early layers detect simple features (edges, frequencies). Middle layers combine these into structures. Final layers recognise high-level concepts. No programmer wrote any of these features \u2014 they emerged from training."
+            }
+          ],
+          "insight": "Neural networks don't get rules \u2014 they learn representations. The features emerge automatically from data.",
+          "reinforcement": "Each layer transforms the input into a more abstract representation. The final layer makes the decision."
+        },
+        {
+          "type": "practice",
+          "title": "Computing a Neuron Output",
+          "instructions": "Calculate the output of a single neuron: weighted sum + bias, then apply ReLU activation.",
+          "starterCode": "# Single neuron computation\ninputs = [1.0, 0.5, 0.2]\nweights = [0.4, -0.3, 0.1]\nbias = 0.1\noutput = sum(i * w for i, w in zip(inputs, weights)) + bias\nprint(f\"Weighted sum + bias: {output:.2f}\")\nactivated = max(0, output)\nprint(f\"After ReLU: {activated:.2f}\")",
+          "solution": "inputs = [1.0, 0.5, 0.2]\nweights = [0.4, -0.3, 0.1]\nbias = 0.1\noutput = sum(i * w for i, w in zip(inputs, weights)) + bias\nprint(f\"Weighted sum + bias: {output:.2f}\")\nactivated = max(0, output)\nprint(f\"After ReLU: {activated:.2f}\")",
+          "hint": "Each neuron computes: sum(input \u00d7 weight) + bias, then applies an activation function like ReLU."
+        }
+      ]
+    },
+    {
+      "id": "activation-functions",
+      "label": "Activation Functions & Forward Pass",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Activation Functions & Forward Pass \u2014 SVG placeholder",
+            "svgId": "activation-functions"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Activation functions are what give neural networks their power to learn non-linear patterns. Without them, stacking layers would be mathematically equivalent to a single layer. They introduce the non-linearity that makes deep learning possible."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Why Non-Linearity Matters"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Without activation functions, any stack of layers collapses into a single linear transformation. Non-linear activations let the network approximate any function \u2014 they are the source of expressiveness in deep learning."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Sigmoid"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Squashes any number into (0, 1). Perfect for binary classification outputs \u2014 but causes vanishing gradient in deep networks, slowing training. Still used in output layers for probability predictions."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "ReLU (Rectified Linear Unit)"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "ReLU(x) = max(0, x). If the input is negative, output zero; otherwise pass through unchanged. Computationally cheap, avoids vanishing gradients, and works remarkably well. The default activation in most modern networks."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Softmax"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Used in the output layer for multi-class classification. Converts a vector of raw scores into a probability distribution that sums to 1. The class with the highest probability is the network's prediction."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Forward Pass in Detail"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Layer by layer: multiply inputs by the weight matrix, add the bias vector, apply the activation function element-wise. Repeat for each layer. The final layer's output is the prediction \u2014 a probability or a class."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "What Is a Forward Pass?"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A forward pass is the process of feeding an input through a neural network, layer by layer, until it produces an output."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Data flows in one direction only \u2014 from the input layer, through each hidden layer, to the output layer. Nothing flows backward during this step."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "At every layer, the same three operations happen: multiply by weights, add the bias, then apply an activation function."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The final output of a forward pass is the network's prediction \u2014 a class label, a probability, or a number, depending on the task."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Forward Pass \u2014 One complete pass of input data through the network, from input layer to output layer, producing a prediction.",
+              "Inference \u2014 Running a forward pass to get a prediction from a trained network \u2014 no learning happens during inference."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Layer-by-Layer Computation"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Each neuron in a layer computes a weighted sum of all the outputs it receives from the previous layer."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Formula: z = (x\u2081\u00b7w\u2081) + (x\u2082\u00b7w\u2082) + ... + (x\u2099\u00b7w\u2099) + bias \u2014 every input multiplied by its weight, summed, plus one bias term."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "That raw sum, z, is called the pre-activation value. It can be any real number \u2014 positive, negative, large, or small."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The pre-activation value is then passed through an activation function to produce the neuron's final output, which becomes an input to the next layer."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "This process repeats independently for every neuron in every layer until the output layer is reached."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Weighted Sum (z) \u2014 The result of multiplying each input by its weight and adding them together, plus a bias term. Also called the pre-activation value.",
+              "Bias \u2014 An extra learnable number added to the weighted sum, letting a neuron shift its output independently of its inputs."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Why Non-Linearity Matters"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Without activation functions, every layer would just be a linear transformation of the previous layer."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Stacking any number of linear layers together is mathematically equivalent to a single linear layer \u2014 depth would add zero extra power."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Non-linear activation functions break this collapse, letting each layer learn increasingly complex, curved decision boundaries."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "This is what lets deep networks approximate almost any function, including ones no simple straight line could ever represent."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Linearity \u2014 A transformation where output changes proportionally to input; stacking linear layers never adds representational power.",
+              "Non-linearity \u2014 A transformation that bends or breaks proportionality, allowing networks to model complex, curved relationships in data."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Sigmoid & the Vanishing Gradient"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Sigmoid squashes any real number into the range (0, 1), which makes it a natural choice for representing probabilities."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Formula: sigmoid(x) = 1 / (1 + e^-x). Large positive inputs approach 1; large negative inputs approach 0."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The problem: for very large or very small inputs, sigmoid's curve becomes almost flat, so its gradient shrinks toward zero."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "In deep networks, these tiny gradients multiply together across many layers during training and can vanish almost entirely \u2014 this is the vanishing gradient problem."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Sigmoid is still common in output layers for binary classification, but rarely used in hidden layers of modern deep networks."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Sigmoid \u2014 An activation function that maps any input to a value between 0 and 1, historically popular but prone to vanishing gradients.",
+              "Vanishing Gradient \u2014 A problem where gradients shrink toward zero as they propagate backward through many layers, slowing or stalling learning."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "ReLU \u2014 The Modern Default"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "ReLU (Rectified Linear Unit) outputs the input directly if it's positive, and zero otherwise."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Formula: ReLU(x) = max(0, x). It's simple, cheap to compute, and doesn't saturate for positive inputs."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Because its gradient is exactly 1 for any positive input, ReLU avoids the vanishing gradient problem that plagues sigmoid in deep networks."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Its main weakness is the 'dying ReLU' problem \u2014 a neuron that always outputs zero for every input effectively stops learning."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Despite that, ReLU remains the default activation for hidden layers in the vast majority of modern architectures."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "ReLU \u2014 Rectified Linear Unit \u2014 outputs max(0, x); the default hidden-layer activation in most modern networks.",
+              "Dying ReLU \u2014 A failure mode where a neuron's weighted sum is always negative, so it always outputs zero and stops updating."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Softmax for Multi-Class Output"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Softmax is used in the output layer when a network must choose between multiple classes."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "It converts a vector of raw scores into a probability distribution \u2014 every value between 0 and 1, and the whole vector sums to exactly 1."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Formula: softmax(x\u1d62) = e^x\u1d62 / \u03a3 e^x\u2c7c \u2014 each score is exponentiated, then normalised by the sum of all exponentiated scores."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The class with the highest softmax probability is the network's predicted class."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Unlike ReLU and sigmoid, softmax only makes sense applied to a whole layer at once, not to a single neuron in isolation."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Softmax \u2014 An activation function that converts a vector of scores into a probability distribution over multiple classes.",
+              "Logits \u2014 The raw, un-normalised output scores of a network before softmax converts them into probabilities."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "A Complete Forward Pass, Step by Step"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Consider one neuron with inputs [1.0, 0.5], weights [0.4, -0.3], and bias 0.1."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Step 1 \u2014 weighted sum: (1.0 \u00d7 0.4) + (0.5 \u00d7 -0.3) + 0.1 = 0.4 - 0.15 + 0.1 = 0.35."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Step 2 \u2014 activation: applying ReLU, max(0, 0.35) = 0.35, since the value is already positive."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "That 0.35 becomes one of the inputs to every neuron in the next layer, where the exact same two steps repeat."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Once every layer has been computed this way, the final layer's activated output is the network's prediction \u2014 the forward pass is complete."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Pre-activation \u2014 The weighted sum before an activation function is applied \u2014 z in z = Wx + b.",
+              "Activation \u2014 The value that comes out of a neuron after its activation function is applied \u2014 what actually gets passed forward."
+            ]
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "ReLU turned out to be the activation function that made deep networks trainable. Simple, cheap, and surprisingly effective."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Activation Functions Make Inference Decisions at Each Neuron",
+          "subtitle": "Every checkpoint only passes what crosses a threshold. Below the threshold \u2014 nothing passes. Above it \u2014 the signal goes through. The gate shape determines the final decision.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "A security scanner uses threshold decisions: if the detected density exceeds a value, flag it. If it falls below, let it pass. The threshold itself is learned from experience \u2014 not hard-coded from day one."
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "Decision gates filter signals in different ways. Some pass a gradual response. Some block everything below zero and pass everything above. Some pick a single winning choice. The gate type determines how information flows through the network.",
+              "visual": {
+                "type": "flow",
+                "items": [
+                  "Raw Signal",
+                  "Threshold Gate",
+                  "Filtered Signal Forward"
+                ],
+                "conclusion": "Non-linear representation"
+              }
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "Activation functions are the decision gates of neural networks. They determine which neurons fire and by how much \u2014 creating the non-linear representations that make deep learning powerful."
+            }
+          ],
+          "insight": "ReLU asks one question: is this value useful? If not, silence it. This simplicity is why it works so well.",
+          "reinforcement": "Three gate types: gradual (sigmoid), above-zero (ReLU), single winner (softmax). Each one shapes information differently."
+        },
+        {
+          "type": "practice",
+          "title": "Build the Perfect Smoothie",
+          "instructions": "Blend a smoothie by setting ingredient amounts (inputs) and importance (weights), then apply a blender mode (activation function) to reach a target sweetness score \u2014 just like a neuron performs a forward pass.",
+          "starterCode": "# Forward pass: weighted sum + activation\ninputs = [70, 40, 60, 50]\nweights = [0.8, 0.4, 0.2, 1.0]\n\nweighted_sum = sum(i * w for i, w in zip(inputs, weights))\nprint(f\"Weighted sum: {weighted_sum}\")\n\ndef relu(x):\n    return max(0, x)\n\nscore = min(10, relu(weighted_sum) / 15)\nprint(f\"Sweetness score: {score:.1f}\")",
+          "solution": "inputs = [70, 40, 60, 50]\nweights = [0.8, 0.4, 0.2, 1.0]\n\nweighted_sum = sum(i * w for i, w in zip(inputs, weights))\nprint(f\"Weighted sum: {weighted_sum}\")\n\ndef relu(x):\n    return max(0, x)\n\nscore = min(10, relu(weighted_sum) / 15)\nprint(f\"Sweetness score: {score:.1f}\")",
+          "hint": "The weighted sum is \u03a3(input \u00d7 weight); the activation function turns it into the final score."
+        }
+      ]
+    },
+    {
+      "id": "training-backpropagation",
+      "label": "Training & Backpropagation",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Training & Backpropagation \u2014 SVG placeholder",
+            "svgId": "training-backpropagation"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Training is how a neural network learns. The forward pass produces a prediction. We compare it to the label and compute the loss. Backpropagation computes how much each weight contributed to the error. Gradient descent updates every weight. Repeat millions of times."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Loss Function"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The loss measures how wrong the network's prediction is. Cross-entropy loss for classification; mean squared error for regression. The entire goal of training is to minimise the loss over the training data."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Backpropagation"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Backprop computes the partial derivative of the loss with respect to every single weight in the network simultaneously. It applies the chain rule of calculus backward through the network \u2014 from the output layer back to the input layer."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Gradient Descent"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Each weight is updated: w = w minus learning_rate times gradient. The gradient points uphill in loss space; subtracting it moves each weight downhill. Too small a learning rate: slow convergence. Too large: unstable training."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Stochastic Gradient Descent"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Computing the loss over the entire dataset per update is too slow. Mini-batch SGD computes loss over a small random batch of examples per update \u2014 noisier gradients but hundreds of updates per second."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Epochs"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "One epoch is one full pass over all training data. Models typically train for 10 to 100 epochs. Each epoch, the model sees every training example once and updates all weights after each mini-batch."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Why Training Is Necessary"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A freshly created neural network starts with random weights, so its predictions are no better than guessing."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Training is the process of adjusting every weight and bias so the network's predictions get closer to the correct answers."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "This happens gradually, over many repeated passes through the training data, not in a single step."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Every training step follows the same loop: forward pass, measure the error, backward pass, update the weights."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Training \u2014 The iterative process of adjusting a network's weights and biases so its predictions improve over time.",
+              "Random Initialization \u2014 The starting point of training, where weights are set to small random values before any learning has occurred."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "The Loss Function"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The loss function measures exactly how wrong a single prediction is, compared to the true label."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A small loss means the prediction was close to correct; a large loss means it was far off."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Cross-entropy loss is standard for classification \u2014 it punishes confident wrong predictions especially heavily."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Mean squared error is standard for regression \u2014 it measures the average squared difference between predicted and true numbers."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Training's entire goal can be stated in one sentence: find the weights that make the average loss across all training examples as small as possible."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Loss Function \u2014 A function that outputs a single number measuring how wrong one prediction is; smaller is better.",
+              "Cross-Entropy Loss \u2014 A loss function for classification that heavily penalises confident, incorrect predictions."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "What Backpropagation Actually Computes"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Backpropagation answers one specific question for every single weight in the network: if I nudge this weight slightly, how much does the loss change?"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "That sensitivity is called a gradient. A large gradient means that weight had a big influence on the error; a near-zero gradient means it barely mattered."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Backpropagation computes these gradients for every weight in the network, starting from the output layer and working backward toward the input layer."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "This is why it's called 'back'-propagation \u2014 the error signal is propagated backward, in the opposite direction from the forward pass."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Crucially, backpropagation doesn't change any weights by itself \u2014 it only calculates the gradients. A separate step, gradient descent, uses those gradients to actually update the weights."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Backpropagation \u2014 The algorithm that computes the gradient of the loss with respect to every weight, by propagating the error backward through the network.",
+              "Gradient \u2014 A number describing how much the loss would change if one specific weight were nudged slightly; it points in the direction of steepest increase."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "The Chain Rule, Intuitively"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A deep network is a chain of functions \u2014 output = f\u2083(f\u2082(f\u2081(input))). Backpropagation relies on a calculus idea called the chain rule to handle this chain."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The chain rule says: to find how the final loss depends on an early weight, multiply together the sensitivities of every function it passes through, one layer at a time."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "In practice, this means backpropagation computes the error at the output, then repeatedly asks each earlier layer 'how much did you contribute to the error I just received?'"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Each layer passes its share of the blame further back, layer by layer, until every weight in the network has received a gradient."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "You don't need to compute calculus by hand \u2014 deep learning frameworks apply the chain rule automatically. What matters is understanding that credit for the error is assigned layer by layer, backward."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Chain Rule \u2014 A calculus rule for computing the derivative of a composition of functions; backpropagation applies it layer by layer, from output to input.",
+              "Credit Assignment \u2014 The process of determining how much each individual weight contributed to the overall error."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "From Gradients to Weight Updates (Gradient Descent)"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Once backpropagation has computed a gradient for every weight, gradient descent uses those gradients to actually update the weights."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Update rule: new_weight = old_weight \u2212 (learning_rate \u00d7 gradient). Each weight moves a small step in the direction that reduces the loss."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The learning rate controls the size of that step. Too large, and training overshoots and becomes unstable; too small, and training crawls forward for far too long."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Picture the loss as a landscape of hills and valleys, where the weights are coordinates. Gradient descent is the process of walking downhill, one small step at a time, toward a valley of low loss."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Gradient Descent \u2014 An optimisation algorithm that repeatedly updates weights in the direction that reduces the loss, using the gradients from backpropagation.",
+              "Learning Rate \u2014 A hyperparameter controlling how large each weight update step is."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Stochastic & Mini-Batch Gradient Descent"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Computing the exact gradient using the entire training dataset before every single update is accurate, but far too slow for large datasets."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Stochastic gradient descent (SGD) updates the weights using just one training example at a time, making it fast but noisy."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Mini-batch gradient descent is the practical middle ground used almost everywhere: compute the gradient over a small batch of examples, then update."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Smaller batches update more often and add helpful noise that can escape bad local minima; larger batches give smoother, more stable gradient estimates."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Stochastic Gradient Descent (SGD) \u2014 Gradient descent using one training example per update, trading accuracy for speed.",
+              "Batch \u2014 A subset of the training data used to compute one gradient update. Batch size is a key training hyperparameter."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Epochs \u2014 Repeating the Process"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "One epoch is one complete pass through the entire training dataset."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A single epoch is rarely enough \u2014 networks typically train for tens or hundreds of epochs before their loss stops improving."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Too few epochs and the network underfits, never learning the patterns well enough; too many and it can overfit, memorising the training data instead of generalising."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Practitioners usually watch the loss on a separate validation set to decide when to stop training."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Epoch \u2014 One complete pass through the entire training dataset.",
+              "Validation Set \u2014 Data held out from training, used to check whether the network is generalising rather than memorising."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "One Full Training Step, Start to Finish"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Step 1 \u2014 forward pass: feed a batch of inputs through the network to produce predictions."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Step 2 \u2014 loss: compare each prediction to its true label using the loss function to get a single error number."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Step 3 \u2014 backward pass: run backpropagation to compute the gradient of the loss with respect to every weight."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Step 4 \u2014 update: gradient descent adjusts every weight a small step in the direction that reduces the loss."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "This four-step loop repeats, batch after batch, epoch after epoch, until the loss stops meaningfully improving \u2014 that's how a neural network learns."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Training Loop \u2014 The repeating cycle of forward pass, loss computation, backward pass, and weight update that drives learning.",
+              "Convergence \u2014 The point at which further training no longer meaningfully reduces the loss."
+            ]
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "Backpropagation is the algorithm that made deep learning possible. Before it, training deep networks was considered computationally infeasible."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Backpropagation Corrects Weights Like Retraining a Dog",
+          "subtitle": "When a dog makes a mistake, you don't retrain everything from scratch. You identify exactly which behaviour was wrong and reinforce the specific correction. Backprop does this mathematically for every weight simultaneously.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "The dog sits when you said stand. You give a negative signal. The dog adjusts specifically the association it just activated \u2014 not all its behaviours at once. Targeted, proportional correction based on what just happened."
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "Identify which weights contributed most to the error. Give larger corrections to those most responsible. Smaller corrections to peripheral contributors. Zero correction to weights that played no role.",
+              "visual": {
+                "type": "flow",
+                "items": [
+                  "Compute Error",
+                  "Attribute Error to Each Weight",
+                  "Update Proportionally"
+                ],
+                "conclusion": "Network improves precisely"
+              }
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "The learning algorithm measures how much each internal connection contributed to the mistake. Connections that caused more error get larger corrections. This blame attribution flows backward from the output to the input."
+            }
+          ],
+          "insight": "Backpropagation doesn't restart when wrong \u2014 it attributes blame precisely and makes the minimum correction needed.",
+          "reinforcement": "Gradient descent follows the error signal backward through the network \u2014 each weight gets exactly the blame it deserves."
+        },
+        {
+          "type": "practice",
+          "title": "Practice Exercise",
+          "instructions": "Run a forward pass through a simple 3-layer neural network that predicts whether a student will pass their exam. Change the input values and watch how the network's confidence changes. This is exactly what happens inside every neural network before training adjusts the weights.",
+          "starterCode": "import math\n\ndef sigmoid(x):\n    \"\"\"Squashes any number into 0\u20131 (the neuron's output probability).\"\"\"\n    return 1 / (1 + math.exp(-x))\n\n# --- Network weights (pre-set; training would learn these) ---\n# Layer 1: 2 inputs \u2192 2 hidden neurons\nW1 = [[0.5, 0.3],   # hidden neuron 0 weights\n      [0.2, 0.8]]   # hidden neuron 1 weights\nb1 = [0.1, -0.1]\n\n# Layer 2: 2 hidden \u2192 1 output neuron\nW2 = [0.6, 0.9]\nb2 = 0.05\n\ndef forward(study_hours, prev_score):\n    # Normalise inputs to 0\u20131 scale\n    x = [study_hours / 10.0, prev_score / 100.0]\n\n    # Hidden layer\n    h = [sigmoid(W1[j][0]*x[0] + W1[j][1]*x[1] + b1[j]) for j in range(2)]\n\n    # Output layer\n    out = sigmoid(W2[0]*h[0] + W2[1]*h[1] + b2)\n    return out, h\n\nstudents = [\n    (\"High effort\",   8, 72),\n    (\"Low effort\",    2, 45),\n    (\"Medium effort\", 6, 65),\n    (\"Very low\",      1, 30),\n]\n\nprint(f\"{'Student':15s} {'Study h':>7} {'Prev%':>6} {'Hidden layer':>20} {'Pass prob':>10}\")\nprint(\"-\" * 65)\nfor label, hours, score in students:\n    prob, h = forward(hours, score)\n    h_str = str([round(v, 2) for v in h])\n    verdict = '\u2713 PASS' if prob >= 0.5 else '\u2717 FAIL'\n    print(f\"{label:15s} {hours:>7} {score:>6} {h_str:>20} {prob:>8.1%} {verdict}\")\n\nprint()\nprint(\"Backpropagation adjusts W1, W2, b1, b2 to minimise prediction error.\")\nprint(\"Each training example nudges the weights slightly in the right direction.\")",
+          "solution": "import math\ndef sigmoid(x): return 1/(1+math.exp(-x))\nW1=[[0.5,0.3],[0.2,0.8]];b1=[0.1,-0.1];W2=[0.6,0.9];b2=0.05\ndef forward(h,s):\n    x=[h/10,s/100];hid=[sigmoid(W1[j][0]*x[0]+W1[j][1]*x[1]+b1[j]) for j in range(2)]\n    return sigmoid(W2[0]*hid[0]+W2[1]*hid[1]+b2)\nfor h,s in[(8,72),(2,45),(6,65)]:\n    print(f\"hours={h} score={s} \u2192 pass prob={forward(h,s):.1%}\")",
+          "hint": "The hidden layer transforms the raw inputs into abstract features. The output layer combines those features into a single probability. Both steps use the sigmoid function to keep values between 0 and 1."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "A neuron computes: output = activation(weighted sum of inputs + bias)"
+      },
+      {
+        "text": "Layers of neurons build hierarchical representations from simple to complex features"
+      },
+      {
+        "text": "ReLU is the default activation: max(0, x), cheap and avoids vanishing gradients"
+      },
+      {
+        "text": "Softmax converts raw scores into a probability distribution summing to 1"
+      },
+      {
+        "text": "Loss measures how wrong predictions are \u2014 training minimises the loss"
+      },
+      {
+        "text": "Backpropagation computes gradients for every weight simultaneously using the chain rule"
+      },
+      {
+        "text": "CNNs use convolution to detect local features with shared weights \u2014 far fewer parameters"
+      },
+      {
+        "text": "Transfer learning reuses CNN features trained on large datasets for new tasks with little data"
+      }
+    ],
+    "whatYouLearned": [
+      "How an artificial neuron computes: weights, bias, and activation function",
+      "How layers stack to build hierarchical representations",
+      "What forward pass is and how information flows through a network",
+      "Why non-linear activation functions like ReLU are essential",
+      "How backpropagation applies the chain rule to compute gradients for every weight",
+      "What loss functions measure and why minimising them trains the network",
+      "How CNNs use convolution and pooling to process images efficiently",
+      "What transfer learning is and why it makes AI accessible without massive datasets"
+    ],
+    "nextUp": "Natural Language Processing"
+  }
+}

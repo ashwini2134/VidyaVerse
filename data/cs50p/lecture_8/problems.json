@@ -1,0 +1,23 @@
+[
+  {
+    "id": "seasons",
+    "title": "Seasons of Love",
+    "description": "Assuming there are 365 days in a year, there are 525,600 minutes in that same year — but leap years complicate things, so let's use a library.\n\nIn a file called `seasons.py`, implement a program that prompts the user for their date of birth in `YYYY-MM-DD` format and then prints how old they are in minutes, rounded to the nearest integer, using English words instead of numerals, without any `and` between words (like the song from *Rent*). Assume the user was born at midnight and that the current time is also midnight; use `datetime.date.today` for today's date.\n\nExit via `sys.exit` if the user does not input a date in `YYYY-MM-DD` format. (Uses the third-party `inflect` module; CS50 also asks for `test_seasons.py`.)\n\n**How to Test:**\n```\n(a date one year ago)  -> Five hundred twenty-five thousand, six hundred minutes\n(a date two years ago) -> One million, fifty-one thousand, two hundred minutes\n(an invalid format)    -> exits via sys.exit\n```",
+    "check50_slug": "cs50/problems/2022/python/seasons",
+    "difficulty": "hard"
+  },
+  {
+    "id": "jar",
+    "title": "Cookie Jar",
+    "description": "In a file called `jar.py`, implement a `class` called `Jar` with these methods:\n\n- `__init__` should initialize a cookie jar with the given `capacity` (the max number of cookies). If `capacity` is not a non-negative `int`, raise a `ValueError`.\n- `__str__` should return a `str` with `n` cookie emoji (), where `n` is the number of cookies in the jar.\n- `deposit(n)` should add `n` cookies. If that would exceed capacity, raise a `ValueError`.\n- `withdraw(n)` should remove `n` cookies. If there aren't that many, raise a `ValueError`.\n- `capacity` (a property) should return the jar's capacity.\n- `size` (a property) should return the number of cookies in the jar, initially `0`.\n\n(CS50 also asks for `test_jar.py` with four or more test functions.)\n\n**How to Test:**\n```\nJar() -> capacity 12, size 0\njar.deposit(1); str(jar) -> \"\"\nJar(-1) -> raises ValueError\n```",
+    "check50_slug": "cs50/problems/2022/python/jar",
+    "difficulty": "medium"
+  },
+  {
+    "id": "shirtificate",
+    "title": "CS50 Shirtificate",
+    "description": "In a file called `shirtificate.py`, implement a program that prompts the user for their name and outputs, using `fpdf2`, a CS50 shirtificate in a file called `shirtificate.pdf`, with these specifications:\n\n- The orientation of the PDF should be Portrait.\n- The format of the PDF should be A4 (210mm wide by 297mm tall).\n- The top of the PDF should say \"CS50 Shirtificate\" as text, centered horizontally.\n- The shirt's image (`shirtificate.png`) should be centered horizontally.\n- The user's name should be on top of the shirt, in white text.\n\n(Uses the third-party `fpdf2` module: `pip install fpdf2`.)\n\n**How to Test:**\n```\nName: <your name>  -> creates shirtificate.pdf with your name overlaid on the shirt\n```",
+    "check50_slug": "cs50/problems/2022/python/shirtificate",
+    "difficulty": "medium"
+  }
+]

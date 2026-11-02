@@ -1,0 +1,23 @@
+[
+  {
+    "id": "mini_project_setup",
+    "title": "Mini Project: Plan Your App",
+    "description": "Write a Python program that prints a menu with 4 project options. Let the user pick one (1-4). Print a confirmation message: 'You selected: [Project Name]'",
+    "difficulty": "medium",
+    "starterCode": "print(\"=== Choose Your Project ===\")\nprint(\"1. Student Management System\")\nprint(\"2. Expense Tracker\")\nprint(\"3. Quiz Application\")\nprint(\"4. To-Do List\")\n\nchoice = int(input(\"Enter choice (1-4): \"))\n\n# Print confirmation",
+    "solution": "print(\"=== Choose Your Project ===\")\nprint(\"1. Student Management System\")\nprint(\"2. Expense Tracker\")\nprint(\"3. Quiz Application\")\nprint(\"4. To-Do List\")\n\nchoice = int(input(\"Enter choice (1-4): \"))\nprojects = [\"\", \"Student Management System\", \"Expense Tracker\", \"Quiz Application\", \"To-Do List\"]\nprint(f\"You selected: {projects[choice]}\")",
+    "testCases": [
+      {
+        "label": "Pick option 3",
+        "input": "3",
+        "expectedOutput": "=== Choose Your Project ===\n1. Student Management System\n2. Expense Tracker\n3. Quiz Application\n4. To-Do List\nEnter choice (1-4): You selected: Quiz Application"
+      }
+    ]
+  },
+  {
+    "id": "grade_tracker",
+    "title": "Student Grade Tracker",
+    "description": "Capstone: manage student grades with file persistence, reports, and letter grades.",
+    "difficulty": "hard"
+  }
+]

@@ -1,0 +1,11 @@
+name = input("Enter your name: ")
+age = input("Enter your age: ")
+color = input("Enter your favorite color: ")
+hobby = input("Enter your hobby: ")
+
+print()
+print("--- Your Story ---")
+print(f"Once upon a time, there was a person named {name}.")
+print(f"At {age} years old, {name} loved the color {color} more than anything.")
+print(f"Every day after work, {name} would spend hours {hobby}.")
+print(f"And that is how {name} lived a colorful and happy life!")

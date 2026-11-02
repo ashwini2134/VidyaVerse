@@ -1,0 +1,57 @@
+[
+  {
+    "question": "What will print(\"A\", \"B\", sep=\"-\") output?",
+    "options": [
+      "A - B",
+      "A B",
+      "A-B",
+      "AB"
+    ],
+    "answer": "A-B",
+    "explanation": "The sep parameter replaces the default space separator. sep=\"-\" joins the items with a hyphen."
+  },
+  {
+    "question": "What does input() do when the program reaches it?",
+    "options": [
+      "Reads a file",
+      "Waits for the user to type and press Enter",
+      "Exits the program",
+      "Prints a message"
+    ],
+    "answer": "Waits for the user to type and press Enter",
+    "explanation": "input() pauses the program and waits for user input. It returns whatever the user typed as a string."
+  },
+  {
+    "question": "What will the following code print?\n\nname = \"Alice\"\nage = 20\nprint(f\"{name} is {age} years old\")",
+    "options": [
+      "name is age years old",
+      "Alice is 20 years old",
+      "Error",
+      "{name} is {age} years old"
+    ],
+    "answer": "Alice is 20 years old",
+    "explanation": "f-strings substitute variables inside {} with their values. name becomes \"Alice\" and age becomes 20."
+  },
+  {
+    "question": "Which f-string produces 'My name is Alice'?",
+    "options": [
+      "f'My name is {name}'",
+      "f\"My name is {name}\"",
+      "f\"My name is name\"",
+      "print(\"My name is {name}\")"
+    ],
+    "answer": "f\"My name is {name}\"",
+    "explanation": "f-strings use the f prefix and {} to embed variables."
+  },
+  {
+    "question": "What happens with int(input('Age: ')) if the user types 'twenty'?",
+    "options": [
+      "Returns 20",
+      "Raises ValueError",
+      "Returns 0",
+      "Returns None"
+    ],
+    "answer": "Raises ValueError",
+    "explanation": "int() cannot convert non-numeric strings to integers."
+  }
+]

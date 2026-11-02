@@ -1,0 +1,246 @@
+{
+  "id": "cs50p-lecture-0",
+  "courseSlug": "cs50p",
+  "number": 0,
+  "title": "Functions & Variables",
+  "overview": "Every Python program is built from two fundamental ideas: variables that store data, and functions that perform actions. In this lecture you'll learn what they are, how to use them, and why they make programming so powerful.",
+  "estimatedMinutes": 45,
+  "sections": [
+    {
+      "id": "overview",
+      "label": "Overview",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "blue",
+          "title": "In This Lecture You Will Learn",
+          "body": "Welcome to the very beginning of programming with Python. By the end of this lecture you'll understand the two core building blocks of every program.",
+          "bullets": [
+            "What variables are and how they store values",
+            "How to create and name variables in Python",
+            "What functions are and why they are useful",
+            "How to define your own functions with def",
+            "How to use the built-in print() and input() functions",
+            "How to format strings using f-strings"
+          ]
+        },
+        {
+          "type": "text",
+          "content": "Programming is about telling a computer what to do, step by step. Variables give us a way to remember information, and functions give us a way to organize our instructions into reusable blocks. Let's explore both."
+        },
+        {
+          "type": "reflection",
+          "question": "Does this concept make sense so far? Try to explain it in your own words.",
+          "answer": "If you can explain this concept to someone else, you have understood it well. Practice with the exercises below to reinforce your learning."
+        }
+      ]
+    },
+    {
+      "id": "variables",
+      "label": "Variables",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "blue",
+          "title": "What is a Variable?",
+          "body": "A **variable** is a named container that stores a value in your program. You give it a name and assign it a value using the `=` operator. You can then use that name anywhere in your code to access the stored value."
+        },
+        {
+          "type": "analogy",
+          "title": "Think of a Variable as a Labeled Storage Box",
+          "emoji": "",
+          "text": "Imagine a physical storage box with a label on it. The label is the variable name. What's inside the box is the value. You can open the box to look inside, replace what's stored, or use its contents in a recipe — all by referring to the label."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "A Labeled Storage Box",
+            "description": "You put something inside and give it a name so you can find it later.",
+            "image": "https://images.unsplash.com/photo-1603398938378-e54eab446dde?w=800&q=80"
+          },
+          "visualization": {
+            "type": "categories",
+            "title": "Variable = Container",
+            "centerLabel": "name",
+            "items": [
+              "Store value",
+              "Access by name"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "name = \"Lakshanya\"\nprint(name)",
+            "output": "Lakshanya"
+          }
+        },
+        {
+          "type": "explanation",
+          "accentColor": "blue",
+          "title": "Variable Rules",
+          "body": "Python variable names must follow a few simple rules.",
+          "bullets": [
+            "Start with a letter or underscore (not a number)",
+            "Contain only letters, numbers, and underscores",
+            "Are case-sensitive: name and Name are different variables",
+            "Cannot be a Python keyword like print, if, or def"
+          ]
+        },
+        {
+          "type": "code_example",
+          "title": "Creating and Using Variables",
+          "language": "python",
+          "code": "name = \"Lakshanya\"\nage = 20\nheight = 5.6\n\nprint(name)\nprint(age)\nprint(height)",
+          "expectedOutput": "Lakshanya\n20\n5.6"
+        },
+        {
+          "type": "practice",
+          "title": "Store Your Name",
+          "instructions": "Create a variable called name and assign your name to it. Then print a greeting using that variable.",
+          "starterCode": "# Create a variable with your name\n# Then print: Hello, [name]!",
+          "solution": "name = \"Lakshanya\"\nprint(f\"Hello, {name}!\")",
+          "hint": "Use name = \"YourName\" to create the variable. Then use print(f\"Hello, {name}!\") to display a greeting.",
+          "expectedOutput": "Hello, Lakshanya!"
+        }
+      ]
+    },
+    {
+      "id": "functions",
+      "label": "Functions",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "What is a Function?",
+          "body": "A **function** is a named block of code that performs a specific task. You define it once using `def`, and then call it by name whenever you need it. Functions help you avoid repeating the same code over and over."
+        },
+        {
+          "type": "analogy",
+          "title": "Think of a Function as a Recipe",
+          "emoji": "",
+          "text": "A recipe is a set of steps written once that you can follow many times to make the same dish. You don't rewrite the recipe each time — you just say 'make pasta' and follow the steps. Functions work exactly the same way."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "A Recipe Book",
+            "description": "A recipe is a set of steps you write once and follow many times — just like a function.",
+            "image": "https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Function = Reusable Recipe",
+            "items": [
+              "Input",
+              "AI Model",
+              "Output"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "def greet():\n    print(\"Hi!\")\n\ngreet()",
+            "output": "Hi!"
+          }
+        },
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "Anatomy of a Function",
+          "body": "A function has three parts: a **name**, optional **parameters** (inputs), and a **body** (the code that runs).",
+          "bullets": [
+            "def — the keyword that starts a function definition",
+            "name — what you call to run the function",
+            "parameters — values passed in (optional)",
+            "body — the indented code that runs when called",
+            "return — optionally sends a value back"
+          ]
+        },
+        {
+          "type": "code_example",
+          "title": "A Function With Parameters",
+          "language": "python",
+          "code": "def greet(name):\n    print(f\"Hello, {name}!\")\n\ngreet(\"Lakshanya\")\ngreet(\"David\")",
+          "expectedOutput": "Hello, Lakshanya!\nHello, David!"
+        },
+        {
+          "type": "practice",
+          "title": "Write a Greeting Function",
+          "instructions": "Define a function called say_hello that takes a name parameter and prints a greeting. Then call it twice with different names.",
+          "starterCode": "# Define say_hello(name) here\n\n# Call it twice",
+          "solution": "def say_hello(name):\n    print(f\"Hello, {name}!\")\n\nsay_hello(\"Lakshanya\")\nsay_hello(\"David\")",
+          "hint": "Use def say_hello(name): on the first line, then indent the print statement. Don't forget to call the function after defining it.",
+          "expectedOutput": "Hello, Lakshanya!\nHello, David!"
+        }
+      ]
+    },
+    {
+      "id": "fstrings",
+      "label": "f-Strings",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "green",
+          "title": "Formatting Strings with f-Strings",
+          "body": "An **f-string** (formatted string literal) lets you embed variable values directly inside a string. Prefix your string with `f` and wrap variables in curly braces `{}`.",
+          "bullets": [
+            "Prefix the string with the letter f",
+            "Put any expression inside {curly braces}",
+            "Python replaces {name} with the value of name",
+            "You can put any expression inside the braces"
+          ]
+        },
+        {
+          "type": "code_example",
+          "title": "f-String Examples",
+          "language": "python",
+          "code": "name = \"Lakshanya\"\nage = 20\n\nprint(f\"My name is {name}\")\nprint(f\"I am {age} years old\")\nprint(f\"Next year I will be {age + 1}\")",
+          "expectedOutput": "My name is Lakshanya\nI am 20 years old\nNext year I will be 21"
+        },
+        {
+          "type": "practice",
+          "title": "Build a Profile",
+          "instructions": "Create two variables: name (your name) and city (your city). Then use an f-string to print: \"[name] lives in [city].\"",
+          "starterCode": "name = \"\"\ncity = \"\"\n\n# Print using f-string",
+          "solution": "name = \"Lakshanya\"\ncity = \"Chennai\"\n\nprint(f\"{name} lives in {city}.\")",
+          "hint": "Use f\"{name} lives in {city}.\" inside print(). Make sure your variables have values assigned first.",
+          "expectedOutput": "Lakshanya lives in Chennai."
+        },
+        {
+          "type": "reflection",
+          "question": "Does this concept make sense so far? Try to explain it in your own words.",
+          "answer": "If you can explain this concept to someone else, you have understood it well. Practice with the exercises below to reinforce your learning."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Variables store values using the = operator"
+      },
+      {
+        "text": "Use = for assignment (not == which checks equality)"
+      },
+      {
+        "text": "Functions package code for reuse with def"
+      },
+      {
+        "text": "Functions can be called as many times as needed"
+      },
+      {
+        "text": "f-strings embed variable values in text with {}"
+      },
+      {
+        "text": "Variables must be defined before you use them"
+      }
+    ],
+    "whatYouLearned": [
+      "How to create a variable and assign it a value",
+      "How to update a variable's value",
+      "How to define a function with def",
+      "How to pass parameters to a function",
+      "How to return a value from a function",
+      "How to use f-strings for string formatting"
+    ],
+    "nextUp": "Conditionals"
+  }
+}

@@ -1,0 +1,130 @@
+[
+  {
+    "id": "ai_usage_calculator",
+    "title": "AI Daily Usage Calculator",
+    "description": "Write a Python program that calculates how many hours per week a user spends on AI tools based on their daily usage.\n\nYour program must:\n1. Read an integer representing the number of hours the user spends on AI tools per day.\n2. Calculate the weekly usage by multiplying the daily hours by 7.\n3. Output a specific message based on the total weekly hours.\n\nRules:\n- If the weekly hours are greater than 10 → Print 'Heavy AI User: [X] hours/week'\n- If the weekly hours are 10 or less → Print 'Light AI User: [X] hours/week'\n\nSample Input:\n2\n\nSample Output:\nHeavy AI User: 14 hours/week\n\nNote: Make sure to replace [X] with the actual calculated number!",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "# Read daily hours as an integer\ndaily_hours = int(input())\n\n# Calculate weekly hours and print the result\n",
+    "solution": "daily_hours = int(input())\nweekly = daily_hours * 7\nif weekly > 10:\n    print(f'Heavy AI User: {weekly} hours/week')\nelse:\n    print(f'Light AI User: {weekly} hours/week')",
+    "hints": [
+      "Multiply the `daily_hours` variable by 7 to find the weekly total.",
+      "Use an `if` statement to check `if weekly > 10:` and an `else` block for the alternative.",
+      "Use an f-string like `f'Heavy AI User: {weekly} hours/week'` to easily insert the calculated number into your print statement."
+    ],
+    "testCases": [
+      {
+        "label": "Heavy user",
+        "input": "2",
+        "expectedOutput": "Heavy AI User: 14 hours/week\n"
+      },
+      {
+        "label": "Light user",
+        "input": "1",
+        "expectedOutput": "Light AI User: 7 hours/week\n"
+      },
+      {
+        "label": "Edge Case - Exactly 0",
+        "input": "0",
+        "expectedOutput": "Light AI User: 0 hours/week\n"
+      }
+    ]
+  },
+  {
+    "id": "ai_classifier",
+    "title": "AI/ML/DL Classifier",
+    "description": "Write a Python program that takes a user's input and prints whether it sounds like AI, Machine Learning, or Deep Learning based on keywords in their answer.\n\nYour program must:\n1. Read the user's input string and convert it to lowercase.\n2. Check the input against specific keywords to determine the classification.\n\nRules:\n- If input contains 'learn', 'data', 'pattern', 'train', or 'example' → Print 'Machine Learning'\n- If input contains 'brain', 'network', 'layer', 'neuron', or 'node' → Print 'Deep Learning'\n- Otherwise → Print 'Artificial Intelligence'\n\nSample Input:\nA system that learns patterns from examples\n\nSample Output:\nMachine Learning",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "# AI/ML/DL Classifier\nuser_input = input().lower()\n\n# Check keywords and classify\n# Hint: use 'in' to check if keyword is in user_input\n",
+    "solution": "user_input = input().lower()\ndl_keywords = ['brain', 'network', 'layer', 'neuron', 'node']\nml_keywords = ['learn', 'data', 'pattern', 'train', 'example']\nif any(k in user_input for k in dl_keywords):\n    print('Deep Learning')\nelif any(k in user_input for k in ml_keywords):\n    print('Machine Learning')\nelse:\n    print('Artificial Intelligence')",
+    "hints": [
+      "Create lists of keywords for Deep Learning and Machine Learning.",
+      "Use a loop or the 'any()' function to check if a keyword from your list is in the user's input.",
+      "Use an if/elif/else structure to prioritize the checks."
+    ],
+    "testCases": [
+      {
+        "label": "Machine Learning keywords",
+        "input": "A system that learns patterns from examples",
+        "expectedOutput": "Machine Learning\n"
+      },
+      {
+        "label": "Deep Learning keywords",
+        "input": "Brain-like networks with many layers",
+        "expectedOutput": "Deep Learning\n"
+      },
+      {
+        "label": "Edge Case - Capitalized Input",
+        "input": "BRAIN-like",
+        "expectedOutput": "Deep Learning\n"
+      },
+      {
+        "label": "Fallback AI keywords",
+        "input": "A system to perform a task",
+        "expectedOutput": "Artificial Intelligence\n"
+      }
+    ]
+  },
+  {
+    "id": "agi_timeline_sim1",
+    "title": "AGI Timeline Predictor (Similar A)",
+    "description": "Experts frequently debate the timeline for Artificial General Intelligence (AGI). Write a program that takes a user's predicted year for AGI and categorizes their estimate.\n\nYour program must:\n1. Read an integer representing the predicted year.\n2. Output a specific categorization based on numeric ranges.\n\nRules:\n- If the year is 2025 or earlier → Print 'Very optimistic!'\n- If the year is between 2026 and 2050 (inclusive) → Print 'Realistic timeline.'\n- If the year is 2051 or later → Print 'Conservative estimate.'\n\nSample Input:\n2040\n\nSample Output:\nRealistic timeline.",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "# Read the predicted year as an integer\nyear = int(input())\n\n# Check the ranges using if/elif/else\n",
+    "solution": "year = int(input())\nif year <= 2025:\n    print('Very optimistic!')\nelif year <= 2050:\n    print('Realistic timeline.')\nelse:\n    print('Conservative estimate.')",
+    "hints": [
+      "Start with `if year <= 2025:` to handle the first condition.",
+      "Because the `if` handles everything up to 2025, your `elif` only needs to check `year <= 2050` to cover the 2026-2050 range.",
+      "Use a final `else:` for anything that doesn't fit the first two conditions (meaning it must be greater than 2050)."
+    ],
+    "testCases": [
+      {
+        "label": "Optimistic",
+        "input": "2024",
+        "expectedOutput": "Very optimistic!\n"
+      },
+      {
+        "label": "Realistic boundary",
+        "input": "2026",
+        "expectedOutput": "Realistic timeline.\n"
+      },
+      {
+        "label": "Conservative",
+        "input": "2060",
+        "expectedOutput": "Conservative estimate.\n"
+      }
+    ]
+  },
+  {
+    "id": "chatbot_greeting_sim2",
+    "title": "Simple Chatbot Rules (Similar B)",
+    "description": "Write a Python program that acts as a simple rule-based Chatbot.\n\nYour chatbot must:\n1. Ask the user 'How are you feeling today?'\n2. Read the user's input and make it case-insensitive\n3. Respond based on specific exact matches\n\nRules:\n- If input is 'happy' → Print 'That is great to hear!'\n- If input is 'sad' → Print 'I hope your day gets better.'\n- Otherwise → Print 'I see. Tell me more.'\n\nSample Input:\nhappy\n\nSample Output:\nHow are you feeling today?\nThat is great to hear!",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "# Simple Chatbot\nprint('How are you feeling today?')\nfeeling = input().lower().strip()\n\n# Add your rule-based responses here\n",
+    "solution": "print('How are you feeling today?')\nfeeling = input().lower().strip()\nif feeling == 'happy':\n    print('That is great to hear!')\nelif feeling == 'sad':\n    print('I hope your day gets better.')\nelse:\n    print('I see. Tell me more.')",
+    "hints": [
+      "Use the `input()` function to get the user's feelings and convert it to `.lower()` immediately.",
+      "Check for equality `== 'happy'` rather than using the `in` keyword, since we want exact mood matches."
+    ],
+    "testCases": [
+      {
+        "label": "User is happy",
+        "input": "happy",
+        "expectedOutput": "How are you feeling today?\nThat is great to hear!\n"
+      },
+      {
+        "label": "User is sad (uppercase)",
+        "input": "SAD",
+        "expectedOutput": "How are you feeling today?\nI hope your day gets better.\n"
+      },
+      {
+        "label": "User is tired (fallback)",
+        "input": "tired",
+        "expectedOutput": "How are you feeling today?\nI see. Tell me more.\n"
+      }
+    ]
+  }
+]

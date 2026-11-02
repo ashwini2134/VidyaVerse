@@ -1,0 +1,610 @@
+{
+  "id": "fundamentals-of-ai-lecture-2",
+  "courseSlug": "fundamentals-of-ai",
+  "number": 3,
+  "title": "Knowledge & Logic",
+  "overview": "Logic is how AI knows things \u2014 through precise rules and True/False reasoning rather than guesswork. Learn propositional logic, inference, and first-order logic.",
+  "estimatedMinutes": 60,
+  "sections": [
+    {
+      "id": "propositional-logic",
+      "label": "Propositional Logic",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Propositional Logic \u2014 SVG placeholder",
+            "svgId": "propositional-logic"
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "Propositional Logic"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Propositional logic is based on propositions \u2014 statements about the world that can be either true or false. Each proposition is represented using a propositional symbol, usually a letter like P, Q, or R. To reason about more complex ideas, these symbols are connected using logical connectives such as Not, And, Or, Implication, and Biconditional."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Propositions"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A proposition is a statement that is either True or False \u2014 never both, never neither. 'It is raining' is a proposition. 'Is it raining?' is not."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "AND / OR / NOT"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Connectives combine propositions into compound ones. AND requires both sides true; OR requires at least one; NOT flips the value. These three operations underlie all of Boolean logic."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Implication \u2192"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "P \u2192 Q means if P is true, Q must be true. This is how rules are written. The implication only fails when P is true and Q is false."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Entailment"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A set of facts entails a conclusion if the conclusion holds in every world where those facts are true. Entailment is the mathematical definition of logically follows from."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "Logic gives AI the ability to reason with certainty \u2014 not probability, not guesswork. Pure deduction."
+          }
+        },
+        {
+          "type": "ai_section",
+          "theme": "light",
+          "hero": {
+            "category": "",
+            "title": "Propositional Logic",
+            "intro": ""
+          },
+          "concepts": [],
+          "keyInsight": ""
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Smart Traffic Signal Makes Logical Decisions",
+          "subtitle": "A traffic signal doesn't guess. It checks conditions like Emergency Vehicle, Pedestrian Waiting, and Heavy Traffic \u2014 then applies a rule to decide what to do.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "Traffic signals constantly observe what is happening around them before deciding what to do.",
+              "caption": "Real-world systems first collect facts before making decisions."
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "Changing one condition changes the final outcome because every rule follows logical relationships.",
+              "caption": "Different rules produce different decisions."
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "Many AI systems begin by evaluating facts using logical rules before making a decision.",
+              "caption": "AI also makes decisions using logical conditions."
+            }
+          ],
+          "insight": "Propositional Logic combines True and False facts to make reliable decisions.",
+          "reinforcement": "Whether it is a traffic signal or an AI system, the decision depends on logical conditions."
+        },
+        {
+          "type": "practice",
+          "title": "Evaluating Logic Expressions",
+          "instructions": "Run the code to see how AND, OR, and NOT evaluate different logical expressions.",
+          "starterCode": "# Evaluate these logic expressions\nprint(\"True and True:\", True and True)\nprint(\"True and False:\", True and False)\nprint(\"True or False:\", True or False)\nprint(\"not True:\", not True)\nprint(\"(True or False) and not False:\", (True or False) and not False)",
+          "solution": "print(\"True and True:\", True and True)\nprint(\"True and False:\", True and False)\nprint(\"True or False:\", True or False)\nprint(\"not True:\", not True)\nprint(\"(True or False) and not False:\", (True or False) and not False)",
+          "hint": "AND needs both True, OR needs at least one True, NOT flips the value."
+        }
+      ]
+    },
+    {
+      "id": "knowledge-bases",
+      "label": "Inference & Knowledge Bases",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Inference & Knowledge Bases \u2014 SVG placeholder",
+            "svgId": "knowledge-bases"
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "Knowledge Bases & Inference"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A knowledge base is everything an AI agent knows to be true. Inference is how it derives new facts from that knowledge \u2014 turning limited information into powerful reasoning."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "How a Knowledge Base is Useful"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A knowledge base stores facts and rules an agent knows to be true. Inference combines them to derive new answers the AI was never directly told."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Facts Never Fade"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Once stored, facts are permanent \u2014 the AI never forgets. Add one new fact and every related inference updates automatically."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Certain Answers"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Unlike machine learning probabilities, a KB gives definite answers. If the input facts are correct, every conclusion is guaranteed correct."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "A knowledge base is useful because it turns a handful of facts and rules into an engine that can answer questions it was never explicitly programmed for."
+          }
+        },
+        {
+          "type": "ai_section",
+          "theme": "light",
+          "hero": {
+            "category": "",
+            "title": "Knowledge Bases & Inference",
+            "intro": ""
+          },
+          "concepts": [],
+          "keyInsight": ""
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "How a Knowledge Base is Useful"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A knowledge base stores everything an AI knows \u2014 facts like \u201cIt is raining\u201d and rules like \u201cIf it rains, the ground gets wet.\u201d Once stored, these facts never fade. The AI combines them using logical inference to derive answers to questions it was never directly asked."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "This is what makes a knowledge base useful: it turns a small set of known truths into an engine that can answer an unlimited number of new questions. Add one new fact, and every related inference updates automatically \u2014 no reprogramming needed."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Doctor Diagnosing a Patient",
+          "subtitle": "A doctor doesn't guess. They already know many medical facts. When a patient shows symptoms, the doctor connects those symptoms to what they already know to find the answer.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "Doctors don't start from scratch. They use existing medical knowledge before making decisions.",
+              "caption": "Experts rely on knowledge they've already learned."
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "The doctor connects new symptoms with known medical facts to understand the situation.",
+              "caption": "New information is compared with stored knowledge."
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "Inference is the process of reaching a conclusion using stored knowledge and new information.",
+              "caption": "AI combines facts to discover something new."
+            }
+          ],
+          "insight": "A Knowledge Base stores facts. Inference turns those facts into answers.",
+          "reinforcement": "AI doesn't memorise every answer. It reasons using the knowledge it already has."
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Detective Solving a Mystery",
+          "subtitle": "A detective gathers clues like footprints and witness statements. Each clue is a fact. Connecting them through reasoning reveals who the culprit is.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "A detective first gathers facts before trying to solve the case.",
+              "caption": "Good decisions begin with reliable evidence."
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "Individual clues become meaningful only when they are logically connected.",
+              "caption": "Reasoning connects facts to reveal patterns."
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "Logic-based reasoning allows AI to combine information and reach conclusions systematically.",
+              "caption": "AI follows the same reasoning process using facts and rules."
+            }
+          ],
+          "insight": "Reasoning is the process of turning facts into conclusions through logical connections.",
+          "reinforcement": "Like a detective, AI solves problems by connecting evidence instead of making random guesses."
+        },
+        {
+          "type": "practice",
+          "title": "Building a Knowledge Base",
+          "instructions": "Build a knowledge base with facts and use inference rules to derive new facts.",
+          "starterCode": "# Build a knowledge base with inference\nfacts = {\"has_wings\": True, \"is_bird\": True}\n# Rule: if has_wings AND is_bird THEN can_fly\nif facts[\"has_wings\"] and facts[\"is_bird\"]:\n    facts[\"can_fly\"] = True\n    print(\"Inferred: can_fly\")\nprint(f\"Facts: {facts}\")",
+          "solution": "facts = {\"has_wings\": True, \"is_bird\": True}\nif facts[\"has_wings\"] and facts[\"is_bird\"]:\n    facts[\"can_fly\"] = True\n    print(\"Inferred: can_fly\")\nprint(f\"Facts: {facts}\")",
+          "hint": "A Knowledge Base stores facts. Inference applies logical rules to derive new facts."
+        }
+      ]
+    },
+    {
+      "id": "first-order-logic",
+      "label": "First-Order Logic",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "First-Order Logic \u2014 SVG placeholder",
+            "svgId": "first-order-logic"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Propositional logic reasons about fixed isolated facts. First-order logic lets AI reason about objects, their properties, and the relationships between them \u2014 making it vastly more expressive and practical."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Objects & Constants"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "FOL introduces named objects: John, London, the number 5. These are constants \u2014 specific, individual things in the world the agent reasons about."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Predicates"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A predicate expresses a property or relationship: Human(John), Loves(John, Mary). Applied to objects, predicates produce propositions that are True or False."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Universal Quantifier \u2200"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "\u2200x means for all x. The statement \u2200x: Human(x) \u2192 Mortal(x) covers every object in the domain at once \u2014 one sentence replaces infinitely many."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Existential Quantifier \u2203"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "\u2203x means there exists some x. \u2203x: Loves(John, x) says John loves at least one thing without naming what it is. Existential quantifiers assert existence without specifics."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "First-order logic extends propositional logic by introducing quantifiers (\u2200, \u2203) and predicates, enabling reasoning about objects and their relationships rather than just simple true/false statements."
+          }
+        },
+        {
+          "type": "ai_section",
+          "theme": "light",
+          "hero": {
+            "category": "",
+            "title": "First-Order Logic",
+            "intro": ""
+          },
+          "concepts": [],
+          "keyInsight": ""
+        },
+        {
+          "type": "practice",
+          "title": "Practice Exercise",
+          "instructions": "First-Order Logic uses \u2200 (for all) and \u2203 (there exists) to write rules that apply to entire categories \u2014 not just named individuals. Translate two FOL sentences into Python and watch one rule generate conclusions for every object in the world.",
+          "starterCode": "# \u2200x: Human(x) \u2192 Mortal(x)   means everyone human is mortal\n# \u2203x: Philosopher(x)          means at least one philosopher exists\n\nhumans       = ['Socrates', 'Alice', 'Bob']\nphilosophers = ['Socrates', 'Alice']\nmortals      = []\n\n# Rule 1 \u2014 universal quantifier: for ALL humans, conclude mortal\nfor person in humans:\n    mortals.append(person)\n    print(f\"Human({person}) \u2192 Mortal({person}): True\")\n\nprint()\n\n# Rule 2 \u2014 existential quantifier: SOME philosopher exists\nexists = len(philosophers) > 0\nprint(f\"\u2203x: Philosopher(x) \u2192 {exists}  (witness: {philosophers[0]})\")\n\nprint()\n\n# Chained rule: \u2200x: Philosopher(x) \u2192 Loves(x, wisdom)\nfor p in philosophers:\n    print(f\"Loves({p}, wisdom): True\")\n\nprint()\nprint(f\"One \u2200 rule derived {len(mortals)} individual Mortal() facts.\")\nprint(\"That is why FOL is more powerful than propositional logic.\")",
+          "solution": "humans = ['Socrates', 'Alice', 'Bob']\nphilosophers = ['Socrates', 'Alice']\nmortals = [p for p in humans]\nfor p in mortals:\n    print(f\"Mortal({p}): True\")\nprint(f\"\\n\u2203x: Philosopher(x) \u2192 {len(philosophers) > 0}, witness={philosophers[0]}\")\nfor p in philosophers:\n    print(f\"Loves({p}, wisdom): True\")\nprint(f\"\\nOne universal rule derived {len(mortals)} mortal facts.\")",
+          "hint": "\u2200x in FOL = 'for' loop in Python. \u2203x in FOL = checking if a list is non-empty. That is the direct mapping."
+        }
+      ]
+    },
+    {
+      "id": "knowledge-engineering",
+      "label": "Knowledge Engineering",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Knowledge Engineering \u2014 SVG placeholder",
+            "svgId": "knowledge-engineering"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Knowledge engineering is the process of figuring out how to represent propositions and logic in AI. Practice knowledge engineering using the game Clue as a running example, then extend to two more logic puzzles."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "The Clue Example"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Representing rules and facts from a murder mystery into a logical knowledge base."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "The Hogwarts Houses Puzzle"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Representing a matching puzzle using propositional logic and discovering its limitations."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "The Mastermind Game"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Using logical inference to determine the exact order and colors of a hidden sequence."
+          }
+        },
+        {
+          "type": "ai_section",
+          "theme": "light",
+          "hero": {
+            "category": "",
+            "title": "",
+            "intro": ""
+          },
+          "concepts": [],
+          "probabilityContent": {
+            "chapters": [
+              {
+                "title": "The Clue Example",
+                "sentences": [
+                  "A murder was committed by a person, using a tool, in a location. One card of each category (3 people: Mustard, Plum, Scarlet; 3 tools: knife, revolver, wrench; 3 locations: ballroom, kitchen, library) is picked at random and sealed in an envelope.",
+                  "Players uncover cards and use the Model Checking algorithm to deduce the envelope's contents. In the knowledge base (KB), mark items True if related to the murder, False otherwise.",
+                  "Formula: (Mustard \u2228 Plum \u2228 Scarlet)\n(knife \u2228 revolver \u2228 wrench)\n(ballroom \u2228 kitchen \u2228 library)",
+                  "Starting hand (cards seen by the player: Mustard, kitchen, revolver):",
+                  "Formula: \u00ac(Mustard)\n\u00ac(kitchen)\n\u00ac(revolver)",
+                  "A guess is made: Scarlet, wrench, library \u2014 and it's wrong:",
+                  "Formula: (\u00acScarlet \u2228 \u00aclibrary \u2228 \u00acwrench)",
+                  "Someone shows the Plum card: \u00ac(Plum). At this point the murderer must be Scarlet (only one left of Mustard/Plum/Scarlet).",
+                  "One more clue: it's not the ballroom: \u00ac(ballroom). Now deduce the library (last remaining location). Since the earlier guess (Scarlet, library, wrench) was false and both Scarlet and library are now true, the wrench must be the false part. By elimination, the weapon is the knife."
+                ],
+                "interactive": "clue-code"
+              }
+            ]
+          },
+          "keyInsight": ""
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "The Hogwarts Houses Puzzle"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Four people \u2014 Gilderoy, Pomona, Minerva, Horace \u2014 are each assigned to exactly one of four houses \u2014 Gryffindor, Hufflepuff, Ravenclaw, Slytherin."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Representing this in propositional logic is cumbersome. Every possible person\u2013house pairing needs its own atomic proposition (MinervaGryffindor, MinervaHufflepuff, MinervaRavenclaw, MinervaSlytherin, PomonaGryffindor, \u2026)."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Each person needs an Or over all their possible house assignments:"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Formula: (MinervaGryffindor \u2228 MinervaHufflepuff \u2228 MinervaRavenclaw \u2228 MinervaSlytherin)"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Mutual exclusivity needs an implication chain so that being assigned one house rules out the others:"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Formula: (MinervaGryffindor \u2192 \u00acMinervaHufflepuff) \u2227 (MinervaGryffindor \u2192 \u00acMinervaRavenclaw) \u2227 (MinervaGryffindor \u2192 \u00acMinervaSlytherin) \u2227 (MinervaHufflepuff \u2192 \u00acMinervaGryffindor) \u2227 ..."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "In simple words: This inefficiency is what First Order Logic solves, but the puzzle is still solvable in propositional logic given enough clues!"
+          }
+        },
+        {
+          "type": "ai_section",
+          "theme": "light",
+          "hero": {
+            "category": "",
+            "title": "",
+            "intro": ""
+          },
+          "concepts": [],
+          "probabilityContent": {
+            "chapters": [
+              {
+                "title": "The Mastermind Game",
+                "sentences": [
+                  "Player One arranges colors in a hidden order. Player Two guesses; after each guess Player One reports only how many colors are in the correct position \u2014 not which ones."
+                ],
+                "interactive": "mastermind"
+              },
+              {
+                "title": "Try It Yourself",
+                "sentences": [
+                  "Work through a mini deduction puzzle that uses the same kind of logical reasoning as the Clue example and the Mastermind game."
+                ],
+                "interactive": "knowledge-engineering-try-it-yourself"
+              }
+            ]
+          },
+          "keyInsight": ""
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "Knowledge engineering turns complex real-world puzzles into simple logical statements that an AI can solve using model checking."
+          }
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "A proposition is any statement that is definitively True or False"
+      },
+      {
+        "text": "Connectives AND, OR, NOT, and implication \u2192 build compound logic from simple facts"
+      },
+      {
+        "text": "A knowledge base stores all facts and rules the agent believes to be true"
+      },
+      {
+        "text": "Inference automatically derives new conclusions from existing knowledge"
+      },
+      {
+        "text": "Modus Ponens: know P, know P\u2192Q, therefore conclude Q with certainty"
+      },
+      {
+        "text": "First-order logic adds objects, predicates, and quantifiers \u2014 vastly more expressive than propositional logic"
+      }
+    ],
+    "whatYouLearned": [
+      "How to represent knowledge as precise True/False statements",
+      "How logical connectives and implication combine propositions",
+      "How inference engines derive new knowledge from a knowledge base",
+      "The power of Modus Ponens and resolution as inference rules",
+      "How first-order logic lets AI reason about categories of objects with quantifiers",
+      "Why FOL is used in expert systems, legal AI, and theorem provers"
+    ],
+    "nextUp": "Probability & Uncertainty"
+  }
+}

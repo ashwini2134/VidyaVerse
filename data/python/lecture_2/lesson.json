@@ -1,0 +1,199 @@
+{
+  "id": "python-lecture-2",
+  "courseSlug": "python",
+  "number": 2,
+  "title": "Input & Output",
+  "overview": "Programs are interactive — they ask for input, process it, and show output. In this lecture you'll master getting user input and formatting output like a pro.",
+  "estimatedMinutes": 45,
+  "sections": [
+    {
+      "id": "print-output",
+      "label": "print() Output",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "blue",
+          "title": "Displaying Output with print()",
+          "body": "You already know print() displays text. But print() has superpowers — you can print multiple items, change separators, and control line endings.",
+          "bullets": [
+            "print() accepts multiple items separated by commas",
+            "By default, items are separated by a space",
+            "Use sep parameter to change the separator",
+            "Use end parameter to change what comes at the end (default is newline)"
+          ]
+        },
+        {
+          "type": "code_example",
+          "title": "Print Multiple Items",
+          "language": "python",
+          "code": "print(\"Hello\", \"World\")\nprint(1, 2, 3, 4)\nprint(\"Python\", \"is\", \"awesome\")",
+          "expectedOutput": "Hello World\n1 2 3 4\nPython is awesome"
+        },
+        {
+          "type": "practice",
+          "title": "Design Your Output",
+          "instructions": "Use print() with sep to display numbers 1 through 5 separated by arrows: \"1 → 2 → 3 → 4 → 5\"",
+          "starterCode": "# Print numbers with arrow separator\nprint(1, 2, 3, 4, 5, sep=\"\")",
+          "solution": "print(1, 2, 3, 4, 5, sep=\" → \")",
+          "hint": "Put your numbers as separate arguments to print(). Set sep=\" → \" with the arrow symbol.",
+          "expectedOutput": "1 → 2 → 3 → 4 → 5"
+        },
+        {
+          "type": "reflection",
+          "question": "Does this concept make sense so far? Try to explain it in your own words.",
+          "answer": "If you can explain this concept to someone else, you have understood it well. Practice with the exercises below to reinforce your learning."
+        }
+      ]
+    },
+    {
+      "id": "user-input",
+      "label": "User Input",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "Getting Input with input()",
+          "body": "The `input()` function waits for the user to type something and press Enter. It **always returns a string** — even if the user types a number.",
+          "bullets": [
+            "input() pauses the program and waits for the user",
+            "You can show a prompt: input(\"Enter your name: \")",
+            "The return value is always a string",
+            "Use int(input()) to get an integer from the user"
+          ]
+        },
+        {
+          "type": "analogy",
+          "title": "input() is Like a Receptionist",
+          "emoji": "",
+          "text": "You ask a question (the prompt), then wait for the person to answer (type and press Enter). The receptionist (input()) hands you the answer on a piece of paper (a string). If you need it as a number, you must convert it yourself."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Receptionist",
+            "description": "Receptionist asks a question, waits for your answer, then tells the program",
+            "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "User Input Flow",
+            "items": [
+              "Input",
+              "Function",
+              "Output"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "name = input(\"Enter name: \")\nprint(f\"Hello, {name}!\")",
+            "output": "Enter name: Alice\nHello, Alice!"
+          }
+        },
+        {
+          "type": "code_example",
+          "title": "Getting and Using Input",
+          "language": "python",
+          "code": "name = input(\"Enter your name: \")\nprint(\"Hello, \" + name + \"!\")",
+          "expectedOutput": "Enter your name: Lakshanya\nHello, Lakshanya!"
+        },
+        {
+          "type": "practice",
+          "title": "Student Details Form",
+          "instructions": "Ask the user for their name (string), age (integer), and city (string). Then print all details in a formatted card using f-strings.",
+          "starterCode": "# Get student details\nname = input(\"Enter your name: \")\nage = \ncity = \n\n# Print details card",
+          "solution": "name = input(\"Enter your name: \")\nage = int(input(\"Enter your age: \"))\ncity = input(\"Enter your city: \")\n\nprint(f\"--- Student Card ---\")\nprint(f\"Name: {name}\")\nprint(f\"Age: {age}\")\nprint(f\"City: {city}\")",
+          "hint": "Use int(input()) for numbers. Use f-strings to format the output nicely.",
+          "expectedOutput": "--- Student Card ---\nName: test\nAge: 42\nCity: test"
+        }
+      ]
+    },
+    {
+      "id": "fstrings-deep",
+      "label": "f-Strings Deep Dive",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "green",
+          "title": "Formatting with f-Strings",
+          "body": "**f-strings** (formatted strings) are the cleanest way to combine text and variables. Just prefix your string with `f` and put expressions inside `{}`.",
+          "bullets": [
+            "Prefix the string with f: f\"Hello {name}\"",
+            "Any expression works inside {}: math, function calls, variables",
+            "f-strings handle type conversion automatically",
+            "They are faster and more readable than + concatenation"
+          ]
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Fill-In-The-Blank",
+            "description": "Write the sentence with blanks { }, then fill them with variable values",
+            "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=80"
+          },
+          "visualization": {
+            "type": "categories",
+            "title": "Template → Filled",
+            "centerLabel": "Template → Filled",
+            "items": [
+              "name",
+              "age",
+              "city"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "name = \"Alice\"\nprint(f\"Hello, {name}!\")",
+            "output": "Hello, Alice!"
+          }
+        },
+        {
+          "type": "code_example",
+          "title": "f-String Examples",
+          "language": "python",
+          "code": "name = \"Lakshanya\"\nage = 20\n\nprint(f\"Hello, {name}!\")\nprint(f\"{name} is {age} years old\")\nprint(f\"In 5 years, {name} will be {age + 5}\")",
+          "expectedOutput": "Hello, Lakshanya!\nLakshanya is 20 years old\nIn 5 years, Lakshanya will be 25"
+        },
+        {
+          "type": "practice",
+          "title": "Simple Calculator",
+          "instructions": "Ask the user for two numbers. Convert them to integers. Print the sum, difference, and product using f-strings.",
+          "starterCode": "# Get two numbers\nnum1 = int(input(\"Enter first number: \"))\nnum2 = \n\n# Calculate and print",
+          "solution": "num1 = int(input(\"Enter first number: \"))\nnum2 = int(input(\"Enter second number: \"))\n\nprint(f\"Sum: {num1 + num2}\")\nprint(f\"Difference: {num1 - num2}\")\nprint(f\"Product: {num1 * num2}\")",
+          "hint": "Use int(input()) for both numbers. Use f-strings with {} to show calculations.",
+          "expectedOutput": "Sum: 84\nDifference: 0\nProduct: 1764"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "print() can take multiple items, sep changes separator, end changes line ending"
+      },
+      {
+        "text": "input() gets text from the user, always returns a string"
+      },
+      {
+        "text": "Use int(input()) to get numbers from user input"
+      },
+      {
+        "text": "f-strings embed variables with {} and are cleaner than concatenation"
+      },
+      {
+        "text": "int() fails with ValueError if the input is not a valid number"
+      },
+      {
+        "text": "Combine input, conversion, and f-strings for interactive programs"
+      }
+    ],
+    "whatYouLearned": [
+      "How to format print() output with sep and end",
+      "How to get user input with input()",
+      "How to convert string input to integers",
+      "How to format strings with f-strings",
+      "The difference between f-strings and concatenation",
+      "How to build a simple interactive calculator"
+    ],
+    "nextUp": "Operators"
+  }
+}

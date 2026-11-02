@@ -1,0 +1,451 @@
+{
+  "id": "python20-lecture-2",
+  "courseSlug": "python20",
+  "number": 2,
+  "title": "Input & Output",
+  "overview": "Programs that can't interact with users are just calculators with extra steps. In this lecture you'll learn how to display formatted output and how to get information from the user in real time.",
+  "estimatedMinutes": 50,
+  "sections": [
+    {
+      "id": "output-formatting",
+      "label": "Displaying Output",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "You already know `print()`. But there's much more to output than just printing a single value."
+        },
+        {
+          "type": "text",
+          "content": "What if you want to print two things on the same line? Or add a space between values? Or format a message to include a variable?"
+        },
+        {
+          "type": "text",
+          "content": "Python's `print()` is surprisingly flexible. Let's explore."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Printing Multiple Values",
+          "language": "python",
+          "code": "name = \"Arjun\"\nage = 22\n\n# Method 1: Multiple arguments (auto-separated by space)\nprint(\"Name:\", name, \"Age:\", age)\n\n# Method 2: Concatenation (join strings with +)\nprint(\"Student: \" + name)\n\n# Method 3: f-strings (cleanest way)\nprint(f\"My name is {name} and I am {age} years old.\")",
+          "expectedOutput": "Name: Arjun Age: 22\nStudent: Arjun\nMy name is Arjun and I am 22 years old.",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "**f-strings** are the most powerful. You put an `f` before the quote, then wrap variable names in `{}`. Python replaces them with their actual values."
+        },
+        {
+          "type": "text",
+          "content": "You can also control what separates values or what appears at the end of a print statement."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — sep and end",
+          "language": "python",
+          "code": "# Default: space between values, newline at end\nprint(\"Mon\", \"Tue\", \"Wed\")\n\n# Custom separator\nprint(\"Mon\", \"Tue\", \"Wed\", sep=\" | \")\n\n# No newline at end\nprint(\"Hello\", end=\" \")\nprint(\"World\")",
+          "expectedOutput": "Mon Tue Wed\nMon | Tue | Wed\nHello World",
+          "editable": true
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Customising a Name Badge",
+            "description": "At a conference, name badges have your name printed in different formats: formal, casual, with title. f-strings let you customise how information is displayed — like designing your own badge template.",
+            "image": "https://images.unsplash.com/photo-1560264280-88b68371db39?w=800&q=80",
+            "bullets": [
+              "A badge template has fixed text and blank spaces for your name.",
+              "You fill in your details and the badge prints a custom result.",
+              "Change the name, and you get a completely different badge."
+            ],
+            "highlightCard": "An f-string is a template — fixed text with slots for your variables."
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "f-string Template",
+            "items": [
+              "Write template: f\"Hello {name}\"",
+              "Python fills in {name}",
+              "Output: Hello Arjun"
+            ],
+            "bullets": [
+              "Put an f before the opening quote to create an f-string.",
+              "Wrap any variable name in curly braces {} to insert its value.",
+              "Python replaces each {} with the actual value at runtime."
+            ],
+            "highlightCard": "f\"{variable}\" inserts any variable directly into your string."
+          },
+          "code": {
+            "language": "python",
+            "code": "name = \"Meera\"\nscore = 95\nprint(f\"{name} scored {score} out of 100!\")",
+            "output": "Meera scored 95 out of 100!",
+            "highlights": [
+              "The f before the quote tells Python this string has embedded variables.",
+              "{name} is replaced by whatever name stores at that moment.",
+              "You can embed any expression, not just variable names."
+            ],
+            "highlightCard": "f-strings make combining text and variables clean, readable, and fast."
+          },
+          "reflection": {
+            "question": "What is the advantage of f-strings over concatenation?",
+            "answer": "f-strings are cleaner and can embed any variable or expression directly — no need to convert numbers to strings manually.",
+            "options": [
+              "They run faster",
+              "They are cleaner and can embed variables directly",
+              "They are the only way to print",
+              "They are required by Python 3"
+            ]
+          },
+          "stage1Transition": "How does Python let you mix variables into text? That's what f-strings do.",
+          "stage2Transition": "Here is how f-strings look in Python.",
+          "takeaway": "f-strings are like badge templates — you write the layout once, then insert different values to create custom output every time. Use them whenever you mix text and variables."
+        },
+        {
+          "type": "practice",
+          "title": "Format a Report Card",
+          "instructions": "A teacher needs to print a formatted report. Given a student's name, subject, and marks, print: 'Student: [name] | Subject: [subject] | Marks: [marks]/100' — all on one line using an f-string.",
+          "starterCode": "name = \"Divya\"\nsubject = \"Mathematics\"\nmarks = 88\n\n# Print using an f-string\nprint(f\"\")",
+          "solution": "name = \"Divya\"\nsubject = \"Mathematics\"\nmarks = 88\n\nprint(f\"Student: {name} | Subject: {subject} | Marks: {marks}/100\")",
+          "hint": "Start with f\"...\" and use {name}, {subject}, {marks} inside curly braces.",
+          "expectedOutput": "Student: Divya | Subject: Mathematics | Marks: 88/100"
+        }
+      ]
+    },
+    {
+      "id": "user-input",
+      "label": "Getting Input from the User",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "So far, all our programs have used data we typed directly into the code. But real programs are interactive — they ask the user for information."
+        },
+        {
+          "type": "text",
+          "content": "Python's `input()` function pauses the program and waits for the user to type something. Whatever the user types is returned as a **string** (text)."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Basic Input",
+          "language": "python",
+          "code": "name = input(\"What is your name? \")\nprint(f\"Hello, {name}! Welcome to Python 2.0.\")",
+          "expectedOutput": "What is your name? Hello, [name]! Welcome to Python 2.0.",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "The text inside `input()` is the **prompt** — what the user sees before they type. Always include a space at the end of your prompt so the cursor appears clearly."
+        },
+        {
+          "type": "text",
+          "content": "**Important:** `input()` always returns a **string**, even if the user types a number. To use the input as a number, you must convert it."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Converting Input to Numbers",
+          "language": "python",
+          "code": "age_text = input(\"Enter your age: \")\nage = int(age_text)      # Convert string to integer\n\nyear_born = 2025 - age\nprint(f\"You were born around {year_born}.\")",
+          "expectedOutput": "Enter your age: You were born around [year].",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "Use `int()` to convert to a whole number. Use `float()` to convert to a decimal. You can even do it in one step: `age = int(input(\"Age: \"))`."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "ATM Machine",
+            "description": "An ATM prompts you: 'Enter PIN:' then waits. You type your PIN, it reads it, and responds. input() works exactly like this — prompt, wait, receive, process.",
+            "image": "https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=800&q=80",
+            "bullets": [
+              "The screen shows a prompt asking you to enter your PIN.",
+              "You type your PIN and the machine reads what you entered.",
+              "It then processes your input and responds accordingly."
+            ],
+            "highlightCard": "input() prompts the user, waits for them to type, and captures what they enter."
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "How input() Works",
+            "items": [
+              "Show prompt",
+              "Wait for user",
+              "User types",
+              "Return text as string"
+            ],
+            "bullets": [
+              "input() pauses the program and shows a prompt to the user.",
+              "The user types something and presses Enter.",
+              "Python captures what was typed and stores it as a string."
+            ],
+            "highlightCard": "input() always returns a string — convert it if you need a number."
+          },
+          "code": {
+            "language": "python",
+            "code": "pin = input(\"Enter PIN: \")\nprint(f\"PIN entered: {pin}\")",
+            "output": "Enter PIN: \nPIN entered: 1234",
+            "highlights": [
+              "input(\"Enter your name: \") shows the message and waits for the user.",
+              "Whatever the user types is stored in the variable on the left.",
+              "input() always gives you a string — use int() or float() to convert."
+            ],
+            "highlightCard": "input() lets your program communicate with the person running it."
+          },
+          "reflection": {
+            "question": "A user types the number 25. What type does input() return it as?",
+            "answer": "str — input() always returns a string, even if the user types a number. You must convert it with int() or float().",
+            "options": [
+              "int",
+              "float",
+              "str",
+              "bool"
+            ]
+          },
+          "stage1Transition": "How does Python receive information from the user? That's exactly what input() does.",
+          "stage2Transition": "Here is how input() works in real Python code.",
+          "takeaway": "input() is like an ATM's keypad — it shows a prompt, waits for the user to type, and captures what they enter so your program can use it."
+        },
+        {
+          "type": "practice",
+          "title": "Simple Age Calculator",
+          "instructions": "Build an age calculator: ask the user for their birth year, then calculate and print how old they are in 2025. Use int() to convert the input.",
+          "starterCode": "# Age Calculator\nbirth_year = int(input(\"Enter your birth year: \"))\ncurrent_year = 2025\n\n# Calculate and print the age\n",
+          "solution": "birth_year = int(input(\"Enter your birth year: \"))\ncurrent_year = 2025\nage = current_year - birth_year\nprint(f\"You are {age} years old in {current_year}.\")",
+          "hint": "Subtract birth_year from 2025 to get the age, then use an f-string to print.",
+          "expectedOutput": "Enter your birth year: You are 22 years old in 2025."
+        }
+      ]
+    },
+    {
+      "id": "combining-io",
+      "label": "Putting It All Together",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Let's combine everything — input, variables, and formatted output — into a real interactive program."
+        },
+        {
+          "type": "text",
+          "content": "When building interactive programs, think about the **conversation** between the program and the user. The program asks, the user answers, and the program responds intelligently."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Student Greeting Program",
+          "language": "python",
+          "code": "name = input(\"Enter your name: \")\ncollege = input(\"Enter your college: \")\nyear = int(input(\"Which year are you in? \"))\n\nprint()\nprint(f\"Welcome, {name}!\")\nprint(f\"College: {college}\")\nprint(f\"Year: {year} of 4\")\nprint(f\"You have {4 - year} more years to go!\")",
+          "expectedOutput": "Enter your name: Enter your college: Which year are you in? \n\nWelcome, Lakshanya!\nCollege: SRM University\nYear: 2 of 4\nYou have 2 more years to go!",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "Notice `print()` with nothing inside it — that prints an empty line. It's great for creating visual spacing in your output."
+        },
+        {
+          "type": "text",
+          "content": "You can also do calculations directly inside f-strings. `{4 - year}` is computed before being inserted into the string."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Hotel Check-In Desk",
+            "description": "The receptionist asks for your name, room preference, and duration. Then prints a formatted receipt. Your interactive program does the same — collect, process, display.",
+            "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80",
+            "bullets": [
+              "The receptionist asks for your name, room choice, and duration of stay.",
+              "They collect all your details before processing the check-in.",
+              "At the end, they hand you a printed confirmation with all your info."
+            ],
+            "highlightCard": "An interactive program collects input, processes it, and displays a formatted result."
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Interactive Program Flow",
+            "items": [
+              "Ask question (input)",
+              "Store answer (variable)",
+              "Process data",
+              "Display result (print)"
+            ],
+            "bullets": [
+              "Collect multiple inputs using multiple input() calls.",
+              "Store each response in its own clearly named variable.",
+              "Combine and display them at the end using print() or an f-string."
+            ],
+            "highlightCard": "Ask → Store → Process → Display. That's the flow of every interactive program."
+          },
+          "code": {
+            "language": "python",
+            "code": "guest = input(\"Guest name: \")\nrooms = int(input(\"Rooms: \"))\nprint(f\"Welcome {guest}! You booked {rooms} room(s).\")",
+            "output": "Guest name: Welcome Priya! You booked 2 room(s).",
+            "highlights": [
+              "Each input() call collects one piece of information from the user.",
+              "Variables store the responses so you can use them later.",
+              "f-strings combine all the stored values into a neat output."
+            ],
+            "highlightCard": "Interactive programs follow one pattern: ask, store, process, display."
+          },
+          "reflection": {
+            "question": "What does print() with nothing inside it do?",
+            "answer": "It prints an empty line — useful for adding blank space in your output.",
+            "options": [
+              "Causes an error",
+              "Prints the word 'None'",
+              "Prints an empty line",
+              "Ends the program"
+            ]
+          },
+          "stage1Transition": "How do you build a program that collects multiple inputs and combines them? Let's see.",
+          "stage2Transition": "Here is how a complete interactive Python program looks.",
+          "takeaway": "A hotel check-in has the same structure as an interactive program — collect details, process them, and produce a formatted result. This is the foundation of all user-facing programs."
+        },
+        {
+          "type": "practice",
+          "title": "Build a Bill Calculator",
+          "instructions": "A restaurant owner wants a quick bill calculator. Ask for: item name, price per item (float), and quantity (int). Then print a formatted bill showing the item, quantity, unit price, and total cost.",
+          "starterCode": "# Restaurant Bill Calculator\nitem = input(\"Item name: \")\nunit_price = float(input(\"Price per item: \"))\nqty = int(input(\"Quantity: \"))\n\n# Calculate total and print the bill\n",
+          "solution": "item = input(\"Item name: \")\nunit_price = float(input(\"Price per item: \"))\nqty = int(input(\"Quantity: \"))\n\ntotal = unit_price * qty\nprint()\nprint(f\"Item: {item}\")\nprint(f\"Quantity: {qty}\")\nprint(f\"Price each: Rs.{unit_price}\")\nprint(f\"Total: Rs.{total}\")",
+          "hint": "Multiply unit_price by qty to get the total. Use f-strings for clean output.",
+          "expectedOutput": "Item name: Quantity: Price each: \n\nItem: Masala Dosa\nQuantity: 3\nPrice each: Rs.60.0\nTotal: Rs.180.0"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "print() can output multiple values — separate them with commas for auto-spacing."
+      },
+      {
+        "text": "f-strings (f\"...\") let you embed variables inside text using {} — the cleanest output method."
+      },
+      {
+        "text": "Use sep= to change the separator between values, and end= to change the line ending."
+      },
+      {
+        "text": "input() pauses the program and waits for the user to type something."
+      },
+      {
+        "text": "input() always returns a string — convert with int() or float() for numeric calculations."
+      },
+      {
+        "text": "print() with no arguments prints a blank line — useful for visual spacing."
+      },
+      {
+        "text": "You can do calculations directly inside f-string curly braces: {4 - year}."
+      }
+    ],
+    "whatYouLearned": [
+      "How to format output with f-strings, sep, and end",
+      "How to accept user input with input()",
+      "How to convert string input to numbers with int() and float()",
+      "How to build a complete interactive program"
+    ],
+    "nextUp": "Operators"
+  },
+  "quiz": [
+    {
+      "question": "What does f\"Hello {name}\" do?",
+      "options": [
+        "Prints the letter f before Hello",
+        "Creates a formatted string inserting the value of name",
+        "Raises a syntax error",
+        "Prints {name} literally"
+      ],
+      "answer": "Creates a formatted string inserting the value of name",
+      "explanation": "An f-string (prefixed with f) allows you to embed variable values directly inside {} placeholders. Python replaces {name} with the actual value of the name variable."
+    },
+    {
+      "question": "What type does input() always return?",
+      "options": [
+        "int",
+        "float",
+        "str",
+        "The type the user inputs"
+      ],
+      "answer": "str",
+      "explanation": "Regardless of what the user types, input() always returns it as a string. If the user types 42, input() returns the string \"42\", not the integer 42. You must explicitly convert it with int() or float()."
+    },
+    {
+      "question": "What will this print?\nprint(\"A\", \"B\", \"C\", sep=\"-\")",
+      "options": [
+        "A B C",
+        "A-B-C",
+        "ABC",
+        "A, B, C"
+      ],
+      "answer": "A-B-C",
+      "explanation": "The sep parameter changes the separator between values. By default it's a space, but sep=\"-\" makes Python put a hyphen between each value."
+    },
+    {
+      "question": "How do you get a number from the user and store it as an integer?",
+      "options": [
+        "num = input()",
+        "num = number(input())",
+        "num = int(input(\"Enter: \"))",
+        "num = input(int(\"Enter: \"))"
+      ],
+      "answer": "num = int(input(\"Enter: \"))",
+      "explanation": "input() collects the text. int() converts it to an integer. Wrapping input() inside int() does both in one step."
+    },
+    {
+      "question": "What does print() with no arguments do?",
+      "options": [
+        "Raises an error",
+        "Prints the word None",
+        "Prints an empty blank line",
+        "Does nothing"
+      ],
+      "answer": "Prints an empty blank line",
+      "explanation": "print() with nothing inside it outputs a newline character, creating a blank line in the output. It's commonly used to add visual spacing."
+    }
+  ],
+  "problems": [
+    {
+      "id": "python20-l2-p1",
+      "title": "Personal Greeting",
+      "description": "Ask the user for their first name and last name separately. Then print:\nFull name: [firstname] [lastname]\n\nExample:\nFull name: Lakshanya Krishnan",
+      "difficulty": "easy",
+      "starterCode": "first = input(\"First name: \")\nlast = input(\"Last name: \")\n\n# Print full name using f-string\n",
+      "solution": "first = input(\"First name: \")\nlast = input(\"Last name: \")\nprint(f\"Full name: {first} {last}\")",
+      "testCases": [
+        {
+          "label": "Shows Full name label",
+          "input": "Lakshanya\nKrishnan",
+          "expectedOutput": "Full name: Lakshanya Krishnan",
+          "matchType": "exact"
+        }
+      ]
+    },
+    {
+      "id": "python20-l2-p2",
+      "title": "BMI Calculator",
+      "description": "Ask the user for their weight in kg (float) and height in metres (float).\nCalculate BMI = weight / (height * height)\nPrint: BMI: [value]\n\nExample for weight=70, height=1.75:\nBMI: 22.857142857142858",
+      "difficulty": "medium",
+      "starterCode": "weight = float(input(\"Weight in kg: \"))\nheight = float(input(\"Height in metres: \"))\n\n# Calculate and print BMI\n",
+      "solution": "weight = float(input(\"Weight in kg: \"))\nheight = float(input(\"Height in metres: \"))\nbmi = weight / (height * height)\nprint(f\"BMI: {bmi}\")",
+      "testCases": [
+        {
+          "label": "BMI calculation",
+          "input": "70\n1.75",
+          "expectedOutput": "BMI: 22.857142857142858",
+          "matchType": "exact"
+        }
+      ]
+    },
+    {
+      "id": "python20-l2-p3",
+      "title": "Shopping Receipt",
+      "description": "Build a receipt printer. Ask for 2 items: for each, take the name and price. Calculate the subtotal and print a formatted receipt:\n\nReceipt\n-------\nItem 1: [name] - Rs.[price]\nItem 2: [name] - Rs.[price]\nTotal: Rs.[total]",
+      "difficulty": "medium",
+      "starterCode": "item1 = input(\"Item 1 name: \")\nprice1 = float(input(\"Item 1 price: \"))\nitem2 = input(\"Item 2 name: \")\nprice2 = float(input(\"Item 2 price: \"))\n\n# Print formatted receipt\n",
+      "solution": "item1 = input(\"Item 1 name: \")\nprice1 = float(input(\"Item 1 price: \"))\nitem2 = input(\"Item 2 name: \")\nprice2 = float(input(\"Item 2 price: \"))\n\ntotal = price1 + price2\nprint(\"Receipt\")\nprint(\"-------\")\nprint(f\"Item 1: {item1} - Rs.{price1}\")\nprint(f\"Item 2: {item2} - Rs.{price2}\")\nprint(f\"Total: Rs.{total}\")",
+      "testCases": [
+        {
+          "label": "Prints receipt with total",
+          "input": "Pen\n10.0\nBook\n150.0",
+          "expectedOutput": "Receipt\n-------\nItem 1: Pen - Rs.10.0\nItem 2: Book - Rs.150.0\nTotal: Rs.160.0",
+          "matchType": "exact"
+        }
+      ]
+    }
+  ]
+}

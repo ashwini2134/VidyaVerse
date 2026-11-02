@@ -1,0 +1,57 @@
+[
+  {
+    "question": "What does range(4) generate?",
+    "options": [
+      "1, 2, 3, 4",
+      "0, 1, 2, 3, 4",
+      "0, 1, 2, 3",
+      "1, 2, 3"
+    ],
+    "answer": "0, 1, 2, 3",
+    "explanation": "range(4) generates numbers from 0 up to but not including 4: 0, 1, 2, 3."
+  },
+  {
+    "question": "How many times will this loop run? for i in range(2, 6):",
+    "options": [
+      "5",
+      "2",
+      "4",
+      "6"
+    ],
+    "answer": "4",
+    "explanation": "range(2, 6) gives 2, 3, 4, 5 — that's 4 numbers."
+  },
+  {
+    "question": "What does range(0, 10, 3) generate?",
+    "options": [
+      "3, 6, 9",
+      "0, 3, 6, 9, 12",
+      "0, 3, 6",
+      "0, 3, 6, 9"
+    ],
+    "answer": "0, 3, 6, 9",
+    "explanation": "range(0, 10, 3) gives: 0, 3, 6, 9. It stops before 10."
+  },
+  {
+    "question": "What does the inner loop in nested loops do?",
+    "options": [
+      "Runs once for each outer loop iteration",
+      "Runs once total",
+      "Only runs if outer loop is True",
+      "Runs completely for EACH outer iteration"
+    ],
+    "answer": "Runs completely for EACH outer iteration",
+    "explanation": "The inner loop runs its FULL cycle for each iteration of the outer loop."
+  },
+  {
+    "question": "What is the output of: for i in range(3): print(i)",
+    "options": [
+      "1 2 3",
+      "1 2",
+      "0 1 2 3",
+      "0 1 2"
+    ],
+    "answer": "0 1 2",
+    "explanation": "range(3) gives 0, 1, 2. Each value is printed on its own line."
+  }
+]

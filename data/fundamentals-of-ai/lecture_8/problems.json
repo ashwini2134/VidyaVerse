@@ -1,0 +1,122 @@
+[
+  {
+    "id": "ask_chatgpt",
+    "title": "Prompt Length Checker",
+    "description": "In Prompt Engineering, providing enough context is crucial for good outputs. Write a script to validate prompt length.\n\nYour program must:\n1. Read a prompt string from the user.\n2. Count the number of characters in the string.\n3. If the length is strictly less than 15 characters, print 'Too short'.\n4. Otherwise, print 'Good prompt'.\n\nSample Input:\nhello\n\nSample Output:\nToo short",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "prompt = input().strip()\n\n# Your code here\n",
+    "solution": "prompt = input().strip()\nif len(prompt) < 15:\n    print('Too short')\nelse:\n    print('Good prompt')",
+    "hints": [
+      "Use the `len()` function to find the number of characters in the string.",
+      "Compare the length to 15 using `<`."
+    ],
+    "testCases": [
+      {
+        "label": "Short prompt",
+        "input": "hello",
+        "expectedOutput": "Too short\n"
+      },
+      {
+        "label": "Long prompt",
+        "input": "Please explain quantum physics.",
+        "expectedOutput": "Good prompt\n"
+      },
+      {
+        "label": "Exactly 14",
+        "input": "fourteen chars",
+        "expectedOutput": "Too short\n"
+      }
+    ]
+  },
+  {
+    "id": "tokenize_sentence",
+    "title": "Tokenize Sentence",
+    "description": "Write Python to tokenize a sentence (split it into words) and count how many words it contains.\n\nYour program must:\n1. Read a sentence string from user input.\n2. Use the `.split()` method to separate it into words based on spaces.\n3. Print the total number of words as an integer.\n\nSample Input:\nHello world this is AI\n\nSample Output:\n5",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "sentence = input().strip()\n\n# Your code here\n",
+    "solution": "sentence = input().strip()\ntokens = sentence.split()\nprint(len(tokens))",
+    "hints": [
+      "The `.split()` method on a string automatically turns it into a list of words.",
+      "Use `len()` on the resulting list to get the word count."
+    ],
+    "testCases": [
+      {
+        "label": "Five words",
+        "input": "Hello world this is AI",
+        "expectedOutput": "5\n"
+      },
+      {
+        "label": "One word",
+        "input": "Python",
+        "expectedOutput": "1\n"
+      },
+      {
+        "label": "Empty string",
+        "input": "",
+        "expectedOutput": "0\n"
+      }
+    ]
+  },
+  {
+    "id": "hallucination_check_sim1",
+    "title": "Hallucination Filter (Similar A)",
+    "description": "Sometimes LLMs hallucinate by asserting a fact while also expressing uncertainty. Let's write a simple filter rule.\n\nYour program must:\n1. Read a response string.\n2. Check if the string contains the exact phrase 'not sure' (case-insensitive).\n3. If it does, print 'Potential Hallucination'.\n4. Otherwise, print 'Clear response'.\n\nSample Input:\nI am not sure, but the capital is Paris.\n\nSample Output:\nPotential Hallucination",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "response = input().strip().lower()\n\n# Your code here\n",
+    "solution": "response = input().strip().lower()\nif 'not sure' in response:\n    print('Potential Hallucination')\nelse:\n    print('Clear response')",
+    "hints": [
+      "Convert the response to `.lower()` before checking.",
+      "Use the `in` keyword to see if the substring `'not sure'` exists."
+    ],
+    "testCases": [
+      {
+        "label": "Contains phrase",
+        "input": "I am not sure, but the capital is Paris.",
+        "expectedOutput": "Potential Hallucination\n"
+      },
+      {
+        "label": "Does not contain",
+        "input": "The capital is Paris.",
+        "expectedOutput": "Clear response\n"
+      },
+      {
+        "label": "Case variations",
+        "input": "I am NOT SURE about this",
+        "expectedOutput": "Potential Hallucination\n"
+      }
+    ]
+  },
+  {
+    "id": "word_freq_counter_sim2",
+    "title": "Word Frequency Counter (Similar B)",
+    "description": "Write a Python script that takes a sentence and a target word as input. Tokenize the sentence and count how many times the exact target word appears.\n\nYour program must:\n1. Read the sentence string.\n2. Read the target word string.\n3. Split the sentence into a list of words.\n4. Count how many times the target word appears in the list (case-sensitive).\n5. Print the integer count.\n\nSample Input:\nthe cat and the dog\nthe\n\nSample Output:\n2",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "sentence = input().strip()\ntarget = input().strip()\n\n# Your code here\n",
+    "solution": "sentence = input().strip()\ntarget = input().strip()\nwords = sentence.split()\ncount = words.count(target)\nprint(count)",
+    "hints": [
+      "Use `sentence.split()` to make a list of words.",
+      "Lists have a built-in `.count()` method that counts exact matches!"
+    ],
+    "testCases": [
+      {
+        "label": "Matches 2",
+        "input": "the cat and the dog\nthe",
+        "expectedOutput": "2\n"
+      },
+      {
+        "label": "Matches 0",
+        "input": "the cat and the dog\nbird",
+        "expectedOutput": "0\n"
+      },
+      {
+        "label": "Case sensitive check",
+        "input": "The cat and the dog\nthe",
+        "expectedOutput": "1\n"
+      }
+    ]
+  }
+]

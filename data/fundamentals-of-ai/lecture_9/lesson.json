@@ -1,0 +1,731 @@
+{
+  "id": "fundamentals-of-ai-lecture-8",
+  "courseSlug": "fundamentals-of-ai",
+  "number": 9,
+  "title": "AI Ethics & Safety",
+  "overview": "Building AI that works is hard. Building AI that works and is safe, fair, and trustworthy is harder. This lecture covers the real risks that come with deploying AI systems at scale \u2014 algorithmic bias, hallucinations, deepfakes, and the principles of responsible AI development.",
+  "estimatedMinutes": 90,
+  "sections": [
+    {
+      "id": "algorithmic-bias",
+      "label": "Algorithmic Bias",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Algorithmic Bias — SVG placeholder",
+            "svgId": "algorithmic-bias"
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "Algorithmic Bias"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "AI systems are only as fair as the data they are trained on \u2014 and the data reflects a world that has never been fair. Algorithmic bias is not a bug. It is the model accurately learning the biases encoded in historical human decisions."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "What is Bias in AI?"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A biased AI system produces systematically unfair outcomes for certain groups \u2014 often based on race, gender, age, or socioeconomic status. The model is doing exactly what it learned from historical data. The data was biased; the model learned the bias."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Sources of Bias"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Training data bias: the dataset over-represents certain groups. Label bias: human annotators encode cultural assumptions. Sampling bias: data collected from non-representative populations. Feedback loops: biased predictions create biased new data."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Disparate Impact"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A system can be discriminatory even without any protected characteristic as an explicit input. If zip code is a proxy for race, predicting from zip code can produce racially biased outcomes \u2014 and removing race from the input does not fix this."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Fairness Metrics"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Demographic parity: equal positive prediction rates across groups. Equalised odds: equal true positive and false positive rates. Calibration: predicted probabilities match actual rates for all groups. These metrics often cannot all be satisfied simultaneously."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "You cannot simply remove protected attributes to make a model fair. If the data reflects historical injustice, the model will learn to perpetuate it through proxy variables."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Bias Hides in Training Data Like Contraband Hides in Luggage",
+          "subtitle": "Security can miss dangerous items if the scanner was only trained to detect certain shapes. AI misses fairness problems if the training data only reflected certain populations.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "If airport scanners were trained only on bags from travellers from one country, they might be less accurate for bags packed differently. The tool becomes biased by the unrepresentative training sample."
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "A tool trained on biased data learns to work well for the majority it saw \u2014 and poorly for the groups it didn't. The bias is invisible from inside the system; it only appears when you test across diverse groups.",
+              "visual": {
+                "type": "flow",
+                "items": [
+                  "Biased Training Data",
+                  "Model Learns Patterns",
+                  "Biased Predictions at Scale",
+                  "Real-World Harm"
+                ],
+                "conclusion": "Bias must be measured and addressed"
+              }
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "Criminal risk scoring tools, credit algorithms, medical diagnostic models, and hiring filters have all been found to produce disparate outcomes for racial, gender, or economic groups \u2014 not through intentional discrimination, but through biased training data."
+            }
+          ],
+          "insight": "Algorithmic bias is automation of historical inequality. Deploying AI without fairness audits at scale makes discrimination faster, not smaller.",
+          "reinforcement": "Biased data \u2192 biased model. The algorithm didn't choose to discriminate \u2014 it learned to from historical patterns."
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "Real-World Cases of Algorithmic Bias"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "<strong>Algorithmic bias is not theoretical.</strong> The COMPAS recidivism algorithm, widely used in US courts, was found to falsely label Black defendants as high-risk for re-offending at nearly twice the rate of white defendants \u2014 while simultaneously underestimating risk for white defendants. Amazon's hiring tool penalised resumes containing the word <em>women's</em> because it was trained on a decade of predominantly male hiring data. These are not failures of technology \u2014 they are failures of the data that shaped it."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "blue",
+            "icon": "\u26a0\ufe0f",
+            "text": "The COMPAS algorithm was no less accurate for Black defendants overall \u2014 it was equally accurate but exhibited equalised odds violation. A model can be equally accurate across groups while systematically treating one group unfairly. Accuracy is not fairness."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Try It Yourself: Identify the Source of Bias"
+          }
+        },
+        {
+          "type": "ai_challenge_set",
+          "challenges": [
+            {
+              "id": "bias-try-1",
+              "title": "Spot the Source",
+              "difficulty": "easy",
+              "objective": "Identify which source of bias is at play in each scenario",
+              "instruction": "Read each scenario and tap the correct bias source from the choices below.",
+              "type": "classify",
+              "apps": [
+                {
+                  "name": "A facial recognition system fails to accurately identify people with darker skin tones because the training dataset contained 80% lighter-skinned faces.",
+                  "answer": "sampling bias",
+                  "explanation": "The training data was collected from a non-representative population. The model never learned to handle diverse skin tones."
+                },
+                {
+                  "name": "A resume screening tool is trained on resumes of past successful hires \u2014 almost all men \u2014 and learns to penalise candidates who attended women's colleges.",
+                  "answer": "training data bias",
+                  "explanation": "The historical hiring data reflected past human bias. The model simply learned the pattern: past hires were mostly men."
+                },
+                {
+                  "name": "A loan approval model does not use race as an input, but it uses postal code, which strongly correlates with racial demographics in the training area.",
+                  "answer": "proxy discrimination",
+                  "explanation": "Removing the protected attribute (race) does not prevent the model from using a proxy (postal code) that correlates with it."
+                },
+                {
+                  "name": "A content moderation AI flags posts from minority-language speakers at higher rates because the human moderators who labelled the training data misunderstood cultural context.",
+                  "answer": "label bias",
+                  "explanation": "The human annotators introduced their own cultural assumptions when labelling, creating biased ground truth for the model to learn from."
+                },
+                {
+                  "name": "A predictive policing model sends more officers to high-crime neighbourhoods. More officers find more crime there. The model sees rising crime and sends even more officers \u2014 while low-crime areas remain under-policed.",
+                  "answer": "feedback loop",
+                  "explanation": "The model's predictions create new data that reinforces the original bias. More policing finds more crime, which justifies more policing."
+                }
+              ],
+              "choices": [
+                "sampling bias",
+                "training data bias",
+                "label bias",
+                "feedback loop",
+                "proxy discrimination"
+              ],
+              "explanation": "Each scenario illustrates a different source of algorithmic bias. Sampling bias comes from unrepresentative data. Training data bias comes from historical patterns. Label bias comes from human annotator assumptions. Feedback loops are self-reinforcing cycles. Proxy discrimination uses correlated variables to stand in for protected attributes."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "What Makes Algorithmic Bias Dangerous",
+          "body": "Bias is dangerous because it operates at a scale and invisibility that human bias never could. A biased human affects dozens of people. A biased AI affects millions. And because the AI appears objective and mathematical, the bias is invisible to everyone \u2014 including its creators.",
+          "bullets": [
+            "Scale amplifies harm \u2014 biased decisions affect millions instead of dozens",
+            "Bias is invisible from inside the system \u2014 standard accuracy metrics won't reveal it",
+            "Fairness metrics often conflict \u2014 demographic parity and equalised odds cannot always be satisfied simultaneously"
+          ]
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "Fairness Metrics in Code"
+          }
+        },
+        {
+          "type": "code",
+          "data": {
+            "code": "# Calculate key fairness metrics for a binary classifier\n# Two groups: Group A and Group B\n\npredictions = [\n    {\"group\": \"A\", \"actual\": 1, \"predicted\": 1},\n    {\"group\": \"A\", \"actual\": 1, \"predicted\": 1},\n    {\"group\": \"A\", \"actual\": 0, \"predicted\": 0},\n    {\"group\": \"A\", \"actual\": 1, \"predicted\": 0},\n    {\"group\": \"A\", \"actual\": 0, \"predicted\": 1},\n    {\"group\": \"B\", \"actual\": 1, \"predicted\": 0},\n    {\"group\": \"B\", \"actual\": 0, \"predicted\": 1},\n    {\"group\": \"B\", \"actual\": 1, \"predicted\": 1},\n    {\"group\": \"B\", \"actual\": 1, \"predicted\": 0},\n    {\"group\": \"B\", \"actual\": 0, \"predicted\": 0},\n]\n\ndef fairness_metrics(data, group_label):\n    g = [d for d in data if d[\"group\"] == group_label]\n    tp = sum(1 for d in g if d[\"actual\"] == 1 and d[\"predicted\"] == 1)\n    fn = sum(1 for d in g if d[\"actual\"] == 1 and d[\"predicted\"] == 0)\n    fp = sum(1 for d in g if d[\"actual\"] == 0 and d[\"predicted\"] == 1)\n    tn = sum(1 for d in g if d[\"actual\"] == 0 and d[\"predicted\"] == 0)\n    tpr = tp / (tp + fn) if (tp + fn) > 0 else 0\n    fpr = fp / (fp + tn) if (fp + tn) > 0 else 0\n    return { \"TPR\": round(tpr, 3), \"FPR\": round(fpr, 3) }\n\nfor group in [\"A\", \"B\"]:\n    m = fairness_metrics(predictions, group)\n    print(f\"Group {group}: TPR = {m['TPR']}, FPR = {m['FPR']}\")\n\nprint(\"\\nEqualised odds requires TPR and FPR to be equal across groups.\")"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Equalised odds \u2014 equal True Positive Rate and False Positive Rate across groups \u2014 is one of the most widely accepted fairness criteria. The code above shows how to compute it for two groups. If the rates differ significantly, the model does not satisfy equalised odds, even if its overall accuracy is high."
+          }
+        },
+        {
+          "type": "practice",
+          "title": "Detecting Bias in Training Data",
+          "instructions": "Analyze training data to detect gender bias when data excludes certain groups.",
+          "starterCode": "# Detect bias in training data\napplicants = [\n    {\"name\": \"Alice\", \"gender\": \"F\", \"score\": 92},\n    {\"name\": \"Bob\", \"gender\": \"M\", \"score\": 78},\n    {\"name\": \"Eve\", \"gender\": \"F\", \"score\": 95},\n    {\"name\": \"Dave\", \"gender\": \"M\", \"score\": 85},\n]\nmale_scores = [a[\"score\"] for a in applicants if a[\"gender\"] == \"M\"]\navg = sum(male_scores) / len(male_scores)\nprint(f\"Model trained on {len(male_scores)} male applicants\")\nprint(f\"Average male score: {avg}\")\nprint(f\"Alice ({applicants[0]['score']}) would be compared to male average: {avg}\")\nprint(\"Issue: Female applicants excluded from training data!\")",
+          "solution": "applicants = [{\"name\": \"Alice\", \"gender\": \"F\", \"score\": 92}, {\"name\": \"Bob\", \"gender\": \"M\", \"score\": 78}, {\"name\": \"Eve\", \"gender\": \"F\", \"score\": 95}, {\"name\": \"Dave\", \"gender\": \"M\", \"score\": 85}]\nmale_scores = [a[\"score\"] for a in applicants if a[\"gender\"] == \"M\"]\navg = sum(male_scores) / len(male_scores)\nprint(f\"Model trained on {len(male_scores)} male applicants\")\nprint(f\"Average male score: {avg}\")\nprint(f\"Alice ({applicants[0]['score']}) would be compared to male average: {avg}\")",
+          "hint": "Bias occurs when training data doesn't represent all groups fairly."
+        }
+      ]
+    },
+    {
+      "id": "hallucinations-deepfakes",
+      "label": "Hallucinations & Deepfakes",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Hallucinations & Deepfakes \u2014 SVG placeholder",
+            "svgId": "hallucinations-deepfakes"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Modern AI systems can generate content that looks and sounds authoritative but is completely fabricated. AI hallucinations produce false facts with high confidence. Deepfakes produce synthetic media indistinguishable from real. Both undermine the foundations of shared reality."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "AI Hallucinations"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Language models hallucinate when they generate plausible-sounding but factually incorrect information. They have no concept of truth \u2014 they generate whatever token is most probable given the context. Citations, names, and statistics can all be fabricated."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Why Hallucinations Happen"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "LLMs are trained to produce likely continuations, not true ones. When the model doesn't know something, it generates what seems most probable \u2014 which can look like a confident, detailed answer. The model has no internal fact-checker."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Deepfakes"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Generative models can create synthetic images, audio, and video of real people saying or doing things they never said or did. Deepfake technology is widely available. Detection is an ongoing arms race with generation."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Detection Approaches"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Deepfake detection uses classifiers trained to spot generation artefacts \u2014 unnatural blinking patterns, inconsistent lighting, compression signatures from generative models. But as generators improve, detectors must constantly retrain."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "A language model has no concept of truth. It only has a concept of likely. These two things are not the same."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "AI Hallucinations Are Like a Broken GPS",
+          "subtitle": "A GPS that confidently routes you into a lake isn't lying \u2014 it is following its model of the world, which no longer matches reality. Confident output is not the same as correct output.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "GPS gives confident directions to a road that was built over a year ago and hasn't been updated in the maps. It isn't malfunctioning \u2014 it is confidently following a model that no longer matches reality."
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "Confidence and correctness are independent. A system can be highly confident and completely wrong. The absence of uncertainty signals is not evidence of truth \u2014 it is evidence that the system lacks uncertainty awareness.",
+              "visual": {
+                "type": "flow",
+                "items": [
+                  "High Confidence Output",
+                  "No Internal Fact-Checker",
+                  "Can Be Entirely Wrong",
+                  "User Must Verify"
+                ],
+                "conclusion": "Trust but verify"
+              }
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "Language models produce the most probable continuation of text \u2014 not the most truthful one. When a model doesn't know something, it generates a confident-sounding answer because that is what training rewarded."
+            }
+          ],
+          "insight": "Do not trust AI output on high-stakes factual questions without verification. Confidence is not correctness.",
+          "reinforcement": "LLMs generate fluent text by predicting likely tokens \u2014 not by checking facts. Confidence \u2260 correctness."
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "When AI Confidently Lies"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "In 2023, a lawyer submitted a legal brief containing six fake court citations generated by ChatGPT. The attorney had asked the model to find precedents \u2014 and it invented them, complete with realistic-looking case numbers and judges' names. The model was not trying to deceive. It was doing exactly what it was trained to do: produce the most plausible continuation of the prompt. The difference between a hallucination and a fact is invisible to the model itself."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "yellow",
+            "icon": "\u26a0\ufe0f",
+            "text": "The cost of hallucination scales with deployment. A chatbot hallucinating a recipe causes a bad dinner. A medical chatbot hallucinating a drug interaction warning \u2014 or failing to warn \u2014 causes real harm. Always verify AI outputs in high-stakes domains."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Try It Yourself: Fact or Hallucination?"
+          }
+        },
+        {
+          "type": "ai_challenge_set",
+          "challenges": [
+            {
+              "id": "hal-try-1",
+              "title": "Spot the Hallucination",
+              "difficulty": "easy",
+              "objective": "Distinguish between verified facts and likely AI hallucinations",
+              "instruction": "Read each AI-generated statement and decide whether it is a verified fact or a likely hallucination.",
+              "type": "classify",
+              "apps": [
+                {
+                  "name": "\"Marie Curie won the Nobel Prize in Chemistry in 1911 for her work on radioactivity.\"",
+                  "answer": "fact",
+                  "explanation": "This is accurate. Marie Curie did win the Nobel Prize in Chemistry in 1911."
+                },
+                {
+                  "name": "\"The population of Tokyo in 2025 was 37.4 million people, according to the Japan Statistical Yearbook.\"",
+                  "answer": "hallucination",
+                  "explanation": "The specific citation is fabricated. While Tokyo's population is around 37 million, the model generated a citation that does not exist. This is a classic hallucination pattern."
+                },
+                {
+                  "name": "\"The Eiffel Tower was built in 1889 as the entrance arch for the World's Fair.\"",
+                  "answer": "fact",
+                  "explanation": "This is correct. The Eiffel Tower was completed in 1889 for the Exposition Universelle."
+                },
+                {
+                  "name": "\"According to a 2023 study published in the Journal of Artificial Intelligence Research, transformer models with more than 175 billion parameters show a 47% reduction in hallucination rate when fine-tuned on curated factual datasets.\"",
+                  "answer": "hallucination",
+                  "explanation": "The citation sounds plausible but is fabricated. The specific study does not exist in that journal. LLMs often generate convincing but fake academic references."
+                },
+                {
+                  "name": "\"Water freezes at 0 degrees Celsius at standard atmospheric pressure.\"",
+                  "answer": "fact",
+                  "explanation": "This is a basic scientific fact that the model is very likely to have in its training data."
+                }
+              ],
+              "choices": [
+                "fact",
+                "hallucination"
+              ],
+              "explanation": "The pattern is clear: well-known facts are reliably generated. Specific citations, statistics, and obscure claims \u2014 especially those that look just plausible enough \u2014 are the most common hallucination type. Always verify claims that come with specific numbers or citations."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Why Hallucinations Are Hard to Fix",
+          "body": "Hallucinations are not a bug \u2014 they are a feature of how LLMs work. The training objective is to predict the next token accurately, not to determine truth. A model that produces a plausible falsehood gets the same reward as one that produces a verified truth, as long as both are fluent.",
+          "bullets": [
+            "The training objective is next-token prediction \u2014 truth is not part of the loss function",
+            "Deepfakes and detection are in an ongoing arms race \u2014 each new generator closes the gaps detectors rely on",
+            "Mitigation strategies like RAG, output verification, and human-in-the-loop review help but are not perfect solutions"
+          ]
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "Detecting Hallucinations Programmatically"
+          }
+        },
+        {
+          "type": "code",
+          "data": {
+            "code": "# Simple hallucination simulation: model knows some facts, fabricates others\n\nknown_facts = {\n    \"capital of France\": \"Paris\",\n    \"first president of the US\": \"George Washington\",\n    \"chemical symbol for gold\": \"Au\",\n    \"speed of light (m/s)\": \"299,792,458\",\n}\n\ndef model_response(query):\n    if query in known_facts:\n        return known_facts[query], \"high confidence\"\n    else:\n        return f\"According to recent research, {query} was first documented in 2019.\", \"high confidence\"\n\nqueries = [\n    \"capital of France\",\n    \"first president of the US\",\n    \"population of Mars in 2026\",\n    \"inventor of the quantum internet\",\n]\n\nfor q in queries:\n    answer, confidence = model_response(q)\n    status = \"\u2705\" if q in known_facts else \"\u274c HALLUCINATION\"\n    print(f\"Q: {q}\")\n    print(f\"A: {answer}  ({confidence})  {status}\")\n    print()\n\nprint(\"The model is equally confident for known facts and hallucinations.\")"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The critical issue is that confidence is not correlated with correctness. The model produces both true and false outputs with the same high confidence. This is why users cannot rely on the model's own certainty signals \u2014 and why external verification is essential in any safety-critical application."
+          }
+        },
+        {
+          "type": "practice",
+          "title": "Simulating AI Hallucination",
+          "instructions": "Simulate how an AI responds to known vs unknown questions \u2014 and see when hallucination can occur.",
+          "starterCode": "# Simulating AI responses\nknowledge_base = {\n    \"capital of France\": \"Paris\",\n    \"largest ocean\": \"Pacific\",\n}\nquestions = [\"capital of France\", \"population of Mars\", \"largest ocean\"]\nprint(\"AI Responses:\")\nfor q in questions:\n    if q in knowledge_base:\n        print(f\"  Q: {q}\\n  A: {knowledge_base[q]} \u2705\")\n    else:\n        print(f\"  Q: {q}\\n  A: (AI might hallucinate a plausible answer) \u274c\")\nprint(\"\\nAlways verify AI outputs!\")",
+          "solution": "knowledge_base = {\"capital of France\": \"Paris\", \"largest ocean\": \"Pacific\"}\nquestions = [\"capital of France\", \"population of Mars\", \"largest ocean\"]\nfor q in questions:\n    if q in knowledge_base:\n        print(f\"  Q: {q}\\n  A: {knowledge_base[q]} \u2705\")\n    else:\n        print(f\"  Q: {q}\\n  A: (AI might hallucinate) \u274c\")\nprint(\"Always verify AI outputs!\")",
+          "hint": "Hallucinations happen when AI confidently generates false information because it doesn't know the answer."
+        }
+      ]
+    },
+    {
+      "id": "responsible-ai",
+      "label": "Responsible AI",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Responsible AI Development — SVG placeholder",
+            "svgId": "responsible-ai"
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "Responsible AI Development"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Responsible AI is not a checklist \u2014 it is a practice. It means building systems with safety and fairness as design goals from the start, not as patches applied after deployment. The technical choices made during development have social consequences at scale."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Transparency"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "AI systems that make decisions affecting people should be explainable. Black-box models may be accurate, but when a loan is denied or a medical diagnosis is made, the affected person has a right to understand why."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Accountability"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "When an AI system causes harm, someone must be accountable \u2014 the developer, the deployer, or both. Systems need audit trails, version control of models, and documented decision rationale so accountability can be assigned."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Privacy"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "AI models trained on personal data can inadvertently memorise and reproduce it. Privacy-preserving techniques like differential privacy, federated learning, and model auditing help ensure training data cannot be extracted from deployed models."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Human Oversight"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "High-stakes AI decisions \u2014 medical, legal, financial, criminal justice \u2014 should have meaningful human oversight, not just human approval of whatever the model recommends. The human in the loop must have the information and authority to override."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "At scale, AI systems shape what people see, what they are offered, who gets loans, who gets hired. Building responsibly is not optional \u2014 it is an ethical obligation."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Responsible AI Routes Decisions Like GPS Routes Around Hazards",
+          "subtitle": "GPS avoids toll roads when you opt out, avoids flooded routes it knows are dangerous, and always shows you the route it chose and why. Responsible AI does the same: explain the path, allow override, avoid known harms.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "A responsible GPS shows you its route and the alternatives. It warns you about road hazards. It lets you override its recommendation. And if a bridge is closed, it reroutes before you drive into the problem."
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "Transparency: show your reasoning. Accountability: log every decision. Safety: detect and avoid known failure modes. Human control: allow meaningful override at every step. These are design choices, not afterthoughts.",
+              "visual": {
+                "type": "flow",
+                "items": [
+                  "Show Reasoning",
+                  "Log Decisions",
+                  "Allow Override",
+                  "Avoid Known Harms"
+                ],
+                "conclusion": "Trustworthy AI system"
+              }
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "Responsible AI embeds these principles at every stage: dataset curation, model training, deployment monitoring, and incident response. An AI system that causes harm without accountability is not a product \u2014 it is a risk."
+            }
+          ],
+          "insight": "Responsible AI is not about making AI less powerful \u2014 it is about making powerful AI trustworthy.",
+          "reinforcement": "Transparency, fairness, and human oversight aren't limitations \u2014 they're the infrastructure that makes AI trustworthy."
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "The Stakes of Unaccountable AI"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "When an AI system makes a mistake, the consequences can ripple across millions of people before anyone notices. An automated hiring system can reject thousands of qualified candidates based on biased criteria. A content recommendation algorithm can radicalise users by optimising engagement over safety. A medical diagnostic tool can systematically misdiagnose certain populations. The common thread is not malicious intent \u2014 it is the absence of accountability infrastructure embedded in the system from the start."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "blue",
+            "icon": "\u2139\ufe0f",
+            "text": "The EU AI Act classifies AI systems by risk level. High-risk systems (medical devices, hiring tools, credit scoring, law enforcement) must meet strict transparency, documentation, and human oversight requirements before deployment. Regulation is catching up."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Try It Yourself: Responsible AI Decisions"
+          }
+        },
+        {
+          "type": "ai_challenge_set",
+          "challenges": [
+            {
+              "id": "rai-try-1",
+              "title": "Responsible AI in Practice",
+              "difficulty": "easy",
+              "objective": "Match each scenario to the responsible AI principle at stake",
+              "instruction": "Read each scenario and tap the correct responsible AI principle from the choices below.",
+              "type": "classify",
+              "apps": [
+                {
+                  "name": "A hospital deploys an AI diagnostic system, but doctors cannot explain why it made certain predictions. Patients are not told how decisions about their health are being made.",
+                  "answer": "transparency",
+                  "explanation": "The system is operating as a black box. Patients and doctors have a right to understand the reasoning behind medical decisions."
+                },
+                {
+                  "name": "A self-driving car causes an accident. The company claims 'the model made a mistake' and no individual is responsible. The system logs were not retained.",
+                  "answer": "accountability",
+                  "explanation": "Without audit trails and clear responsibility assignment, no one is accountable when AI causes harm. This is a fundamental responsible AI failure."
+                },
+                {
+                  "name": "A language model trained on user conversations can reproduce verbatim sentences from specific users when prompted correctly, including personal information those users shared.",
+                  "answer": "privacy",
+                  "explanation": "Models can memorise and leak training data. Privacy-preserving techniques like differential privacy are needed to prevent data extraction."
+                },
+                {
+                  "name": "An AI system automatically denies loan applications. The denial process is fully automated with no option for applicants to discuss the decision or have it reviewed by a person.",
+                  "answer": "human oversight",
+                  "explanation": "High-stakes decisions affecting people's livelihoods require a meaningful human in the loop who can review and override automated decisions."
+                }
+              ],
+              "choices": [
+                "transparency",
+                "accountability",
+                "privacy",
+                "human oversight"
+              ],
+              "explanation": "The four pillars of responsible AI are distinct but interconnected. Transparency ensures decisions can be understood. Accountability ensures someone is responsible. Privacy protects user data. Human oversight ensures automated decisions can be reviewed and overridden by people."
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Building Responsible AI Systems",
+          "body": "Responsible AI is not a one-time certification \u2014 it is a continuous practice that must be embedded at every stage of the development lifecycle. The most important principle is to design for the worst case from the start.",
+          "bullets": [
+            "Start with data governance \u2014 know where your data came from, who it represents, and what biases it contains",
+            "Design for the worst case \u2014 assume your model will make mistakes and build monitoring, rollbacks, and escalation paths",
+            "Audit continuously, not once \u2014 fairness and safety are properties that must be monitored over time as the world changes"
+          ]
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "AI Deployment Audit in Code"
+          }
+        },
+        {
+          "type": "code",
+          "data": {
+            "code": "# Pre-deployment AI audit checklist simulation\n\nclass AIAudit:\n    def __init__(self, model_name):\n        self.model_name = model_name\n        self.checks = {}\n\n    def check_data_provenance(self, passed, note):\n        self.checks[\"data_provenance\"] = {\"pass\": passed, \"note\": note}\n\n    def check_fairness_metrics(self, passed, note):\n        self.checks[\"fairness_metrics\"] = {\"pass\": passed, \"note\": note}\n\n    def check_explainability(self, passed, note):\n        self.checks[\"explainability\"] = {\"pass\": passed, \"note\": note}\n\n    def check_human_oversight(self, passed, note):\n        self.checks[\"human_oversight\"] = {\"pass\": passed, \"note\": note}\n\n    def check_privacy(self, passed, note):\n        self.checks[\"privacy\"] = {\"pass\": passed, \"note\": note}\n\n    def report(self):\n        passed = sum(1 for c in self.checks.values() if c[\"pass\"])\n        total = len(self.checks)\n        print(f\"Audit Report: {self.model_name}\")\n        print(\"=\" * 40)\n        for name, result in self.checks.items():\n            icon = \"\u2705\" if result[\"pass\"] else \"\u274c\"\n            print(f\"{icon} {name.replace('_', ' ').title()}: {result['note']}\")\n        print(\"=\" * 40)\n        print(f\"Result: {passed}/{total} checks passed\")\n        if passed < total:\n            print(\"Status: DO NOT DEPLOY \u2014 failing checks must be resolved\")\n        else:\n            print(\"Status: READY FOR DEPLOYMENT\")\n\naudit = AIAudit(\"ResumeScorer v2\")\naudit.check_data_provenance(False, \"Training data sourced without demographic breakdown\")\naudit.check_fairness_metrics(True, \"Equalised odds satisfied across gender groups\")\naudit.check_explainability(False, \"Model is a black-box ensemble with no interpretability layer\")\naudit.check_human_oversight(True, \"All decisions logged; human review enabled for edge cases\")\naudit.check_privacy(True, \"Differential privacy applied with epsilon = 2.0\")\naudit.report()"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A pre-deployment audit is not bureaucratic overhead \u2014 it is the last line of defence before a system impacts real people. The audit above checks five pillars of responsible AI. Failing even one check should be a blocking issue for deployment. In practice, organisations that deploy responsibly treat audit results as binding, not advisory."
+          }
+        },
+        {
+          "type": "practice",
+          "title": "Practice Exercise",
+          "instructions": "A hiring algorithm made decisions on 6 candidates from two groups. Run the fairness audit below. Identify whether the algorithm treats both groups equally and which fairness metric reveals the bias.",
+          "starterCode": "# Hiring algorithm audit: does it treat Group A and Group B equally?\n\ndecisions = [\n    {'name': 'Alice', 'group': 'A', 'qualified': True,  'hired': True },\n    {'name': 'Bob',   'group': 'B', 'qualified': True,  'hired': False},\n    {'name': 'Carol', 'group': 'A', 'qualified': False, 'hired': False},\n    {'name': 'Dan',   'group': 'B', 'qualified': True,  'hired': False},\n    {'name': 'Eve',   'group': 'A', 'qualified': True,  'hired': True },\n    {'name': 'Frank', 'group': 'B', 'qualified': False, 'hired': False},\n]\n\nfor group in ['A', 'B']:\n    g       = [d for d in decisions if d['group'] == group]\n    qual    = [d for d in g if d['qualified']]\n    hired   = [d for d in g if d['hired']]\n    tpr     = len([d for d in qual if d['hired']]) / len(qual) if qual else 0\n    overall = len(hired) / len(g)\n\n    print(f\"Group {group}:\")\n    print(f\"  Total candidates      : {len(g)}\")\n    print(f\"  Qualified candidates  : {len(qual)}\")\n    print(f\"  Hired                 : {len(hired)}\")\n    print(f\"  Overall hire rate     : {overall:.0%}\")\n    print(f\"  True Positive Rate    : {tpr:.0%}  (qualified who got hired)\")\n    print()\n\nprint(\"\u26a0  Group B has 2 qualified candidates but 0 were hired.\")\nprint(\"   True Positive Rate: Group A = 100%, Group B = 0%\")\nprint(\"   This is a textbook example of algorithmic bias.\")\nprint()\nprint(\"Ethical AI requires equal True Positive Rates across groups.\")",
+          "solution": "decisions=[{'g':'A','q':True,'h':True},{'g':'B','q':True,'h':False},{'g':'A','q':False,'h':False},{'g':'B','q':True,'h':False},{'g':'A','q':True,'h':True},{'g':'B','q':False,'h':False}]\nfor grp in['A','B']:\n    g=[d for d in decisions if d['g']==grp];q=[d for d in g if d['q']]\n    tpr=len([d for d in q if d['h']])/len(q) if q else 0\n    print(f\"Group {grp} TPR: {tpr:.0%}\")",
+          "hint": "True Positive Rate (TPR) = qualified candidates who were actually hired. If Group A TPR = 100% and Group B TPR = 0%, the algorithm is biased regardless of overall accuracy."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Algorithmic bias emerges when training data encodes historical human biases"
+      },
+      {
+        "text": "Removing protected attributes does not remove bias \u2014 proxy variables remain"
+      },
+      {
+        "text": "Disparate impact ratio below 0.8 indicates potential discriminatory outcomes"
+      },
+      {
+        "text": "Language models have no concept of truth \u2014 they generate probable, not true, continuations"
+      },
+      {
+        "text": "AI hallucinations are confident fabrications \u2014 always verify high-stakes factual claims"
+      },
+      {
+        "text": "Deepfakes are synthetic media indistinguishable from real \u2014 detection is an arms race"
+      },
+      {
+        "text": "Responsible AI requires transparency, accountability, privacy, and human oversight"
+      },
+      {
+        "text": "Fairness, safety, and ethics are design requirements, not afterthought patches"
+      }
+    ],
+    "whatYouLearned": [
+      "What algorithmic bias is, where it comes from, and why removing protected attributes doesn't fix it",
+      "How to measure disparate impact using the 80% rule",
+      "What AI hallucinations are and why language models produce them",
+      "What deepfakes are and how detection approaches work",
+      "The four pillars of responsible AI: transparency, accountability, privacy, human oversight",
+      "How to conduct a basic AI deployment audit",
+      "Why AI ethics is not optional at the scale AI is being deployed"
+    ],
+    "nextUp": "Final Project"
+  }
+}

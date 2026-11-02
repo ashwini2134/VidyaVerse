@@ -1,0 +1,57 @@
+[
+  {
+    "question": "What is the correct way to create a variable in Python?",
+    "options": [
+      "name == \"Alice\"",
+      "var name = \"Alice\"",
+      "name = \"Alice\"",
+      "let name = \"Alice\""
+    ],
+    "answer": "name = \"Alice\"",
+    "explanation": "In Python, you create a variable by writing the name, then =, then the value."
+  },
+  {
+    "question": "Which of these is NOT a valid Python data type?",
+    "options": [
+      "float",
+      "char",
+      "bool",
+      "int"
+    ],
+    "answer": "char",
+    "explanation": "Python does not have a char type. Single characters are treated as strings of length 1."
+  },
+  {
+    "question": "What does type(3.14) return?",
+    "options": [
+      "<class 'decimal'>",
+      "<class 'float'>",
+      "<class 'int'>",
+      "<class 'str'>"
+    ],
+    "answer": "<class 'float'>",
+    "explanation": "3.14 is a decimal number, so its type is float."
+  },
+  {
+    "question": "What is the result of int(\"42\") + 3?",
+    "options": [
+      "423",
+      "Error",
+      "45",
+      "39"
+    ],
+    "answer": "45",
+    "explanation": "int(\"42\") converts the string \"42\" to the integer 42. Then 42 + 3 = 45."
+  },
+  {
+    "question": "Which statement correctly creates a boolean variable?",
+    "options": [
+      "is_ready = \"True\"",
+      "is_ready = \"yes\"",
+      "is_ready = true",
+      "is_ready = True"
+    ],
+    "answer": "is_ready = True",
+    "explanation": "Boolean values in Python must be capitalized: True and False."
+  }
+]

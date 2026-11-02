@@ -1,0 +1,14 @@
+[
+  {
+    "id": "nn_diagram",
+    "title": "Draw a 3-layer neural network",
+    "description": "Draw a 3-layer neural network for predicting if a student passes. Inputs: attendance percentage and average marks. Output: Pass or Fail. Label all nodes and draw arrows showing the flow.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "weighted_sum",
+    "title": "Weighted Sum",
+    "description": "Write Python to calculate a weighted sum of two inputs — simulate one neural network node. Input1 = 0.8 (attendance), Input2 = 0.9 (marks), Weight1 = 0.6, Weight2 = 0.4. Print the output.",
+    "difficulty": "easy"
+  }
+]

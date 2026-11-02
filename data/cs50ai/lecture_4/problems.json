@@ -1,0 +1,14 @@
+[
+  {
+    "id": "simple_sudoku",
+    "title": "Simple Sudoku",
+    "description": "Solve this simple Sudoku (3x3 version — 9 cells, digits 1-3, each row and column must have 1, 2, 3 once each). Write which constraint you checked at each step.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "hill_climbing_code",
+    "title": "Hill Climbing Code",
+    "description": "Write Python to find the maximum value in a list by checking neighbors one step at a time — simulate Hill Climbing. List: [2, 4, 6, 5, 3, 7, 4, 2]",
+    "difficulty": "easy"
+  }
+]

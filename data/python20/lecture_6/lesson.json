@@ -1,0 +1,428 @@
+{
+  "id": "python20-lecture-6",
+  "courseSlug": "python20",
+  "number": 6,
+  "title": "While Loops",
+  "overview": "For loops repeat a fixed number of times. But what if you don't know how many times you need to repeat? While loops keep going until a condition becomes False — making them perfect for interactive programs and unknown-length repetitions.",
+  "estimatedMinutes": 50,
+  "sections": [
+    {
+      "id": "while-basics",
+      "label": "The while Loop",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "A for loop is like a determined delivery person who has exactly 10 packages to deliver — they know from the start how many trips to make."
+        },
+        {
+          "type": "text",
+          "content": "A **while loop** is different. It keeps going as long as a condition remains True. It doesn't know how many times it will run until the condition becomes False."
+        },
+        {
+          "type": "text",
+          "content": "Structure:\n```\nwhile condition:\n    do this\n```\nBefore every iteration, the condition is checked. If True → run. If False → stop."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Basic while Loop",
+          "language": "python",
+          "code": "count = 1\n\nwhile count <= 5:\n    print(f\"Count: {count}\")\n    count = count + 1\n\nprint(\"Loop finished!\")",
+          "expectedOutput": "Count: 1\nCount: 2\nCount: 3\nCount: 4\nCount: 5\nLoop finished!",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "Three parts every while loop needs:\n\n1. **Initialise** — set the starting value before the loop (`count = 1`)\n2. **Condition** — what keeps the loop running (`count <= 5`)\n3. **Update** — change the variable inside the loop (`count = count + 1`)\n\nForget the update step and you have an infinite loop!"
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Password Checker",
+          "language": "python",
+          "code": "secret = \"python123\"\nguess = input(\"Enter password: \")\n\nwhile guess != secret:\n    print(\"Wrong! Try again.\")\n    guess = input(\"Enter password: \")\n\nprint(\"Access granted!\")",
+          "expectedOutput": "Enter password: Wrong! Try again.\nEnter password: Access granted!",
+          "editable": true
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Vending Machine",
+            "description": "A vending machine keeps displaying options as long as the user hasn't made a selection. It doesn't know in advance how many tries the user will take. It just checks: 'Has a valid choice been made?' and keeps going until the answer is yes.",
+            "image": "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?w=800&q=80",
+            "bullets": [
+              "The machine waits for you to insert enough coins to cover the price.",
+              "It keeps accepting coins — adding each one to the running total.",
+              "Only when the total reaches the price does it dispense the item."
+            ],
+            "highlightCard": "A while loop keeps running as long as its condition remains True."
+          },
+          "visualization": {
+            "type": "repetition",
+            "title": "while Loop",
+            "items": [
+              "Check condition",
+              "If True: run block",
+              "Update value",
+              "Check condition again",
+              "If False: exit loop"
+            ],
+            "bullets": [
+              "while condition: runs the loop body as long as the condition is True.",
+              "The condition is checked before every single iteration.",
+              "When the condition becomes False, the loop stops immediately."
+            ],
+            "highlightCard": "while loops are perfect when you don't know in advance how many iterations you need."
+          },
+          "code": {
+            "language": "python",
+            "code": "attempts = 0\nwhile attempts < 3:\n    print(f\"Attempt {attempts + 1}\")\n    attempts += 1",
+            "output": "Attempt 1\nAttempt 2\nAttempt 3",
+            "highlights": [
+              "The condition 'coins < price' is checked before every iteration.",
+              "Inside the loop, coins grows — eventually making the condition False.",
+              "If the condition never becomes False, you have an infinite loop — be careful."
+            ],
+            "highlightCard": "while loops repeat until the condition changes — they're driven by state, not count."
+          },
+          "reflection": {
+            "question": "What happens if you forget to update the loop variable inside a while loop?",
+            "answer": "The condition never becomes False, so the loop runs forever — an infinite loop. This will freeze or crash the program.",
+            "options": [
+              "The loop runs once",
+              "The loop runs forever (infinite loop)",
+              "Python detects it and stops",
+              "The loop skips"
+            ]
+          },
+          "stage1Transition": "Python's while loop repeats as long as a condition is True — just like this. Let's see.",
+          "stage2Transition": "Here is how a while loop looks in Python code.",
+          "takeaway": "A vending machine keeps accepting coins until you've inserted enough — that's a while loop. It runs as long as the condition is True and stops the moment it becomes False."
+        },
+        {
+          "type": "practice",
+          "title": "Countdown Timer",
+          "instructions": "Build a countdown from 10 to 1. Use a while loop: start at 10, print each number, decrease by 1. After the countdown, print 'Time is up!'.",
+          "starterCode": "count = 10\n\n# While loop countdown\n\n\nprint(\"Time is up!\")",
+          "solution": "count = 10\n\nwhile count >= 1:\n    print(count)\n    count -= 1\n\nprint(\"Time is up!\")",
+          "hint": "Use count >= 1 as the condition. Decrease count by 1 each iteration using count -= 1.",
+          "expectedOutput": "10\n9\n8\n7\n6\n5\n4\n3\n2\n1\nTime is up!"
+        }
+      ]
+    },
+    {
+      "id": "break-continue",
+      "label": "break and continue",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Sometimes you need more control inside a loop — the ability to exit early or skip certain iterations."
+        },
+        {
+          "type": "text",
+          "content": "**`break`** — immediately exits the loop, no matter what the condition says.\n\n**`continue`** — skips the rest of the current iteration and jumps back to check the condition."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — break",
+          "language": "python",
+          "code": "# Find the first number divisible by 7\nnum = 1\n\nwhile num <= 100:\n    if num % 7 == 0:\n        print(f\"Found it: {num}\")\n        break\n    num += 1",
+          "expectedOutput": "Found it: 7",
+          "editable": true
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — continue",
+          "language": "python",
+          "code": "# Print numbers 1-10, skip multiples of 3\nnum = 0\n\nwhile num < 10:\n    num += 1\n    if num % 3 == 0:\n        continue  # Skip this iteration\n    print(num)",
+          "expectedOutput": "1\n2\n4\n5\n7\n8\n10",
+          "editable": true
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Bus Journey",
+            "description": "Imagine you're on a bus looking for your stop. continue = 'Not this stop, keep going.' break = 'This is my stop! Get off immediately.' Both give you control mid-journey rather than waiting for the scheduled end.",
+            "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80",
+            "bullets": [
+              "Sometimes the driver needs to skip a stop — the bus continues without pausing.",
+              "Sometimes a passenger pulls the cord for an emergency stop mid-route.",
+              "break and continue are your controls for these two situations."
+            ],
+            "highlightCard": "break exits the loop immediately. continue skips the rest of this iteration."
+          },
+          "visualization": {
+            "type": "decision",
+            "title": "break vs continue",
+            "condition": "Special condition inside loop?",
+            "trueLabel": "break: exit loop entirely",
+            "falseLabel": "continue: skip this iteration",
+            "bullets": [
+              "continue skips the remaining code in the current iteration and moves to the next.",
+              "break exits the loop entirely — no more iterations happen after it.",
+              "Use continue to skip special cases, break to stop when you've found what you need."
+            ],
+            "highlightCard": "continue = skip this stop. break = end the entire journey."
+          },
+          "code": {
+            "language": "python",
+            "code": "for i in range(1, 6):\n    if i == 3:\n        continue\n    print(i)",
+            "output": "1\n2\n4\n5",
+            "highlights": [
+              "continue 'skips' the rest of the loop body for this iteration only.",
+              "break 'exits' the loop completely — no further iterations run.",
+              "Both work inside for loops and while loops."
+            ],
+            "highlightCard": "break and continue give you fine-grained control over every loop you write."
+          },
+          "reflection": {
+            "question": "What does 'continue' do in a loop?",
+            "answer": "It skips the rest of the current iteration and moves to the next one — without exiting the loop.",
+            "options": [
+              "Exits the loop entirely",
+              "Pauses the loop",
+              "Skips the rest of the current iteration",
+              "Restarts the loop from the beginning"
+            ]
+          },
+          "stage1Transition": "Python gives you two special keywords to control loop behavior. Let's see both.",
+          "stage2Transition": "Here is how break and continue work in Python loops.",
+          "takeaway": "Like a bus journey where you can skip stops or pull an emergency brake — continue skips the current iteration, break stops the loop entirely. Choose based on what you need."
+        },
+        {
+          "type": "practice",
+          "title": "Input Validator",
+          "instructions": "Build an input validator. Keep asking the user to enter a positive number (use while True loop). If they enter a negative number, print 'Please enter a positive number.' and continue. If they enter 0, break and print 'Goodbye!'. Otherwise print 'You entered: [number].' and break.",
+          "starterCode": "while True:\n    num = int(input(\"Enter a positive number (0 to quit): \"))\n    \n    # Handle negative\n    \n    # Handle zero\n    \n    # Handle positive\n    ",
+          "solution": "while True:\n    num = int(input(\"Enter a positive number (0 to quit): \"))\n    \n    if num < 0:\n        print(\"Please enter a positive number.\")\n        continue\n    elif num == 0:\n        print(\"Goodbye!\")\n        break\n    else:\n        print(f\"You entered: {num}.\")\n        break",
+          "hint": "Use while True for an infinite loop, then use break to exit on valid input or 0. Use continue for negative numbers.",
+          "expectedOutput": "Enter a positive number (0 to quit): You entered: 5."
+        }
+      ]
+    },
+    {
+      "id": "while-patterns",
+      "label": "Real-World while Patterns",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "While loops shine in two scenarios: when you don't know how many iterations are needed, and when building menu-driven interactive programs."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Menu-Driven Program",
+          "language": "python",
+          "code": "print(\"=== Student Menu ===\")\n\nwhile True:\n    print(\"\\n1. View grade\")\n    print(\"2. Check attendance\")\n    print(\"3. Exit\")\n    \n    choice = input(\"Choose option: \")\n    \n    if choice == \"1\":\n        print(\"Your grade: A+\")\n    elif choice == \"2\":\n        print(\"Attendance: 92%\")\n    elif choice == \"3\":\n        print(\"Goodbye!\")\n        break\n    else:\n        print(\"Invalid option. Try again.\")",
+          "expectedOutput": "=== Student Menu ===\n\n1. View grade\n2. Check attendance\n3. Exit\nChoose option: Goodbye!",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "This is one of the most common while loop patterns — the **menu loop**. It runs until the user explicitly chooses to exit."
+        },
+        {
+          "type": "text",
+          "content": "Another classic pattern: **finding something in an unknown-size sequence**. Search until found, then break."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Bank ATM Session",
+            "description": "An ATM shows a menu and waits for your action. After each transaction, it asks: 'Would you like to do another transaction?' It keeps going until you select 'Exit'. This is a menu-driven while loop.",
+            "image": "https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=800&q=80",
+            "bullets": [
+              "The ATM shows a menu and waits for you to choose an option.",
+              "After each transaction, it returns to the same menu automatically.",
+              "Only when you choose 'Exit' does the session end."
+            ],
+            "highlightCard": "A menu loop repeats until the user explicitly chooses to exit."
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Menu Loop Pattern",
+            "items": [
+              "Show menu",
+              "Get choice",
+              "Process choice",
+              "If exit: break",
+              "Else: show menu again"
+            ],
+            "bullets": [
+              "while True: creates an infinite loop that only ends via break.",
+              "The menu is shown, the user's input is read, and the right action runs.",
+              "The loop continues after each action until the user selects 'Exit'."
+            ],
+            "highlightCard": "while True + break = the standard pattern for any menu-driven program in Python."
+          },
+          "code": {
+            "language": "python",
+            "code": "while True:\n    cmd = input(\"Command (quit/go): \")\n    if cmd == \"quit\":\n        break\n    print(f\"Running: {cmd}\")",
+            "output": "Command: Running: go\nCommand: ",
+            "highlights": [
+              "while True: runs forever — the only exit is an explicit break.",
+              "input() collects the user's menu choice each time through the loop.",
+              "break exits the loop the moment the user selects the exit option."
+            ],
+            "highlightCard": "while True + break creates clean, user-controlled interactive programs in Python."
+          },
+          "reflection": {
+            "question": "Why is 'while True' used for menu-driven programs?",
+            "answer": "Because we don't know in advance how many times the user will interact. We keep looping until they explicitly exit with 'break'.",
+            "options": [
+              "It's the only way to use while",
+              "Because True is always True — loops forever until break",
+              "To avoid using for loops",
+              "Python requires it for menus"
+            ]
+          },
+          "stage1Transition": "Python's while True loop combined with break creates a perfect menu system. Let's see.",
+          "stage2Transition": "Here is how a menu loop is built in Python.",
+          "takeaway": "An ATM session repeats until you choose Exit — that's while True with a break. It's the standard Python pattern for any program that presents a menu and waits for the user."
+        },
+        {
+          "type": "practice",
+          "title": "Number Guessing Game",
+          "instructions": "Build a number guessing game. The secret number is 42. Keep asking the user to guess. If too low: print 'Too low!' If too high: print 'Too high!' If correct: print 'Correct! You guessed it!' and stop.",
+          "starterCode": "secret = 42\n\nwhile True:\n    guess = int(input(\"Guess the number: \"))\n    \n    # Check guess\n    ",
+          "solution": "secret = 42\n\nwhile True:\n    guess = int(input(\"Guess the number: \"))\n    \n    if guess < secret:\n        print(\"Too low!\")\n    elif guess > secret:\n        print(\"Too high!\")\n    else:\n        print(\"Correct! You guessed it!\")\n        break",
+          "hint": "Use if/elif/else inside the while True loop. Break when the guess is correct.",
+          "expectedOutput": "Guess the number: Too low!\nGuess the number: Correct! You guessed it!"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "A while loop runs as long as its condition is True — great when you don't know the iteration count."
+      },
+      {
+        "text": "Every while loop needs: initialise, condition, update. Missing the update causes an infinite loop."
+      },
+      {
+        "text": "break immediately exits the loop regardless of the condition."
+      },
+      {
+        "text": "continue skips the rest of the current iteration and re-checks the condition."
+      },
+      {
+        "text": "while True creates an intentional infinite loop — pair it with break to control exit."
+      },
+      {
+        "text": "Menu-driven programs typically use while True with break on the exit choice."
+      }
+    ],
+    "whatYouLearned": [
+      "How while loops differ from for loops",
+      "The three essential parts of a while loop",
+      "How break exits a loop and continue skips iterations",
+      "The menu loop pattern for interactive programs"
+    ],
+    "nextUp": "Lists"
+  },
+  "quiz": [
+    {
+      "question": "What is the key difference between a for loop and a while loop?",
+      "options": [
+        "for loops are faster",
+        "while loops can only run 100 times",
+        "for loops iterate over sequences; while loops run until a condition is False",
+        "They are identical"
+      ],
+      "answer": "for loops iterate over sequences; while loops run until a condition is False",
+      "explanation": "for loops are used when you know the sequence or count. while loops are used when you need to keep going until a specific condition is no longer true."
+    },
+    {
+      "question": "What causes an infinite loop?",
+      "options": [
+        "Using while instead of for",
+        "Forgetting to update the loop variable so the condition stays True forever",
+        "Using break",
+        "Having too many print statements"
+      ],
+      "answer": "Forgetting to update the loop variable so the condition stays True forever",
+      "explanation": "If the variable in the condition never changes, the condition always evaluates to True, and the loop never stops."
+    },
+    {
+      "question": "What does 'break' do?",
+      "options": [
+        "Pauses the loop for 1 second",
+        "Skips the current iteration",
+        "Immediately exits the loop",
+        "Restarts the loop"
+      ],
+      "answer": "Immediately exits the loop",
+      "explanation": "break is an escape hatch. The moment Python encounters it, it stops the current loop completely and continues with the code after the loop."
+    },
+    {
+      "question": "In a while loop, when is the condition checked?",
+      "options": [
+        "Only once, at the start",
+        "Only at the end of each iteration",
+        "Before every iteration",
+        "After every two iterations"
+      ],
+      "answer": "Before every iteration",
+      "explanation": "Before each iteration begins, Python evaluates the condition. If True, the block runs. If False, the loop ends. This check happens before every single iteration."
+    },
+    {
+      "question": "What does 'continue' do in a loop?",
+      "options": [
+        "Exits the loop",
+        "Goes to the next iteration, skipping the rest of the current one",
+        "Restarts the loop from the beginning",
+        "Continues after the loop"
+      ],
+      "answer": "Goes to the next iteration, skipping the rest of the current one",
+      "explanation": "continue does not exit the loop. It just skips whatever code remains in the current iteration and immediately goes back to check the condition (while) or the next item (for)."
+    }
+  ],
+  "problems": [
+    {
+      "id": "python20-l6-p1",
+      "title": "Sum Until Zero",
+      "description": "Keep asking the user for numbers. Add each to a running total. When the user enters 0, stop and print the total.\n\nExample:\nEnter number: 5\nEnter number: 10\nEnter number: 3\nEnter number: 0\nTotal: 18",
+      "difficulty": "easy",
+      "starterCode": "total = 0\n\n# Loop until 0 is entered\n",
+      "solution": "total = 0\n\nwhile True:\n    num = int(input(\"Enter number: \"))\n    if num == 0:\n        break\n    total += num\n\nprint(f\"Total: {total}\")",
+      "testCases": [
+        {
+          "label": "Sum of inputs",
+          "input": "5\n10\n3\n0",
+          "expectedOutput": "Total: 18",
+          "matchType": "any_lines"
+        }
+      ]
+    },
+    {
+      "id": "python20-l6-p2",
+      "title": "PIN Attempts",
+      "description": "Simulate a PIN verification system. The correct PIN is '1234'. Give the user 3 attempts. After each wrong attempt, print 'Wrong PIN. X attempts remaining.'. If they get it right, print 'Login successful!'. If all 3 attempts fail, print 'Account locked.'",
+      "difficulty": "medium",
+      "starterCode": "correct_pin = \"1234\"\nmax_attempts = 3\nattempts = 0\n\n# PIN verification loop\n",
+      "solution": "correct_pin = \"1234\"\nmax_attempts = 3\nattempts = 0\n\nwhile attempts < max_attempts:\n    pin = input(\"Enter PIN: \")\n    attempts += 1\n    if pin == correct_pin:\n        print(\"Login successful!\")\n        break\n    else:\n        remaining = max_attempts - attempts\n        if remaining > 0:\n            print(f\"Wrong PIN. {remaining} attempts remaining.\")\nelse:\n    print(\"Account locked.\")",
+      "testCases": [
+        {
+          "label": "Correct PIN",
+          "input": "1234",
+          "expectedOutput": "Login successful!",
+          "matchType": "any_lines"
+        }
+      ]
+    },
+    {
+      "id": "python20-l6-p3",
+      "title": "Fibonacci Sequence",
+      "description": "Generate Fibonacci numbers less than 100 using a while loop.\nFibonacci: each number is the sum of the two before it.\nStart: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...\n\nPrint each Fibonacci number less than 100.",
+      "difficulty": "medium",
+      "starterCode": "a = 0\nb = 1\n\n# Print Fibonacci numbers less than 100\n",
+      "solution": "a = 0\nb = 1\n\nwhile a < 100:\n    print(a)\n    a, b = b, a + b",
+      "testCases": [
+        {
+          "label": "Fibonacci sequence",
+          "input": "",
+          "expectedOutput": "0\n1\n1\n2\n3\n5\n8\n13\n21\n34\n55\n89",
+          "matchType": "exact"
+        }
+      ]
+    }
+  ]
+}

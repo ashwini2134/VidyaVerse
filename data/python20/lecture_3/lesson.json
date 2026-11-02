@@ -1,0 +1,439 @@
+{
+  "id": "python20-lecture-3",
+  "courseSlug": "python20",
+  "number": 3,
+  "title": "Operators",
+  "overview": "Operators are the tools Python uses to compute, compare, and combine. In this lecture you'll master arithmetic, comparison, and logical operators — the foundation of every decision and calculation in your programs.",
+  "estimatedMinutes": 50,
+  "sections": [
+    {
+      "id": "arithmetic-operators",
+      "label": "Arithmetic Operators",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "At its core, a computer is a very fast calculator. Arithmetic operators tell Python to perform mathematical operations on numbers."
+        },
+        {
+          "type": "text",
+          "content": "Python supports the operations you already know from maths — plus a few extra ones that are surprisingly useful."
+        },
+        {
+          "type": "text",
+          "content": "`+` Addition · `-` Subtraction · `*` Multiplication · `/` Division · `//` Floor Division · `%` Modulus · `**` Exponentiation"
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — All Arithmetic Operators",
+          "language": "python",
+          "code": "a = 17\nb = 5\n\nprint(a + b)   # 22\nprint(a - b)   # 12\nprint(a * b)   # 85\nprint(a / b)   # 3.4 (always float)\nprint(a // b)  # 3 (floor: drops decimal)\nprint(a % b)   # 2 (remainder)\nprint(a ** b)  # 1419857 (17 to the power 5)",
+          "expectedOutput": "22\n12\n85\n3.4\n3\n2\n1419857",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "The two you might not know:\n\n**Floor division `//`** — divides and discards the decimal. `17 // 5 = 3` not 3.4.\n\n**Modulus `%`** — gives the **remainder** after division. `17 % 5 = 2` because 5 × 3 = 15, and 17 − 15 = 2."
+        },
+        {
+          "type": "text",
+          "content": "Modulus is more useful than it sounds. `number % 2 == 0` tells you if a number is even. `seconds % 60` converts seconds to remaining seconds after full minutes."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Pizza Sharing",
+            "description": "You have 17 slices and 5 friends. Floor division tells you how many slices each gets (3). Modulus tells you how many slices are left over (2). Both are real answers to a real problem.",
+            "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80",
+            "bullets": [
+              "You divide 17 slices equally among 5 friends.",
+              "Floor division tells you how many whole slices each person gets.",
+              "The modulus tells you how many slices are left over."
+            ],
+            "highlightCard": "// gives whole slices, % gives the remainder — two sides of the same division."
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "17 ÷ 5",
+            "items": [
+              "17 // 5 = 3 (each person gets 3)",
+              "17 % 5 = 2 (2 slices left over)"
+            ],
+            "bullets": [
+              "// is floor division — it drops the decimal and gives the whole number.",
+              "% is the modulus — it gives the remainder after division.",
+              "Together they answer: 'how many each?' and 'how many left over?'"
+            ],
+            "highlightCard": "17 // 5 = 3 (each gets 3 slices) and 17 % 5 = 2 (2 slices left over)."
+          },
+          "code": {
+            "language": "python",
+            "code": "slices = 17\nfriends = 5\nprint(\"Each gets:\", slices // friends)\nprint(\"Left over:\", slices % friends)",
+            "output": "Each gets: 3\nLeft over: 2",
+            "highlights": [
+              "// divides and drops the decimal — the result is always a whole number.",
+              "% gives you the remainder after dividing as many times as possible.",
+              "Both operators work with any numbers, not just positive integers."
+            ],
+            "highlightCard": "// and % are perfect partners — they split any division into quotient and remainder."
+          },
+          "reflection": {
+            "question": "What does 10 % 3 evaluate to?",
+            "answer": "1 — because 3 × 3 = 9, and 10 − 9 = 1. The modulus is the remainder after division.",
+            "options": [
+              "3",
+              "1",
+              "3.33",
+              "0"
+            ]
+          },
+          "stage1Transition": "Python has exactly these two division operators. Let's see how they work.",
+          "stage2Transition": "Here is how // and % look in Python code.",
+          "takeaway": "Dividing pizza teaches you Python's two division operators: // gives the whole result and % gives the remainder. Together they solve any division problem completely."
+        },
+        {
+          "type": "practice",
+          "title": "Canteen Bill Split",
+          "instructions": "You and your 3 friends went to the college canteen. The total bill is Rs.250. Calculate how much each person pays (floor division) and how many rupees are left over (modulus). Print both.",
+          "starterCode": "total_bill = 250\npeople = 4\n\n# Each person's share\neach_pays = \n# Leftover amount\nleftover = \n\nprint(f\"Each pays: Rs.{each_pays}\")\nprint(f\"Leftover: Rs.{leftover}\")",
+          "solution": "total_bill = 250\npeople = 4\n\neach_pays = total_bill // people\nleftover = total_bill % people\n\nprint(f\"Each pays: Rs.{each_pays}\")\nprint(f\"Leftover: Rs.{leftover}\")",
+          "hint": "Use // for the equal share and % for what remains.",
+          "expectedOutput": "Each pays: Rs.62\nLeftover: Rs.2"
+        }
+      ]
+    },
+    {
+      "id": "comparison-operators",
+      "label": "Comparison Operators",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Arithmetic operators compute values. Comparison operators **compare** two values and always return `True` or `False`."
+        },
+        {
+          "type": "text",
+          "content": "These are the questions your program asks before making a decision."
+        },
+        {
+          "type": "text",
+          "content": "`==` Equal to · `!=` Not equal to · `>` Greater than · `<` Less than · `>=` Greater than or equal · `<=` Less than or equal"
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Comparison Operators",
+          "language": "python",
+          "code": "marks = 75\npassing_marks = 50\n\nprint(marks > passing_marks)   # True\nprint(marks == 100)            # False\nprint(marks != 75)             # False\nprint(marks >= passing_marks)  # True\nprint(marks < 50)              # False",
+          "expectedOutput": "True\nFalse\nFalse\nTrue\nFalse",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "**Common mistake:** `=` assigns a value. `==` compares two values. These are completely different. Never use `=` when you mean to compare."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Weighing Scale",
+            "description": "A weighing scale compares two sides and tells you which is heavier, or if they're equal. Comparison operators do the same — compare two values and return True or False.",
+            "image": "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=800&q=80",
+            "bullets": [
+              "Place objects on both sides — the scale compares them instantly.",
+              "It tells you which side is heavier, or if they balance perfectly.",
+              "The answer is always one of three states: left heavy, right heavy, or equal."
+            ],
+            "highlightCard": "Comparison operators compare two values and return either True or False."
+          },
+          "visualization": {
+            "type": "decision",
+            "title": "a > b?",
+            "condition": "Is a greater than b?",
+            "trueLabel": "Returns True",
+            "falseLabel": "Returns False",
+            "bullets": [
+              "> checks if the left side is greater than the right.",
+              "< checks if the left side is smaller.",
+              "== checks if both sides are exactly equal — note: double equals sign."
+            ],
+            "highlightCard": "Every comparison in Python produces exactly one result: True or False."
+          },
+          "code": {
+            "language": "python",
+            "code": "temperature = 38\nprint(temperature > 37.5)  # Fever?",
+            "output": "True",
+            "highlights": [
+              "== is comparison (is it equal?), = is assignment (set it equal).",
+              ">, <, >=, <=, == and != are Python's six comparison operators.",
+              "Comparison results (True/False) can be stored in variables or used in conditions."
+            ],
+            "highlightCard": "Comparison operators are the foundation of every decision your program makes."
+          },
+          "reflection": {
+            "question": "What is the difference between = and == in Python?",
+            "answer": "= assigns a value to a variable. == compares two values and returns True or False.",
+            "options": [
+              "They are the same",
+              "= assigns, == compares",
+              "== assigns, = compares",
+              "Both compare values"
+            ]
+          },
+          "stage1Transition": "Python does the same thing — it compares two values and gives you True or False.",
+          "stage2Transition": "Here is how Python's comparison operators look in code.",
+          "takeaway": "Comparison operators work like a weighing scale — they compare two values and return True or False. This True/False result is what drives every if-statement in your program."
+        },
+        {
+          "type": "practice",
+          "title": "Exam Result Check",
+          "instructions": "A student scored 68 marks. The passing mark is 40 and the distinction mark is 75. Write code to check and print: Is the student passing? (>=40) Is the student getting distinction? (>=75)",
+          "starterCode": "score = 68\npassing = 40\ndistinction = 75\n\n# Check and print results\nprint(\"Passed:\", )\nprint(\"Distinction:\", )",
+          "solution": "score = 68\npassing = 40\ndistinction = 75\n\nprint(\"Passed:\", score >= passing)\nprint(\"Distinction:\", score >= distinction)",
+          "hint": "Use >= to check if score meets or exceeds the threshold.",
+          "expectedOutput": "Passed: True\nDistinction: False"
+        }
+      ]
+    },
+    {
+      "id": "logical-operators",
+      "label": "Logical Operators",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Comparison operators answer one question at a time. But real decisions often need multiple conditions checked at once."
+        },
+        {
+          "type": "text",
+          "content": "Logical operators let you **combine** comparisons into compound conditions."
+        },
+        {
+          "type": "text",
+          "content": "**`and`** — both conditions must be True.\n\n**`or`** — at least one condition must be True.\n\n**`not`** — reverses a condition (True becomes False, False becomes True)."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Logical Operators",
+          "language": "python",
+          "code": "age = 20\nhas_id = True\n\n# and: both must be true\nprint(age >= 18 and has_id)    # True\n\n# or: at least one true\nprint(age < 18 or has_id)      # True\n\n# not: reverse\nprint(not has_id)               # False",
+          "expectedOutput": "True\nTrue\nFalse",
+          "editable": true
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Real Scenario",
+          "language": "python",
+          "code": "marks = 72\nattendance = 80\n\n# Student passes if marks >= 50 AND attendance >= 75\npasses = marks >= 50 and attendance >= 75\nprint(\"Eligible for exam:\", passes)\n\n# Student gets scholarship if marks > 90 OR attendance == 100\nscholarship = marks > 90 or attendance == 100\nprint(\"Scholarship eligible:\", scholarship)",
+          "expectedOutput": "Eligible for exam: True\nScholarship eligible: False",
+          "editable": true
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "College Entry Rules",
+            "description": "To enter the college library: you need a valid ID card AND you must be a registered student. Both must be true. That's 'and'. To access the WiFi: you can use your student email OR your roll number. Either one works. That's 'or'.",
+            "image": "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800&q=80",
+            "bullets": [
+              "Library access: you need a valid ID AND be a registered student — both must be true.",
+              "WiFi access: use your student email OR your roll number — either one works.",
+              "Two completely different logic systems for two different situations."
+            ],
+            "highlightCard": "and requires both conditions to be true. or requires at least one to be true."
+          },
+          "visualization": {
+            "type": "decision",
+            "title": "and vs or",
+            "condition": "Using 'and' or 'or'?",
+            "trueLabel": "and: both must be True",
+            "falseLabel": "or: one must be True",
+            "bullets": [
+              "and returns True only when BOTH conditions on either side are True.",
+              "or returns True when AT LEAST ONE condition is True.",
+              "not flips the result — True becomes False, and False becomes True."
+            ],
+            "highlightCard": "and = both must pass. or = either can pass. not = flip the result."
+          },
+          "code": {
+            "language": "python",
+            "code": "has_card = True\nis_registered = True\nprint(\"Library access:\", has_card and is_registered)",
+            "output": "Library access: True",
+            "highlights": [
+              "and checks both conditions — if either is False, the whole thing is False.",
+              "or checks both conditions — if either is True, the whole thing is True.",
+              "Combine multiple conditions to express complex real-world rules in code."
+            ],
+            "highlightCard": "Logical operators let you combine conditions to express any real-world rule in Python."
+          },
+          "reflection": {
+            "question": "True and False evaluates to?",
+            "answer": "False — because 'and' requires BOTH sides to be True. Since one side is False, the result is False.",
+            "options": [
+              "True",
+              "False",
+              "Error",
+              "None"
+            ]
+          },
+          "stage1Transition": "Python has 'and' and 'or' operators that work exactly the same way. Let's see.",
+          "stage2Transition": "Here is how and, or, and not look in Python code.",
+          "takeaway": "Logical operators (and, or, not) work like real-world rules — and requires everything, or accepts anything, not flips the answer. Use them to combine conditions in your programs."
+        },
+        {
+          "type": "practice",
+          "title": "Hostel Admission Check",
+          "instructions": "A college hostel has two rules: 1) The student must be from outside the city (is_outstation = True), AND 2) They must have applied before the deadline (applied_on_time = True). Check eligibility using logical operators and print the result.",
+          "starterCode": "is_outstation = True\napplied_on_time = False\n\n# Check hostel eligibility\neligible = \nprint(\"Hostel eligible:\", eligible)",
+          "solution": "is_outstation = True\napplied_on_time = False\n\neligible = is_outstation and applied_on_time\nprint(\"Hostel eligible:\", eligible)",
+          "hint": "Both conditions must be True for eligibility — use 'and'.",
+          "expectedOutput": "Hostel eligible: False"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "+, -, *, / are basic arithmetic. // gives the floor (no decimal), % gives the remainder."
+      },
+      {
+        "text": "** is the exponentiation operator: 2 ** 10 = 1024."
+      },
+      {
+        "text": "Modulus (%) is great for checking even/odd or finding remainders."
+      },
+      {
+        "text": "Comparison operators (==, !=, >, <, >=, <=) always return True or False."
+      },
+      {
+        "text": "= assigns. == compares. Never mix them up."
+      },
+      {
+        "text": "and: both conditions must be True. or: at least one must be True. not: reverses the result."
+      },
+      {
+        "text": "Logical operators let you combine multiple conditions into one expression."
+      }
+    ],
+    "whatYouLearned": [
+      "All seven arithmetic operators including floor division and modulus",
+      "All six comparison operators and what they return",
+      "The three logical operators: and, or, not",
+      "How to combine conditions for real-world decision making"
+    ],
+    "nextUp": "Conditional Statements"
+  },
+  "quiz": [
+    {
+      "question": "What is the result of 15 % 4?",
+      "options": [
+        "3",
+        "3.75",
+        "3.0",
+        "1"
+      ],
+      "answer": "3",
+      "explanation": "Modulus gives the remainder after division. 4 × 3 = 12, and 15 − 12 = 3. So 15 % 4 = 3."
+    },
+    {
+      "question": "What does 10 // 3 return?",
+      "options": [
+        "3.33",
+        "3",
+        "4",
+        "1"
+      ],
+      "answer": "3",
+      "explanation": "Floor division (//) divides and drops the decimal part. 10 ÷ 3 = 3.33, but // gives just 3."
+    },
+    {
+      "question": "True and False evaluates to?",
+      "options": [
+        "True",
+        "False",
+        "Error",
+        "None"
+      ],
+      "answer": "False",
+      "explanation": "The 'and' operator returns True only when BOTH sides are True. Since one side is False, the result is False."
+    },
+    {
+      "question": "Which statement correctly checks if a number is even?",
+      "options": [
+        "number / 2 == 0",
+        "number % 2 == 0",
+        "number // 2 == 0",
+        "number == 2"
+      ],
+      "answer": "number % 2 == 0",
+      "explanation": "A number is even if its remainder when divided by 2 is 0. The modulus operator (%) gives the remainder, so number % 2 == 0 correctly checks for even numbers."
+    },
+    {
+      "question": "What is the value of: not (5 > 3)?",
+      "options": [
+        "True",
+        "False",
+        "5",
+        "3"
+      ],
+      "answer": "False",
+      "explanation": "5 > 3 is True. The 'not' operator reverses it, so not True = False."
+    },
+    {
+      "question": "What does 2 ** 8 evaluate to?",
+      "options": [
+        "16",
+        "64",
+        "256",
+        "512"
+      ],
+      "answer": "256",
+      "explanation": "The ** operator is exponentiation. 2 ** 8 means 2 to the power of 8 = 2 × 2 × 2 × 2 × 2 × 2 × 2 × 2 = 256."
+    }
+  ],
+  "problems": [
+    {
+      "id": "python20-l3-p1",
+      "title": "Simple Calculator",
+      "description": "Write a program that takes two numbers as input and prints the result of all 5 operations: addition, subtraction, multiplication, floor division, and modulus.\n\nExample (a=10, b=3):\n10 + 3 = 13\n10 - 3 = 7\n10 * 3 = 30\n10 // 3 = 3\n10 % 3 = 1",
+      "difficulty": "easy",
+      "starterCode": "a = int(input(\"Enter first number: \"))\nb = int(input(\"Enter second number: \"))\n\n# Print all 5 operations\n",
+      "solution": "a = int(input(\"Enter first number: \"))\nb = int(input(\"Enter second number: \"))\n\nprint(f\"{a} + {b} = {a + b}\")\nprint(f\"{a} - {b} = {a - b}\")\nprint(f\"{a} * {b} = {a * b}\")\nprint(f\"{a} // {b} = {a // b}\")\nprint(f\"{a} % {b} = {a % b}\")",
+      "testCases": [
+        {
+          "label": "Calculator with 10 and 3",
+          "input": "10\n3",
+          "expectedOutput": "10 + 3 = 13\n10 - 3 = 7\n10 * 3 = 30\n10 // 3 = 3\n10 % 3 = 1",
+          "matchType": "exact"
+        }
+      ]
+    },
+    {
+      "id": "python20-l3-p2",
+      "title": "Vote Eligibility",
+      "description": "Ask the user for their age. Print:\n- Is eligible to vote: [True/False] (age >= 18)\n- Is senior citizen: [True/False] (age >= 60)\n- Is youth voter: [True/False] (age >= 18 and age <= 35)",
+      "difficulty": "easy",
+      "starterCode": "age = int(input(\"Enter your age: \"))\n\n# Print eligibility results\n",
+      "solution": "age = int(input(\"Enter your age: \"))\n\nprint(\"Is eligible to vote:\", age >= 18)\nprint(\"Is senior citizen:\", age >= 60)\nprint(\"Is youth voter:\", age >= 18 and age <= 35)",
+      "testCases": [
+        {
+          "label": "Age 25",
+          "input": "25",
+          "expectedOutput": "Is eligible to vote: True\nIs senior citizen: False\nIs youth voter: True",
+          "matchType": "exact"
+        }
+      ]
+    },
+    {
+      "id": "python20-l3-p3",
+      "title": "Time Converter",
+      "description": "Ask the user for a total number of seconds. Convert and print it as hours, minutes, and remaining seconds.\n\nExample (7384 seconds):\nHours: 2\nMinutes: 3\nSeconds: 4\n\nHint: hours = seconds // 3600, remaining = seconds % 3600, minutes = remaining // 60",
+      "difficulty": "medium",
+      "starterCode": "total_seconds = int(input(\"Enter total seconds: \"))\n\n# Convert to hours, minutes, seconds\n",
+      "solution": "total_seconds = int(input(\"Enter total seconds: \"))\n\nhours = total_seconds // 3600\nremaining = total_seconds % 3600\nminutes = remaining // 60\nseconds = remaining % 60\n\nprint(f\"Hours: {hours}\")\nprint(f\"Minutes: {minutes}\")\nprint(f\"Seconds: {seconds}\")",
+      "testCases": [
+        {
+          "label": "7384 seconds",
+          "input": "7384",
+          "expectedOutput": "Hours: 2\nMinutes: 3\nSeconds: 4",
+          "matchType": "exact"
+        }
+      ]
+    }
+  ]
+}

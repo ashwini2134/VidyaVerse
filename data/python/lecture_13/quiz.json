@@ -1,0 +1,57 @@
+[
+  {
+    "question": "What is the goal of the mini project?",
+    "options": [
+      "Copy code from examples",
+      "Write one long program",
+      "Apply all concepts learned",
+      "Use only one feature"
+    ],
+    "answer": "Apply all concepts learned",
+    "explanation": "The mini project is designed to apply everything you've learned in the course."
+  },
+  {
+    "question": "Which of these is NOT a project option?",
+    "options": [
+      "Web Browser",
+      "Student Management System",
+      "Expense Tracker",
+      "To-Do List"
+    ],
+    "answer": "Web Browser",
+    "explanation": "The project options are: Student Management System, Expense Tracker, Quiz Application, and To-Do List."
+  },
+  {
+    "question": "How many functions minimum should your project have?",
+    "options": [
+      "2",
+      "5",
+      "3",
+      "1"
+    ],
+    "answer": "3",
+    "explanation": "The project requires a minimum of 3 functions."
+  },
+  {
+    "question": "Which data structure is required for the project?",
+    "options": [
+      "A list or dictionary",
+      "Only sets",
+      "Only lists",
+      "Only dictionaries"
+    ],
+    "answer": "A list or dictionary",
+    "explanation": "The project must use at least one list or dictionary."
+  },
+  {
+    "question": "What is a BONUS requirement for the project?",
+    "options": [
+      "GUI interface",
+      "File handling",
+      "Database",
+      "Web API"
+    ],
+    "answer": "File handling",
+    "explanation": "Adding file handling (saving/loading data) is a bonus requirement."
+  }
+]

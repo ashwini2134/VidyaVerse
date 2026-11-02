@@ -1,0 +1,258 @@
+{
+  "id": "java-beginners-lecture-0",
+  "courseSlug": "java-beginners",
+  "number": 0,
+  "title": "Introduction to Java & JShell",
+  "overview": "Java is one of the most popular programming languages. In this first lecture, you will learn what Java is, why it's a great language, and how to run your first Java code.",
+  "estimatedMinutes": 45,
+  "sections": [
+    {
+      "id": "what-is-java",
+      "label": "What is Java?",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "blue",
+          "title": "What is Java?",
+          "body": "Java is a high-level, object-oriented programming language \ndesigned to run on any device via the JVM (Java Virtual Machine).",
+          "bullets": [
+            "Java is one of the most popular languages in the world",
+            "Write Once, Run Anywhere — Java code runs on any OS",
+            "Java is used in Android apps, web backends, and enterprise systems",
+            "Java is strongly typed — every variable must have a declared type",
+            "Java compiles to bytecode, not machine code directly"
+          ]
+        },
+        {
+          "type": "analogy",
+          "title": "THINK OF JAVA AS A BLUEPRINT FOR A BUILDING",
+          "emoji": "",
+          "text": "A blueprint defines the structure — rooms, doors, windows. \nJava classes are blueprints. Objects are the actual buildings \nbuilt from those blueprints. You define the class once and \ncreate many objects from it."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "THINK OF A CLASS AS A BLUEPRINT",
+            "description": "Blueprint → Building",
+            "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "PROGRAMMING CONCEPT",
+            "items": [
+              "Define",
+              "Instantiate",
+              "Use"
+            ]
+          },
+          "code": {
+            "language": "java",
+            "code": "// JAVA\nclass Car {\n  String color = \"Red\";\n  void drive() {\n    System.out.println(\"Driving!\");\n  }\n}",
+            "output": "Car object created"
+          }
+        },
+        {
+          "type": "explanation",
+          "accentColor": "blue",
+          "title": "Java Platform",
+          "body": "Java programs run on the JVM (Java Virtual Machine), \nwhich is why Java is platform independent.",
+          "bullets": [
+            "javac compiles .java files to .class bytecode",
+            "JVM reads and executes the bytecode",
+            "JDK = Java Development Kit (to write and compile)",
+            "JRE = Java Runtime Environment (to run)",
+            "Java 9+ introduced JShell — interactive Java shell"
+          ]
+        },
+        {
+          "type": "practice",
+          "title": "PRACTICE EXERCISE\nHello Java",
+          "instructions": "Write a Java program that prints \"Hello, World!\" \nto the console using System.out.println.",
+          "starterCode": "// Write your Java code here\nSystem.out.println(\"\");",
+          "solution": "System.out.println(\"Hello, World!\");",
+          "hint": "Put Hello, World! inside the quotes.",
+          "expectedOutput": "Hello, World!"
+        }
+      ]
+    },
+    {
+      "id": "why-java",
+      "label": "Why Java?",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "Why Java is Perfect for Beginners",
+          "body": "Java was designed with simplicity and structure in mind. \nIt enforces good programming habits from day one.",
+          "bullets": [
+            "Strongly typed — catches errors at compile time",
+            "Object-oriented — teaches real-world programming patterns",
+            "Huge community — millions of tutorials and libraries",
+            "Used everywhere — Android, Spring, banking systems, games",
+            "Excellent job market — Java is top 3 in demand worldwide"
+          ]
+        },
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "Real-World Applications of Java",
+          "body": "Java is not just for learning — it powers some of the \nmost important technology in the world.",
+          "bullets": [
+            "Android Development — most Android apps are written in Java",
+            "Enterprise Backend — Spring Framework powers thousands of companies",
+            "Big Data — Apache Hadoop and Spark are Java-based",
+            "Games — Minecraft is written in Java"
+          ]
+        },
+        {
+          "type": "analogy",
+          "title": "THINK OF JAVA AS A SWISS ARMY KNIFE",
+          "emoji": "",
+          "text": "A Swiss Army knife has many tools — blade, scissors, screwdriver \n— all in one device. Java is the same: you can build Android apps, \nweb servers, desktop apps, and data pipelines all with one language."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "THINK OF SWISS ARMY KNIFE",
+            "description": "One tool, many uses",
+            "image": "https://images.unsplash.com/photo-1615127717889-8945dba1f05a?w=800&q=80"
+          },
+          "visualization": {
+            "type": "categories",
+            "title": "Java's Versatility",
+            "centerLabel": "JAVA",
+            "items": [
+              "Android",
+              "Backend",
+              "Big Data",
+              "Games"
+            ]
+          },
+          "code": {
+            "language": "java",
+            "code": "// JAVA\nSystem.out.println(\"Android apps\");\nSystem.out.println(\"Web servers\");\nSystem.out.println(\"Data pipelines\");",
+            "output": "Android apps\nWeb servers\nData pipelines"
+          }
+        }
+      ]
+    },
+    {
+      "id": "getting-started",
+      "label": "Getting Started",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "green",
+          "title": "Installing Java",
+          "body": "Before you can write Java programs, you need to install \nthe JDK. It's free and takes just a few minutes.",
+          "bullets": [
+            "Go to oracle.com/java and download JDK 17 or later",
+            "Run the installer and follow the steps",
+            "Open Terminal (Mac/Linux) or Command Prompt (Windows)",
+            "Type: java -version to verify it installed correctly",
+            "Type: javac -version to verify the compiler works"
+          ]
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "THINK OF SETTING UP YOUR KITCHEN",
+            "description": "Gather tools before you cook",
+            "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Environment Setup",
+            "items": [
+              "Computer",
+              "JDK Installed",
+              "Ready to Code"
+            ]
+          },
+          "code": {
+            "language": "java",
+            "code": "// JAVA\nimport java.lang.*;\nSystem.out.println(\"Java \" + \n  System.getProperty(\"java.version\"));",
+            "output": "Java 17.0.1 ready"
+          }
+        },
+        {
+          "type": "explanation",
+          "accentColor": "green",
+          "title": "JShell — Interactive Mode",
+          "body": "JShell lets you type Java commands one at a time \nand see results immediately.",
+          "bullets": [
+            "Type jshell in your terminal to start",
+            "You'll see jshell> prompt — Java is waiting",
+            "Type any expression and press Enter — Java runs it",
+            "Type /exit to leave JShell"
+          ]
+        },
+        {
+          "type": "explanation",
+          "accentColor": "green",
+          "title": "Writing .java Files",
+          "body": "For real programs, save your code in a file with .java extension.",
+          "bullets": [
+            "Create a new file called Hello.java",
+            "Write your Java code in any text editor",
+            "Open terminal, navigate to the folder",
+            "Type: javac Hello.java to compile",
+            "Type: java java Hello to run"
+          ]
+        },
+        {
+          "type": "explanation",
+          "accentColor": "green",
+          "title": "Java is Compiled then Interpreted",
+          "body": "Java first compiles to bytecode (.class file), then the \nJVM interprets and runs it.",
+          "bullets": [
+            "javac compiles — catches syntax errors immediately",
+            "JVM runs bytecode on any operating system",
+            "This makes Java both fast and portable",
+            "You can test small pieces of code in JShell without files"
+          ]
+        },
+        {
+          "type": "practice",
+          "title": "PRACTICE EXERCISE\nJava Facts Printer",
+          "instructions": "Print 3 things Java can do, each on a separate line:\n'Java builds Android apps', 'Java runs on any OS', \n'Java powers enterprise systems'",
+          "starterCode": "",
+          "solution": "System.out.println(\"Java builds Android apps\");\nSystem.out.println(\"Java runs on any OS\");\nSystem.out.println(\"Java powers enterprise systems\");",
+          "hint": "Use System.out.println() for each line.",
+          "expectedOutput": "Java builds Android apps\nJava runs on any OS\nJava powers enterprise systems"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Java is a class-based, object-oriented language"
+      },
+      {
+        "text": "Java is beginner-friendly, runs on any OS via JVM"
+      },
+      {
+        "text": "javac compiles .java files to bytecode"
+      },
+      {
+        "text": "JShell lets you test Java code interactively"
+      },
+      {
+        "text": "System.out.println() displays text on screen"
+      },
+      {
+        "text": "Java is used in Android, backends, and enterprise"
+      }
+    ],
+    "whatYouLearned": [
+      "What Java is and how it works",
+      "Why Java is great for beginners",
+      "Real-world applications of Java",
+      "How to install Java and JDK",
+      "The difference between JShell and .java files",
+      "How to use System.out.println() to display output"
+    ],
+    "nextUp": "Methods & Multiplication Table"
+  }
+}

@@ -1,0 +1,234 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" style="background:#F9FBF8">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#004169"/>
+      <stop offset="100%" stop-color="#007DAF"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0F9FB6"/>
+      <stop offset="100%" stop-color="#79C8C2"/>
+    </linearGradient>
+    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#006491"/>
+      <stop offset="100%" stop-color="#0F9FB6"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background grid fades in -->
+  <g opacity="0.06">
+    <line x1="0" y1="100" x2="800" y2="100" stroke="#004169" stroke-width="0.5"><animate attributeName="opacity" values="0;0.06" dur="0.8s" fill="freeze"/></line>
+    <line x1="0" y1="200" x2="800" y2="200" stroke="#004169" stroke-width="0.5"><animate attributeName="opacity" values="0;0.06" dur="0.8s" begin="0.1s" fill="freeze"/></line>
+    <line x1="0" y1="300" x2="800" y2="300" stroke="#004169" stroke-width="0.5"><animate attributeName="opacity" values="0;0.06" dur="0.8s" begin="0.2s" fill="freeze"/></line>
+    <line x1="0" y1="400" x2="800" y2="400" stroke="#004169" stroke-width="0.5"><animate attributeName="opacity" values="0;0.06" dur="0.8s" begin="0.3s" fill="freeze"/></line>
+    <line x1="200" y1="0" x2="200" y2="500" stroke="#004169" stroke-width="0.5"><animate attributeName="opacity" values="0;0.06" dur="0.8s" begin="0.15s" fill="freeze"/></line>
+    <line x1="400" y1="0" x2="400" y2="500" stroke="#004169" stroke-width="0.5"><animate attributeName="opacity" values="0;0.06" dur="0.8s" begin="0.25s" fill="freeze"/></line>
+    <line x1="600" y1="0" x2="600" y2="500" stroke="#004169" stroke-width="0.5"><animate attributeName="opacity" values="0;0.06" dur="0.8s" begin="0.35s" fill="freeze"/></line>
+  </g>
+
+  <!-- Axes labels -->
+  <text x="760" y="260" fill="#004169" opacity="0.3" font-size="14" font-family="system-ui" font-weight="600">
+    dim 2
+    <animate attributeName="opacity" values="0;0.3" dur="0.5s" begin="0.5s" fill="freeze"/>
+  </text>
+  <text x="400" y="490" fill="#004169" opacity="0.3" font-size="14" font-family="system-ui" font-weight="600" text-anchor="middle">
+    dim 1
+    <animate attributeName="opacity" values="0;0.3" dur="0.5s" begin="0.6s" fill="freeze"/>
+  </text>
+
+  <!-- Cluster 1: King/Queen/Royal -->
+  <g filter="url(#glow)">
+    <circle cx="250" cy="180" r="15" fill="url(#g1)" opacity="0.9">
+      <animate attributeName="r" values="0;15" dur="0.5s" begin="0.3s" fill="freeze"/>
+      <animate attributeName="r" values="15;18;15" dur="3s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+    <!-- Ripple ring -->
+    <circle cx="250" cy="180" r="15" fill="none" stroke="url(#g1)" stroke-width="1">
+      <animate attributeName="r" values="15;30;15" dur="2s" begin="1s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0" dur="2s" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <text x="250" y="160" text-anchor="middle" fill="#004169" font-size="16" font-family="system-ui" font-weight="700">
+      king
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="0.6s" fill="freeze"/>
+    </text>
+    <circle cx="280" cy="200" r="12" fill="url(#g1)" opacity="0.8">
+      <animate attributeName="r" values="0;12" dur="0.4s" begin="0.5s" fill="freeze"/>
+      <animate attributeName="r" values="12;15;12" dur="3.5s" repeatCount="indefinite" begin="1.5s"/>
+    </circle>
+    <text x="300" y="205" fill="#004169" font-size="15" font-family="system-ui" font-weight="600">
+      queen
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="0.8s" fill="freeze"/>
+    </text>
+    <circle cx="220" cy="210" r="10" fill="url(#g1)" opacity="0.7">
+      <animate attributeName="r" values="0;10" dur="0.3s" begin="0.7s" fill="freeze"/>
+      <animate attributeName="r" values="10;12;10" dur="4s" repeatCount="indefinite" begin="2s"/>
+    </circle>
+    <text x="220" y="230" text-anchor="middle" fill="#004169" font-size="13" font-family="system-ui" font-weight="500">
+      prince
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="1s" fill="freeze"/>
+    </text>
+    <circle cx="260" cy="230" r="8" fill="url(#g1)" opacity="0.6">
+      <animate attributeName="r" values="0;8" dur="0.3s" begin="0.9s" fill="freeze"/>
+      <animate attributeName="r" values="8;10;8" dur="3.8s" repeatCount="indefinite" begin="2.5s"/>
+    </circle>
+    <text x="262" y="248" fill="#004169" font-size="13" font-family="system-ui" font-weight="500">
+      crown
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="1.2s" fill="freeze"/>
+    </text>
+  </g>
+
+  <!-- Cluster 2: Apple/Orange/Fruit -->
+  <g filter="url(#glow)">
+    <circle cx="500" cy="300" r="15" fill="url(#g2)" opacity="0.9">
+      <animate attributeName="r" values="0;15" dur="0.5s" begin="0.5s" fill="freeze"/>
+      <animate attributeName="r" values="15;18;15" dur="2.8s" repeatCount="indefinite" begin="1.2s"/>
+    </circle>
+    <circle cx="500" cy="300" r="15" fill="none" stroke="url(#g2)" stroke-width="1">
+      <animate attributeName="r" values="15;30;15" dur="2.5s" begin="1.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0" dur="2.5s" begin="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="500" y="325" text-anchor="middle" fill="#0F9FB6" font-size="16" font-family="system-ui" font-weight="700">
+      apple
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="0.8s" fill="freeze"/>
+    </text>
+    <circle cx="530" cy="280" r="12" fill="url(#g2)" opacity="0.8">
+      <animate attributeName="r" values="0;12" dur="0.4s" begin="0.7s" fill="freeze"/>
+      <animate attributeName="r" values="12;15;12" dur="3.2s" repeatCount="indefinite" begin="1.7s"/>
+    </circle>
+    <text x="550" y="284" fill="#0F9FB6" font-size="15" font-family="system-ui" font-weight="600">
+      orange
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="1s" fill="freeze"/>
+    </text>
+    <circle cx="470" cy="270" r="10" fill="url(#g2)" opacity="0.7">
+      <animate attributeName="r" values="0;10" dur="0.3s" begin="0.9s" fill="freeze"/>
+      <animate attributeName="r" values="10;12;10" dur="3.6s" repeatCount="indefinite" begin="2.2s"/>
+    </circle>
+    <text x="452" y="268" fill="#0F9FB6" font-size="13" font-family="system-ui" font-weight="500">
+      banana
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="1.2s" fill="freeze"/>
+    </text>
+    <circle cx="510" cy="260" r="8" fill="url(#g2)" opacity="0.6">
+      <animate attributeName="r" values="0;8" dur="0.3s" begin="1.1s" fill="freeze"/>
+      <animate attributeName="r" values="8;10;8" dur="4.2s" repeatCount="indefinite" begin="2.7s"/>
+    </circle>
+    <text x="512" y="250" fill="#0F9FB6" font-size="13" font-family="system-ui" font-weight="500">
+      mango
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="1.4s" fill="freeze"/>
+    </text>
+  </g>
+
+  <!-- Cluster 3: Car/Bus/Truck -->
+  <g filter="url(#glow)">
+    <circle cx="130" cy="350" r="12" fill="url(#g3)" opacity="0.8">
+      <animate attributeName="r" values="0;12" dur="0.4s" begin="0.7s" fill="freeze"/>
+      <animate attributeName="r" values="12;14;12" dur="3.1s" repeatCount="indefinite" begin="1.4s"/>
+    </circle>
+    <circle cx="130" cy="350" r="12" fill="none" stroke="url(#g3)" stroke-width="1">
+      <animate attributeName="r" values="12;25;12" dur="3s" begin="1.4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0" dur="3s" begin="1.4s" repeatCount="indefinite"/>
+    </circle>
+    <text x="130" y="375" text-anchor="middle" fill="#006491" font-size="15" font-family="system-ui" font-weight="600">
+      car
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="1s" fill="freeze"/>
+    </text>
+    <circle cx="160" cy="330" r="10" fill="url(#g3)" opacity="0.7">
+      <animate attributeName="r" values="0;10" dur="0.3s" begin="0.9s" fill="freeze"/>
+      <animate attributeName="r" values="10;12;10" dur="3.4s" repeatCount="indefinite" begin="1.9s"/>
+    </circle>
+    <text x="180" y="334" fill="#006491" font-size="13" font-family="system-ui" font-weight="500">
+      bus
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="1.2s" fill="freeze"/>
+    </text>
+    <circle cx="100" cy="320" r="8" fill="url(#g3)" opacity="0.6">
+      <animate attributeName="r" values="0;8" dur="0.3s" begin="1.1s" fill="freeze"/>
+      <animate attributeName="r" values="8;10;8" dur="3.9s" repeatCount="indefinite" begin="2.4s"/>
+    </circle>
+    <text x="80" y="323" fill="#006491" font-size="13" font-family="system-ui" font-weight="500">
+      truck
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="1.4s" fill="freeze"/>
+    </text>
+  </g>
+
+  <!-- Cluster connections draw in -->
+  <g opacity="0.15">
+    <line x1="250" y1="180" x2="280" y2="200" stroke="#004169" stroke-width="1.5" stroke-dasharray="50" stroke-dashoffset="50">
+      <animate attributeName="stroke-dashoffset" values="50;0" dur="0.4s" begin="1.5s" fill="freeze"/>
+    </line>
+    <line x1="250" y1="180" x2="220" y2="210" stroke="#004169" stroke-width="1.5" stroke-dasharray="50" stroke-dashoffset="50">
+      <animate attributeName="stroke-dashoffset" values="50;0" dur="0.4s" begin="1.6s" fill="freeze"/>
+    </line>
+    <line x1="500" y1="300" x2="530" y2="280" stroke="#0F9FB6" stroke-width="1.5" stroke-dasharray="50" stroke-dashoffset="50">
+      <animate attributeName="stroke-dashoffset" values="50;0" dur="0.4s" begin="1.7s" fill="freeze"/>
+    </line>
+    <line x1="500" y1="300" x2="470" y2="270" stroke="#0F9FB6" stroke-width="1.5" stroke-dasharray="50" stroke-dashoffset="50">
+      <animate attributeName="stroke-dashoffset" values="50;0" dur="0.4s" begin="1.8s" fill="freeze"/>
+    </line>
+    <line x1="130" y1="350" x2="160" y2="330" stroke="#006491" stroke-width="1.5" stroke-dasharray="50" stroke-dashoffset="50">
+      <animate attributeName="stroke-dashoffset" values="50;0" dur="0.4s" begin="1.9s" fill="freeze"/>
+    </line>
+    <line x1="130" y1="350" x2="100" y2="320" stroke="#006491" stroke-width="1.5" stroke-dasharray="50" stroke-dashoffset="50">
+      <animate attributeName="stroke-dashoffset" values="50;0" dur="0.4s" begin="2s" fill="freeze"/>
+    </line>
+  </g>
+
+  <!-- Legend slides in -->
+  <g transform="translate(620, 50)">
+    <rect x="0" y="0" width="160" height="120" rx="8" fill="white" stroke="#004169" stroke-opacity="0.1" stroke-width="1" transform="translate(20,0)">
+      <animate attributeName="transform" values="translate(20,0);translate(0,0)" dur="0.5s" begin="1.2s" fill="freeze" type="translate"/>
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="1.2s" fill="freeze"/>
+    </rect>
+    <circle cx="15" cy="25" r="6" fill="url(#g1)">
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="1.4s" fill="freeze"/>
+    </circle>
+    <text x="28" y="29" fill="#004169" font-size="13" font-family="system-ui" font-weight="600">
+      Royalty cluster
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="1.5s" fill="freeze"/>
+    </text>
+    <circle cx="15" cy="55" r="6" fill="url(#g2)">
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="1.6s" fill="freeze"/>
+    </circle>
+    <text x="28" y="59" fill="#004169" font-size="13" font-family="system-ui" font-weight="600">
+      Fruit cluster
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="1.7s" fill="freeze"/>
+    </text>
+    <circle cx="15" cy="85" r="6" fill="url(#g3)">
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="1.8s" fill="freeze"/>
+    </circle>
+    <text x="28" y="89" fill="#004169" font-size="13" font-family="system-ui" font-weight="600">
+      Vehicle cluster
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="1.9s" fill="freeze"/>
+    </text>
+    <text x="80" y="110" text-anchor="middle" fill="#006491" font-size="11" font-family="system-ui" opacity="0.5">
+      Semantic proximity in 2D
+      <animate attributeName="opacity" values="0;0.5" dur="0.4s" begin="2s" fill="freeze"/>
+    </text>
+  </g>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" fill="#004169" font-size="20" font-family="system-ui" font-weight="700">
+    Word Embeddings: Semantic Vector Space
+    <animate attributeName="opacity" values="0;1" dur="0.6s" fill="freeze"/>
+  </text>
+  <text x="400" y="58" text-anchor="middle" fill="#006491" opacity="0.6" font-size="14" font-family="system-ui">
+    Similar words cluster together in embedding space
+    <animate attributeName="opacity" values="0;0.6" dur="0.6s" begin="0.3s" fill="freeze"/>
+  </text>
+
+  <!-- Animated vector arrow drawing -->
+  <g transform="translate(350, 105)">
+    <line x1="0" y1="0" x2="80" y2="50" stroke="#0F9FB6" stroke-width="2" stroke-dasharray="4,4" opacity="0.4">
+      <animate attributeName="stroke-dashoffset" values="95;0" dur="0.6s" begin="2s" fill="freeze"/>
+      <animate attributeName="stroke-dashoffset" values="0;-20" dur="2s" begin="2.6s" repeatCount="indefinite"/>
+    </line>
+    <polygon points="80,50 72,42 78,55" fill="#0F9FB6" opacity="0">
+      <animate attributeName="opacity" values="0;0.4" dur="0.3s" begin="2.5s" fill="freeze"/>
+    </polygon>
+    <text x="20" y="-8" fill="#0F9FB6" font-size="13" font-family="system-ui" opacity="0">
+      king → queen
+      <animate attributeName="opacity" values="0;0.5" dur="0.4s" begin="2.7s" fill="freeze"/>
+    </text>
+  </g>
+</svg>

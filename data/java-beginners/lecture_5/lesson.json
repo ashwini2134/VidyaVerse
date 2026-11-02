@@ -1,0 +1,72 @@
+{
+  "id": "java-beginners-lecture-5",
+  "courseSlug": "java-beginners",
+  "number": 5,
+  "title": "Loops",
+  "overview": "Overview of Loops",
+  "estimatedMinutes": 45,
+  "sections": [
+    {
+      "id": "section-1-lecture-5",
+      "label": "Theory Part 1",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "blue",
+          "title": "Introduction to Loops",
+          "body": "Content for Loops...",
+          "bullets": [
+            "Point 1",
+            "Point 2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-2-lecture-5",
+      "label": "Theory Part 2",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "Deep dive into Loops",
+          "body": "More content for Loops...",
+          "bullets": [
+            "Point 1",
+            "Point 2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-3-lecture-5",
+      "label": "Theory Part 3",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "green",
+          "title": "Mastering Loops",
+          "body": "Advanced content for Loops...",
+          "bullets": [
+            "Point 1",
+            "Point 2"
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Takeaway 1 for Loops"
+      },
+      {
+        "text": "Takeaway 2 for Loops"
+      }
+    ],
+    "whatYouLearned": [
+      "You learned about Loops"
+    ],
+    "nextUp": "Arrays & ArrayLists"
+  }
+}

@@ -1,0 +1,404 @@
+{
+  "id": "python20-lecture-13",
+  "courseSlug": "python20",
+  "number": 13,
+  "title": "Mini Project",
+  "overview": "You've learned every core concept of Python. Now it's time to use all of them together. In this final lecture, you'll build three complete, real-world Python projects that bring together variables, loops, conditionals, functions, data structures, and file handling.",
+  "estimatedMinutes": 90,
+  "sections": [
+    {
+      "id": "project-overview",
+      "label": "What You've Built — What Comes Next",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Over the past 13 lectures, you've built an incredible foundation. Let's take a moment to see just how much you know."
+        },
+        {
+          "type": "text",
+          "content": "You can store data with **variables** and choose the right container — lists, tuples, sets, dictionaries.\n\nYou can make decisions with **conditionals** and repeat actions with **for** and **while loops**.\n\nYou can write reusable logic with **functions**, manipulate **strings**, and persist data with **file handling**."
+        },
+        {
+          "type": "text",
+          "content": "A real Python program combines all of these. The mini project is your chance to do exactly that."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Building a House",
+            "description": "You've learned all the tools: hammer (variables), saw (loops), blueprint reading (conditionals), wiring (functions), plumbing (file I/O), and materials (data structures). The mini project is you actually building the house.",
+            "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80",
+            "bullets": [
+              "You don't build a house in one attempt — you plan and follow a blueprint.",
+              "Foundation first, then walls, then roof — each stage builds on the last.",
+              "Every skill you learned in construction comes together in the final build."
+            ],
+            "highlightCard": "A project brings all your individual Python skills together into one working program."
+          },
+          "visualization": {
+            "type": "categories",
+            "title": "Skills You're Using",
+            "items": [
+              "Variables & Data Types",
+              "Input & Output",
+              "Conditionals & Loops",
+              "Functions",
+              "Lists, Dicts, Sets",
+              "Strings & File Handling"
+            ],
+            "bullets": [
+              "Variables and data types store all your program's information.",
+              "Functions organize logic into reusable, testable building blocks.",
+              "Loops, conditions, and data structures control flow and manage collections."
+            ],
+            "highlightCard": "Every Python concept you've learned is a tool — projects are where you use them all together."
+          },
+          "code": {
+            "language": "python",
+            "code": "# A tiny taste of what you'll build:\nstudents = {}\ndef add_student(name, marks):\n    students[name] = marks\n    print(f\"{name} added.\")\nadd_student(\"Priya\", 92)\nprint(students)",
+            "output": "Priya added.\n{'Priya': 92}",
+            "highlights": [
+              "Functions break the project into clear, manageable pieces.",
+              "Data structures (lists, dicts) store and organize all your project's data.",
+              "The main() function ties everything together into one program."
+            ],
+            "highlightCard": "A well-structured project uses everything you've learned — and makes it look effortless."
+          },
+          "reflection": {
+            "question": "Which concept links all your Python knowledge together?",
+            "answer": "Functions — they let you organise all other concepts (loops, conditionals, data structures) into reusable, named blocks that work together.",
+            "options": [
+              "Variables",
+              "Print statements",
+              "Functions",
+              "Loops"
+            ]
+          },
+          "stage1Transition": "Building a real project is like constructing a house — every skill you've learned has a role. Let's see.",
+          "stage2Transition": "Here is how your Python skills map to a real project structure.",
+          "takeaway": "Building a house uses every construction skill you know — just like a Python project uses every concept you've learned. Variables, functions, loops, and data structures all work together."
+        },
+        {
+          "type": "practice",
+          "title": "Skill Inventory",
+          "instructions": "Create a dictionary called my_skills where each key is a Python concept you've learned, and each value is a self-rating from 1-10. Print each skill and its rating. Print the skill you feel strongest in (highest rating).",
+          "starterCode": "my_skills = {\n    \"Variables\": 9,\n    \"Loops\": 8,\n    \"Functions\": 7,\n    \"Lists\": 8,\n    \"Dictionaries\": 7,\n    \"File Handling\": 6\n}\n\n# Print each skill\nfor skill, rating in my_skills.items():\n    print(f\"{skill}: {'★' * rating}\")\n\n# Find strongest skill\nbest = max(my_skills, key=my_skills.get)\nprint(f\"\\nStrongest skill: {best}\")",
+          "solution": "my_skills = {\n    \"Variables\": 9,\n    \"Loops\": 8,\n    \"Functions\": 7,\n    \"Lists\": 8,\n    \"Dictionaries\": 7,\n    \"File Handling\": 6\n}\n\nfor skill, rating in my_skills.items():\n    print(f\"{skill}: {'★' * rating}\")\n\nbest = max(my_skills, key=my_skills.get)\nprint(f\"\\nStrongest skill: {best}\")",
+          "hint": "Use .items() for the loop and max() with key=my_skills.get for the best skill.",
+          "expectedOutput": "Variables: ★★★★★★★★★\nLoops: ★★★★★★★★\nFunctions: ★★★★★★★\nLists: ★★★★★★★★\nDictionaries: ★★★★★★★\nFile Handling: ★★★★★★\n\nStrongest skill: Variables"
+        }
+      ]
+    },
+    {
+      "id": "project-student-manager",
+      "label": "Project: Student Grade Manager",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "**Project 1: Student Grade Manager**"
+        },
+        {
+          "type": "text",
+          "content": "Build a complete student grade management system. The program should allow you to add students, view all students, calculate averages, and save the data to a file."
+        },
+        {
+          "type": "text",
+          "content": "**Features to implement:**\n- Add a student with their name and marks\n- View all students and their average marks\n- Find the top scorer\n- Save all records to a file\n- Load records from the file on startup"
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Student Grade Manager",
+          "language": "python",
+          "code": "import os\n\n# Data storage\nstudents = {}\nFILE = \"grades.txt\"\n\ndef load_data():\n    if os.path.exists(FILE):\n        with open(FILE, \"r\") as f:\n            for line in f:\n                name, marks = line.strip().split(\":\")\n                students[name] = [int(m) for m in marks.split(\",\")]\n\ndef save_data():\n    with open(FILE, \"w\") as f:\n        for name, marks in students.items():\n            f.write(f\"{name}:{','.join(map(str, marks))}\\n\")\n\ndef add_student(name, marks):\n    students[name] = marks\n    save_data()\n    print(f\"Added: {name}\")\n\ndef view_all():\n    if not students:\n        print(\"No students yet.\")\n        return\n    print(f\"\\n{'Name':<15} {'Average':>8} {'Grade':>6}\")\n    print(\"-\" * 32)\n    for name, marks in students.items():\n        avg = sum(marks) / len(marks)\n        grade = \"A\" if avg >= 90 else \"B\" if avg >= 75 else \"C\" if avg >= 60 else \"F\"\n        print(f\"{name:<15} {avg:>8.1f} {grade:>6}\")\n\ndef top_student():\n    if not students:\n        return\n    best = max(students, key=lambda n: sum(students[n])/len(students[n]))\n    avg = sum(students[best]) / len(students[best])\n    print(f\"Top student: {best} ({avg:.1f})\")\n\n# Demo\nload_data()\nadd_student(\"Priya\", [92, 88, 95, 90])\nadd_student(\"Arjun\", [75, 82, 79, 88])\nadd_student(\"Meera\", [98, 95, 97, 99])\n\nview_all()\ntop_student()",
+          "expectedOutput": "Added: Priya\nAdded: Arjun\nAdded: Meera\n\nName            Average  Grade\n--------------------------------\nPriya              91.2      A\nArjun              81.0      B\nMeera              97.2      A\nTop student: Meera (97.2)",
+          "editable": true
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "School Register",
+            "description": "A school's grade register has student names (dictionary keys), their marks (list values), computes averages, identifies top performers, and archives records (file handling). Your program automates exactly this manual process.",
+            "image": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80",
+            "bullets": [
+              "The register stores each student's name, grades, and attendance.",
+              "The teacher can add new students, update grades, and search by name.",
+              "At any time, the teacher can print the full class report."
+            ],
+            "highlightCard": "A grade manager is a real project — it stores, retrieves, and displays student data."
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Grade Manager Architecture",
+            "items": [
+              "Dictionary: student name → marks list",
+              "Functions: add, view, top_student",
+              "File: persist data between runs",
+              "Loops + Conditionals: process and grade"
+            ],
+            "bullets": [
+              "A dictionary maps each student name to their list of grades.",
+              "Functions handle adding students, recording grades, and calculating averages.",
+              "A loop displays the full report by iterating over every student."
+            ],
+            "highlightCard": "Student name → grades dictionary + functions + loops = a complete grade manager."
+          },
+          "code": {
+            "language": "python",
+            "code": "students = {\"Alice\": [90, 85, 92]}\navg = sum(students[\"Alice\"]) / len(students[\"Alice\"])\nprint(f\"Average: {avg:.1f}\")",
+            "output": "Average: 89.0",
+            "highlights": [
+              "grades = {} creates an empty dictionary to store all student data.",
+              "grades[name] = [] adds a new student with an empty grade list.",
+              "sum(grades[name]) / len(grades[name]) calculates the average grade."
+            ],
+            "highlightCard": "Dictionaries, functions, and loops — three Python tools that build every real program."
+          },
+          "reflection": {
+            "question": "Which data structure is most suitable for the student-marks relationship?",
+            "answer": "Dictionary with student name as key and a list of marks as value — it maps each name to their associated data directly.",
+            "options": [
+              "A list of tuples",
+              "A set of names",
+              "A dictionary with name as key and list of marks as value",
+              "A tuple of dictionaries"
+            ]
+          },
+          "stage1Transition": "This project uses dictionaries, loops, and functions together. Let's see the architecture.",
+          "stage2Transition": "Here is the core structure of the grade manager in Python.",
+          "takeaway": "A school register is a grade manager — students are keys, grades are values, functions manage operations. Combining dictionaries, functions, and loops builds complete, useful programs."
+        },
+        {
+          "type": "practice",
+          "title": "Extend the Grade Manager",
+          "instructions": "Extend the grade manager above: add a function called failing_students() that prints all students with an average below 60. Test it by adding a student 'Ravi' with marks [45, 50, 48, 52].",
+          "starterCode": "students = {\n    \"Priya\": [92, 88, 95, 90],\n    \"Arjun\": [75, 82, 79, 88],\n    \"Ravi\": [45, 50, 48, 52]\n}\n\ndef failing_students():\n    print(\"Students at risk:\")\n    # Add your code here\n    \nfailing_students()",
+          "solution": "students = {\n    \"Priya\": [92, 88, 95, 90],\n    \"Arjun\": [75, 82, 79, 88],\n    \"Ravi\": [45, 50, 48, 52]\n}\n\ndef failing_students():\n    print(\"Students at risk:\")\n    for name, marks in students.items():\n        avg = sum(marks) / len(marks)\n        if avg < 60:\n            print(f\"  {name}: {avg:.1f}\")\n\nfailing_students()",
+          "hint": "Loop through students.items(), calculate average, check if avg < 60.",
+          "expectedOutput": "Students at risk:\n  Ravi: 48.75"
+        }
+      ]
+    },
+    {
+      "id": "project-quiz-game",
+      "label": "Project: Console Quiz Game",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "**Project 2: Console Quiz Game**"
+        },
+        {
+          "type": "text",
+          "content": "Build an interactive quiz game with multiple questions, score tracking, and a final result. The game asks questions one by one, accepts answers, gives immediate feedback, and shows a final score."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Quiz Game",
+          "language": "python",
+          "code": "def run_quiz(questions):\n    score = 0\n    total = len(questions)\n    \n    print(\"=\" * 40)\n    print(\"    PYTHON 2.0 QUIZ CHALLENGE\")\n    print(\"=\" * 40)\n    print()\n    \n    for i, q in enumerate(questions, 1):\n        print(f\"Q{i}: {q['question']}\")\n        for j, option in enumerate(q['options'], 1):\n            print(f\"  {j}. {option}\")\n        \n        # Simulate answer (in real app, use input())\n        user_answer = q['correct']  # Auto-correct for demo\n        \n        if user_answer == q['correct']:\n            score += 1\n            print(\"  ✓ Correct!\")\n        else:\n            print(f\"  ✗ Wrong. Answer: {q['correct']}\")\n        print()\n    \n    # Final result\n    percent = (score / total) * 100\n    print(\"=\" * 40)\n    print(f\"Score: {score}/{total} ({percent:.0f}%)\")\n    \n    if percent >= 80:\n        print(\"Excellent! You're a Python pro!\")\n    elif percent >= 60:\n        print(\"Good job! Keep practising.\")\n    else:\n        print(\"Keep learning — you'll get there!\")\n\n# Quiz data\nquiz_questions = [\n    {\"question\": \"What does len() return?\", \n     \"options\": [\"The type\", \"The length\", \"The sum\", \"The first item\"],\n     \"correct\": \"The length\"},\n    {\"question\": \"Which creates a list?\",\n     \"options\": [\"(1,2,3)\", \"{1,2,3}\", \"[1,2,3]\", \"{1:2}\"],\n     \"correct\": \"[1,2,3]\"},\n    {\"question\": \"What does 7 % 3 equal?\",\n     \"options\": [\"2\", \"3\", \"1\", \"4\"],\n     \"correct\": \"1\"}\n]\n\nrun_quiz(quiz_questions)",
+          "expectedOutput": "========================================\n    PYTHON 2.0 QUIZ CHALLENGE\n========================================\n\nQ1: What does len() return?\n  1. The type\n  2. The length\n  3. The sum\n  4. The first item\n  ✓ Correct!\n\nQ2: Which creates a list?\n  1. (1,2,3)\n  2. {1,2,3}\n  3. [1,2,3]\n  4. {1:2}\n  ✓ Correct!\n\nQ3: What does 7 % 3 equal?\n  1. 2\n  2. 3\n  3. 1\n  4. 4\n  ✓ Correct!\n\n========================================\nScore: 3/3 (100%)\nExcellent! You're a Python pro!",
+          "editable": true
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Game Show",
+            "description": "A game show host reads questions, a contestant answers, the host reveals if it's correct, the score accumulates, and at the end a final verdict is given. Your quiz game is a digital game show — same structure, all in Python.",
+            "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80",
+            "bullets": [
+              "The host reads a question and the contestant has a fixed time to answer.",
+              "Right answer: points are added. Wrong answer: move to the next question.",
+              "After all questions, the host announces the final score."
+            ],
+            "highlightCard": "A quiz program follows the same flow: ask, validate, score, and report."
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Quiz Architecture",
+            "items": [
+              "List of dicts → question data",
+              "Loop → ask each question",
+              "Conditional → check answer",
+              "Accumulator → track score",
+              "Final check → determine grade"
+            ],
+            "bullets": [
+              "A list of question dictionaries stores the quiz content.",
+              "A loop iterates through questions, collecting and checking each answer.",
+              "A score variable accumulates the total and is displayed at the end."
+            ],
+            "highlightCard": "Question list + answer loop + score accumulator = a complete Python quiz program."
+          },
+          "code": {
+            "language": "python",
+            "code": "questions = [\n    {\"q\": \"2+2?\", \"a\": \"4\"},\n    {\"q\": \"3*3?\", \"a\": \"9\"}\n]\nfor q in questions:\n    print(q[\"q\"])",
+            "output": "2+2?\n3*3?",
+            "highlights": [
+              "questions = [{'q': ..., 'a': ...}, ...] stores the full question bank.",
+              "The for loop iterates through every question automatically.",
+              "score += 1 adds a point each time the user's answer matches the correct one."
+            ],
+            "highlightCard": "A quiz program demonstrates every Python concept in action — from lists to loops to conditionals."
+          },
+          "reflection": {
+            "question": "Why store questions as a list of dictionaries instead of separate variables?",
+            "answer": "It lets you loop through all questions uniformly, add new questions without changing the code, and access question/answer fields by name.",
+            "options": [
+              "Dictionaries are faster than variables",
+              "It lets you loop uniformly and add questions without changing code",
+              "Python requires this format",
+              "It uses less memory"
+            ]
+          },
+          "stage1Transition": "A quiz program pulls together input, conditions, loops, and functions. Let's see how.",
+          "stage2Transition": "Here is how the quiz program is structured in Python.",
+          "takeaway": "A game show quiz is a complete Python program — questions in a list, answers in a loop, score accumulated and displayed at the end. This is what real Python programs look like."
+        },
+        {
+          "type": "practice",
+          "title": "Add a Timer",
+          "instructions": "Enhance the quiz: add an import time, and at the end of run_quiz, calculate how long the quiz took (from start time to end time). Print 'Time taken: X seconds' in the final result.\n\nHint: Use time.time() before and after the questions loop.",
+          "starterCode": "import time\n\ndef run_quiz_timed(questions):\n    start = time.time()\n    score = 0\n    \n    for q in questions:\n        print(q[\"question\"])\n        # Simulate answer\n        score += 1\n    \n    end = time.time()\n    elapsed = round(end - start, 2)\n    \n    print(f\"Score: {score}/{len(questions)}\")\n    print(f\"Time taken: {elapsed} seconds\")\n\nquestions = [\n    {\"question\": \"What is len([1,2,3])?\"},\n    {\"question\": \"What is 7 % 3?\"}\n]\n\nrun_quiz_timed(questions)",
+          "solution": "import time\n\ndef run_quiz_timed(questions):\n    start = time.time()\n    score = 0\n    \n    for q in questions:\n        print(q[\"question\"])\n        score += 1\n    \n    end = time.time()\n    elapsed = round(end - start, 2)\n    \n    print(f\"Score: {score}/{len(questions)}\")\n    print(f\"Time taken: {elapsed} seconds\")\n\nquestions = [\n    {\"question\": \"What is len([1,2,3])?\"},\n    {\"question\": \"What is 7 % 3?\"}\n]\n\nrun_quiz_timed(questions)",
+          "hint": "Save time.time() before the loop as start. Save it again after as end. elapsed = end - start.",
+          "expectedOutput": "What is len([1,2,3])?\nWhat is 7 % 3?\nScore: 2/2\nTime taken: 0.0 seconds"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Real programs combine all Python concepts: variables, loops, conditionals, functions, data structures, and file I/O."
+      },
+      {
+        "text": "Dictionaries are ideal for structured data where each record has named fields."
+      },
+      {
+        "text": "Functions keep your code organised — each function has one clear responsibility."
+      },
+      {
+        "text": "File handling makes your programs persistent — data survives after the program ends."
+      },
+      {
+        "text": "The accumulator pattern appears in every project: initialise, update in loop, use after."
+      },
+      {
+        "text": "Good program design: write small functions, combine them, test each separately."
+      }
+    ],
+    "whatYouLearned": [
+      "How to combine all Python concepts into a working program",
+      "How to design a Student Grade Manager with persistence",
+      "How to build an interactive quiz game",
+      "Principles of program design: small functions, clear data structures, file-backed storage"
+    ],
+    "nextUp": "Congratulations — you've completed Python 2.0!"
+  },
+  "quiz": [
+    {
+      "question": "In a student grade manager using a dictionary, what should be the key and value?",
+      "options": [
+        "Key: marks list, Value: name",
+        "Key: student name, Value: marks list",
+        "Key: grade, Value: all students with that grade",
+        "Key: index, Value: name"
+      ],
+      "answer": "Key: student name, Value: marks list",
+      "explanation": "Dictionary keys should be the unique identifier (name) and values should be the associated data (marks list). This allows direct lookup by name: students['Priya'] → [92, 88, 95]."
+    },
+    {
+      "question": "Why should a program have a save_data() function that's called after every change?",
+      "options": [
+        "Python requires explicit saving",
+        "To ensure changes persist even if the program crashes",
+        "To make the program faster",
+        "To prevent the dictionary from growing too large"
+      ],
+      "answer": "To ensure changes persist even if the program crashes",
+      "explanation": "In-memory data (dictionaries, lists) is lost when the program ends or crashes. Saving to a file immediately after each change ensures no data is lost."
+    },
+    {
+      "question": "What is the best data structure to store quiz questions with question text, options, and correct answer?",
+      "options": [
+        "A list of strings",
+        "A set of tuples",
+        "A list of dictionaries",
+        "A nested tuple"
+      ],
+      "answer": "A list of dictionaries",
+      "explanation": "Each question is a dictionary with named fields (question, options, answer). A list of such dictionaries lets you loop through all questions uniformly and access fields by name."
+    },
+    {
+      "question": "How do you calculate the percentage score in a quiz?",
+      "options": [
+        "score - total",
+        "(score / total) * 100",
+        "score * total",
+        "score + total"
+      ],
+      "answer": "(score / total) * 100",
+      "explanation": "Percentage = (correct answers ÷ total questions) × 100. Always multiply by 100 to get the percentage form."
+    },
+    {
+      "question": "Which of these best describes good function design?",
+      "options": [
+        "One large function that does everything",
+        "Many small functions, each with one clear responsibility",
+        "No functions — just sequential code",
+        "One function per data type"
+      ],
+      "answer": "Many small functions, each with one clear responsibility",
+      "explanation": "This is the Single Responsibility Principle. Small, focused functions are easier to test, debug, reuse, and understand. The grade manager example shows this: separate functions for add, view, save, load, and top_student."
+    }
+  ],
+  "problems": [
+    {
+      "id": "python20-l13-p1",
+      "title": "Contact Book",
+      "description": "Build a contact book that:\n1. Stores contacts as {name: phone_number}\n2. Has an add_contact(name, phone) function\n3. Has a find_contact(name) function that prints the phone or 'Not found'\n4. Saves to 'contacts.txt' and loads on start\n\nDemo: add 3 contacts, then find one that exists and one that doesn't.",
+      "difficulty": "medium",
+      "starterCode": "import os\n\ncontacts = {}\n\ndef add_contact(name, phone):\n    contacts[name] = phone\n    print(f\"Added: {name} → {phone}\")\n\ndef find_contact(name):\n    if name in contacts:\n        print(f\"{name}: {contacts[name]}\")\n    else:\n        print(f\"{name}: Not found\")\n\ndef save_contacts():\n    with open(\"contacts.txt\", \"w\") as f:\n        for name, phone in contacts.items():\n            f.write(f\"{name}:{phone}\\n\")\n\n# Demo\nadd_contact(\"Priya\", \"9876543210\")\nadd_contact(\"Ravi\", \"9123456789\")\nadd_contact(\"Meera\", \"9988776655\")\nsave_contacts()\n\nfind_contact(\"Ravi\")\nfind_contact(\"Karan\")",
+      "solution": "import os\n\ncontacts = {}\n\ndef add_contact(name, phone):\n    contacts[name] = phone\n    print(f\"Added: {name} → {phone}\")\n\ndef find_contact(name):\n    if name in contacts:\n        print(f\"{name}: {contacts[name]}\")\n    else:\n        print(f\"{name}: Not found\")\n\ndef save_contacts():\n    with open(\"contacts.txt\", \"w\") as f:\n        for name, phone in contacts.items():\n            f.write(f\"{name}:{phone}\\n\")\n\nadd_contact(\"Priya\", \"9876543210\")\nadd_contact(\"Ravi\", \"9123456789\")\nadd_contact(\"Meera\", \"9988776655\")\nsave_contacts()\n\nfind_contact(\"Ravi\")\nfind_contact(\"Karan\")",
+      "testCases": [
+        {
+          "label": "Contact book demo",
+          "input": "",
+          "expectedOutput": "Added: Priya → 9876543210\nAdded: Ravi → 9123456789\nAdded: Meera → 9988776655\nRavi: 9123456789\nKaran: Not found",
+          "matchType": "exact"
+        }
+      ]
+    },
+    {
+      "id": "python20-l13-p2",
+      "title": "Number Analyser",
+      "description": "Write a program that:\n1. Asks user for 5 numbers\n2. Computes: min, max, sum, average\n3. Counts how many are positive, negative, zero\n4. Lists the even numbers\n5. Prints a formatted report\n\nSimulate with: numbers = [12, -5, 0, 8, -3]",
+      "difficulty": "medium",
+      "starterCode": "numbers = [12, -5, 0, 8, -3]\n\n# Compute statistics\n",
+      "solution": "numbers = [12, -5, 0, 8, -3]\n\nprint(\"=== Number Analysis ===\")\nprint(f\"Numbers: {numbers}\")\nprint(f\"Min: {min(numbers)}\")\nprint(f\"Max: {max(numbers)}\")\nprint(f\"Sum: {sum(numbers)}\")\nprint(f\"Average: {sum(numbers)/len(numbers)}\")\n\npos = sum(1 for n in numbers if n > 0)\nneg = sum(1 for n in numbers if n < 0)\nzero = numbers.count(0)\nprint(f\"Positive: {pos}, Negative: {neg}, Zero: {zero}\")\n\nevens = [n for n in numbers if n % 2 == 0]\nprint(f\"Even numbers: {evens}\")",
+      "testCases": [
+        {
+          "label": "Number analysis",
+          "input": "",
+          "expectedOutput": "=== Number Analysis ===\nNumbers: [12, -5, 0, 8, -3]\nMin: -5\nMax: 12\nSum: 12\nAverage: 2.4\nPositive: 2, Negative: 2, Zero: 1\nEven numbers: [12, 0, 8]",
+          "matchType": "exact"
+        }
+      ]
+    },
+    {
+      "id": "python20-l13-p3",
+      "title": "Text Adventure Game",
+      "description": "Build a mini text adventure game with these rooms and connections:\n- You start in 'Hall'\n- Hall connects to: Kitchen (north), Garden (south)\n- Kitchen connects to: Hall (south), Pantry (east)\n- Garden connects to: Hall (north)\n- Pantry: 'You found the treasure! You win!'\n\nAllow the player to move by typing directions. End when they reach Pantry or quit.",
+      "difficulty": "medium",
+      "starterCode": "rooms = {\n    \"Hall\": {\"north\": \"Kitchen\", \"south\": \"Garden\"},\n    \"Kitchen\": {\"south\": \"Hall\", \"east\": \"Pantry\"},\n    \"Garden\": {\"north\": \"Hall\"},\n    \"Pantry\": {}\n}\n\ncurrent_room = \"Hall\"\n\nprint(\"=== TEXT ADVENTURE ===\")\nprint(\"Find the treasure! Type directions to move. Type 'quit' to exit.\\n\")\n\n# Simulate moves: north, east (to reach Pantry)\nmoves = [\"north\", \"east\"]\n\nfor move in moves:\n    print(f\"You are in: {current_room}\")\n    exits = list(rooms[current_room].keys())\n    print(f\"Exits: {', '.join(exits)}\")\n    print(f\"You go {move}...\")\n    \n    if move in rooms[current_room]:\n        current_room = rooms[current_room][move]\n    else:\n        print(\"You can't go that way!\")\n    \n    if current_room == \"Pantry\":\n        print(\"You found the treasure! You win!\")\n        break\n    print()",
+      "solution": "rooms = {\n    \"Hall\": {\"north\": \"Kitchen\", \"south\": \"Garden\"},\n    \"Kitchen\": {\"south\": \"Hall\", \"east\": \"Pantry\"},\n    \"Garden\": {\"north\": \"Hall\"},\n    \"Pantry\": {}\n}\n\ncurrent_room = \"Hall\"\n\nprint(\"=== TEXT ADVENTURE ===\")\nprint(\"Find the treasure! Type directions to move. Type 'quit' to exit.\\n\")\n\nmoves = [\"north\", \"east\"]\n\nfor move in moves:\n    print(f\"You are in: {current_room}\")\n    exits = list(rooms[current_room].keys())\n    print(f\"Exits: {', '.join(exits)}\")\n    print(f\"You go {move}...\")\n    \n    if move in rooms[current_room]:\n        current_room = rooms[current_room][move]\n    else:\n        print(\"You can't go that way!\")\n    \n    if current_room == \"Pantry\":\n        print(\"You found the treasure! You win!\")\n        break\n    print()",
+      "testCases": [
+        {
+          "label": "Adventure game",
+          "input": "",
+          "expectedOutput": "=== TEXT ADVENTURE ===\nFind the treasure! Type directions to move. Type 'quit' to exit.\n\nYou are in: Hall\nExits: north, south\nYou go north...\n\nYou are in: Kitchen\nExits: south, east\nYou go east...\nYou found the treasure! You win!",
+          "matchType": "exact"
+        }
+      ]
+    }
+  ]
+}

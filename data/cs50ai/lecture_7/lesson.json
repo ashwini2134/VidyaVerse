@@ -1,0 +1,222 @@
+{
+  "id": "cs50ai-lecture-7",
+  "courseSlug": "cs50ai",
+  "number": 7,
+  "title": "Natural Language Processing",
+  "overview": "NLP is AI understanding, processing, and generating human language.",
+  "estimatedMinutes": 60,
+  "nextUp": "AI Ethics & Responsible Use",
+  "sections": [
+    {
+      "id": "what-is-nlp",
+      "label": "What is NLP & Tokenization",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "What is What is NLP & Tokenization?",
+          "body": "NLP is AI understanding, processing, and generating human language.",
+          "bullets": [
+            "NLP = Natural Language Processing — AI working with human language",
+            "Why language is hard for AI — same word can mean very different things depending on context",
+            "Tokenization — splitting text into individual words or parts AI can process",
+            "Bag of Words — representing text by counting how often each word appears",
+            "This concept is fundamental to AI development."
+          ],
+          "accentColor": "blue"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Think of Tokenization as Slicing a Pizza",
+            "description": "Split text into smaller pieces for processing",
+            "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Tokenization = Text Slices",
+            "items": [
+              "\"Hello\"",
+              "\"world\"",
+              "\"from\"",
+              "\"AI\""
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "text = \"hello world ai\"\ntokens = text.split()\nprint(tokens)",
+            "output": "['hello', 'world', 'ai']"
+          }
+        },
+        {
+          "type": "practice",
+          "title": "Tokenizing Text & Bag of Words",
+          "instructions": "Tokenize a sentence and count word frequencies (Bag of Words).",
+          "starterCode": "text = \"the cat sat on the mat\"\ntokens = text.split()\nprint(f\"Tokens: {tokens}\")\nfrom collections import Counter\nbow = Counter(tokens)\nfor word, count in bow.items():\n    print(f\"  '{word}': {count}\")",
+          "solution": "text = \"the cat sat on the mat\"\ntokens = text.split()\nprint(f\"Tokens: {tokens}\")\nfrom collections import Counter\nbow = Counter(tokens)\nfor word, count in bow.items():\n    print(f\"  '{word}': {count}\")",
+          "hint": "Tokenization splits text into individual tokens. Bag of Words counts how often each word appears."
+        }
+      ]
+    },
+    {
+      "id": "word-embeddings",
+      "label": "Word Embeddings & Large Language Models",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "What is Word Embeddings & Large Language Models?",
+          "body": "Word embeddings represent words as numbers. LLMs are very large neural networks trained on massive text.",
+          "bullets": [
+            "Word Embeddings — words represented as numbers so AI can find similarities",
+            "Word math: King - Man + Woman = Queen — AI can do this kind of reasoning",
+            "Language Models predict the next word given the previous words",
+            "LLMs (Large Language Models) — trained on massive text data (GPT, Gemini, Claude)",
+            "Transformers — the architecture behind modern LLMs — processes all words at once"
+          ],
+          "accentColor": "blue"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Think of Word Embeddings as a Map of Meanings",
+            "description": "Similar words are close together in vector space",
+            "image": "https://images.unsplash.com/photo-1589519160732-57fc6ea83bc8?w=800&q=80"
+          },
+          "visualization": {
+            "type": "categories",
+            "title": "Words → Meaning Vectors",
+            "centerLabel": "Words → Meaning Vectors",
+            "items": [
+              "king",
+              "queen",
+              "apple",
+              "orange"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "# Word embedding: cosine similarity\nvecs = {\"king\": [0.8, 0.6], \"queen\": [0.7, 0.5], \"apple\": [0.2, 0.9]}\nk, q = vecs[\"king\"], vecs[\"queen\"]\nsim = sum(a*b for a,b in zip(k,q)) / (sum(a*a for a in k)**0.5 * sum(b*b for b in q)**0.5)\nprint(f\"king ↔ queen similarity: {sim:.2f}\")",
+            "output": "king ↔ queen similarity: 1.00"
+          }
+        },
+        {
+          "type": "practice",
+          "title": "Computing Word Similarity",
+          "instructions": "Calculate similarity between word pairs using letter overlap (simplified embedding).",
+          "starterCode": "# Word similarity using character overlap\ndef similarity(word1, word2):\n    common = len(set(word1) & set(word2))\n    total = len(set(word1) | set(word2))\n    return common / total if total > 0 else 0\npairs = [(\"king\", \"queen\"), (\"king\", \"apple\"), (\"apple\", \"orange\")]\nfor w1, w2 in pairs:\n    sim = similarity(w1, w2)\n    print(f\"{w1} ↔ {w2}: {sim:.2f}\")",
+          "solution": "def similarity(word1, word2):\n    common = len(set(word1) & set(word2))\n    total = len(set(word1) | set(word2))\n    return common / total if total > 0 else 0\npairs = [(\"king\", \"queen\"), (\"king\", \"apple\"), (\"apple\", \"orange\")]\nfor w1, w2 in pairs:\n    sim = similarity(w1, w2)\n    print(f\"{w1} ↔ {w2}: {sim:.2f}\")",
+          "hint": "Word embeddings place similar words close together in vector space. Similar words share more common letters."
+        }
+      ]
+    },
+    {
+      "id": "deep-learning-cnn",
+      "label": "Deep Learning & CNNs",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "How Neural Networks Enable Deep Learning",
+          "body": "Neural Networks are the foundation. Deep Learning scales them up. CNNs specialize them for images.",
+          "bullets": [
+            "Neural Networks — interconnected nodes that process information in layers",
+            "Deep Learning — neural networks with many layers that learn complex patterns",
+            "CNNs (Convolutional Neural Networks) — specialized for understanding images and visual patterns",
+            "This hierarchy powers everything from face unlock to medical scan analysis"
+          ],
+          "accentColor": "purple"
+        },
+        {
+          "type": "practice",
+          "title": "Inside the Vision System",
+          "instructions": "Discover how Neural Networks enable Deep Learning and how CNNs understand images.",
+          "starterCode": "# Explore the vision hierarchy\nprint(\"Tap Neural Network to begin your discovery\")",
+          "solution": "# Complete the interactive discovery",
+          "hint": "Neural Networks → Deep Learning → CNNs. Each level specializes further for vision."
+        }
+      ]
+    },
+    {
+      "id": "getting-started",
+      "label": "NLP in Practice",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "What is NLP Steps?",
+          "body": "How text is processed by LLMs.",
+          "bullets": [
+            "Step 1: Take raw text input from user",
+            "Step 2: Tokenize — split into words or subwords",
+            "Step 3: Convert tokens to numbers (word embeddings)",
+            "Step 4: Feed into language model",
+            "Step 5: Model predicts next token → generates output text"
+          ],
+          "accentColor": "blue"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Think of an LLM as a Very Well-Read Librarian",
+            "description": "Predicts the next word based on billions of examples",
+            "image": "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "LLM = Text Generator",
+            "items": [
+              "Prompt",
+              "Large Language Model",
+              "Generated Text"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "text = {\"the\": [\"cat\"], \"cat\": [\"sat\"], \"sat\": [\"on\"]}\nword = \"the\"\nfor _ in range(3):\n    word = text[word][0]\n    print(word)",
+            "output": "cat\nsat\non"
+          }
+        },
+        {
+          "type": "code_example",
+          "title": "Text Tokenization & Bag of Words",
+          "language": "python",
+          "code": "# Basic NLP: tokenization and word frequency\ntext = \"the cat sat on the mat\"\n\n# Tokenize: split into words\ntokens = text.lower().split()\nprint(f\"Tokens: {tokens}\")\n\n# Bag of words: count frequency\nword_counts = {}\nfor word in tokens:\n    word_counts[word] = word_counts.get(word, 0) + 1\n\nfor word, count in sorted(word_counts.items()):\n    print(f\"  '{word}': {count}\")",
+          "expectedOutput": "Tokens: ['the', 'cat', 'sat', 'on', 'the', 'mat']\n  'cat': 1\n  'mat': 1\n  'on': 1\n  'sat': 1\n  'the': 2"
+        },
+        {
+          "type": "practice",
+          "title": "Practice Exercise",
+          "instructions": "Ask ChatGPT the same question 3 different ways — write down how the answer changes each time",
+          "starterCode": "# Notes on how ChatGPT responded\n",
+          "solution": "# Observe differences in the answers",
+          "hint": "See how minor wording changes affect the output."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "NLP lets AI understand and generate human language"
+      },
+      {
+        "text": "Tokenization splits text into pieces AI can process"
+      },
+      {
+        "text": "Bag of Words counts word frequency to represent text"
+      },
+      {
+        "text": "Word embeddings place words in number space — similar words are close together"
+      },
+      {
+        "text": "LLMs are trained on massive text and predict the next word"
+      },
+      {
+        "text": "Transformers process all words at once — powering GPT, Gemini, Claude"
+      }
+    ],
+    "whatYouLearned": [
+      "What NLP is and how it processes language",
+      "Tokenization, Word Embeddings, and Transformers",
+      "How LLMs predict text generation"
+    ],
+    "nextUp": "AI Ethics & Responsible Use"
+  }
+}

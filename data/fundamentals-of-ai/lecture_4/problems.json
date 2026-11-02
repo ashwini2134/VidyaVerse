@@ -1,0 +1,102 @@
+[
+  {
+    "id": "flip_coin",
+    "title": "Simulate Coin Flips",
+    "description": "Write a Python program that simulates flipping a coin multiple times using a random number generator.\n\nYour program must:\n1. Read an integer `n` representing the number of flips.\n2. Use a `for` loop to flip a coin `n` times.\n3. For each flip, generate a random number between 0 and 1 using `random.random()`. If it's < 0.5, count it as Heads, otherwise Tails.\n4. Print the total number of Heads.\n\n*Note: A random seed is set automatically so test cases output predictable numbers!*\n\nSample Input:\n10\n\nSample Output:\nHeads: 6",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "import random\nrandom.seed(42) # Do not remove this line\n\nflips = int(input())\nheads_count = 0\n\n# Your loop here\n\nprint(f'Heads: {heads_count}')",
+    "solution": "import random\nrandom.seed(42)\nflips = int(input())\nheads_count = 0\nfor _ in range(flips):\n    if random.random() < 0.5:\n        heads_count += 1\nprint(f'Heads: {heads_count}')",
+    "hints": [
+      "Use `for _ in range(flips):` to loop exactly `n` times.",
+      "Inside the loop, use an `if random.random() < 0.5:` block to increment your `heads_count`."
+    ],
+    "testCases": [
+      {
+        "label": "10 Flips",
+        "input": "10",
+        "expectedOutput": "Heads: 6\n"
+      },
+      {
+        "label": "100 Flips",
+        "input": "100",
+        "expectedOutput": "Heads: 50\n"
+      },
+      {
+        "label": "1 Flip",
+        "input": "1",
+        "expectedOutput": "Heads: 0\n"
+      }
+    ]
+  },
+  {
+    "id": "coin_sim",
+    "title": "Python Coin Simulator",
+    "description": "Let's use the random module to simulate 100 coin flips. We want to see if we get exactly 50 heads and 50 tails.\n\nYour program must:\n1. Use a loop to simulate 100 flips.\n2. Use `random.choice(['H', 'T'])` to pick Heads or Tails.\n3. Count the total number of Heads.\n4. Print ONLY the integer number of Heads.\n\n*Note: We've hardcoded a random seed so the output is predictable for grading.*\n\nSample Input:\n(no input needed, just run 100 iterations)\n\nSample Output:\n46",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "import random\nrandom.seed(10) # Do not remove\n\n# Your code here to simulate 100 flips\n",
+    "solution": "import random\nrandom.seed(10)\nheads = 0\nfor _ in range(100):\n    if random.choice(['H', 'T']) == 'H':\n        heads += 1\nprint(heads)",
+    "hints": [
+      "You don't need any `input()` for this problem. Just write a `for` loop that runs 100 times.",
+      "Keep a counter variable. If `random.choice(['H', 'T'])` returns `'H'`, increase the counter."
+    ],
+    "testCases": [
+      {
+        "label": "Run 100 flips",
+        "input": "",
+        "expectedOutput": "46\n"
+      }
+    ]
+  },
+  {
+    "id": "dice_roll_exp_sim1",
+    "title": "Dice Roll Experiment (Similar A)",
+    "description": "If you roll a 6-sided die, the theoretical probability of rolling a '3' is 1/6. Let's test this experimentally!\n\nYour program must:\n1. Read an integer `n` representing the number of dice rolls.\n2. Simulate `n` rolls using `random.randint(1, 6)`.\n3. Count how many times a '3' is rolled.\n4. Print the final count in the format: `Rolled a 3 [X] times`\n\nSample Input:\n10\n\nSample Output:\nRolled a 3 2 times",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "import random\nrandom.seed(7) # Do not remove\n\nrolls = int(input())\ncount_of_threes = 0\n\n# Your loop here\n\nprint(f'Rolled a 3 {count_of_threes} times')",
+    "solution": "import random\nrandom.seed(7)\nrolls = int(input())\ncount_of_threes = 0\nfor _ in range(rolls):\n    if random.randint(1, 6) == 3:\n        count_of_threes += 1\nprint(f'Rolled a 3 {count_of_threes} times')",
+    "hints": [
+      "Use `random.randint(1, 6)` to generate a number from 1 to 6 inclusive.",
+      "Compare the result to `3` and increment your counter if they match."
+    ],
+    "testCases": [
+      {
+        "label": "10 Rolls",
+        "input": "10",
+        "expectedOutput": "Rolled a 3 2 times\n"
+      },
+      {
+        "label": "60 Rolls",
+        "input": "60",
+        "expectedOutput": "Rolled a 3 5 times\n"
+      },
+      {
+        "label": "0 Rolls",
+        "input": "0",
+        "expectedOutput": "Rolled a 3 0 times\n"
+      }
+    ]
+  },
+  {
+    "id": "python_dice_sim2",
+    "title": "Python Dice Simulator (Similar B)",
+    "description": "Write Python using the random module to simulate rolling a 6-sided die exactly 1000 times.\n\nYour program must:\n1. Run a loop 1000 times.\n2. Use `random.randint(1, 6)` for each roll.\n3. Count how many times you roll a '6'.\n4. Print just that integer count.\n\n*Note: We've hardcoded a random seed so the output is predictable.*\n\nSample Output:\n164",
+    "difficulty": "easy",
+    "type": "coding",
+    "starterCode": "import random\nrandom.seed(99) # Do not remove\n\n# Your code here to simulate 1000 rolls\n",
+    "solution": "import random\nrandom.seed(99)\nsixes = 0\nfor _ in range(1000):\n    if random.randint(1, 6) == 6:\n        sixes += 1\nprint(sixes)",
+    "hints": [
+      "This is very similar to the coin flip simulator, but the loop runs 1000 times.",
+      "Only count the iterations where `random.randint(1, 6) == 6`."
+    ],
+    "testCases": [
+      {
+        "label": "Run 1000 rolls",
+        "input": "",
+        "expectedOutput": "164\n"
+      }
+    ]
+  }
+]

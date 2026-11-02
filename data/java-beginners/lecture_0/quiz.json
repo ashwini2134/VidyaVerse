@@ -1,0 +1,57 @@
+[
+  {
+    "question": "What does JVM stand for?",
+    "options": [
+      "Java Virtual Machine",
+      "Java Verified Module",
+      "Java Variable Manager",
+      "Java Version Manager"
+    ],
+    "answer": "Java Virtual Machine",
+    "explanation": "JVM is the engine that executes Java bytecode."
+  },
+  {
+    "question": "Which command compiles a Java file?",
+    "options": [
+      "java Hello.java",
+      "run Hello.java",
+      "javac Hello.java",
+      "compile Hello.java"
+    ],
+    "answer": "javac Hello.java",
+    "explanation": "javac stands for Java Compiler."
+  },
+  {
+    "question": "What does System.out.println() do?",
+    "options": [
+      "Reads user input",
+      "Creates a new file",
+      "Displays output on the screen",
+      "Calculates math"
+    ],
+    "answer": "Displays output on the screen",
+    "explanation": "It prints text to the standard output."
+  },
+  {
+    "question": "What is JShell?",
+    "options": [
+      "A Java IDE",
+      "An interactive Java shell for testing code",
+      "A Java compiler",
+      "A Java debugger"
+    ],
+    "answer": "An interactive Java shell for testing code",
+    "explanation": "JShell was introduced in Java 9 for REPL functionality."
+  },
+  {
+    "question": "What file extension do Java source files use?",
+    "options": [
+      ".jav",
+      ".class",
+      ".java",
+      ".js"
+    ],
+    "answer": ".java",
+    "explanation": "Java source code is written in .java files, which compile to .class files."
+  }
+]

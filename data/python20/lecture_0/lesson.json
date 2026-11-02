@@ -1,0 +1,435 @@
+{
+  "id": "python20-lecture-0",
+  "courseSlug": "python20",
+  "number": 0,
+  "title": "What is Python?",
+  "overview": "Before you write a single line of code, you need to understand what programming really is — and why Python is the best place to start. This lecture answers those questions and gets you running your very first program.",
+  "estimatedMinutes": 40,
+  "sections": [
+    {
+      "id": "what-is-programming",
+      "label": "What is Programming?",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Every app on your phone, every website you visit, every game you play — all of it started as instructions written by a human being."
+        },
+        {
+          "type": "text",
+          "content": "**Programming** is simply the act of writing those instructions. You write them in a special language that the computer can understand, and the computer follows them precisely — step by step, in order, without skipping a single one."
+        },
+        {
+          "type": "text",
+          "content": "Here's the interesting thing about computers: they are incredibly fast, but they are also completely literal. They don't guess what you mean. They do exactly what you write — nothing more, nothing less."
+        },
+        {
+          "type": "text",
+          "content": "That's actually a good thing. It means once you learn to write instructions correctly, you can make the computer do almost anything."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Cooking Recipe",
+            "description": "A recipe is a set of instructions a human follows to create food. A program is a set of instructions a computer follows to produce output.",
+            "image": "https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=800&q=80",
+            "bullets": [
+              "You follow a list of instructions in a specific order.",
+              "Each ingredient serves a purpose in the final dish.",
+              "Skip one step and the whole recipe turns out wrong."
+            ],
+            "highlightCard": "A recipe is a program for your kitchen — steps, inputs, and an output."
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Recipe → Program",
+            "items": [
+              "Ingredients → Input",
+              "Steps → Instructions",
+              "Dish → Output"
+            ],
+            "bullets": [
+              "A program is a sequence of instructions executed in order.",
+              "Ingredients in a recipe become input data in a program.",
+              "The finished dish becomes the output your program produces."
+            ],
+            "highlightCard": "Programs work exactly like recipes — instructions in, result out."
+          },
+          "code": {
+            "language": "python",
+            "code": "print(\"Chop the onions\")\nprint(\"Boil the water\")\nprint(\"Serve the meal\")",
+            "output": "Chop the onions\nBoil the water\nServe the meal",
+            "highlights": [
+              "Each print() call is one instruction — like one step in a recipe.",
+              "Python reads and runs each line top to bottom.",
+              "The output is everything Python displays on the screen."
+            ],
+            "highlightCard": "Just like a recipe, your Python program runs each line in order and produces an output."
+          },
+          "reflection": {
+            "question": "What is the computer equivalent of a 'recipe step'?",
+            "answer": "A single line of code — one instruction for the computer to execute.",
+            "options": [
+              "A variable",
+              "A single line of code",
+              "The entire program",
+              "The output"
+            ]
+          },
+          "stage1Transition": "So how does a computer follow instructions? Let's see the programming equivalent.",
+          "stage2Transition": "Here is how this looks in real Python code.",
+          "takeaway": "A computer program is like a recipe — you write the steps, the computer follows them in order, and produces a result. That's all programming is."
+        },
+        {
+          "type": "practice",
+          "title": "Write Your First Instructions",
+          "instructions": "Your friend wants to bake a chocolate cake but forgot the steps. Write a Python program that prints three steps of any recipe. Each step on its own line.",
+          "starterCode": "# Print three recipe steps\nprint(\"Step 1: \")\nprint(\"Step 2: \")\nprint(\"Step 3: \")",
+          "solution": "print(\"Step 1: Preheat oven to 180°C\")\nprint(\"Step 2: Mix flour, sugar, and cocoa powder\")\nprint(\"Step 3: Bake for 30 minutes\")",
+          "hint": "Each print() statement outputs one line. Put your step text inside the quotes.",
+          "expectedOutput": "Step 1: Preheat oven to 180°C\nStep 2: Mix flour, sugar, and cocoa powder\nStep 3: Bake for 30 minutes"
+        }
+      ]
+    },
+    {
+      "id": "why-python",
+      "label": "Why Python?",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "There are hundreds of programming languages out there. So why do we teach Python?"
+        },
+        {
+          "type": "text",
+          "content": "Python was created in 1991 by a Dutch programmer named **Guido van Rossum**. His goal was simple: make a language that feels as close to plain English as possible."
+        },
+        {
+          "type": "text",
+          "content": "He succeeded. Look at this Python code: `print(\"Hello\")`. Even if you've never programmed before, you can guess what it does. That's the power of Python."
+        },
+        {
+          "type": "text",
+          "content": "Today, Python is used by:\n- **Beginners** learning their first language\n- **Scientists** analysing data\n- **Engineers** at Google, Netflix, and NASA\n- **AI researchers** building machine learning models"
+        },
+        {
+          "type": "text",
+          "content": "Python is the most popular language in the world right now. Once you learn it, you can go literally anywhere."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Swiss Army Knife",
+            "description": "A Swiss Army knife does everything — scissors, knife, screwdriver, file. Python works the same way: one language, endless uses.",
+            "image": "https://images.unsplash.com/photo-1615127717889-8945dba1f05a?w=800&q=80",
+            "bullets": [
+              "One compact tool handles dozens of completely different tasks.",
+              "You choose the right blade or tool depending on the job.",
+              "No need for a separate kit for every situation you face."
+            ],
+            "highlightCard": "One tool, infinite uses — that's exactly what Python is."
+          },
+          "visualization": {
+            "type": "categories",
+            "title": "Python's Many Uses",
+            "items": [
+              "Web Development",
+              "Data Science",
+              "Automation",
+              "Artificial Intelligence",
+              "Game Development"
+            ],
+            "bullets": [
+              "Python works for web development, data science, AI, automation, and games.",
+              "You pick the right library for the task — just like choosing a blade.",
+              "One language gives you access to every field of programming."
+            ],
+            "highlightCard": "Python is the Swiss Army knife of programming languages."
+          },
+          "code": {
+            "language": "python",
+            "code": "# Python works everywhere\nprint(\"Web: Flask, Django\")\nprint(\"Data: Pandas, NumPy\")\nprint(\"AI: TensorFlow, PyTorch\")",
+            "output": "Web: Flask, Django\nData: Pandas, NumPy\nAI: TensorFlow, PyTorch",
+            "highlights": [
+              "# starts a comment — Python ignores it, it's just for humans to read.",
+              "print() displays any message to the screen.",
+              "One Python file can demonstrate the language's entire range."
+            ],
+            "highlightCard": "Python works the same way across web, data, AI, and automation — one language, everything."
+          },
+          "reflection": {
+            "question": "Why is Python considered beginner-friendly?",
+            "answer": "Its syntax reads like plain English, so you spend less time fighting the language and more time solving problems.",
+            "options": [
+              "It runs faster than other languages",
+              "Its syntax reads like plain English",
+              "It has fewer features",
+              "It was made by Google"
+            ]
+          },
+          "stage1Transition": "How does one programming language handle so many different jobs? Let's find out.",
+          "stage2Transition": "Here is what Python can do in just a few lines of code.",
+          "takeaway": "Python is like a Swiss Army knife — one language that handles web, data, AI, automation, and games. One tool for every programming job you'll ever need."
+        },
+        {
+          "type": "practice",
+          "title": "Explore Python's World",
+          "instructions": "A student in your class asked 'What can Python do?' Write a program that prints exactly 4 things Python is used for — one per line.",
+          "starterCode": "# Print 4 uses of Python\nprint(\"Python can be used for: \")\n",
+          "solution": "print(\"1. Building websites\")\nprint(\"2. Analysing data\")\nprint(\"3. Creating AI models\")\nprint(\"4. Automating tasks\")",
+          "hint": "Use four separate print() statements. You can use your own examples.",
+          "expectedOutput": "1. Building websites\n2. Analysing data\n3. Creating AI models\n4. Automating tasks"
+        }
+      ]
+    },
+    {
+      "id": "first-program",
+      "label": "Your First Python Program",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Every programmer's journey begins with the same two words: **Hello, World!**"
+        },
+        {
+          "type": "text",
+          "content": "It's a tradition that dates back to the 1970s. The idea is simple — write the smallest possible program that proves the language is working. Something that shows the computer is alive and listening."
+        },
+        {
+          "type": "text",
+          "content": "In Python, that program is exactly one line long."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Hello, World!",
+          "language": "python",
+          "code": "print(\"Hello, World!\")",
+          "expectedOutput": "Hello, World!",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "`print()` is a **function**. Functions are pre-built tools that do a specific job. The `print()` function's job is to display whatever you put inside the parentheses."
+        },
+        {
+          "type": "text",
+          "content": "The text you want to display must be wrapped in **quotation marks** — either single `'...'` or double `\"...\"`. This tells Python: this is text, not a variable or a command."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Multiple Lines",
+          "language": "python",
+          "code": "print(\"My name is Lakshanya\")\nprint(\"I am learning Python\")\nprint(\"This is my first program\")",
+          "expectedOutput": "My name is Lakshanya\nI am learning Python\nThis is my first program",
+          "editable": true
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Megaphone",
+            "description": "print() is like a megaphone. Whatever you shout into it, Python broadcasts it to the screen.",
+            "image": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&q=80",
+            "bullets": [
+              "Whatever you shout into it, your voice broadcasts to everyone around.",
+              "The louder you speak, the more clearly everyone hears.",
+              "Without a megaphone, only you can hear your own voice."
+            ],
+            "highlightCard": "A megaphone broadcasts your voice — print() broadcasts your output to the screen."
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "How print() Works",
+            "items": [
+              "You write text",
+              "Put it in print()",
+              "Python displays it"
+            ],
+            "bullets": [
+              "print() displays whatever is inside its parentheses.",
+              "You can print text, numbers, or the result of any calculation.",
+              "Without print(), nothing appears on your screen — your code runs silently."
+            ],
+            "highlightCard": "print() is Python's built-in megaphone — it makes your output visible."
+          },
+          "code": {
+            "language": "python",
+            "code": "print(\"This appears on screen!\")",
+            "output": "This appears on screen!",
+            "highlights": [
+              "The text inside quotes is called a string — it's what gets displayed.",
+              "print() sends it directly to the screen as output.",
+              "Each print() call appears on its own separate line."
+            ],
+            "highlightCard": "print() is your first Python tool — whatever you put inside it, Python shows on screen."
+          },
+          "reflection": {
+            "question": "What does print() do?",
+            "answer": "It displays whatever is inside its parentheses to the screen.",
+            "options": [
+              "Stores a value",
+              "Displays text on screen",
+              "Ends the program",
+              "Creates a variable"
+            ]
+          },
+          "stage1Transition": "How does Python send a message to the screen? That's exactly what print() does.",
+          "stage2Transition": "Here is print() in action with real Python code.",
+          "takeaway": "print() is like a megaphone. Whatever you put inside its parentheses, Python broadcasts it to the screen. It's the most used function in Python."
+        },
+        {
+          "type": "practice",
+          "title": "Introduce Yourself",
+          "instructions": "Your college is hosting a programming fair. Write a Python program that introduces yourself. It should print: your name, your college, and one thing you want to build with Python. Each on its own line.",
+          "starterCode": "# Introduce yourself\nprint(\"\")  # Your name\nprint(\"\")  # Your college\nprint(\"\")  # What you want to build",
+          "solution": "print(\"Lakshanya\")\nprint(\"SRM University\")\nprint(\"I want to build a study planner app\")",
+          "hint": "Use three print() statements, one for each item. Remember to wrap your text in quotes.",
+          "expectedOutput": "Lakshanya\nSRM University\nI want to build a study planner app"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Programming is writing instructions for a computer to follow, step by step."
+      },
+      {
+        "text": "Python is a beginner-friendly language that reads like plain English."
+      },
+      {
+        "text": "Python is used in web development, data science, AI, automation, and much more."
+      },
+      {
+        "text": "print() is a built-in function that displays text to the screen."
+      },
+      {
+        "text": "Text inside print() must be wrapped in quotation marks."
+      },
+      {
+        "text": "Every line of code is one instruction — the computer executes them in order."
+      }
+    ],
+    "whatYouLearned": [
+      "What programming is and why it matters",
+      "Why Python is the ideal first language",
+      "How to use the print() function",
+      "How to write and run a basic Python program"
+    ],
+    "nextUp": "Variables & Data Types"
+  },
+  "quiz": [
+    {
+      "question": "What does the print() function do in Python?",
+      "options": [
+        "Sends data to a printer",
+        "Displays text on the screen",
+        "Stores a value in memory",
+        "Ends the program"
+      ],
+      "answer": "Displays text on the screen",
+      "explanation": "print() is Python's built-in function for displaying output. Whatever you put inside its parentheses appears on the screen when the program runs."
+    },
+    {
+      "question": "Which of the following is correct Python code to display your name?",
+      "options": [
+        "print(Lakshanya)",
+        "PRINT(\"Lakshanya\")",
+        "print(\"Lakshanya\")",
+        "display \"Lakshanya\""
+      ],
+      "answer": "print(\"Lakshanya\")",
+      "explanation": "Python is case-sensitive, so print must be lowercase. Text values must be enclosed in quotes. print(Lakshanya) without quotes would make Python look for a variable called Lakshanya, not the text itself."
+    },
+    {
+      "question": "Who created the Python programming language?",
+      "options": [
+        "Bill Gates",
+        "Linus Torvalds",
+        "Guido van Rossum",
+        "James Gosling"
+      ],
+      "answer": "Guido van Rossum",
+      "explanation": "Python was created by Guido van Rossum in 1991. His goal was to create a language that is easy to read and write, as close to plain English as possible."
+    },
+    {
+      "question": "What happens when you run this code?\nprint(\"Line 1\")\nprint(\"Line 2\")",
+      "options": [
+        "Only Line 2 is printed",
+        "Both lines are printed on the same line",
+        "Line 1 is printed, then Line 2 on a new line",
+        "An error occurs"
+      ],
+      "answer": "Line 1 is printed, then Line 2 on a new line",
+      "explanation": "Each print() statement outputs its text and then moves to a new line. So two print() calls produce two separate lines of output."
+    },
+    {
+      "question": "Which of these is NOT a common use of Python?",
+      "options": [
+        "Building websites",
+        "Designing microchips",
+        "Analysing data",
+        "Creating AI models"
+      ],
+      "answer": "Designing microchips",
+      "explanation": "Python is used for web development, data science, AI, automation, and more. Microchip design is done with specialised hardware description languages, not Python."
+    },
+    {
+      "question": "Why must text inside print() be wrapped in quotation marks?",
+      "options": [
+        "It makes the text bold",
+        "It tells Python this is text, not a variable or command",
+        "It makes the program run faster",
+        "It is optional — just a convention"
+      ],
+      "answer": "It tells Python this is text, not a variable or command",
+      "explanation": "Without quotes, Python tries to interpret the word as a variable or function name. Quotes tell Python: treat this as literal text to display."
+    }
+  ],
+  "problems": [
+    {
+      "id": "python20-l0-p1",
+      "title": "Personal Introduction",
+      "description": "Write a program that prints exactly this output (replacing the values with your own):\n\nName: Lakshanya\nAge: 20\nCity: Chennai\nDream: Build AI apps\n\nEach item must be on its own line.",
+      "difficulty": "easy",
+      "starterCode": "# Print your personal introduction\n",
+      "solution": "print(\"Name: Lakshanya\")\nprint(\"Age: 20\")\nprint(\"City: Chennai\")\nprint(\"Dream: Build AI apps\")",
+      "testCases": [
+        {
+          "label": "Output has 4 lines",
+          "input": "",
+          "expectedOutput": "Name:",
+          "matchType": "any_lines"
+        }
+      ]
+    },
+    {
+      "id": "python20-l0-p2",
+      "title": "Python Announcement",
+      "description": "Write a program that announces a Python workshop. Print exactly 3 lines:\nLine 1: Workshop: Python for Beginners\nLine 2: Date: Saturday, 10 AM\nLine 3: Venue: Lab 3, Block A",
+      "difficulty": "easy",
+      "starterCode": "# Print the workshop announcement\n",
+      "solution": "print(\"Workshop: Python for Beginners\")\nprint(\"Date: Saturday, 10 AM\")\nprint(\"Venue: Lab 3, Block A\")",
+      "testCases": [
+        {
+          "label": "All three lines printed",
+          "input": "",
+          "expectedOutput": "Workshop: Python for Beginners\nDate: Saturday, 10 AM\nVenue: Lab 3, Block A",
+          "matchType": "exact"
+        }
+      ]
+    },
+    {
+      "id": "python20-l0-p3",
+      "title": "ASCII Art Name",
+      "description": "Create a program that prints your name using letters on separate lines to create a visual effect. For example, printing each character of your name on its own line: L, A, K, S...\n\nPrint at least 4 characters of your name, each on a new line.",
+      "difficulty": "medium",
+      "starterCode": "# Print each letter of your name on its own line\n",
+      "solution": "print(\"L\")\nprint(\"A\")\nprint(\"K\")\nprint(\"S\")\nprint(\"H\")\nprint(\"A\")\nprint(\"N\")\nprint(\"Y\")\nprint(\"A\")",
+      "testCases": [
+        {
+          "label": "At least 4 lines printed",
+          "input": "",
+          "expectedOutput": "L",
+          "matchType": "any_lines"
+        }
+      ]
+    }
+  ]
+}

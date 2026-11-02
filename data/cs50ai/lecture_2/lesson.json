@@ -1,0 +1,197 @@
+{
+  "id": "cs50ai-lecture-2",
+  "courseSlug": "cs50ai",
+  "number": 2,
+  "title": "Knowledge & Logic",
+  "overview": "Logic is how AI knows things — through rules and True/False statements, not common sense",
+  "estimatedMinutes": 60,
+  "nextUp": "Probability & Uncertainty",
+  "sections": [
+    {
+      "id": "propositional-logic",
+      "label": "Propositional Logic",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "What is Propositional Logic?",
+          "body": "Logic is how AI knows things — through rules and True/False statements, not common sense",
+          "bullets": [
+            "Propositional logic uses statements that are either True or False",
+            "AND — both sides must be True for result to be True",
+            "OR — at least one side must be True",
+            "NOT — reverses the value (NOT True = False)",
+            "This concept is fundamental to AI development."
+          ],
+          "accentColor": "blue"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Think of Logic as a Detective",
+            "description": "Use facts and rules to deduce conclusions",
+            "image": "https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Logical Inference",
+            "items": [
+              "Known Facts",
+              "Rules → Deduce",
+              "New Knowledge"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "if True and True:\n    print(\"Both true → deduce conclusion\")\nif True:\n    print(\"True → deduce fact\")",
+            "output": "Both true → deduce conclusion\nTrue → deduce fact"
+          }
+        },
+        {
+          "type": "practice",
+          "title": "Evaluating Logic Expressions",
+          "instructions": "Run the code to see how AND, OR, and NOT evaluate different logical expressions.",
+          "starterCode": "# Evaluate these logic expressions\nprint(\"True and True:\", True and True)\nprint(\"True and False:\", True and False)\nprint(\"True or False:\", True or False)\nprint(\"not True:\", not True)\nprint(\"(True or False) and not False:\", (True or False) and not False)",
+          "solution": "print(\"True and True:\", True and True)\nprint(\"True and False:\", True and False)\nprint(\"True or False:\", True or False)\nprint(\"not True:\", not True)\nprint(\"(True or False) and not False:\", (True or False) and not False)",
+          "hint": "AND needs both True, OR needs at least one True, NOT flips the value."
+        }
+      ]
+    },
+    {
+      "id": "knowledge-base",
+      "label": "Knowledge Base & Inference",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "What is Knowledge Base & Inference?",
+          "body": "AI stores facts and rules in a Knowledge Base and uses Inference to derive new facts",
+          "bullets": [
+            "A Knowledge Base is a collection of facts and rules AI uses to reason",
+            "Inference means deriving new facts from existing ones",
+            "IF-THEN rules: If it is raining AND I am outside, THEN I get wet",
+            "Real-world uses: medical diagnosis systems, FAQ chatbots, Google Knowledge Panel",
+            "This concept is fundamental to AI development."
+          ],
+          "accentColor": "blue"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Think of Inference as a Puzzle Solver",
+            "description": "Apply rules to known facts to derive new facts",
+            "image": "https://images.unsplash.com/photo-1611996575749-79a3a250f5f0?w=800&q=80"
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Inference Chain",
+            "items": [
+              "All birds fly",
+              "Tweety is a bird",
+              "∴ Tweety flies"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "facts = [\"bird\"]\nrules = {\"bird\": \"has_wings\", \"has_wings\": \"can_fly\"}\nfor fact in facts:\n    if fact in rules:\n        print(f\"\\u2192 {rules[fact]}\")",
+            "output": "→ has_wings"
+          }
+        },
+        {
+          "type": "practice",
+          "title": "Building a Knowledge Base",
+          "instructions": "Build a knowledge base with facts and use inference rules to derive new facts.",
+          "starterCode": "# Build a knowledge base with inference\nfacts = {\"has_wings\": True, \"is_bird\": True}\n# Rule: if has_wings AND is_bird THEN can_fly\nif facts[\"has_wings\"] and facts[\"is_bird\"]:\n    facts[\"can_fly\"] = True\n    print(\"Inferred: can_fly\")\nprint(f\"Facts: {facts}\")",
+          "solution": "facts = {\"has_wings\": True, \"is_bird\": True}\nif facts[\"has_wings\"] and facts[\"is_bird\"]:\n    facts[\"can_fly\"] = True\n    print(\"Inferred: can_fly\")\nprint(f\"Facts: {facts}\")",
+          "hint": "A Knowledge Base stores facts. Inference applies logical rules to derive new facts."
+        }
+      ]
+    },
+    {
+      "id": "getting-started",
+      "label": "Logic-Based Reasoning",
+      "blocks": [
+        {
+          "type": "explanation",
+          "title": "What is How AI Uses Logic?",
+          "body": "Follow these steps to build a logical reasoning system.",
+          "bullets": [
+            "Step 1: Define your facts — what is True and what is False in your world",
+            "Step 2: Write IF-THEN rules — connect facts to conclusions",
+            "Step 3: Build a Knowledge Base — store all facts and rules together",
+            "Step 4: Run Inference — AI combines facts and rules to reach new conclusions",
+            "This concept is fundamental to AI development."
+          ],
+          "accentColor": "blue"
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Think of Knowledge as a Family Tree",
+            "description": "Organized facts connected by relationships",
+            "image": "https://images.unsplash.com/photo-1556228453-efd6c1ff04f4?w=800&q=80"
+          },
+          "visualization": {
+            "type": "categories",
+            "title": "Knowledge Graph",
+            "centerLabel": "Facts",
+            "items": [
+              "Alice → Bob",
+              "Bob → Charlie",
+              "Alice → Charlie"
+            ]
+          },
+          "code": {
+            "language": "python",
+            "code": "family = [(\"Alice\", \"parent\", \"Bob\"), (\"Bob\", \"parent\", \"Charlie\")]\nfor a, r, b in family:\n    print(f\"{a} → {b}\")\nprint(\"Inferred: Alice is grandparent of Charlie\")",
+            "output": "Alice → Bob\nBob → Charlie\nInferred: Alice is grandparent of Charlie"
+          }
+        },
+        {
+          "type": "code_example",
+          "title": "Propositional Logic Evaluator",
+          "language": "python",
+          "code": "# Simple logic inference engine\ndef AND(a, b): return a and b\ndef OR(a, b): return a or b\ndef NOT(a): return not a\ndef IMPLIES(a, b): return not a or b\n\n# Knowledge base: If it rains, the ground gets wet\nrains = True\nwet = IMPLIES(rains, True)\nprint(f\"Rains -> Wet: {wet}\")\n\n# Is the ground wet?\nprint(f\"Ground is wet: {AND(rains, wet)}\")",
+          "expectedOutput": "Rains -> Wet: True\nGround is wet: True"
+        },
+        {
+          "type": "practice",
+          "title": "Practice Exercise",
+          "instructions": "Write 3 IF-THEN rules about your daily life using AND/OR/NOT",
+          "starterCode": "# Write your rules here\n",
+          "solution": "# Example:\n# if alarm_rings and is_monday:\n#     print('Go to class')",
+          "hint": "Use logical operators."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Logic uses True/False statements called propositions"
+      },
+      {
+        "text": "AND needs both sides True; OR needs at least one True; NOT reverses"
+      },
+      {
+        "text": "IF-THEN rules connect facts to conclusions"
+      },
+      {
+        "text": "A Knowledge Base stores all facts and rules AI uses"
+      },
+      {
+        "text": "Inference derives new facts from existing ones — like solving a puzzle"
+      },
+      {
+        "text": "Real uses: medical diagnosis, chatbots, Google Knowledge Panel"
+      }
+    ],
+    "whatYouLearned": [
+      "What propositional logic is and how it works",
+      "How AND, OR, NOT operators work in logic",
+      "What IF-THEN rules are and how to write them",
+      "What a Knowledge Base is",
+      "What inference means",
+      "How AI uses logic in real-world applications"
+    ],
+    "nextUp": "Probability & Uncertainty"
+  }
+}

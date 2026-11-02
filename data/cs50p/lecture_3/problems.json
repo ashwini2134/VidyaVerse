@@ -1,0 +1,30 @@
+[
+  {
+    "id": "fuel",
+    "title": "Fuel Gauge",
+    "description": "Fuel gauges indicate, often with fractions, just how much fuel is in a tank. For instance 1/4 indicates that a tank is 25% full.\n\nIn a file called `fuel.py`, implement a program that prompts the user for a fraction, formatted as `X/Y`, wherein each of `X` and `Y` is an integer, and then outputs, as a percentage rounded to the nearest integer, how much fuel is in the tank. If 1% or less remains, output `E` (essentially empty). If 99% or more remains, output `F` (essentially full).\n\nIf `X` or `Y` is not an integer, `X` is greater than `Y`, or `Y` is `0`, instead prompt the user again. Be sure to catch any exceptions like `ValueError` or `ZeroDivisionError`.\n\n**How to Test:**\n```\nInput:  3/4\nOutput: 75%\n```\n```\nInput:  4/4\nOutput: F\n```\n```\nInput:  0/4\nOutput: E\n```\n```\nInput:  4/0   -> reprompt (ZeroDivisionError)\nInput:  cat   -> reprompt (ValueError)\nInput:  5/4   -> reprompt\n```",
+    "check50_slug": "cs50/problems/2022/python/fuel",
+    "difficulty": "medium"
+  },
+  {
+    "id": "taqueria",
+    "title": "Felipe's Taqueria",
+    "description": "Felipe's Taqueria offers a menu of entrees, each with a price in dollars (Baja Taco 4.25, Burrito 7.50, Bowl 8.50, Nachos 11.00, Quesadilla 8.50, Super Burrito 8.50, Super Quesadilla 9.50, Taco 3.00, Tortilla Salad 8.00).\n\nIn a file called `taqueria.py`, implement a program that enables a user to place an order, prompting them for items, one per line, until the user inputs control-d (EOF). After each inputted item, display the total cost of all items inputted thus far, prefixed with a dollar sign (`$`) and formatted to two decimal places. Treat the user's input case-insensitively. Ignore any input that isn't an item.\n\n**How to Test:**\n```\nItem: Taco\nTotal: $3.00\nItem: Taco\nTotal: $6.00\n```\n```\nItem: Baja Taco\nTotal: $4.25\nItem: Tortilla Salad\nTotal: $12.25\n```",
+    "check50_slug": "cs50/problems/2022/python/taqueria",
+    "difficulty": "medium"
+  },
+  {
+    "id": "grocery",
+    "title": "Grocery List",
+    "description": "Suppose that you're in the habit of making a list of items you need from the grocery store.\n\nIn a file called `grocery.py`, implement a program that prompts the user for items, one per line, until the user inputs control-d (EOF). Then output the user's grocery list in all uppercase, sorted alphabetically by item, prefixing each line with the number of times the user inputted that item. No need to pluralize the items. Treat the user's input case-insensitively.\n\n**How to Test:**\n```\nmango\nstrawberry\n^D\n1 MANGO\n1 STRAWBERRY\n```\n```\nmilk\nmilk\n^D\n2 MILK\n```",
+    "check50_slug": "cs50/problems/2022/python/grocery",
+    "difficulty": "medium"
+  },
+  {
+    "id": "outdated",
+    "title": "Outdated",
+    "description": "In the United States, dates are typically formatted in month-day-year order (MM/DD/YYYY). Computers tend to use ISO 8601, which prescribes year-month-day (YYYY-MM-DD) order.\n\nIn a file called `outdated.py`, implement a program that prompts the user for a date in month-day-year order, formatted like `9/8/1636` or `September 8, 1636`. Then output that same date in `YYYY-MM-DD` format, padding the month and day with leading zeroes as needed. If the user's input is not a valid date in either format, prompt the user again. Assume that every month has no more than 31 days.\n\n**How to Test:**\n```\nDate: 9/8/1636\n1636-09-08\n```\n```\nDate: September 8, 1636\n1636-09-08\n```\n```\nDate: 23/6/1912   -> reprompt\nDate: December 80, 1980   -> reprompt\n```",
+    "check50_slug": "cs50/problems/2022/python/outdated",
+    "difficulty": "hard"
+  }
+]

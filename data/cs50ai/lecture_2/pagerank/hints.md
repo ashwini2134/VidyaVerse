@@ -1,0 +1,1 @@
+You may find the functions in Python’s [random](https://docs.python.org/3/library/random.html) module helpful for making decisions pseudorandomly.

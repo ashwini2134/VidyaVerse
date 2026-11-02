@@ -1,0 +1,19 @@
+[
+  {
+    "slug": "python20",
+    "title": "Python Beginner Course",
+    "description": "An interactive, story-driven journey through every core concept — variables, loops, functions, data structures, and beyond. Built for the modern learner.",
+    "level": "Beginner",
+    "category": "Programming",
+    "language": "Python",
+    "badge": "Premium"
+  },
+  {
+    "slug": "fundamentals-of-ai",
+    "title": "AI",
+    "description": "A rigorous introduction to artificial intelligence covering search algorithms, knowledge representation, optimization, machine learning, and natural language processing.",
+    "level": "Advanced",
+    "category": "Artificial Intelligence",
+    "language": "Python"
+  }
+]

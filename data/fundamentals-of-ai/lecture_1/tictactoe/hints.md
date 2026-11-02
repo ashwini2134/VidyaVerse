@@ -1,0 +1,3 @@
+- If you’d like to test your functions in a different Python file, you can import them with lines like `from tictactoe import initial_state`.
+- You’re welcome to add additional helper functions to `tictactoe.py`, provided that their names do not collide with function or variable names already in the module.
+- Alpha-beta pruning is optional, but may make your AI run more efficiently!

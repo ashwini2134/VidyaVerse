@@ -1,0 +1,435 @@
+{
+  "id": "python20-lecture-11",
+  "courseSlug": "python20",
+  "number": 11,
+  "title": "String Operations",
+  "overview": "Text is everywhere in programming — user names, emails, messages, file paths. Python treats strings as first-class citizens with a rich set of built-in tools. In this lecture, you'll master string manipulation and formatting.",
+  "estimatedMinutes": 55,
+  "sections": [
+    {
+      "id": "string-basics",
+      "label": "Working with Strings",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "A **string** is a sequence of characters. Think of it as a chain of beads — each character is one bead, positioned at a specific index."
+        },
+        {
+          "type": "text",
+          "content": "Since strings are sequences, everything you learned about list indexing and slicing applies here too."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — String Indexing and Slicing",
+          "language": "python",
+          "code": "name = \"Lakshanya\"\n\nprint(name[0])      # First character: L\nprint(name[-1])     # Last character: a\nprint(name[0:4])    # First 4: Laks\nprint(name[4:])     # From index 4 onwards\nprint(len(name))    # Length: 9",
+          "expectedOutput": "L\na\nLaks\nhanya\n9",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "Strings in Python are **immutable** — you cannot change individual characters. But you can build new strings."
+        },
+        {
+          "type": "text",
+          "content": "**Common string operations:**\n\n`+` Concatenation · `*` Repetition · `in` Membership check"
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — String Operations",
+          "language": "python",
+          "code": "first = \"Python\"\nsecond = \" 2.0\"\n\n# Concatenation\nfull = first + second\nprint(full)\n\n# Repetition\nprint(\"-\" * 20)\n\n# Membership\nprint(\"Py\" in first)   # True\nprint(\"Java\" in first) # False",
+          "expectedOutput": "Python 2.0\n--------------------\nTrue\nFalse",
+          "editable": true
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Beaded Necklace",
+            "description": "A string of beads — each bead is a character at a position. You can view any bead by its position (index), pull out a section of beads (slice), or check if a particular bead is in the necklace (in). You can't replace a single bead, but you can create a new necklace.",
+            "image": "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?w=800&q=80",
+            "bullets": [
+              "Each bead has a fixed position — bead 0, bead 1, bead 2...",
+              "You can access any single bead by counting to its position.",
+              "The necklace is fixed in order — you can't rearrange the beads."
+            ],
+            "highlightCard": "A string is a sequence of characters — each one has an index, just like beads."
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "String as Indexed Sequence",
+            "items": [
+              "P → index 0",
+              "y → index 1",
+              "t → index 2",
+              "h → index 3",
+              "o → index 4",
+              "n → index 5"
+            ],
+            "bullets": [
+              "name[0] gives the first character, name[-1] gives the last.",
+              "name[1:4] slices characters at positions 1, 2, and 3.",
+              "len(name) counts the total number of characters in the string."
+            ],
+            "highlightCard": "Strings are sequences — index and slice them exactly like lists."
+          },
+          "code": {
+            "language": "python",
+            "code": "word = \"Python\"\nfor char in word:\n    print(char, end=\" \")",
+            "output": "P y t h o n ",
+            "highlights": [
+              "name[0] returns 'R' — the character at position 0.",
+              "name[0:3] returns 'Roh' — characters at index 0, 1, and 2.",
+              "Strings are immutable — you can read characters but cannot change them."
+            ],
+            "highlightCard": "String indexing and slicing give you precise control over any text value."
+          },
+          "reflection": {
+            "question": "What does 'abc' * 3 produce?",
+            "answer": "'abcabcabc' — the * operator repeats the string that many times.",
+            "options": [
+              "'abc3'",
+              "'abcabcabc'",
+              "Error",
+              "9"
+            ],
+            "followupCode": "print('abc' * 3)",
+            "followupOutput": "abcabcabc"
+          },
+          "stage1Transition": "Python strings are indexed exactly like lists. Let's explore string indexing and slicing.",
+          "stage2Transition": "Here is how string indexing and slicing work in Python.",
+          "takeaway": "A necklace is a perfect string — ordered beads with fixed positions. Python strings work identically: each character has an index, you can access or slice any portion."
+        },
+        {
+          "type": "practice",
+          "title": "Name Formatter",
+          "instructions": "Ask for a first name and last name. Create a formatted name card that prints: LASTNAME, Firstname (uppercase last name, title case first name). Also print the total character count of the full name (without the comma and space).",
+          "starterCode": "first = input(\"First name: \")\nlast = input(\"Last name: \")\n\n# Format and print\nprint(last.upper() + \", \" + first.title())\nprint(\"Character count:\", len(first) + len(last))",
+          "solution": "first = input(\"First name: \")\nlast = input(\"Last name: \")\n\nprint(last.upper() + \", \" + first.title())\nprint(\"Character count:\", len(first) + len(last))",
+          "hint": "Use .upper() and .title() methods directly on the strings.",
+          "expectedOutput": "First name: Last name: KRISHNAN, Lakshanya\nCharacter count: 18"
+        }
+      ]
+    },
+    {
+      "id": "string-methods",
+      "label": "String Methods",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Python strings come loaded with methods — built-in operations you can call directly on any string."
+        },
+        {
+          "type": "text",
+          "content": "The most commonly used ones:"
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Case and Search Methods",
+          "language": "python",
+          "code": "text = \"  Hello, Python World!  \"\n\n# Case methods\nprint(text.lower())\nprint(text.upper())\nprint(text.title())\n\n# Stripping whitespace\nprint(text.strip())    # Both ends\nprint(text.lstrip())   # Left only\nprint(text.rstrip())   # Right only",
+          "expectedOutput": "  hello, python world!  \n  HELLO, PYTHON WORLD!  \n  Hello, Python World!  \nHello, Python World!\nHello, Python World!  \n  Hello, Python World!",
+          "editable": true
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Find, Replace, Split, Join",
+          "language": "python",
+          "code": "sentence = \"Python is fun and Python is powerful\"\n\n# Find\nprint(sentence.find(\"Python\"))    # First occurrence index\nprint(sentence.count(\"Python\"))   # Count occurrences\n\n# Replace\nprint(sentence.replace(\"Python\", \"Coding\"))\n\n# Split into list\nwords = sentence.split(\" \")\nprint(words[:4])\n\n# Join list back into string\nprint(\"-\".join([\"a\", \"b\", \"c\"]))",
+          "expectedOutput": "0\n2\nCoding is fun and Coding is powerful\n['Python', 'is', 'fun', 'and']\na-b-c",
+          "editable": true
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Word Processor",
+            "description": "Think of string methods as the tools in a word processor: Format > Uppercase is .upper(), Find & Replace is .replace(), autocorrect removes whitespace like .strip(). You're editing text with purpose-built tools.",
+            "image": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80",
+            "bullets": [
+              "Make all text UPPERCASE for a heading, lowercase for body text.",
+              "Find and replace a word across the entire document instantly.",
+              "Count the total characters, split text into paragraphs, or strip extra spaces."
+            ],
+            "highlightCard": "String methods are built-in tools for transforming and analyzing text."
+          },
+          "visualization": {
+            "type": "categories",
+            "title": "String Methods by Purpose",
+            "items": [
+              "Case: .upper(), .lower(), .title()",
+              "Clean: .strip(), .lstrip(), .rstrip()",
+              "Search: .find(), .count(), .startswith(), .endswith()",
+              "Transform: .replace(), .split(), .join()"
+            ],
+            "bullets": [
+              "upper() and lower() convert case — useful for comparisons and display.",
+              "strip() removes leading and trailing whitespace from user input.",
+              "replace('old', 'new') substitutes text throughout the string."
+            ],
+            "highlightCard": "upper, lower, strip, replace, split — five string methods every Python developer uses daily."
+          },
+          "code": {
+            "language": "python",
+            "code": "email = \"  PRIYA@GMAIL.COM  \"\nclean = email.strip().lower()\nprint(clean)",
+            "output": "priya@gmail.com",
+            "highlights": [
+              "name.upper() returns a new ALL-CAPS string — the original is unchanged.",
+              "sentence.replace('hello', 'hi') returns a new string with replacements.",
+              "sentence.split(' ') splits the string into a list of words at each space."
+            ],
+            "highlightCard": "String methods return new strings — they never modify the original."
+          },
+          "reflection": {
+            "question": "What does .split() return?",
+            "answer": "A list of substrings. By default it splits on whitespace. You can specify a delimiter: 'a,b,c'.split(',') returns ['a', 'b', 'c'].",
+            "options": [
+              "A new string",
+              "A list of substrings",
+              "The number of splits",
+              "A tuple"
+            ]
+          },
+          "stage1Transition": "Python has powerful built-in string methods. Let's explore the most essential ones.",
+          "stage2Transition": "Here is how the most important string methods work in Python.",
+          "takeaway": "A word processor shows every string method in action — uppercase headings (upper), find-replace (replace), word count (split + len). Python has all of these built in and ready to use."
+        },
+        {
+          "type": "practice",
+          "title": "Email Cleaner",
+          "instructions": "Users sometimes submit emails with extra spaces and wrong capitalisation. Clean this email: '   USER.NAME@EXAMPLE.COM   '. Strip whitespace and convert to lowercase. Then check if it ends with '@example.com' and print True/False.",
+          "starterCode": "raw_email = \"   USER.NAME@EXAMPLE.COM   \"\n\n# Clean the email\nclean = \n\nprint(\"Cleaned:\", clean)\nprint(\"Valid domain:\", clean.endswith(\"@example.com\"))",
+          "solution": "raw_email = \"   USER.NAME@EXAMPLE.COM   \"\n\nclean = raw_email.strip().lower()\n\nprint(\"Cleaned:\", clean)\nprint(\"Valid domain:\", clean.endswith(\"@example.com\"))",
+          "hint": "Chain .strip() and .lower() together. Use .endswith() for the domain check.",
+          "expectedOutput": "Cleaned: user.name@example.com\nValid domain: True"
+        }
+      ]
+    },
+    {
+      "id": "string-formatting",
+      "label": "String Formatting",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "You've already seen f-strings. But Python has more formatting options, and f-strings can do much more than basic variable insertion."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Advanced f-strings",
+          "language": "python",
+          "code": "name = \"Priya\"\nmarks = 87.5678\n\n# Basic\nprint(f\"Student: {name}\")\n\n# Decimal precision: .2f = 2 decimal places\nprint(f\"Average: {marks:.2f}\")\n\n# Width and alignment\nprint(f\"{name:<15} {marks:>8.2f}\")  # Left, Right align\nprint(f\"{'---':-^20}\")              # Center with fill char",
+          "expectedOutput": "Student: Priya\nAverage: 87.57\nPriya             87.57\n------------ --- -----------",
+          "editable": true
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Building a Formatted Table",
+          "language": "python",
+          "code": "students = [(\"Arjun\", 92), (\"Priya\", 87), (\"Ravi\", 78)]\n\nprint(f\"{'Name':<12} {'Marks':>6}\")\nprint(\"-\" * 20)\nfor name, mark in students:\n    print(f\"{name:<12} {mark:>6}\")",
+          "expectedOutput": "Name         Marks\n--------------------\nArjun           92\nPriya           87\nRavi            78",
+          "editable": true
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Restaurant Menu Layout",
+            "description": "A menu aligns dish names on the left and prices on the right. f-strings with alignment formatting do exactly this — control where text appears so your output looks professional and readable.",
+            "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
+            "bullets": [
+              "The menu formats dish names in consistent columns and aligns prices on the right.",
+              "Each dish is described in a standard width to keep the layout clean.",
+              "Consistent formatting makes the menu look professional and easy to read."
+            ],
+            "highlightCard": "f-string format codes control alignment, width, and decimal places precisely."
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "f-string Format Codes",
+            "items": [
+              "{value:.2f} → 2 decimal places",
+              "{value:<10} → left-align in 10 chars",
+              "{value:>10} → right-align in 10 chars",
+              "{value:^10} → center in 10 chars"
+            ],
+            "bullets": [
+              "{name:<15} left-aligns text in a field of 15 characters.",
+              "{price:.2f} displays a float with exactly 2 decimal places.",
+              "{:>10} right-aligns text — useful for columns of numbers."
+            ],
+            "highlightCard": "f\"{name:<15} {price:.2f}\" — perfect for formatted tables, reports, and menus."
+          },
+          "code": {
+            "language": "python",
+            "code": "pi = 3.14159\nprint(f\"Pi = {pi:.3f}\")",
+            "output": "Pi = 3.142",
+            "highlights": [
+              ":<15 pads the string to 15 characters and left-aligns it.",
+              ":.2f rounds the float to exactly 2 decimal places.",
+              "Combining both in one f-string creates a perfectly aligned table row."
+            ],
+            "highlightCard": "f-string format codes turn raw data into beautiful, professional-looking output."
+          },
+          "reflection": {
+            "question": "What does {value:.2f} do in an f-string?",
+            "answer": "Formats the number as a float with exactly 2 decimal places, rounding if necessary.",
+            "options": [
+              "Limits to 2 total characters",
+              "Formats with exactly 2 decimal places",
+              "Converts to 2% format",
+              "Rounds to 2 significant figures"
+            ]
+          },
+          "stage1Transition": "Python's f-string format codes let you control how values are displayed. Let's see them.",
+          "stage2Transition": "Here is how f-string format codes produce clean output in Python.",
+          "takeaway": "A restaurant menu is perfectly formatted — consistent spacing, aligned prices, clean columns. Python f-string format codes give you the same control over every output your program produces."
+        },
+        {
+          "type": "practice",
+          "title": "Formatted Invoice",
+          "instructions": "Create a formatted invoice with a header and two items. Use f-strings with alignment so that item names are left-aligned in 20 chars and prices are right-aligned in 8 chars.\n\nItem: 'Python Textbook' — price: 450.5\nItem: 'USB Hub' — price: 799.99\nPrint total at the bottom.",
+          "starterCode": "items = [(\"Python Textbook\", 450.5), (\"USB Hub\", 799.99)]\n\nprint(f\"{'Item':<20} {'Price':>8}\")\nprint(\"-\" * 30)\n\ntotal = 0\nfor name, price in items:\n    print(f\"{name:<20} {price:>8.2f}\")\n    total += price\n\nprint(\"-\" * 30)\nprint(f\"{'Total':<20} {total:>8.2f}\")",
+          "solution": "items = [(\"Python Textbook\", 450.5), (\"USB Hub\", 799.99)]\n\nprint(f\"{'Item':<20} {'Price':>8}\")\nprint(\"-\" * 30)\n\ntotal = 0\nfor name, price in items:\n    print(f\"{name:<20} {price:>8.2f}\")\n    total += price\n\nprint(\"-\" * 30)\nprint(f\"{'Total':<20} {total:>8.2f}\")",
+          "hint": "Use :<20 for left-align name, :>8.2f for right-align price with 2 decimals.",
+          "expectedOutput": "Item                    Price\n------------------------------\nPython Textbook         450.50\nUSB Hub                 799.99\n------------------------------\nTotal                  1250.49"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Strings are indexed sequences — use [i] for characters, [i:j] for slices."
+      },
+      {
+        "text": "Strings are immutable — you can't change them in place, but you can create new ones."
+      },
+      {
+        "text": "Case methods: .upper(), .lower(), .title() — return a new string."
+      },
+      {
+        "text": ".strip() removes leading/trailing whitespace — essential for cleaning user input."
+      },
+      {
+        "text": ".split() converts a string into a list. .join() converts a list back into a string."
+      },
+      {
+        "text": ".replace() substitutes one substring for another."
+      },
+      {
+        "text": "f-string format codes: :.2f for decimals, :<n left-align, :>n right-align."
+      }
+    ],
+    "whatYouLearned": [
+      "How to index and slice strings",
+      "Essential string methods: upper, lower, strip, find, replace, split, join",
+      "How to use advanced f-string formatting for aligned, decimal-controlled output"
+    ],
+    "nextUp": "File Handling"
+  },
+  "quiz": [
+    {
+      "question": "What does 'Hello World'.split() return?",
+      "options": [
+        "'Hello', 'World'",
+        "['Hello', 'World']",
+        "('Hello', 'World')",
+        "{'Hello', 'World'}"
+      ],
+      "answer": "['Hello', 'World']",
+      "explanation": ".split() without arguments splits on whitespace and returns a list. 'Hello World' has one space, producing two elements: ['Hello', 'World']."
+    },
+    {
+      "question": "What does '  hello  '.strip() return?",
+      "options": [
+        "'  hello  '",
+        "'hello  '",
+        "'hello'",
+        "'  hello'"
+      ],
+      "answer": "'hello'",
+      "explanation": ".strip() removes leading AND trailing whitespace from both ends of the string, returning the clean inner text."
+    },
+    {
+      "question": "What will f'{3.14159:.2f}' produce?",
+      "options": [
+        "'3.14159'",
+        "'3.14'",
+        "'3.1'",
+        "'3'"
+      ],
+      "answer": "'3.14'",
+      "explanation": ":.2f formats the number as a float with exactly 2 decimal places. 3.14159 rounded to 2 decimals is 3.14."
+    },
+    {
+      "question": "How do you join a list ['a', 'b', 'c'] into the string 'a-b-c'?",
+      "options": [
+        "'-'.join(['a', 'b', 'c'])",
+        "join('-', ['a', 'b', 'c'])",
+        "['a', 'b', 'c'].join('-')",
+        "'-' + 'abc'"
+      ],
+      "answer": "'-'.join(['a', 'b', 'c'])",
+      "explanation": ".join() is called on the separator string and takes the iterable as an argument. The separator is placed between each item."
+    },
+    {
+      "question": "Are strings mutable in Python?",
+      "options": [
+        "Yes, you can change individual characters",
+        "No, but you can create new strings from old ones",
+        "Only if they're longer than 10 characters",
+        "Only with the .replace() method"
+      ],
+      "answer": "No, but you can create new strings from old ones",
+      "explanation": "Strings in Python are immutable. You can't do name[0] = 'J'. But methods like .replace() and .upper() return NEW strings — the original is unchanged."
+    }
+  ],
+  "problems": [
+    {
+      "id": "python20-l11-p1",
+      "title": "Palindrome Checker",
+      "description": "Write a function is_palindrome(text) that returns True if the text reads the same forwards and backwards (ignoring spaces and case).\n\nTest:\nis_palindrome('racecar') → True\nis_palindrome('hello') → False\nis_palindrome('A man a plan a canal Panama') → True",
+      "difficulty": "medium",
+      "starterCode": "def is_palindrome(text):\n    # Clean: lowercase and remove spaces\n    clean = text.lower().replace(\" \", \"\")\n    # Check if it reads the same backwards\n    return clean == clean[::-1]\n\nprint(is_palindrome(\"racecar\"))\nprint(is_palindrome(\"hello\"))\nprint(is_palindrome(\"A man a plan a canal Panama\"))",
+      "solution": "def is_palindrome(text):\n    clean = text.lower().replace(\" \", \"\")\n    return clean == clean[::-1]\n\nprint(is_palindrome(\"racecar\"))\nprint(is_palindrome(\"hello\"))\nprint(is_palindrome(\"A man a plan a canal Panama\"))",
+      "testCases": [
+        {
+          "label": "Palindrome tests",
+          "input": "",
+          "expectedOutput": "True\nFalse\nTrue",
+          "matchType": "exact"
+        }
+      ]
+    },
+    {
+      "id": "python20-l11-p2",
+      "title": "Caesar Cipher",
+      "description": "Encode a message by shifting each letter by a fixed amount (shift = 3).\nOnly shift lowercase letters; leave spaces as-is.\n\nmessage = 'hello world'\nShifted: 'khoor zruog'\n\nHint: ord('a') = 97. New char = chr((ord(char) - 97 + shift) % 26 + 97)",
+      "difficulty": "medium",
+      "starterCode": "def caesar(message, shift):\n    result = \"\"\n    for char in message:\n        if char.isalpha() and char.islower():\n            # Shift the character\n            new_char = chr((ord(char) - 97 + shift) % 26 + 97)\n            result += new_char\n        else:\n            result += char\n    return result\n\nprint(caesar(\"hello world\", 3))",
+      "solution": "def caesar(message, shift):\n    result = \"\"\n    for char in message:\n        if char.isalpha() and char.islower():\n            new_char = chr((ord(char) - 97 + shift) % 26 + 97)\n            result += new_char\n        else:\n            result += char\n    return result\n\nprint(caesar(\"hello world\", 3))",
+      "testCases": [
+        {
+          "label": "Caesar cipher",
+          "input": "",
+          "expectedOutput": "khoor zruog",
+          "matchType": "exact"
+        }
+      ]
+    },
+    {
+      "id": "python20-l11-p3",
+      "title": "String Statistics",
+      "description": "Given a sentence, print:\n1. Number of words\n2. Number of unique words\n3. Longest word\n4. Most common starting letter\n\nSentence: 'the quick brown fox jumps over the lazy dog the'",
+      "difficulty": "medium",
+      "starterCode": "sentence = \"the quick brown fox jumps over the lazy dog the\"\nwords = sentence.split()\n\n# 1. Word count\nprint(f\"Words: {len(words)}\")\n\n# 2. Unique words\nprint(f\"Unique: {len(set(words))}\")\n\n# 3. Longest word\nprint(f\"Longest: {max(words, key=len)}\")\n\n# 4. Most common starting letter\nletters = [w[0] for w in words]\nprint(f\"Most common start: {max(set(letters), key=letters.count)}\")",
+      "solution": "sentence = \"the quick brown fox jumps over the lazy dog the\"\nwords = sentence.split()\n\nprint(f\"Words: {len(words)}\")\nprint(f\"Unique: {len(set(words))}\")\nprint(f\"Longest: {max(words, key=len)}\")\n\nletters = [w[0] for w in words]\nprint(f\"Most common start: {max(set(letters), key=letters.count)}\")",
+      "testCases": [
+        {
+          "label": "String statistics",
+          "input": "",
+          "expectedOutput": "Words: 10\nUnique: 8\nLongest: jumps\nMost common start: t",
+          "matchType": "exact"
+        }
+      ]
+    }
+  ]
+}

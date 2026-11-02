@@ -1,0 +1,57 @@
+[
+  {
+    "question": "Which keyword is used to check another condition if the first condition is false?",
+    "options": [
+      "otherwise",
+      "elif",
+      "repeat",
+      "loop"
+    ],
+    "answer": "elif",
+    "explanation": "The elif keyword allows checking additional conditions in Python."
+  },
+  {
+    "question": "What will this code print?\n\nx = 10\nif x > 5:\n    print(\"Big\")",
+    "options": [
+      "Small",
+      "10",
+      "Big",
+      "Error"
+    ],
+    "answer": "Big",
+    "explanation": "Since x is greater than 5, the if condition is true."
+  },
+  {
+    "question": "Which operator checks if two values are equal?",
+    "options": [
+      "=",
+      "!=",
+      "==",
+      ">="
+    ],
+    "answer": "==",
+    "explanation": "The == operator compares two values for equality."
+  },
+  {
+    "question": "What does this code print?\n\nx = 3\nif x > 5:\n    print(\"A\")\nelse:\n    print(\"B\")",
+    "options": [
+      "A",
+      "B",
+      "3",
+      "Error"
+    ],
+    "answer": "B",
+    "explanation": "Since x is not greater than 5, the else block runs."
+  },
+  {
+    "question": "Which boolean value represents false in Python?",
+    "options": [
+      "TRUE",
+      "False",
+      "false",
+      "0"
+    ],
+    "answer": "False",
+    "explanation": "Python uses the capitalized boolean value False."
+  }
+]

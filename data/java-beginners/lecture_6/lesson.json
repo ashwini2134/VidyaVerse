@@ -1,0 +1,72 @@
+{
+  "id": "java-beginners-lecture-6",
+  "courseSlug": "java-beginners",
+  "number": 6,
+  "title": "Arrays & ArrayLists",
+  "overview": "Overview of Arrays & ArrayLists",
+  "estimatedMinutes": 45,
+  "sections": [
+    {
+      "id": "section-1-lecture-6",
+      "label": "Theory Part 1",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "blue",
+          "title": "Introduction to Arrays & ArrayLists",
+          "body": "Content for Arrays & ArrayLists...",
+          "bullets": [
+            "Point 1",
+            "Point 2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-2-lecture-6",
+      "label": "Theory Part 2",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "Deep dive into Arrays & ArrayLists",
+          "body": "More content for Arrays & ArrayLists...",
+          "bullets": [
+            "Point 1",
+            "Point 2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-3-lecture-6",
+      "label": "Theory Part 3",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "green",
+          "title": "Mastering Arrays & ArrayLists",
+          "body": "Advanced content for Arrays & ArrayLists...",
+          "bullets": [
+            "Point 1",
+            "Point 2"
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Takeaway 1 for Arrays & ArrayLists"
+      },
+      {
+        "text": "Takeaway 2 for Arrays & ArrayLists"
+      }
+    ],
+    "whatYouLearned": [
+      "You learned about Arrays & ArrayLists"
+    ],
+    "nextUp": "Object Oriented Programming - Advanced"
+  }
+}

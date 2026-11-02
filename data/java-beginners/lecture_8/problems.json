@@ -1,0 +1,47 @@
+[
+  {
+    "id": "problem_1_lecture_8",
+    "title": "Problem 1 - Collections",
+    "description": "Solve this problem related to Collections.",
+    "difficulty": "easy",
+    "starterCode": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "solution": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "testCases": [
+      {
+        "label": "Test case 1",
+        "input": "",
+        "expectedOutput": ""
+      }
+    ]
+  },
+  {
+    "id": "problem_2_lecture_8",
+    "title": "Problem 2 - Collections",
+    "description": "Solve this problem related to Collections.",
+    "difficulty": "medium",
+    "starterCode": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "solution": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "testCases": [
+      {
+        "label": "Test case 1",
+        "input": "",
+        "expectedOutput": ""
+      }
+    ]
+  },
+  {
+    "id": "problem_3_lecture_8",
+    "title": "Problem 3 - Collections",
+    "description": "Solve this problem related to Collections.",
+    "difficulty": "hard",
+    "starterCode": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "solution": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "testCases": [
+      {
+        "label": "Test case 1",
+        "input": "",
+        "expectedOutput": ""
+      }
+    ]
+  }
+]

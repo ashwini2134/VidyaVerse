@@ -1,0 +1,442 @@
+{
+  "id": "python20-lecture-10",
+  "courseSlug": "python20",
+  "number": 10,
+  "title": "Functions",
+  "overview": "You've been using functions since lecture one — print(), input(), len(). But here's the thing: you can build your own. Functions are the most powerful tool for making code reusable, readable, and maintainable.",
+  "estimatedMinutes": 65,
+  "sections": [
+    {
+      "id": "what-is-function",
+      "label": "What is a Function?",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Imagine you had to write the steps to make tea every time someone asked for a cup. Instead, you teach one person how to make tea — and from then on, you just say 'make tea' and it happens."
+        },
+        {
+          "type": "text",
+          "content": "That's exactly what a function does. You write the instructions once, give them a name, and call that name whenever you need the task done."
+        },
+        {
+          "type": "text",
+          "content": "Define a function with `def`, give it a name, add a colon, and indent the body. Then **call** it by name followed by `()`."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Your First Function",
+          "language": "python",
+          "code": "# Define the function\ndef greet():\n    print(\"Hello! Welcome to Python 2.0.\")\n    print(\"Let's start learning.\")\n\n# Call the function — as many times as you want\ngreet()\ngreet()\ngreet()",
+          "expectedOutput": "Hello! Welcome to Python 2.0.\nLet's start learning.\nHello! Welcome to Python 2.0.\nLet's start learning.\nHello! Welcome to Python 2.0.\nLet's start learning.",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "The function body runs only when you **call** it. You can call it as many times as you want. Write once, use many times."
+        },
+        {
+          "type": "text",
+          "content": "**Key benefit:** If you need to change the greeting later, you change it in ONE place — not every time it appears in your code."
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Restaurant Kitchen Recipe",
+            "description": "A head chef writes a recipe once. Every cook can follow it. If the recipe improves, update it once and everyone gets the updated version. Functions work the same — write the logic once, call it everywhere.",
+            "image": "https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=800&q=80",
+            "bullets": [
+              "A recipe card contains the exact steps to prepare one specific dish.",
+              "Any chef can follow the card and produce the same result every time.",
+              "You write the recipe once and use it as many times as you need."
+            ],
+            "highlightCard": "A function is a reusable recipe — define it once, call it any number of times."
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Function Lifecycle",
+            "items": [
+              "def function_name(): → define",
+              "    body → what it does",
+              "function_name() → call it"
+            ],
+            "bullets": [
+              "def function_name(): defines a new reusable block of code.",
+              "The indented body contains the instructions — like steps in a recipe.",
+              "Calling the function name() runs those steps immediately."
+            ],
+            "highlightCard": "def once, call anywhere — functions eliminate repetition from your code."
+          },
+          "code": {
+            "language": "python",
+            "code": "def separator():\n    print(\"-\" * 30)\n\nprint(\"Section 1\")\nseparator()\nprint(\"Section 2\")\nseparator()",
+            "output": "Section 1\n------------------------------\nSection 2\n------------------------------",
+            "highlights": [
+              "def greet(): defines the function — it doesn't run until you call it.",
+              "greet() calls the function — Python executes the body at that moment.",
+              "Call greet() ten times and the same code runs ten times without rewriting."
+            ],
+            "highlightCard": "Functions let you write code once and reuse it everywhere in your program."
+          },
+          "reflection": {
+            "question": "What happens when Python reaches a function definition (def block)?",
+            "answer": "It stores the function but does NOT run it. The function only runs when you explicitly call it with function_name().",
+            "options": [
+              "It runs the function immediately",
+              "It stores the function but doesn't run it yet",
+              "It raises a syntax error",
+              "It creates a variable"
+            ]
+          },
+          "stage1Transition": "Python functions work exactly like kitchen recipes. Let's see how to define and call one.",
+          "stage2Transition": "Here is how a function is defined and called in Python.",
+          "takeaway": "A kitchen recipe is a function — written once, used by any chef, any number of times. Python functions work exactly the same: define the logic once, call it whenever you need it."
+        },
+        {
+          "type": "practice",
+          "title": "Create a Header Function",
+          "instructions": "Your report-printing program needs a function called print_header() that prints: a line of 40 equals signs, then 'FRAYLON ACADEMY REPORT', then another line of 40 equals signs. Call the function twice.",
+          "starterCode": "# Define print_header function\n\n\n\n# Call it twice\n",
+          "solution": "def print_header():\n    print(\"=\" * 40)\n    print(\"FRAYLON ACADEMY REPORT\")\n    print(\"=\" * 40)\n\nprint_header()\nprint_header()",
+          "hint": "Use def print_header(): then indent the three print statements. Call with print_header().",
+          "expectedOutput": "========================================\nFRAYLON ACADEMY REPORT\n========================================\n========================================\nFRAYLON ACADEMY REPORT\n========================================"
+        }
+      ]
+    },
+    {
+      "id": "parameters-arguments",
+      "label": "Parameters and Arguments",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "A function that always does the exact same thing has limited use. Parameters make functions flexible — they let you pass in different information each time you call them."
+        },
+        {
+          "type": "text",
+          "content": "**Parameters** are placeholders in the function definition.\n**Arguments** are the actual values you pass when calling."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Functions with Parameters",
+          "language": "python",
+          "code": "# One parameter\ndef greet(name):\n    print(f\"Hello, {name}! Welcome aboard.\")\n\ngreet(\"Priya\")\ngreet(\"Arjun\")\ngreet(\"Meera\")\n\nprint()\n\n# Two parameters\ndef add(a, b):\n    print(f\"{a} + {b} = {a + b}\")\n\nadd(5, 3)\nadd(100, 250)",
+          "expectedOutput": "Hello, Priya! Welcome aboard.\nHello, Arjun! Welcome aboard.\nHello, Meera! Welcome aboard.\n\n5 + 3 = 8\n100 + 250 = 350",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "You can also set **default parameter values** — used when the caller doesn't provide that argument."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Default Parameters",
+          "language": "python",
+          "code": "def greet(name, language=\"English\"):\n    if language == \"Tamil\":\n        print(f\"Vanakkam, {name}!\")\n    elif language == \"Hindi\":\n        print(f\"Namaste, {name}!\")\n    else:\n        print(f\"Hello, {name}!\")\n\ngreet(\"Priya\")              # Uses default\ngreet(\"Ravi\", \"Tamil\")\ngreet(\"Arjun\", \"Hindi\")",
+          "expectedOutput": "Hello, Priya!\nVanakkam, Ravi!\nNamaste, Arjun!",
+          "editable": true
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Coffee Machine",
+            "description": "A coffee machine takes inputs: type of coffee (parameter 1) and number of sugars (parameter 2, default = 1). You can call it with just the coffee type, or customise both. Functions with default parameters work identically.",
+            "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80",
+            "bullets": [
+              "You choose the settings: espresso, milk amount, sugar level.",
+              "The machine accepts your choices as inputs and customizes the result.",
+              "Same machine, different settings — a completely different coffee each time."
+            ],
+            "highlightCard": "Parameters let you customize what a function does each time you call it."
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Parameters",
+            "items": [
+              "def function(param): → placeholder",
+              "function('value') → argument fills placeholder",
+              "def function(p=default): → default if not provided"
+            ],
+            "bullets": [
+              "Parameters are variables listed in the function definition's parentheses.",
+              "Arguments are the actual values you pass when calling the function.",
+              "Each call with different arguments produces a different result."
+            ],
+            "highlightCard": "def func(param): accepts input. func(value) passes the argument. Customize every call."
+          },
+          "code": {
+            "language": "python",
+            "code": "def coffee(type, sugar=1):\n    print(f\"{type} with {sugar} sugar(s)\")\n\ncoffee(\"Espresso\")\ncoffee(\"Latte\", 2)",
+            "output": "Espresso with 1 sugar(s)\nLatte with 2 sugar(s)",
+            "highlights": [
+              "def make_coffee(size, sugar): — size and sugar are parameters.",
+              "make_coffee('large', 2) — 'large' and 2 are the arguments passed.",
+              "Default values like sugar=1 let callers skip that argument entirely."
+            ],
+            "highlightCard": "Parameters make functions flexible — one function handles many different situations."
+          },
+          "reflection": {
+            "question": "What is the difference between a parameter and an argument?",
+            "answer": "Parameters are placeholders in the definition. Arguments are the actual values passed when calling. 'name' in def greet(name) is a parameter; 'Priya' in greet('Priya') is the argument.",
+            "options": [
+              "They are the same thing",
+              "Parameters are in the definition; arguments are passed when calling",
+              "Arguments are in the definition; parameters are passed when calling",
+              "Parameters are only for numbers"
+            ]
+          },
+          "stage1Transition": "Functions become far more powerful when they accept inputs. Let's see parameters.",
+          "stage2Transition": "Here is how parameters and arguments work in Python functions.",
+          "takeaway": "A coffee machine takes settings as inputs and produces a customized result — that's parameters. Python function parameters let you pass different values each call to get different outcomes."
+        },
+        {
+          "type": "practice",
+          "title": "Grade Printer",
+          "instructions": "Write a function called print_grade(name, marks, passing=50) that prints 'Name: [name] | Marks: [marks] | Result: PASS/FAIL'. Passing threshold defaults to 50. Call it with: ('Divya', 72), ('Karan', 45), ('Meera', 50, 60).",
+          "starterCode": "# Define print_grade function\n\n\n# Call with three different inputs\n",
+          "solution": "def print_grade(name, marks, passing=50):\n    result = \"PASS\" if marks >= passing else \"FAIL\"\n    print(f\"Name: {name} | Marks: {marks} | Result: {result}\")\n\nprint_grade(\"Divya\", 72)\nprint_grade(\"Karan\", 45)\nprint_grade(\"Meera\", 50, 60)",
+          "hint": "Use a ternary expression for result: 'PASS' if marks >= passing else 'FAIL'",
+          "expectedOutput": "Name: Divya | Marks: 72 | Result: PASS\nName: Karan | Marks: 45 | Result: FAIL\nName: Meera | Marks: 50 | Result: FAIL"
+        }
+      ]
+    },
+    {
+      "id": "return-values",
+      "label": "Return Values",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Some functions just do something (like printing). But often you need a function to **compute something and give you the result back**."
+        },
+        {
+          "type": "text",
+          "content": "The `return` statement sends a value back to the caller. Once Python hits `return`, it exits the function immediately."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Functions that Return",
+          "language": "python",
+          "code": "def calculate_average(marks):\n    total = sum(marks)\n    return total / len(marks)\n\ndef get_grade(avg):\n    if avg >= 90:\n        return \"S\"\n    elif avg >= 75:\n        return \"A\"\n    elif avg >= 60:\n        return \"B\"\n    else:\n        return \"C\"\n\nstudent_marks = [88, 92, 79, 85, 91]\navg = calculate_average(student_marks)\ngrade = get_grade(avg)\n\nprint(f\"Average: {avg}\")\nprint(f\"Grade: {grade}\")",
+          "expectedOutput": "Average: 87.0\nGrade: A",
+          "editable": true
+        },
+        {
+          "type": "text",
+          "content": "Notice how functions can **call other functions**. `get_grade(avg)` receives the output of `calculate_average()`. This is **function composition** — building complex behaviour from simple pieces."
+        },
+        {
+          "type": "text",
+          "content": "A function can return multiple values as a tuple: `return x, y` — then unpack with `a, b = function()`."
+        },
+        {
+          "type": "code_example",
+          "title": "Try It — Multiple Return Values",
+          "language": "python",
+          "code": "def min_max(numbers):\n    return min(numbers), max(numbers)\n\nscores = [45, 78, 92, 33, 88]\nlowest, highest = min_max(scores)\nprint(f\"Lowest: {lowest}, Highest: {highest}\")",
+          "expectedOutput": "Lowest: 33, Highest: 92",
+          "editable": true
+        },
+        {
+          "type": "think_of",
+          "analogy": {
+            "title": "Vending Machine Output",
+            "description": "You put money in (arguments), select a drink (function name), and the machine returns a can (return value). You catch what comes out and use it. Functions with return work the same — give input, get output, use the output.",
+            "image": "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?w=800&q=80",
+            "bullets": [
+              "You insert money, press a button, and the machine produces a snack.",
+              "The snack comes back out — it's a result you can then take and use.",
+              "Without dispensing anything, the machine would be pointless."
+            ],
+            "highlightCard": "return sends a value back from the function to wherever it was called."
+          },
+          "visualization": {
+            "type": "flow",
+            "title": "Function with Return",
+            "items": [
+              "Call: result = function(input)",
+              "Inside: compute something",
+              "return value → sends back to caller",
+              "result = the returned value"
+            ],
+            "bullets": [
+              "return value sends that value back to the caller immediately.",
+              "The caller can store the returned value in a variable.",
+              "Without return, the function runs its code but doesn't give anything back."
+            ],
+            "highlightCard": "result = calculate(5) — the function runs and return sends the answer back."
+          },
+          "code": {
+            "language": "python",
+            "code": "def square(n):\n    return n * n\n\nresult = square(5)\nprint(result)  # 25",
+            "output": "25",
+            "highlights": [
+              "return area sends the calculated value back to whoever called the function.",
+              "result = calculate_area(5) stores the returned value for later use.",
+              "A function can return any type: number, string, list, or even another function."
+            ],
+            "highlightCard": "return makes functions productive — they compute something and give you the result."
+          },
+          "reflection": {
+            "question": "What happens to code written after a return statement?",
+            "answer": "It is never executed — return immediately exits the function. Any code below it in the same function is dead code.",
+            "options": [
+              "It runs after the function exits",
+              "It is never executed — return exits immediately",
+              "It raises an error",
+              "It runs in a new scope"
+            ]
+          },
+          "stage1Transition": "Functions can hand back a result using return. Let's see how it works.",
+          "stage2Transition": "Here is how return works in a Python function.",
+          "takeaway": "A vending machine dispenses the item you paid for — that's return. Python functions that return values are far more useful: they compute a result and hand it back to your code."
+        },
+        {
+          "type": "practice",
+          "title": "Temperature Converter",
+          "instructions": "Write two functions: celsius_to_fahrenheit(c) that returns (c × 9/5) + 32, and fahrenheit_to_celsius(f) that returns (f - 32) × 5/9. Convert 100°C to Fahrenheit and 98.6°F to Celsius. Print both results.",
+          "starterCode": "# Define both converter functions\n\n\n# Convert and print\nprint(f\"100°C = {celsius_to_fahrenheit(100)}°F\")\nprint(f\"98.6°F = {fahrenheit_to_celsius(98.6):.1f}°C\")",
+          "solution": "def celsius_to_fahrenheit(c):\n    return (c * 9 / 5) + 32\n\ndef fahrenheit_to_celsius(f):\n    return (f - 32) * 5 / 9\n\nprint(f\"100°C = {celsius_to_fahrenheit(100)}°F\")\nprint(f\"98.6°F = {fahrenheit_to_celsius(98.6):.1f}°C\")",
+          "hint": "Each function takes one parameter and returns a computed value using the formula.",
+          "expectedOutput": "100°C = 212.0°F\n98.6°F = 37.0°C"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Functions are defined with def name(): and called with name()."
+      },
+      {
+        "text": "The function body runs only when called — not at definition time."
+      },
+      {
+        "text": "Parameters make functions flexible — they're placeholders for values."
+      },
+      {
+        "text": "Arguments are the actual values passed when calling the function."
+      },
+      {
+        "text": "Default parameters: def func(x, y=10): — y defaults to 10 if not given."
+      },
+      {
+        "text": "return sends a value back to the caller. Code after return never runs."
+      },
+      {
+        "text": "Functions can return multiple values: return a, b — unpack with a, b = func()."
+      }
+    ],
+    "whatYouLearned": [
+      "How to define and call functions",
+      "How parameters and arguments work together",
+      "How to use default parameter values",
+      "How to return values and use function output"
+    ],
+    "nextUp": "String Operations"
+  },
+  "quiz": [
+    {
+      "question": "When does the function body execute?",
+      "options": [
+        "When the def line is reached",
+        "When the program starts",
+        "Only when the function is called",
+        "Automatically after 1 second"
+      ],
+      "answer": "Only when the function is called",
+      "explanation": "def just registers the function. The body only runs when you explicitly call the function with function_name(). This is fundamental to how functions work."
+    },
+    {
+      "question": "What is the output of:\ndef double(x):\n    return x * 2\nresult = double(5)\nprint(result)",
+      "options": [
+        "5",
+        "10",
+        "x * 2",
+        "None"
+      ],
+      "answer": "10",
+      "explanation": "double(5) is called with x=5. The function returns 5 * 2 = 10. That value is stored in result. print(result) then outputs 10."
+    },
+    {
+      "question": "What does a function return if it has no return statement?",
+      "options": [
+        "0",
+        "False",
+        "None",
+        "An empty string"
+      ],
+      "answer": "None",
+      "explanation": "In Python, every function returns something. If there's no explicit return statement, the function implicitly returns None."
+    },
+    {
+      "question": "Which is a valid function definition with a default parameter?",
+      "options": [
+        "def greet(name, greeting = 'Hi'):",
+        "def greet(greeting = 'Hi', name):",
+        "def greet(name, greeting):",
+        "function greet(name='Hi'):"
+      ],
+      "answer": "def greet(name, greeting = 'Hi'):",
+      "explanation": "Parameters with defaults must come AFTER parameters without defaults. def greet(greeting='Hi', name): would be invalid because name has no default but comes after one that does."
+    },
+    {
+      "question": "How do you return two values from a function?",
+      "options": [
+        "return [a, b]",
+        "return a, b",
+        "return (a) and (b)",
+        "return a; return b"
+      ],
+      "answer": "return a, b",
+      "explanation": "return a, b returns a tuple (a, b). You can unpack it: x, y = function(). return [a, b] also works but returns a list; the tuple form is more conventional for multiple returns."
+    }
+  ],
+  "problems": [
+    {
+      "id": "python20-l10-p1",
+      "title": "Is Prime?",
+      "description": "Write a function is_prime(n) that returns True if n is prime, False otherwise.\nA prime number has no factors other than 1 and itself.\n\nTest:\nis_prime(7) → True\nis_prime(12) → False\nis_prime(2) → True\nis_prime(1) → False",
+      "difficulty": "medium",
+      "starterCode": "def is_prime(n):\n    # A number <= 1 is not prime\n    if n <= 1:\n        return False\n    # Check divisibility from 2 to sqrt(n)\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\n# Test the function\nprint(is_prime(7))\nprint(is_prime(12))\nprint(is_prime(2))\nprint(is_prime(1))",
+      "solution": "def is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nprint(is_prime(7))\nprint(is_prime(12))\nprint(is_prime(2))\nprint(is_prime(1))",
+      "testCases": [
+        {
+          "label": "Prime tests",
+          "input": "",
+          "expectedOutput": "True\nFalse\nTrue\nFalse",
+          "matchType": "exact"
+        }
+      ]
+    },
+    {
+      "id": "python20-l10-p2",
+      "title": "Factorial Calculator",
+      "description": "Write a function factorial(n) that returns the factorial of n.\nFactorial: n! = n × (n-1) × ... × 2 × 1\n0! = 1\n\nTest:\nfactorial(5) → 120\nfactorial(0) → 1\nfactorial(10) → 3628800",
+      "difficulty": "easy",
+      "starterCode": "def factorial(n):\n    # Write the function\n    pass\n\nprint(factorial(5))\nprint(factorial(0))\nprint(factorial(10))",
+      "solution": "def factorial(n):\n    if n == 0:\n        return 1\n    result = 1\n    for i in range(1, n + 1):\n        result *= i\n    return result\n\nprint(factorial(5))\nprint(factorial(0))\nprint(factorial(10))",
+      "testCases": [
+        {
+          "label": "Factorials",
+          "input": "",
+          "expectedOutput": "120\n1\n3628800",
+          "matchType": "exact"
+        }
+      ]
+    },
+    {
+      "id": "python20-l10-p3",
+      "title": "Student Report Generator",
+      "description": "Write a function generate_report(name, marks_list) that:\n- Calculates total and average\n- Determines grade (A: >=90, B: >=75, C: >=60, F: below)\n- Returns (total, average, grade) as a tuple\n\nTest with: generate_report('Priya', [88, 92, 79, 85, 91])\nPrint: Total, Average, Grade",
+      "difficulty": "medium",
+      "starterCode": "def generate_report(name, marks_list):\n    # Calculate stats and return tuple\n    pass\n\ntotal, avg, grade = generate_report(\"Priya\", [88, 92, 79, 85, 91])\nprint(f\"Total: {total}\")\nprint(f\"Average: {avg}\")\nprint(f\"Grade: {grade}\")",
+      "solution": "def generate_report(name, marks_list):\n    total = sum(marks_list)\n    avg = total / len(marks_list)\n    if avg >= 90:\n        grade = \"A\"\n    elif avg >= 75:\n        grade = \"B\"\n    elif avg >= 60:\n        grade = \"C\"\n    else:\n        grade = \"F\"\n    return total, avg, grade\n\ntotal, avg, grade = generate_report(\"Priya\", [88, 92, 79, 85, 91])\nprint(f\"Total: {total}\")\nprint(f\"Average: {avg}\")\nprint(f\"Grade: {grade}\")",
+      "testCases": [
+        {
+          "label": "Report for Priya",
+          "input": "",
+          "expectedOutput": "Total: 435\nAverage: 87.0\nGrade: B",
+          "matchType": "exact"
+        }
+      ]
+    }
+  ]
+}

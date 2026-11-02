@@ -1,0 +1,332 @@
+<svg viewBox="0 0 850 520" xmlns="http://www.w3.org/2000/svg" style="background:#F9FBF8">
+  <defs>
+    <linearGradient id="qg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#004169"/>
+      <stop offset="100%" stop-color="#007DAF"/>
+    </linearGradient>
+    <linearGradient id="kg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0F9FB6"/>
+      <stop offset="100%" stop-color="#79C8C2"/>
+    </linearGradient>
+    <linearGradient id="vg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#006491"/>
+      <stop offset="100%" stop-color="#0F9FB6"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#0F9FB6" opacity="0.4"/>
+    </marker>
+  </defs>
+
+  <text x="425" y="35" text-anchor="middle" fill="#004169" font-size="20" font-family="system-ui" font-weight="700">
+    Multi-Head Attention
+    <animate attributeName="opacity" values="0;1" dur="0.6s" fill="freeze"/>
+  </text>
+  <text x="425" y="55" text-anchor="middle" fill="#006491" opacity="0.6" font-size="14" font-family="system-ui">
+    Each word attends to every other word to build context-aware representations
+    <animate attributeName="opacity" values="0;0.6" dur="0.6s" begin="0.3s" fill="freeze"/>
+  </text>
+
+  <!-- Input tokens -->
+  <g transform="translate(0, 80)">
+    <text x="425" y="12" text-anchor="middle" fill="#004169" font-size="13" font-family="system-ui" font-weight="600" opacity="0.4">
+      Input tokens
+      <animate attributeName="opacity" values="0;0.4" dur="0.4s" begin="0.5s" fill="freeze"/>
+    </text>
+
+    <rect x="30" y="22" width="90" height="42" rx="6" fill="white" stroke="#004169" stroke-opacity="0.2" stroke-width="1.5">
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="0.3s" fill="freeze"/>
+      <animate attributeName="transform" values="translate(0,0);translate(0,0)" dur="3s" begin="2s" repeatCount="indefinite" type="translate"/>
+    </rect>
+    <text x="75" y="48" text-anchor="middle" fill="#004169" font-size="15" font-family="system-ui" font-weight="700">
+      The
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="0.4s" fill="freeze"/>
+    </text>
+
+    <rect x="130" y="22" width="90" height="42" rx="6" fill="white" stroke="#004169" stroke-opacity="0.2" stroke-width="1.5">
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="0.5s" fill="freeze"/>
+    </rect>
+    <text x="175" y="48" text-anchor="middle" fill="#004169" font-size="15" font-family="system-ui" font-weight="700">
+      cat
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="0.6s" fill="freeze"/>
+    </text>
+
+    <rect x="230" y="22" width="90" height="42" rx="6" fill="white" stroke="#004169" stroke-opacity="0.2" stroke-width="1.5">
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="0.7s" fill="freeze"/>
+    </rect>
+    <text x="275" y="48" text-anchor="middle" fill="#004169" font-size="15" font-family="system-ui" font-weight="700">
+      sat
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="0.8s" fill="freeze"/>
+    </text>
+
+    <rect x="330" y="22" width="90" height="42" rx="6" fill="white" stroke="#004169" stroke-opacity="0.2" stroke-width="1.5">
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="0.9s" fill="freeze"/>
+    </rect>
+    <text x="375" y="48" text-anchor="middle" fill="#004169" font-size="15" font-family="system-ui" font-weight="700">
+      on
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="1s" fill="freeze"/>
+    </text>
+
+    <rect x="430" y="22" width="90" height="42" rx="6" fill="white" stroke="#004169" stroke-opacity="0.2" stroke-width="1.5">
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="1.1s" fill="freeze"/>
+    </rect>
+    <text x="475" y="48" text-anchor="middle" fill="#004169" font-size="15" font-family="system-ui" font-weight="700">
+      the
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="1.2s" fill="freeze"/>
+    </text>
+
+    <rect x="530" y="22" width="90" height="42" rx="6" fill="white" stroke="#004169" stroke-opacity="0.2" stroke-width="1.5">
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="1.3s" fill="freeze"/>
+    </rect>
+    <text x="575" y="48" text-anchor="middle" fill="#004169" font-size="15" font-family="system-ui" font-weight="700">
+      mat
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="1.4s" fill="freeze"/>
+    </text>
+  </g>
+
+  <!-- Query / Key / Value labels -->
+  <g transform="translate(0, 150)">
+    <rect x="30" y="0" width="590" height="28" rx="4" fill="#004169" opacity="0.04">
+      <animate attributeName="opacity" values="0;0.04" dur="0.4s" begin="1.5s" fill="freeze"/>
+    </rect>
+    <text x="75" y="18" text-anchor="middle" fill="#004169" font-size="12" font-family="system-ui" font-weight="600">
+      Q
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="1.6s" fill="freeze"/>
+    </text>
+    <text x="175" y="18" text-anchor="middle" fill="#004169" font-size="12" font-family="system-ui" font-weight="600">
+      Q
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="1.7s" fill="freeze"/>
+    </text>
+    <text x="275" y="18" text-anchor="middle" fill="#004169" font-size="12" font-family="system-ui" font-weight="600">
+      Q
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="1.8s" fill="freeze"/>
+    </text>
+    <text x="375" y="18" text-anchor="middle" fill="#004169" font-size="12" font-family="system-ui" font-weight="600">
+      Q
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="1.9s" fill="freeze"/>
+    </text>
+    <text x="475" y="18" text-anchor="middle" fill="#004169" font-size="12" font-family="system-ui" font-weight="600">
+      Q
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="2s" fill="freeze"/>
+    </text>
+    <text x="575" y="18" text-anchor="middle" fill="#004169" font-size="12" font-family="system-ui" font-weight="600">
+      Q
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="2.1s" fill="freeze"/>
+    </text>
+  </g>
+
+  <!-- Attention connections draw in -->
+  <g opacity="0.25">
+    <line x1="275" y1="138" x2="75" y2="220" stroke="#0F9FB6" stroke-width="1.5" marker-end="url(#arrowhead)" stroke-dasharray="200" stroke-dashoffset="200">
+      <animate attributeName="stroke-dashoffset" values="200;0" dur="0.5s" begin="2s" fill="freeze"/>
+    </line>
+    <line x1="275" y1="138" x2="175" y2="220" stroke="#0F9FB6" stroke-width="2.5" marker-end="url(#arrowhead)" stroke-dasharray="200" stroke-dashoffset="200">
+      <animate attributeName="stroke-dashoffset" values="200;0" dur="0.5s" begin="2.2s" fill="freeze"/>
+    </line>
+    <line x1="275" y1="138" x2="275" y2="220" stroke="#0F9FB6" stroke-width="3.5" marker-end="url(#arrowhead)" stroke-dasharray="100" stroke-dashoffset="100">
+      <animate attributeName="stroke-dashoffset" values="100;0" dur="0.4s" begin="2.4s" fill="freeze"/>
+    </line>
+    <line x1="275" y1="138" x2="375" y2="220" stroke="#0F9FB6" stroke-width="2" marker-end="url(#arrowhead)" stroke-dasharray="200" stroke-dashoffset="200">
+      <animate attributeName="stroke-dashoffset" values="200;0" dur="0.5s" begin="2.6s" fill="freeze"/>
+    </line>
+    <line x1="275" y1="138" x2="475" y2="220" stroke="#0F9FB6" stroke-width="1" marker-end="url(#arrowhead)" stroke-dasharray="250" stroke-dashoffset="250">
+      <animate attributeName="stroke-dashoffset" values="250;0" dur="0.5s" begin="2.8s" fill="freeze"/>
+    </line>
+    <line x1="275" y1="138" x2="575" y2="220" stroke="#0F9FB6" stroke-width="1.5" marker-end="url(#arrowhead)" stroke-dasharray="350" stroke-dashoffset="350">
+      <animate attributeName="stroke-dashoffset" values="350;0" dur="0.6s" begin="3s" fill="freeze"/>
+    </line>
+  </g>
+
+  <!-- Attention weight labels -->
+  <g opacity="0.35">
+    <text x="130" y="182" fill="#0F9FB6" font-size="11" font-family="system-ui">
+      0.08
+      <animate attributeName="opacity" values="0;0.35" dur="0.3s" begin="2.3s" fill="freeze"/>
+    </text>
+    <text x="200" y="182" fill="#0F9FB6" font-size="11" font-family="system-ui">
+      0.15
+      <animate attributeName="opacity" values="0;0.35" dur="0.3s" begin="2.5s" fill="freeze"/>
+    </text>
+    <text x="305" y="182" fill="#0F9FB6" font-size="11" font-family="system-ui">
+      0.32
+      <animate attributeName="opacity" values="0;0.35" dur="0.3s" begin="2.7s" fill="freeze"/>
+    </text>
+    <text x="340" y="182" fill="#0F9FB6" font-size="11" font-family="system-ui">
+      0.20
+      <animate attributeName="opacity" values="0;0.35" dur="0.3s" begin="2.9s" fill="freeze"/>
+    </text>
+    <text x="500" y="182" fill="#0F9FB6" font-size="11" font-family="system-ui">
+      0.05
+      <animate attributeName="opacity" values="0;0.35" dur="0.3s" begin="3.1s" fill="freeze"/>
+    </text>
+    <text x="560" y="193" fill="#0F9FB6" font-size="11" font-family="system-ui">
+      0.20
+      <animate attributeName="opacity" values="0;0.35" dur="0.3s" begin="3.3s" fill="freeze"/>
+    </text>
+  </g>
+
+  <!-- Head 1: Syntax -->
+  <g transform="translate(25, 240)">
+    <rect x="0" y="0" width="260" height="110" rx="8" fill="white" stroke="#004169" stroke-opacity="0.1" stroke-width="1.5">
+      <animate attributeName="opacity" values="0;1" dur="0.4s" begin="2s" fill="freeze"/>
+    </rect>
+    <rect x="0" y="0" width="260" height="34" rx="8" fill="#004169" opacity="0.06">
+      <animate attributeName="opacity" values="0;0.06" dur="0.3s" begin="2.1s" fill="freeze"/>
+    </rect>
+    <text x="130" y="22" text-anchor="middle" fill="#004169" font-size="14" font-family="system-ui" font-weight="700">
+      Head 1: Syntax
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="2.2s" fill="freeze"/>
+    </text>
+    <text x="15" y="55" fill="#004169" font-size="12" font-family="system-ui" opacity="0.6">
+      Tracks subject-verb agreement
+      <animate attributeName="opacity" values="0;0.6" dur="0.3s" begin="2.3s" fill="freeze"/>
+    </text>
+    <text x="15" y="75" fill="#004169" font-size="12" font-family="system-ui" opacity="0.6">
+      "cat" → "sat" (subject → verb)
+      <animate attributeName="opacity" values="0;0.6" dur="0.3s" begin="2.4s" fill="freeze"/>
+    </text>
+    <text x="15" y="95" fill="#004169" font-size="12" font-family="system-ui" opacity="0.6">
+      "sat" → "on" (verb → prep)
+      <animate attributeName="opacity" values="0;0.6" dur="0.3s" begin="2.5s" fill="freeze"/>
+    </text>
+    <!-- Glow pulse on Head 1 -->
+    <rect x="0" y="0" width="260" height="110" rx="8" fill="none" stroke="#004169" stroke-width="2" opacity="0">
+      <animate attributeName="opacity" values="0;0.3;0" dur="2s" begin="3s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- Head 2: Semantics -->
+  <g transform="translate(295, 240)">
+    <rect x="0" y="0" width="260" height="110" rx="8" fill="white" stroke="#0F9FB6" stroke-opacity="0.1" stroke-width="1.5">
+      <animate attributeName="opacity" values="0;1" dur="0.4s" begin="2.4s" fill="freeze"/>
+    </rect>
+    <rect x="0" y="0" width="260" height="34" rx="8" fill="#0F9FB6" opacity="0.06">
+      <animate attributeName="opacity" values="0;0.06" dur="0.3s" begin="2.5s" fill="freeze"/>
+    </rect>
+    <text x="130" y="22" text-anchor="middle" fill="#0F9FB6" font-size="14" font-family="system-ui" font-weight="700">
+      Head 2: Semantics
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="2.6s" fill="freeze"/>
+    </text>
+    <text x="15" y="55" fill="#004169" font-size="12" font-family="system-ui" opacity="0.6">
+      Resolves word sense ambiguity
+      <animate attributeName="opacity" values="0;0.6" dur="0.3s" begin="2.7s" fill="freeze"/>
+    </text>
+    <text x="15" y="75" fill="#004169" font-size="12" font-family="system-ui" opacity="0.6">
+      "bank" → "river" (nature context)
+      <animate attributeName="opacity" values="0;0.6" dur="0.3s" begin="2.8s" fill="freeze"/>
+    </text>
+    <text x="15" y="95" fill="#004169" font-size="12" font-family="system-ui" opacity="0.6">
+      "bank" → "money" (finance ctx)
+      <animate attributeName="opacity" values="0;0.6" dur="0.3s" begin="2.9s" fill="freeze"/>
+    </text>
+    <rect x="0" y="0" width="260" height="110" rx="8" fill="none" stroke="#0F9FB6" stroke-width="2" opacity="0">
+      <animate attributeName="opacity" values="0;0.3;0" dur="2s" begin="5s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- Head 3: Position -->
+  <g transform="translate(565, 240)">
+    <rect x="0" y="0" width="260" height="110" rx="8" fill="white" stroke="#006491" stroke-opacity="0.1" stroke-width="1.5">
+      <animate attributeName="opacity" values="0;1" dur="0.4s" begin="2.8s" fill="freeze"/>
+    </rect>
+    <rect x="0" y="0" width="260" height="34" rx="8" fill="#006491" opacity="0.06">
+      <animate attributeName="opacity" values="0;0.06" dur="0.3s" begin="2.9s" fill="freeze"/>
+    </rect>
+    <text x="130" y="22" text-anchor="middle" fill="#006491" font-size="14" font-family="system-ui" font-weight="700">
+      Head 3: Position
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="3s" fill="freeze"/>
+    </text>
+    <text x="15" y="55" fill="#004169" font-size="12" font-family="system-ui" opacity="0.6">
+      Encodes relative positions
+      <animate attributeName="opacity" values="0;0.6" dur="0.3s" begin="3.1s" fill="freeze"/>
+    </text>
+    <text x="15" y="75" fill="#004169" font-size="12" font-family="system-ui" opacity="0.6">
+      "cat" is token 2 of 6
+      <animate attributeName="opacity" values="0;0.6" dur="0.3s" begin="3.2s" fill="freeze"/>
+    </text>
+    <text x="15" y="95" fill="#004169" font-size="12" font-family="system-ui" opacity="0.6">
+      Distance: +3 from "sat"
+      <animate attributeName="opacity" values="0;0.6" dur="0.3s" begin="3.3s" fill="freeze"/>
+    </text>
+    <rect x="0" y="0" width="260" height="110" rx="8" fill="none" stroke="#006491" stroke-width="2" opacity="0">
+      <animate attributeName="opacity" values="0;0.3;0" dur="2s" begin="7s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- Output representation -->
+  <g transform="translate(0, 375)">
+    <text x="425" y="12" text-anchor="middle" fill="#004169" font-size="13" font-family="system-ui" font-weight="600" opacity="0.4">
+      Output: Context-aware representations
+      <animate attributeName="opacity" values="0;0.4" dur="0.4s" begin="3.5s" fill="freeze"/>
+    </text>
+
+    <rect x="30" y="24" width="90" height="40" rx="6" fill="url(#qg)" opacity="0" stroke="url(#qg)" stroke-width="1.5">
+      <animate attributeName="opacity" values="0;0.15" dur="0.3s" begin="3.6s" fill="freeze"/>
+    </rect>
+    <text x="75" y="49" text-anchor="middle" fill="#004169" font-size="13" font-family="system-ui" font-weight="600">
+      The
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="3.7s" fill="freeze"/>
+    </text>
+
+    <rect x="130" y="24" width="90" height="40" rx="6" fill="url(#qg)" opacity="0" stroke="url(#qg)" stroke-width="1.5">
+      <animate attributeName="opacity" values="0;0.15" dur="0.3s" begin="3.8s" fill="freeze"/>
+    </rect>
+    <text x="175" y="49" text-anchor="middle" fill="#004169" font-size="13" font-family="system-ui" font-weight="600">
+      cat
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="3.9s" fill="freeze"/>
+    </text>
+
+    <rect x="230" y="24" width="90" height="40" rx="6" fill="url(#kg)" opacity="0" stroke="url(#kg)" stroke-width="2.5">
+      <animate attributeName="opacity" values="0;0.15" dur="0.3s" begin="4s" fill="freeze"/>
+    </rect>
+    <text x="275" y="49" text-anchor="middle" fill="#0F9FB6" font-size="13" font-family="system-ui" font-weight="700">
+      sat
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="4.1s" fill="freeze"/>
+    </text>
+
+    <rect x="330" y="24" width="90" height="40" rx="6" fill="url(#qg)" opacity="0" stroke="url(#qg)" stroke-width="1.5">
+      <animate attributeName="opacity" values="0;0.15" dur="0.3s" begin="4.2s" fill="freeze"/>
+    </rect>
+    <text x="375" y="49" text-anchor="middle" fill="#004169" font-size="13" font-family="system-ui" font-weight="600">
+      on
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="4.3s" fill="freeze"/>
+    </text>
+
+    <rect x="430" y="24" width="90" height="40" rx="6" fill="url(#qg)" opacity="0" stroke="url(#qg)" stroke-width="1.5">
+      <animate attributeName="opacity" values="0;0.15" dur="0.3s" begin="4.4s" fill="freeze"/>
+    </rect>
+    <text x="475" y="49" text-anchor="middle" fill="#004169" font-size="13" font-family="system-ui" font-weight="600">
+      the
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="4.5s" fill="freeze"/>
+    </text>
+
+    <rect x="530" y="24" width="90" height="40" rx="6" fill="url(#qg)" opacity="0" stroke="url(#qg)" stroke-width="1.5">
+      <animate attributeName="opacity" values="0;0.15" dur="0.3s" begin="4.6s" fill="freeze"/>
+    </rect>
+    <text x="575" y="49" text-anchor="middle" fill="#004169" font-size="13" font-family="system-ui" font-weight="600">
+      mat
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="4.7s" fill="freeze"/>
+    </text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(25, 450)">
+    <rect x="0" y="0" width="800" height="50" rx="8" fill="white" stroke="#004169" stroke-opacity="0.06" stroke-width="1">
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="4.8s" fill="freeze"/>
+    </rect>
+    <text x="400" y="16" text-anchor="middle" fill="#004169" font-size="12" font-family="system-ui" font-weight="600" opacity="0.5">
+      Each head learns a different relationship type. All heads run in parallel, then outputs are concatenated.
+      <animate attributeName="opacity" values="0;0.5" dur="0.4s" begin="5s" fill="freeze"/>
+    </text>
+    <circle cx="30" cy="34" r="6" fill="#0F9FB6" opacity="0.5">
+      <animate attributeName="opacity" values="0;0.5" dur="0.3s" begin="5.1s" fill="freeze"/>
+    </circle>
+    <text x="44" y="38" fill="#004169" font-size="12" font-family="system-ui" opacity="0.5">
+      Attention weight (thicker = higher relevance)
+      <animate attributeName="opacity" values="0;0.5" dur="0.3s" begin="5.2s" fill="freeze"/>
+    </text>
+  </g>
+</svg>

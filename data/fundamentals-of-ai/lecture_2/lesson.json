@@ -1,0 +1,1070 @@
+{
+  "id": "fundamentals-of-ai-lecture-1",
+  "courseSlug": "fundamentals-of-ai",
+  "number": 2,
+  "title": "Search Algorithms",
+  "overview": "Every AI decision starts with search \u2014 finding a path from where you are to where you want to be.|Learn BFS, DFS, and the gold-standard A* algorithm.",
+  "estimatedMinutes": 55,
+  "sections": [
+    {
+      "id": "search-problem",
+      "label": "What is a Search Problem?",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "What is a Search Problem? \u2014 SVG placeholder",
+            "svgId": "search-problem"
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "Every Goal Starts With a Search"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "\u2022 Every goal an AI pursues, from navigating a map to playing chess, is a search problem."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "\u2022 The solution is always a path through a space of possibilities."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Start & Goal State"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Every search has an origin and a destination."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The AI's job is finding a sequence of steps that moves from one to the other."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "State Space"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The complete set of all possible configurations the agent can be in."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A chess game has more states than atoms in the observable universe."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Actions & Transitions"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "From any state, specific actions lead to new states."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The AI must know what moves are legal from wherever it currently stands."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Path Cost"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Not all paths to the goal are equal."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Cost could be distance, time, or money \u2014 the AI minimises whichever metric you define as important."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "Search problems provide a structured way to model decision-making, where the goal is to find a sequence of actions that leads from an initial state to a goal state."
+          }
+        },
+        {
+          "type": "ai_section",
+          "theme": "light",
+          "hero": {
+            "category": "",
+            "title": "Every Goal Starts With a Search",
+            "intro": ""
+          },
+          "concepts": [],
+          "keyInsight": ""
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Search is Like GPS Navigation",
+          "subtitle": "GPS doesn't try every road at once.|It systematically finds the fastest path from where you are to where you're going.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "You're driving to a new city.|GPS knows your start and your destination \u2014 but there are thousands of possible routes between them.|It has to choose the best one."
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "GPS explores roads reachable from your position.|It marks what it has already evaluated.|It keeps the most promising options until the destination appears.",
+              "visual": {
+                "type": "flow",
+                "items": [
+                  "Start Location",
+                  "Explore Roads",
+                  "Track Visited",
+                  "Reach Destination"
+                ],
+                "conclusion": "Optimal route found"
+              }
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "AI search is identical.|Start state \u2192 expand possible actions \u2192 remember explored states \u2192 stop when the goal is reached."
+            }
+          ],
+          "insight": "Search is navigation through possibility space \u2014 systematic, not random.",
+          "reinforcement": "Every AI that plans a sequence of actions \u2014 chess, GPS, scheduling \u2014 is doing search."
+        },
+        {
+          "type": "practice",
+          "title": "Modeling a Search Problem",
+          "instructions": "Model a search problem by defining a graph and identifying the start state, goal state, and valid paths.",
+          "starterCode": "# Define a graph as a dictionary\ngraph = {\n    'A': ['B', 'C'],\n    'B': ['D'],\n    'C': ['D'],\n    'D': []\n}\nstart = 'A'\ngoal = 'D'\n# Print the search problem definition\nprint(f\"Start state: {start}\")\nprint(f\"Goal state: {goal}\")\nprint(f\"Neighbors of A: {graph[start]}\")\nprint(f\"Possible paths: A \u2192 B \u2192 D or A \u2192 C \u2192 D\")",
+          "solution": "graph = {'A': ['B', 'C'], 'B': ['D'], 'C': ['D'], 'D': []}\nstart = 'A'\ngoal = 'D'\nprint(f\"Start state: {start}\")\nprint(f\"Goal state: {goal}\")\nprint(f\"Neighbors of A: {graph[start]}\")",
+          "hint": "Every search problem needs: a start state, actions (edges to neighbors), and a goal state."
+        }
+      ]
+    },
+    {
+      "id": "bfs-dfs",
+      "label": "BFS & DFS",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "BFS & DFS \u2014 SVG placeholder",
+            "svgId": "bfs-dfs"
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "Breadth-First vs Depth-First Search"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "BFS and DFS are the two fundamental strategies for exploring a state space."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The only difference is which states you choose to explore next."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Breadth-First Search"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "BFS explores all states at the current depth before going deeper \u2014 like ripples spreading across water."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "It uses a queue (FIFO) and guarantees the shortest path."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Depth-First Search"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "DFS follows one path all the way before backtracking \u2014 like a spelunker exploring one tunnel completely."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "It uses a stack (LIFO) and uses far less memory than BFS."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "The Frontier"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The frontier is the set of discovered-but-unexplored states."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "BFS adds to the back of a queue; DFS adds to the top of a stack."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "This one difference produces completely different search orders."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Optimality & Completeness"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "BFS always finds the shortest path in unweighted graphs."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "DFS finds a solution \u2014 but not necessarily the best one."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Both are complete on finite graphs."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Breadth-First Search (BFS) Concepts"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "BFS uses a queue (FIFO) to manage the frontier \u2014 first discovered, first explored."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "It expands all states at the current depth before moving one level deeper."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "BFS guarantees finding the shortest path in unweighted graphs \u2014 it is optimal."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Initialize Queue \u2014 Place the start state in a FIFO queue as your frontier.",
+              "Dequeue Front \u2014 Remove the front node \u2014 this is the current state to explore.",
+              "Check Goal \u2014 If this state is the goal, reconstruct and return the path."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Breadth-First Search Execution"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The trade-off is memory: BFS can store exponentially more states than DFS."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "BFS is complete \u2014 it will always find a solution if one exists on a finite graph."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Expand Neighbors \u2014 Add all unexplored neighbors to the back of the queue.",
+              "Repeat \u2014 Keep dequeuing from the front until the queue is empty or the goal is found."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Depth-First Search (DFS) Concepts"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "DFS uses a stack (LIFO) \u2014 the last state discovered is always the next to explore."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "It follows one path all the way to a leaf before backtracking to try another."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "DFS uses dramatically less memory than BFS \u2014 only one path is stored at a time."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Initialize Stack \u2014 Place the start state on a LIFO stack as your frontier.",
+              "Pop Top \u2014 Pop the top node \u2014 this is the current state to explore.",
+              "Check Goal \u2014 If this state is the goal, reconstruct and return the path."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Depth-First Search Execution"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The trade-off is optimality: DFS may find a solution, but not the shortest one."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "DFS is also complete on finite graphs, but it can get lost in infinite branches without depth limits."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Expand Neighbors \u2014 Push all unexplored neighbors onto the top of the stack.",
+              "Backtrack \u2014 When a node has no unexplored neighbors, pop the next from the stack."
+            ]
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "BFS finds the shortest path. DFS uses the least memory. The right choice depends on what matters."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Your Friend Is on the 10th Floor",
+          "subtitle": "How do you find them?|BFS takes the elevator. DFS takes the stairs.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "The Floor Plan",
+              "description": "You're in the lobby. Your friend is on the 10th floor.|Many floors. Many rooms per floor. Where do you start?"
+            },
+            {
+              "number": 2,
+              "label": "BFS \u2014 Floor by Floor",
+              "description": "Take the elevator. Visit every room on floor 1, then floor 2, then floor 3.|Level by level, outward in all directions.|This guarantees the shortest path to your friend."
+            },
+            {
+              "number": 3,
+              "label": "DFS \u2014 Stairwell Sprint",
+              "description": "Sprint up one stairwell. Check floor 2, 4, 6, 8, 10.|If not there, run back down and try the other wing.|DFS goes deep first \u2014 fast but no shortest-path promise."
+            },
+            {
+              "number": 4,
+              "label": "BFS vs DFS \u2014 The Race",
+              "description": "BFS uses a queue \u2014 elevator line, first in first out.|DFS uses a stack \u2014 stairwell pile-up, last in first out.|BFS is thorough. DFS is memory-light."
+            },
+            {
+              "number": 5,
+              "label": "Right Tool for the Job",
+              "description": "Use BFS when the shortest path to your friend matters most.|Use DFS when the building is huge and you just need an answer fast."
+            }
+          ],
+          "insight": "BFS takes the elevator \u2014 check every floor level by level, find the shortest route.|DFS takes the stairs \u2014 sprint up one stairwell, backtrack, try the next.|Both find your friend. One guarantees the shortest path. The other uses less memory.",
+          "reinforcement": "Use BFS when every step matters \u2014 shortest path guaranteed.|Use DFS when memory is tight or you just need any answer, fast."
+        },
+        {
+          "type": "practice",
+          "title": "Implementing BFS Traversal",
+          "instructions": "Complete the BFS traversal code to visit all nodes level by level.",
+          "starterCode": "# BFS traversal\ngraph = {'A': ['B', 'C'], 'B': ['D'], 'C': ['E'], 'D': [], 'E': []}\nvisited = []\nqueue = ['A']\nwhile queue:\n    node = queue.pop(0)\n    visited.append(node)\n    for neighbor in graph[node]:\n        queue.append(neighbor)\nprint(' \u2192 '.join(visited))",
+          "solution": "graph = {'A': ['B', 'C'], 'B': ['D'], 'C': ['E'], 'D': [], 'E': []}\nvisited = []\nqueue = ['A']\nwhile queue:\n    node = queue.pop(0)\n    visited.append(node)\n    for neighbor in graph[node]:\n        queue.append(neighbor)\nprint(' \u2192 '.join(visited))",
+          "hint": "BFS uses a queue (FIFO): pop the first item, add all its neighbors to the end."
+        }
+      ]
+    },
+    {
+      "id": "heuristic-search",
+      "label": "Heuristic Search & A*",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Heuristic Search & A* \u2014 SVG placeholder",
+            "svgId": "heuristic-search"
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "Greedy Search & A*"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Greedy Best-First Search uses only h(n) to race toward the goal."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A* combines h(n) with g(n) to guarantee an optimal path."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "The Heuristic h(n)"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A heuristic is an estimate of the remaining cost from any state to the goal."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "It's a hint \u2014 not exact \u2014 but it dramatically reduces the number of states you need to explore."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Greedy Best-First"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Greedy search always picks the state with the lowest h(n)."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "It's fast but can follow misleading heuristics into dead ends, missing the optimal path."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "A* = g(n) + h(n)"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A* combines actual cost so far g(n) with the estimated remaining cost h(n)."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "This balance makes it both optimal and efficient \u2014 the gold standard of search algorithms."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Admissibility"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A heuristic is admissible if it never overestimates the true remaining cost."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Admissible heuristics guarantee that A* will always find the optimal solution."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Greedy Best-First Search"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Greedy Best-First Search always expands the state closest to the goal, using only h(n)."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "It picks the brightest light on the horizon \u2014 ignoring the path behind it."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The frontier is a priority queue sorted by h(n); lowest gets expanded first."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "This makes it fast, but it can chase a misleading heuristic into a dead end."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Greedy is fast and dramatic \u2014 but it does not guarantee the shortest path."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "numbered",
+            "items": [
+              "Initialize: Place the start state in the frontier, sorted by h(n).",
+              "Expand: Pop the state with the lowest h(n) \u2014 the one that looks closest to the goal.",
+              "Goal Check: If the expanded state is the goal, return the solution.",
+              "Explore Neighbors: Add each unvisited neighbor to the frontier, scored by its h(n).",
+              "Repeat: Continue expanding the lowest-h(n) state until the goal is found or the frontier is empty."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "A* Search"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A* combines the actual cost g(n) with the estimated remaining cost h(n)."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "It expands the state with the lowest f(n) = g(n) + h(n) \u2014 balancing past and future."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "This prevents A* from being tricked by a tempting but costly detour."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "With an admissible heuristic (never overestimates), A* is guaranteed optimal."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A* is the gold standard of informed search \u2014 optimal, efficient, and widely used."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "numbered",
+            "items": [
+              "Initialize: Place the start state in the frontier with g=0, f = h(start).",
+              "Expand: Pop the state with the lowest f(n) = g(n) + h(n).",
+              "Goal Check: If the expanded state is the goal, return the optimal solution.",
+              "Explore Neighbors: For each neighbor, compute tentative g = current.g + step_cost; add to frontier if it is an improvement.",
+              "Repeat: Continue expanding the lowest-f(n) state until the goal is found or the frontier is empty."
+            ]
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "A* is optimal because it combines known path cost with a heuristic that never overestimates the remaining distance."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Greedy vs A*: The Delivery Rider",
+          "subtitle": "A delivery rider needs to reach the customer across town.|Greedy takes the road that looks closest. A* checks distance and traffic ahead.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "The Delivery",
+              "description": "You're at the restaurant. Customer is waiting across town.|Traffic jams, one-ways, and roadblocks \u2014 which route do you pick?",
+              "caption": "Restaurant to customer. Traffic ahead. Which route?"
+            },
+            {
+              "number": 2,
+              "label": "Greedy Picks Closest",
+              "description": "Greedy picks the road that looks closest to the customer \u2014 h(n) is small.|It ignores traffic, roadblocks, and how far you have already come.",
+              "caption": "Greedy: \"That road looks closest \u2014 go!\""
+            },
+            {
+              "number": 3,
+              "label": "Greedy Hits a Dead-End",
+              "description": "That shortcut? Gridlock. Greedy didn't look ahead.|Now it must backtrack \u2014 wasting all the progress it made.",
+              "caption": "Greedy ignored traffic. Now it's stuck."
+            },
+            {
+              "number": 4,
+              "label": "A* Considers Both",
+              "description": "A* evaluates every option as f = g(n) + h(n).|Distance so far + distance remaining = the full picture \u2014 no shortcuts, no traps.",
+              "caption": "A*: g(n) + h(n) = \"This route is cheaper overall.\""
+            },
+            {
+              "number": 5,
+              "label": "A* Arrives on Time",
+              "description": "A* avoids the traps Greedy fell for. It reaches the goal efficiently.|Always the best overall route \u2014 not just the fastest-looking one.",
+              "caption": "A* delivers. Greedy? Still stuck in traffic."
+            }
+          ],
+          "insight": "Greedy is fast but blind \u2014 it ignores the cost of getting there.|A* sees the full picture, so it always finds the best route.",
+          "reinforcement": "Greedy: \"That looks closest.\"|A*: \"That is the smartest overall route.\""
+        },
+        {
+          "type": "practice",
+          "title": "Practice Exercise",
+          "instructions": "Run both Greedy Best-First Search and A* on the same graph. Watch how the heuristic changes the path chosen. Greedy picks the node that looks closest to the goal. A* also considers the cost already paid to get there.",
+          "starterCode": "# Greedy vs A*: compare paths on the same weighted graph\n# Each edge is (neighbor, cost). h = heuristic (estimated distance to G)\n\ngraph = {\n    'A': [('B', 1), ('C', 4)],\n    'B': [('D', 2), ('E', 5)],\n    'C': [('F', 1)],\n    'D': [],\n    'E': [('G', 1)],\n    'F': [('G', 3)],\n    'G': []\n}\nh = {'A': 6, 'B': 4, 'C': 4, 'D': 2, 'E': 1, 'F': 3, 'G': 0}\n\ndef greedy(start, goal):\n    frontier = [(h[start], start, [start], 0)]\n    visited = set()\n    while frontier:\n        frontier.sort()\n        _, node, path, cost = frontier.pop(0)\n        if node == goal:\n            return path, cost\n        if node in visited:\n            continue\n        visited.add(node)\n        for nb, edge_cost in graph[node]:\n            if nb not in visited:\n                frontier.append((h[nb], nb, path + [nb], cost + edge_cost))\n    return None, 0\n\ndef astar(start, goal):\n    frontier = [(h[start], 0, start, [start])]\n    visited = set()\n    while frontier:\n        frontier.sort()\n        f, g, node, path = frontier.pop(0)\n        if node == goal:\n            return path, g\n        if node in visited:\n            continue\n        visited.add(node)\n        for nb, edge_cost in graph[node]:\n            if nb not in visited:\n                new_g = g + edge_cost\n                frontier.append((new_g + h[nb], new_g, nb, path + [nb]))\n    return None, 0\n\ng_path, g_cost = greedy('A', 'G')\na_path, a_cost = astar('A', 'G')\n\nprint(f\"Greedy path : {' \u2192 '.join(g_path)} | cost = {g_cost}\")\nprint(f\"A* path     : {' \u2192 '.join(a_path)} | cost = {a_cost}\")\nprint()\nprint(\"A* is optimal \u2014 it balances actual cost + heuristic estimate.\")\nprint(\"Greedy is faster but can miss the true shortest path.\")",
+          "solution": "graph = {'A': ['B', 'C'], 'B': ['A', 'D'], 'C': ['A'], 'D': ['B']}\nnode = 'B'\nprint(f'Neighbors of {node}: {graph[node]}')",
+          "hint": "Use graph[node] to access the list of neighbors for any node."
+        }
+      ]
+    },
+    {
+      "id": "adversarial-search",
+      "label": "Adversarial Search & Minimax",
+      "blocks": [
+        {
+          "type": "svg_placeholder",
+          "data": {
+            "height": "260px",
+            "label": "Adversarial Search & Minimax \u2014 SVG placeholder",
+            "svgId": "adversarial-search"
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "Adversarial Search"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "When your environment is actively trying to defeat you, regular search fails. Adversarial search is how AI plays games \u2014 anticipating the opponent's best moves and choosing the path that guarantees the best worst-case outcome."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Game Trees"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Adversarial search problems are modeled as game trees where players take alternating turns, with each node representing a game state."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Minimax Algorithm"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The minimax algorithm recursively evaluates game states, assuming both players play optimally to minimize the maximum possible loss."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Alpha-Beta Pruning"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Alpha-beta pruning optimizes minimax by pruning branches that cannot affect the final decision, dramatically reducing the search space."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "What is Adversarial Search"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "In normal search (like A*), the AI just needs to find a path to the goal. The environment is static."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "In adversarial search (like Chess or Tic-Tac-Toe), there is an opponent who is actively trying to stop the AI from winning."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "We assume the opponent is perfectly rational and will always make the move that is worst for us."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Therefore, we can't just pick a path that looks good \u2014 we have to pick the path that survives the opponent's best counter-attacks."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Static Search \u2014 In normal search (like A*), the AI just needs to find a path to the goal. The environment is static.",
+              "Adversarial Search \u2014 In adversarial search (like Chess or Tic-Tac-Toe), there is an opponent who is actively trying to stop the AI from winning.",
+              "Rational Opponent \u2014 We assume the opponent is perfectly rational and will always make the move that is worst for us."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Minimax"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Minimax is the foundational algorithm for two-player, zero-sum games."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "We call the AI \"MAX\" (trying to maximize the score) and the opponent \"MIN\" (trying to minimize the score)."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The algorithm generates the entire game tree down to the terminal states (win/loss/draw), scores them, and propagates those scores back up the tree."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Formula: function MAX-VALUE(state):\n    if TERMINAL-TEST(state): return UTILITY(state)\n    v = -\u221e\n    for action in ACTIONS(state):\n        v = MAX(v, MIN-VALUE(RESULT(state, action)))\n    return v\n\nfunction MIN-VALUE(state):\n    if TERMINAL-TEST(state): return UTILITY(state)\n    v = \u221e\n    for action in ACTIONS(state):\n        v = MIN(v, MAX-VALUE(RESULT(state, action)))\n    return v"
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "MAX \u2014 We call the AI \"MAX\" (trying to maximize the score) and the opponent \"MIN\" (trying to minimize the score).",
+              "MIN \u2014 We call the AI \"MAX\" (trying to maximize the score) and the opponent \"MIN\" (trying to minimize the score).",
+              "Game Tree \u2014 The algorithm generates the entire game tree down to the terminal states (win/loss/draw), scores them, and propagates those scores back up the tree."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Alpha-Beta Pruning"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Minimax is perfect, but exploring every possible game state is impossible for complex games."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Chess has more possible games than there are atoms in the universe (10^120)."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Alpha-Beta Pruning is an optimization technique for Minimax."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "It keeps track of the best options found so far (Alpha for MAX, Beta for MIN) and stops evaluating a branch as soon as it proves to be worse than a previously examined branch."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "This cuts the search space in half, allowing the AI to look twice as far ahead in the same amount of time, without changing the final decision."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Alpha \u2014 It keeps track of the best options found so far (Alpha for MAX, Beta for MIN) and stops evaluating a branch as soon as it proves to be worse than a previously examined branch.",
+              "Beta \u2014 It keeps track of the best options found so far (Alpha for MAX, Beta for MIN) and stops evaluating a branch as soon as it proves to be worse than a previously examined branch.",
+              "Alpha-Beta Pruning \u2014 Alpha-Beta Pruning is an optimization technique for Minimax."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Depth-Limited Minimax"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Even with Alpha-Beta Pruning, we still can't reach terminal states in games like Chess."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Depth-Limited search stops the algorithm after a certain number of moves (depth)."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Instead of a terminal Utility function, it uses a Heuristic Evaluation Function to estimate how good the board looks at the cutoff depth."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "If the AI can look 10 moves deep, it evaluates the board there, and then propagates those estimates back up."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Depth-Limited Search \u2014 Depth-Limited search stops the algorithm after a certain number of moves (depth).",
+              "Heuristic Evaluation Function \u2014 Instead of a terminal Utility function, it uses a Heuristic Evaluation Function to estimate how good the board looks at the cutoff depth.",
+              "Cutoff Depth \u2014 If the AI can look 10 moves deep, it evaluates the board there, and then propagates those estimates back up."
+            ]
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "Minimax finds the optimal move by assuming the opponent will always play perfectly to minimize your score."
+          }
+        },
+        {
+          "type": "ai_section",
+          "theme": "light",
+          "hero": {
+            "category": "",
+            "title": "Adversarial Search",
+            "intro": ""
+          },
+          "concepts": [],
+          "keyInsight": ""
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Representing a Tic-Tac-Toe AI",
+          "subtitle": "How does Minimax actually look at a Tic-Tac-Toe board? It maps it entirely to math.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "MAX and MIN",
+              "description": "X is MAX. O is MIN."
+            },
+            {
+              "number": 2,
+              "label": "Initial State",
+              "description": "The board is empty."
+            },
+            {
+              "number": 3,
+              "label": "Actions",
+              "description": "Any empty square is a valid action."
+            },
+            {
+              "number": 4,
+              "label": "Result",
+              "description": "Returns a new board with the piece placed."
+            },
+            {
+              "number": 5,
+              "label": "Terminal Test",
+              "description": "Returns true if there's 3-in-a-row or the board is full."
+            },
+            {
+              "number": 6,
+              "label": "Utility Function",
+              "description": "Returns +1 if X wins, -1 if O wins, 0 if draw."
+            }
+          ],
+          "insight": "By defining these 6 functions, Minimax can solve the game without needing any specific \"strategy\" hardcoded into it.",
+          "reinforcement": "The AI doesn't know what \"winning\" feels like. It just mathematically maximizes the Utility number."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "A search problem has a start state, goal state, actions, and path cost"
+      },
+      {
+        "text": "BFS explores level by level \u2014 guarantees the shortest path"
+      },
+      {
+        "text": "DFS goes deep first \u2014 uses less memory, not guaranteed optimal"
+      },
+      {
+        "text": "The frontier is the set of discovered-but-unexplored states"
+      },
+      {
+        "text": "A* = g(n) + h(n) \u2014 optimal when the heuristic is admissible"
+      },
+      {
+        "text": "Admissibility means the heuristic never overestimates remaining cost"
+      }
+    ],
+    "whatYouLearned": [
+      "How to model any goal-directed problem as a search problem",
+      "The difference between BFS and DFS \u2014 memory vs optimality",
+      "How heuristics make search dramatically faster",
+      "Why A* is the gold standard of search algorithms",
+      "What makes a heuristic admissible",
+      "How GPS navigation, game AI, and puzzle solvers use these exact algorithms"
+    ],
+    "nextUp": "Knowledge & Logic"
+  }
+}

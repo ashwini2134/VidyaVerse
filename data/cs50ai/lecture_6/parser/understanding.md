@@ -1,0 +1,9 @@
+First, look at the text files in the `sentences` directory. Each file contains an English sentence. Your goal in this problem is to write a parser that is able to parse all of these sentences.
+
+Take a look now at `parser.py`, and notice the context free grammar rules defined at the top of the file. We’ve already defined for you a set of rules for generating terminal symbols (in the global variable `TERMINALS`). Notice that `Adj` is a nonterminal symbol that generates adjectives, `Adv` generates adverbs, `Conj` generates conjunctions, `Det` generates determiners, `N` generates nouns (spread across multiple lines for readability), `P` generates prepositions, and `V` generates verbs.
+
+Next is the definition of `NONTERMINALS`, which will contain all of the context-free grammar rules for generating nonterminal symbols. Right now, there’s just a single rule: `S -> N V`. With just that rule, we can generate sentences like `"Holmes arrived."` or `"He chuckled."`, but not sentences more complex than that. Editing the `NONTERMINALS` rules so that all of the sentences can be parsed will be up to you!
+
+Next, take a look at the `main` function. It first accepts a sentence as input, either from a file or via user input. The sentence is preprocessed (via the `preprocess` function) and then parsed according to the context-free grammar defined by the file. The resulting trees are printed out, and all of the “noun phrase chunks” (defined in the Specification) are printed as well (via the `np_chunk` function).
+
+In addition to writing context-free grammar rules for parsing these sentences, the `preprocess` and `np_chunk` functions are left up to you!

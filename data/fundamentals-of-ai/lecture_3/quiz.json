@@ -1,0 +1,57 @@
+[
+  {
+    "question": "What is propositional logic?",
+    "options": [
+      "Statements that are numbers",
+      "Statements that are True or False",
+      "Statements about probability",
+      "Statements about search"
+    ],
+    "answer": "Statements that are True or False",
+    "explanation": "The correct answer is Statements that are True or False."
+  },
+  {
+    "question": "AND returns True when?",
+    "options": [
+      "Neither side is True",
+      "One side is True",
+      "Both sides are True",
+      "Always"
+    ],
+    "answer": "Both sides are True",
+    "explanation": "The correct answer is Both sides are True."
+  },
+  {
+    "question": "NOT True equals?",
+    "options": [
+      "Maybe",
+      "True",
+      "False",
+      "Zero"
+    ],
+    "answer": "False",
+    "explanation": "The correct answer is False."
+  },
+  {
+    "question": "What is a Knowledge Base?",
+    "options": [
+      "A collection of facts and rules",
+      "A neural network",
+      "A list of search results",
+      "A database of images"
+    ],
+    "answer": "A collection of facts and rules",
+    "explanation": "The correct answer is A collection of facts and rules."
+  },
+  {
+    "question": "Inference means?",
+    "options": [
+      "Training on data",
+      "Predicting a number",
+      "Deriving new facts from existing facts",
+      "Searching for a path"
+    ],
+    "answer": "Deriving new facts from existing facts",
+    "explanation": "The correct answer is Deriving new facts from existing facts."
+  }
+]

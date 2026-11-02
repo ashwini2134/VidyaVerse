@@ -1,0 +1,1 @@
+- If `lst` is a list, then `tuple(lst)` can be used to convert `lst` into a tuple.

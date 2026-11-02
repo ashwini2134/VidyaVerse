@@ -1,0 +1,14 @@
+[
+  {
+    "id": "chatgpt_questions",
+    "title": "Ask ChatGPT",
+    "description": "Ask ChatGPT the same question in 3 different ways. Write the question, all 3 versions, and note how the answer changed. What made the best answer — being specific, giving context, or asking differently?",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tokenizer_code",
+    "title": "Tokenize sentence",
+    "description": "Write Python to tokenize a sentence (split into words) and count how many times each word appears. Input: 'the cat sat on the mat the cat'",
+    "difficulty": "easy"
+  }
+]

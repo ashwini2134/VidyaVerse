@@ -1,0 +1,1 @@
+When learning programming, one of the first things students usually do is print text to the screen. This problem helps students understand how output works in Python using the print() function.

@@ -1,0 +1,72 @@
+{
+  "id": "java-beginners-lecture-3",
+  "courseSlug": "java-beginners",
+  "number": 3,
+  "title": "Object Oriented Programming",
+  "overview": "Overview of Object Oriented Programming",
+  "estimatedMinutes": 45,
+  "sections": [
+    {
+      "id": "section-1-lecture-3",
+      "label": "Theory Part 1",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "blue",
+          "title": "Introduction to Object Oriented Programming",
+          "body": "Content for Object Oriented Programming...",
+          "bullets": [
+            "Point 1",
+            "Point 2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-2-lecture-3",
+      "label": "Theory Part 2",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "purple",
+          "title": "Deep dive into Object Oriented Programming",
+          "body": "More content for Object Oriented Programming...",
+          "bullets": [
+            "Point 1",
+            "Point 2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-3-lecture-3",
+      "label": "Theory Part 3",
+      "blocks": [
+        {
+          "type": "explanation",
+          "accentColor": "green",
+          "title": "Mastering Object Oriented Programming",
+          "body": "Advanced content for Object Oriented Programming...",
+          "bullets": [
+            "Point 1",
+            "Point 2"
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Takeaway 1 for Object Oriented Programming"
+      },
+      {
+        "text": "Takeaway 2 for Object Oriented Programming"
+      }
+    ],
+    "whatYouLearned": [
+      "You learned about Object Oriented Programming"
+    ],
+    "nextUp": "Conditionals"
+  }
+}

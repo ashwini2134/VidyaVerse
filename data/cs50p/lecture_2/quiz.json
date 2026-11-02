@@ -1,0 +1,57 @@
+[
+  {
+    "question": "Which loop is commonly used to repeat a block of code a fixed number of times?",
+    "options": [
+      "if loop",
+      "while loop",
+      "for loop",
+      "repeat loop"
+    ],
+    "answer": "for loop",
+    "explanation": "A for loop is commonly used when the number of repetitions is known."
+  },
+  {
+    "question": "What will this code print?\n\nfor i in range(3):\n    print(i)",
+    "options": [
+      "1 2 3",
+      "0 1 2",
+      "0 1 2 3",
+      "3 2 1"
+    ],
+    "answer": "0 1 2",
+    "explanation": "range(3) generates numbers starting from 0 up to but not including 3."
+  },
+  {
+    "question": "Which keyword immediately stops a loop?",
+    "options": [
+      "continue",
+      "skip",
+      "break",
+      "stop"
+    ],
+    "answer": "break",
+    "explanation": "The break statement exits the loop immediately."
+  },
+  {
+    "question": "What does the continue statement do in a loop?",
+    "options": [
+      "Ends the program",
+      "Stops the loop completely",
+      "Skips the current iteration",
+      "Restarts the loop"
+    ],
+    "answer": "Skips the current iteration",
+    "explanation": "continue skips the current iteration and moves to the next one."
+  },
+  {
+    "question": "What will this code print?\n\ncount = 0\nwhile count < 3:\n    print(count)\n    count += 1",
+    "options": [
+      "1 2 3",
+      "0 1 2",
+      "0 1 2 3",
+      "3 2 1"
+    ],
+    "answer": "0 1 2",
+    "explanation": "The while loop runs while count is less than 3."
+  }
+]

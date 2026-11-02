@@ -1,0 +1,38 @@
+[
+  {
+    "id": "area_calculator",
+    "title": "Area Calculator",
+    "description": "Define functions for area of rectangle, circle, and triangle. Call each with sample values and print the results.",
+    "difficulty": "easy",
+    "starterCode": "def rectangle_area(l, w):\n    return l * w\n\ndef circle_area(r):\n    return 3.14 * r * r\n\ndef triangle_area(b, h):\n    return 0.5 * b * h\n\n# Test each function",
+    "solution": "def rectangle_area(l, w):\n    return l * w\n\ndef circle_area(r):\n    return 3.14 * r * r\n\ndef triangle_area(b, h):\n    return 0.5 * b * h\n\nprint(f\"Rectangle 5x3: {rectangle_area(5, 3)}\")\nprint(f\"Circle r=4: {circle_area(4)}\")\nprint(f\"Triangle b=6,h=3: {triangle_area(6, 3)}\")",
+    "testCases": [
+      {
+        "label": "Area outputs",
+        "input": "",
+        "expectedOutput": "Rectangle 5x3: 15\nCircle r=4: 50.24\nTriangle b=6,h=3: 9.0"
+      }
+    ]
+  },
+  {
+    "id": "temperature_converter",
+    "title": "Temperature Converter",
+    "description": "Define celsius_to_fahrenheit(c) and fahrenheit_to_celsius(f) functions. Test both with sample values.",
+    "difficulty": "easy",
+    "starterCode": "def celsius_to_fahrenheit(c):\n    return (c * 9/5) + 32\n\ndef fahrenheit_to_celsius(f):\n    return (f - 32) * 5/9\n\n# Test both",
+    "solution": "def c_to_f(c):\n    return (c * 9/5) + 32\n\ndef f_to_c(f):\n    return (f - 32) * 5/9\n\nprint(f\"0C = {c_to_f(0)}F\")\nprint(f\"100C = {c_to_f(100)}F\")\nprint(f\"32F = {f_to_c(32)}C\")\nprint(f\"212F = {f_to_c(212)}C\")",
+    "testCases": [
+      {
+        "label": "Temperature conversions",
+        "input": "",
+        "expectedOutput": "0C = 32.0F\n100C = 212.0F\n32F = 0.0C\n212F = 100.0C"
+      }
+    ]
+  },
+  {
+    "id": "unit_converter",
+    "title": "Unit Converter Toolkit",
+    "description": "Build a modular unit converter using functions for temperature, length, weight, and time.",
+    "difficulty": "medium"
+  }
+]

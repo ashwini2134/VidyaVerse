@@ -1,0 +1,47 @@
+[
+  {
+    "id": "problem_1_lecture_7",
+    "title": "Problem 1 - Object Oriented Programming - Advanced",
+    "description": "Solve this problem related to Object Oriented Programming - Advanced.",
+    "difficulty": "easy",
+    "starterCode": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "solution": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "testCases": [
+      {
+        "label": "Test case 1",
+        "input": "",
+        "expectedOutput": ""
+      }
+    ]
+  },
+  {
+    "id": "problem_2_lecture_7",
+    "title": "Problem 2 - Object Oriented Programming - Advanced",
+    "description": "Solve this problem related to Object Oriented Programming - Advanced.",
+    "difficulty": "medium",
+    "starterCode": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "solution": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "testCases": [
+      {
+        "label": "Test case 1",
+        "input": "",
+        "expectedOutput": ""
+      }
+    ]
+  },
+  {
+    "id": "problem_3_lecture_7",
+    "title": "Problem 3 - Object Oriented Programming - Advanced",
+    "description": "Solve this problem related to Object Oriented Programming - Advanced.",
+    "difficulty": "hard",
+    "starterCode": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "solution": "public class Main {\n  public static void main(String[] args) {\n    \n  }\n}",
+    "testCases": [
+      {
+        "label": "Test case 1",
+        "input": "",
+        "expectedOutput": ""
+      }
+    ]
+  }
+]

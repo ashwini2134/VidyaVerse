@@ -1,0 +1,57 @@
+[
+  {
+    "question": "What keyword is used to define a function in Python?",
+    "options": [
+      "define",
+      "func",
+      "def",
+      "function"
+    ],
+    "answer": "def",
+    "explanation": "Python uses the def keyword to define functions."
+  },
+  {
+    "question": "What does a function return if there is no return statement?",
+    "options": [
+      "None",
+      "Error",
+      "Empty string",
+      "0"
+    ],
+    "answer": "None",
+    "explanation": "If a function doesn't have a return statement, Python automatically returns None."
+  },
+  {
+    "question": "What is the output of: def add(a, b): return a + b; print(add(3, 4))",
+    "options": [
+      "7",
+      "Error",
+      "(3, 4)",
+      "34"
+    ],
+    "answer": "7",
+    "explanation": "add(3, 4) returns 3 + 4 = 7."
+  },
+  {
+    "question": "What are the values inside parentheses in a function definition called?",
+    "options": [
+      "Keywords",
+      "Variables",
+      "Arguments",
+      "Parameters"
+    ],
+    "answer": "Parameters",
+    "explanation": "Parameters are the variables listed in the function definition. Arguments are the values passed when calling."
+  },
+  {
+    "question": "What is the advantage of functions?",
+    "options": [
+      "Make code run faster",
+      "Automatically fix bugs",
+      "Avoid repeating code",
+      "Use less memory"
+    ],
+    "answer": "Avoid repeating code",
+    "explanation": "Functions let you write code once and reuse it many times."
+  }
+]

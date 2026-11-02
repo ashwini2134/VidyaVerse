@@ -1,0 +1,38 @@
+[
+  {
+    "id": "number_guessing",
+    "title": "Number Guessing Game",
+    "description": "Set a secret number (e.g., 7). Use a while loop to let the user guess. Keep asking until they get it right. Print 'Correct!' and stop.",
+    "difficulty": "medium",
+    "starterCode": "secret = 7\n\n# Guessing loop",
+    "solution": "secret = 7\nwhile True:\n    guess = int(input(\"Guess: \"))\n    if guess == secret:\n        print(\"Correct!\")\n        break\n    else:\n        print(\"Wrong!\")",
+    "testCases": [
+      {
+        "label": "Guesses 3, 7",
+        "input": "3\n7",
+        "expectedOutput": "Guess: Wrong!\nGuess: Correct!"
+      }
+    ]
+  },
+  {
+    "id": "count_digits",
+    "title": "Count Digits",
+    "description": "Ask for a positive integer. Count how many digits it has using a while loop. Print the count.",
+    "difficulty": "medium",
+    "starterCode": "num = int(input(\"Number: \"))\ncount = 0\n\n# Count digits using while loop",
+    "solution": "num = int(input(\"Number: \"))\ncount = 0\nwhile num > 0:\n    num //= 10\n    count += 1\nprint(f\"Digits: {count}\")",
+    "testCases": [
+      {
+        "label": "Number 12345",
+        "input": "12345",
+        "expectedOutput": "Number: Digits: 5"
+      }
+    ]
+  },
+  {
+    "id": "guessing_game_project",
+    "title": "Number Guessing Game with Levels",
+    "description": "Create a number guessing game with multiple difficulty levels, guess limits, and replay.",
+    "difficulty": "medium"
+  }
+]

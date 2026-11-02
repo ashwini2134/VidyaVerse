@@ -1,0 +1,38 @@
+[
+  {
+    "id": "largest_of_three",
+    "title": "Largest of Three",
+    "description": "Ask the user for three numbers. Print the largest number among them using if-elif-else.",
+    "difficulty": "medium",
+    "starterCode": "a = int(input(\"First: \"))\nb = int(input(\"Second: \"))\nc = int(input(\"Third: \"))\n\n# Find and print the largest",
+    "solution": "a = int(input(\"First: \"))\nb = int(input(\"Second: \"))\nc = int(input(\"Third: \"))\nif a >= b and a >= c:\n    print(f\"Largest: {a}\")\nelif b >= a and b >= c:\n    print(f\"Largest: {b}\")\nelse:\n    print(f\"Largest: {c}\")",
+    "testCases": [
+      {
+        "label": "Numbers 5, 12, 7",
+        "input": "5\n12\n7",
+        "expectedOutput": "First: Second: Third: Largest: 12"
+      }
+    ]
+  },
+  {
+    "id": "leap_year",
+    "title": "Leap Year Checker",
+    "description": "Ask the user for a year. Determine if it's a leap year: divisible by 4 AND (not divisible by 100 OR divisible by 400).",
+    "difficulty": "medium",
+    "starterCode": "# Get year from user input\nyear = int(input(\"Enter year: \"))\n\n# Check leap year condition",
+    "solution": "year = int(input(\"Enter year: \"))\nif year % 4 == 0 and (year % 100 != 0 or year % 400 == 0):\n    print(\"Leap year\")\nelse:\n    print(\"Not a leap year\")",
+    "testCases": [
+      {
+        "label": "Year 2024",
+        "input": "2024",
+        "expectedOutput": "Enter year: Leap year"
+      }
+    ]
+  },
+  {
+    "id": "rock_paper_scissors",
+    "title": "Rock, Paper, Scissors",
+    "description": "Build a rock-paper-scissors game against the computer with score tracking.",
+    "difficulty": "medium"
+  }
+]

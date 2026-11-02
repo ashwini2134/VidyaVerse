@@ -1,0 +1,37 @@
+[
+  {
+    "id": "numb3rs",
+    "title": "NUMB3RS",
+    "description": "An IPv4 address is a numeric identifier typically formatted in dot-decimal notation as `#.#.#.#`, but each `#` should be a number between `0` and `255`, inclusive.\n\nIn a file called `numb3rs.py`, implement a function called `validate` that expects an IPv4 address as input as a `str` and then returns `True` or `False`, respectively, if that input is a valid IPv4 address or not. You may use `re` and/or `sys`. (CS50 also asks you to write `test_numb3rs.py` with your own pytest tests.)\n\n**How to Test:**\n```\n127.0.0.1        -> True\n255.255.255.255  -> True\n512.512.512.512  -> False\n1.2.3.1000       -> False\ncat              -> False\n```",
+    "check50_slug": "cs50/problems/2022/python/numb3rs",
+    "difficulty": "medium"
+  },
+  {
+    "id": "watch",
+    "title": "Watch on YouTube",
+    "description": "YouTube videos can be embedded in other sites via an `<iframe>` whose `src` attribute is a URL like `https://www.youtube.com/embed/xvFZjo5PgG0`.\n\nIn a file called `watch.py`, implement a function called `parse` that expects a `str` of HTML as input, extracts any YouTube URL that's the value of a `src` attribute of an `iframe` element therein, and returns its shorter, shareable `youtu.be` equivalent as a `str`. Assume the `src` value is surrounded by double quotes and that the input contains no more than one such URL. If the input does not contain any such URL, return `None`.\n\n**How to Test:**\n```\n<iframe src=\"http://www.youtube.com/embed/xvFZjo5PgG0\"></iframe>  -> https://youtu.be/xvFZjo5PgG0\n<iframe src=\"https://cs50.harvard.edu/python\"></iframe>          -> None\n```",
+    "check50_slug": "cs50/problems/2022/python/watch",
+    "difficulty": "medium"
+  },
+  {
+    "id": "working",
+    "title": "Working 9 to 5",
+    "description": "The United States tends to use a 12-hour clock (e.g. `9:00 AM to 5:00 PM`).\n\nIn a file called `working.py`, implement a function called `convert` that expects a `str` in any of the 12-hour formats below and returns the corresponding `str` in 24-hour format (e.g. `09:00 to 17:00`). Expect that `AM`/`PM` are capitalized with a space before each. Raise a `ValueError` if the input is not in one of these formats or if either time is invalid (e.g. `12:60 AM`, `13:00 PM`). Do not assume hours start AM and end PM.\n\nFormats: `9:00 AM to 5:00 PM`, `9 AM to 5 PM`, `9:00 AM to 5 PM`, `9 AM to 5:00 PM`. (CS50 also asks you to write `test_working.py`.)\n\n**How to Test:**\n```\n9 AM to 5 PM        -> 09:00 to 17:00\n10 AM to 8:50 PM    -> 10:00 to 20:50\n10:30 PM to 8 AM    -> 22:30 to 08:00\n9:60 AM to 5:60 PM  -> raises ValueError\n9 AM - 5 PM         -> raises ValueError\n```",
+    "check50_slug": "cs50/problems/2022/python/working",
+    "difficulty": "hard"
+  },
+  {
+    "id": "um",
+    "title": "Regular, um, Expressions",
+    "description": "In a file called `um.py`, implement a function called `count` that expects a line of text as input as a `str` and returns, as an `int`, the number of times that \"um\" appears in that text, case-insensitively, as a word unto itself, not as a substring of some other word. For instance, given `hello, um, world`, the function should return `1`; given `yummy`, it should return `0`. (CS50 also asks you to write `test_um.py`.)\n\n**How to Test:**\n```\num                       -> 1\num?                      -> 1\nUm, thanks for the album -> 1\nUm, thanks, um...        -> 2\nyummy                    -> 0\n```",
+    "check50_slug": "cs50/problems/2022/python/um",
+    "difficulty": "easy"
+  },
+  {
+    "id": "response",
+    "title": "Response Validation",
+    "description": "In a file called `response.py`, using either `validator-collection` or `validators` from PyPI, implement a program that prompts the user for an email address via `input` and then prints `Valid` or `Invalid`, respectively, if the input is a syntactically valid email address. You may not use `re`. Do not validate whether the email address's domain name actually exists.\n\n(Uses the third-party `validators` module: `pip install validators`.)\n\n**How to Test:**\n```\nmalan@harvard.edu     -> Valid\nmalan@@@harvard.edu   -> Invalid\n```",
+    "check50_slug": "cs50/problems/2022/python/response",
+    "difficulty": "easy"
+  }
+]

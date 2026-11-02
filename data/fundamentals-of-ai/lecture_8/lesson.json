@@ -1,0 +1,976 @@
+{
+  "id": "fundamentals-of-ai-lecture-7",
+  "courseSlug": "fundamentals-of-ai",
+  "number": 8,
+  "title": "Natural Language Processing",
+  "overview": "Language is the hardest problem in AI. Making computers understand and generate human text requires solving meaning, context, ambiguity, and relationships between words \u2014 all at once. Learn how modern NLP went from counting words to the Transformer architecture that powers ChatGPT.",
+  "estimatedMinutes": 80,
+  "sections": [
+    {
+      "id": "language",
+      "label": "Language",
+      "blocks": [
+        {
+          "type": "image",
+          "data": {
+            "url": "/media/language.svg",
+            "alt": "Natural Language Processing Tasks overview showing NLP hub with connected task nodes"
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "Language"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Natural Language Processing (NLP) is the field of AI that deals with understanding, interpreting, and generating human language."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "NLP powers some of the most widely used AI systems: automatic summarization, machine translation, named entity recognition, speech recognition, text classification, and more."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "But language is deceptively hard for computers. Ambiguity, context, idioms, sarcasm, and grammatical variation make it one of the deepest challenges in AI."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "What is NLP?"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Natural Language Processing is the intersection of computer science, linguistics, and artificial intelligence. Its goal: enable computers to understand, interpret, and generate human language in a way that is both meaningful and useful."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Key NLP Tasks"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Automatic summarisation, information extraction, language identification, machine translation, named entity recognition, speech recognition, text classification, and word sense disambiguation. Each task addresses a different dimension of language understanding."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Why Language is Hard"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Ambiguity: 'I saw the man with the telescope' has two meanings. Context: 'bank' means different things in 'river bank' vs 'bank account'. Sarcasm, idioms, and cultural references add even more layers of complexity."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "The NLP Pipeline"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "From raw text to understanding: tokenisation splits text into units, parsing builds structure, semantic analysis extracts meaning, and pragmatic analysis considers context. Each stage adds a layer of understanding."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "Language is the hardest problem in AI because it requires bridging the gap between the discrete, structured world of symbols and the continuous, messy world of meaning."
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "<strong>Try It Yourself: Identify the NLP Task</strong><br><br>Match each scenario below to the correct NLP task by tapping on it."
+          }
+        },
+        {
+          "type": "ai_challenge_set",
+          "challenges": [
+            {
+              "id": "lang-try-1",
+              "title": "Identify the NLP Task",
+              "difficulty": "easy",
+              "objective": "Match each scenario to the correct NLP task",
+              "instruction": "Read each scenario and tap the correct NLP task from the choices below.",
+              "type": "classify",
+              "apps": [
+                {
+                  "name": "Reading 'Apple Inc. is based in Cupertino' and extracting 'Apple Inc.' as an organization",
+                  "answer": "Named Entity Recognition",
+                  "explanation": "NER identifies entities like people, organizations, and locations in text."
+                },
+                {
+                  "name": "Reading a 10-page report and producing a 3-sentence summary",
+                  "answer": "Automatic Summarisation",
+                  "explanation": "Summarisation condenses long text while preserving key information."
+                },
+                {
+                  "name": "Converting an email from Spanish to English",
+                  "answer": "Machine Translation",
+                  "explanation": "Translation converts text between languages while preserving meaning."
+                },
+                {
+                  "name": "Determining if a movie review is positive or negative",
+                  "answer": "Text Classification",
+                  "explanation": "Classification assigns a label (positive/negative) based on the text content."
+                },
+                {
+                  "name": "Identifying that an email is written in French",
+                  "answer": "Language Identification",
+                  "explanation": "Language ID detects which language a text is written in."
+                }
+              ],
+              "choices": [
+                "Named Entity Recognition",
+                "Automatic Summarisation",
+                "Machine Translation",
+                "Text Classification",
+                "Language Identification",
+                "Speech Recognition",
+                "Word Sense Disambiguation"
+              ],
+              "explanation": "Each NLP task addresses a different aspect of language understanding. NER extracts entities, summarisation condenses, translation converts between languages, classification labels, and language ID detects the language."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "Syntax and Semantics"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "<strong>Syntax</strong> is the set of rules that govern the structure of sentences. It answers: 'Is this sentence grammatically well-formed?' <strong>Semantics</strong> is the study of meaning. It answers: 'What does this sentence actually mean?' These two dimensions are surprisingly independent \u2014 a sentence can be grammatically perfect but semantically nonsense, or semantically clear but grammatically broken."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "blue",
+            "text": "The linguist Noam Chomsky famously illustrated this with the sentence: 'Colorless green ideas sleep furiously.' The sentence is grammatically perfect \u2014 it follows English syntax rules \u2014 but it is semantically meaningless. This proves that syntax and semantics are distinct systems in the brain."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Why Syntax Matters in NLP"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Without syntax, an NLP model only sees a bag of words \u2014 losing subject-object relationships, modification, and sentence hierarchy. Consider: 'The dog bit the man' vs 'The man bit the dog.' The same words, the same bag-of-words representation \u2014 but completely different meanings. Syntax tells us who did what to whom."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "yellow",
+            "text": "The classic ambiguity example: <strong>'I saw the man with the telescope'</strong>. Does the speaker have the telescope, or does the man? Syntax provides two different parse trees for the same string of words. Resolving this ambiguity requires understanding the semantic context."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Syntax Is the Framework, Semantics Fills the Rooms",
+          "subtitle": "Watch how a building goes from steel beams to a living workspace \u2014 and see how syntax and semantics work the same way in language.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Syntax Creates the Structure",
+              "description": "Syntax builds the framework that holds everything together. A building under construction has steel beams, pillars, and floors \u2014 it clearly has a shape, but it is not yet usable. There are no walls, no furniture, no people. The skeleton of the sentence takes shape: nouns, verbs, phrases \u2014 all locked into grammatical order."
+            },
+            {
+              "number": 2,
+              "label": "Same Structure, Still Empty",
+              "description": "A structure without meaning is complete in form but empty in purpose. The same building now has walls and rooms, but they are completely empty. No desks, no lights, no furniture, no activity. The structure exists, but there is no purpose. A sentence can be perfectly grammatical yet carry no real meaning \u2014 just as Chomsky's colorless green ideas sleep furiously has perfect syntax but zero sense."
+            },
+            {
+              "number": 3,
+              "label": "Semantics Gives Meaning",
+              "description": "Semantics gives the structure purpose, meaning, and real-world use. The exact same building is now fully furnished and alive. Offices are occupied, lights are on, people are working, meeting rooms buzz with conversation, and signs identify each room's purpose. The structure hasn't changed \u2014 only its meaning and function have. Semantics fills the grammatical framework with real-world significance."
+            }
+          ],
+          "insight": "Syntax = the blueprint and framework (how something is organized). Semantics = what the organized structure actually means and is used for. The three-screen progression makes the distinction intuitive without relying on technical definitions.",
+          "reinforcement": "Syntax builds the skeleton. Semantics brings it to life. A sentence needs both to communicate."
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Try It Yourself: Syntax vs Semantics"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "For each sentence, decide whether the error is <strong>syntactic</strong> (grammar) or <strong>semantic</strong> (meaning). Tap each sentence to classify."
+          }
+        },
+        {
+          "type": "ai_challenge_set",
+          "challenges": [
+            {
+              "id": "lang-try-2",
+              "title": "Syntax vs Semantics Classifier",
+              "difficulty": "medium",
+              "objective": "Classify each sentence as having a syntactic error, semantic error, or no error",
+              "instruction": "Read each sentence and decide whether it breaks grammar rules (syntactic) or meaning rules (semantic).",
+              "type": "rules_vs_learning",
+              "choices": [
+                "Syntactic",
+                "Semantic"
+              ],
+              "items": [
+                {
+                  "text": "'The cat sat on the mat'",
+                  "answer": "syntactic"
+                },
+                {
+                  "text": "'Cat the mat on sat' \u2014 word order is wrong",
+                  "answer": "syntactic"
+                },
+                {
+                  "text": "'The pizza ate the student' \u2014 grammatically perfect but impossible",
+                  "answer": "semantic"
+                },
+                {
+                  "text": "'Colorless green ideas sleep furiously' \u2014 grammatical but contradictory",
+                  "answer": "semantic"
+                },
+                {
+                  "text": "'Me hungry now eat' \u2014 missing function words",
+                  "answer": "syntactic"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Why This Matters",
+          "body": "Syntax and semantics are independent dimensions. A sentence can be grammatical but meaningless (like Chomsky's example), or meaningful but ungrammatical (like 'Me hungry'). NLP systems need to handle both dimensions to truly understand language.",
+          "bullets": [
+            "Syntactic errors: grammar rules are broken",
+            "Semantic errors: meaning doesn't make sense",
+            "Real NLP must handle both types of errors simultaneously"
+          ],
+          "accentColor": "purple"
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h2",
+            "text": "Context-Free Grammar"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A <strong>context-free grammar (CFG)</strong> is a formal system for describing the syntax of a language. It consists of a set of <strong>production rules</strong> that define how sentences can be built from smaller parts. Each rule has a single non-terminal symbol on the left and a sequence of terminals and non-terminals on the right."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Grammar Rules"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A simple English CFG might look like this:"
+          }
+        },
+        {
+          "type": "code",
+          "data": {
+            "code": "S  \u2192 NP VP\nNP \u2192 D N\nVP \u2192 V NP\nD  \u2192 \"the\" | \"a\"\nN  \u2192 \"cat\" | \"dog\" | \"city\"\nV  \u2192 \"saw\" | \"chased\" | \"ate\"",
+            "output": "Grammar is defined by production rules. Each non-terminal (S, NP, VP, etc.) expands into terminals (words) or other non-terminals."
+          }
+        },
+        {
+          "type": "explanation",
+          "title": "How Parsing Works",
+          "body": "Given a CFG and a sentence, parsing is the process of finding a derivation \u2014 a sequence of rule applications \u2014 that produces the sentence. The result is a parse tree that shows the hierarchical structure of the sentence. The root of the tree is S (sentence), and the leaves are the actual words.",
+          "bullets": [
+            "Each internal node is a non-terminal (S, NP, VP)",
+            "Each leaf node is a terminal word",
+            "The tree structure captures grammatical relationships",
+            "Ambiguous sentences have multiple possible parse trees"
+          ],
+          "accentColor": "purple"
+        },
+        {
+          "type": "code",
+          "data": {
+            "code": "        S\n      /   \\\n    NP     VP\n   / \\    / \\\n  D   N  V   NP\n  |   |  |  / \\\n the cat saw D  N\n             |  |\n            a  dog\n\nParse tree for 'the cat saw a dog'\nGrammar rules used:\nS  \u2192 NP VP\nNP \u2192 D N\nVP \u2192 V NP\nD  \u2192 \"the\" | \"a\"\nN  \u2192 \"cat\" | \"dog\"\nV  \u2192 \"saw\" | \"chased\"",
+            "output": "The parse tree shows step-by-step how the sentence follows the grammar. Each branching point is a rule application."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Grammar Rules Are Like Lego Building Instructions",
+          "subtitle": "Lego instructions tell you how smaller pieces combine to form larger structures. Grammar rules do the same for words \u2014 combine nouns and verbs into phrases, and phrases into sentences.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Words as Bricks",
+              "description": "A clean table with scattered LEGO pieces of different colors. Each piece has a word label: Dog (Noun), Runs (Verb), The (Article), Fast (Adjective), Park (Noun). Nothing is connected yet. Words are like individual LEGO pieces \u2014 each has a purpose, but alone they don't build much."
+            },
+            {
+              "number": 2,
+              "label": "Rules Connect Words",
+              "description": "A LEGO instruction booklet is open. Step 1: 'The' + 'Dog' snap together into Noun Phrase. Step 2: 'Runs' + 'Fast' snap together into Verb Phrase. Grammar rules act like LEGO instructions, showing which words can connect to form meaningful phrases."
+            },
+            {
+              "number": 3,
+              "label": "Phrases Become Sentence",
+              "description": "The assembled LEGO phrase blocks connect into a complete LEGO house. The roof is 'The Dog' (Noun Phrase). The walls are 'Runs Fast' (Verb Phrase). Everything clicks together: 'The Dog Runs Fast.' Grammar combines phrases into complete sentences, just as LEGO instructions combine pieces into a finished model."
+            }
+          ],
+          "insight": "A finite set of grammar rules can generate an infinite number of sentences \u2014 just as a finite set of Lego pieces can build an infinite variety of models.",
+          "reinforcement": "Grammar isn't about memorizing rules \u2014 it's the set of instructions that tells you how to assemble words into meaningful sentences."
+        }
+      ]
+    },
+    {
+      "id": "text-processing",
+      "label": "Text Processing & Representation",
+      "blocks": [
+        {
+          "type": "image",
+          "data": {
+            "url": "/media/text-processing.svg",
+            "alt": "Text Processing Pipeline showing stages from raw text to TF-IDF with preprocessing steps"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Before any model can understand language, raw text must be converted into numbers. How you represent text determines what patterns a model can learn. The history of NLP is largely the history of improving text representations."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Tokenisation"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Text is split into tokens \u2014 words, subwords, or characters. Tokenisation is the first step. Modern models like GPT use subword tokenisation: common words are single tokens; rare words are split into meaningful chunks."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Bag of Words"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The simplest representation: count how many times each word appears and ignore word order entirely. 'The cat sat' and 'sat the cat' have identical representations. Useful for topic classification despite losing all syntactic information."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "TF-IDF"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Term Frequency-Inverse Document Frequency: weight words by how often they appear in a document (TF) divided by how common they are across all documents (IDF). Words that are distinctive to a document get higher scores than words that appear everywhere."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Vocabulary"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The vocabulary is the complete set of unique tokens the model knows. Modern LLMs like GPT-4 have vocabularies of roughly 100,000 tokens. Any word not in the vocabulary must be broken down into subword tokens."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Text Preprocessing"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Text preprocessing cleans raw text before the model processes it. Garbage in, garbage out \u2014 clean input is essential. Lowercasing: convert all text to lowercase so 'The' and 'the' are treated the same. Reduces vocabulary size and improves consistency. Removing punctuation: strip periods, commas, and quotation marks \u2014 they add noise and rarely carry signal for most NLP tasks. Removing stop words: filter out common words like 'the', 'is', 'and' that appear in every document. They add little meaning but inflate representations. Tokenization: split text into smaller units (words, subwords, or characters) that the model can process individually. Stemming: chop off word endings to get the root form. 'Running', 'runner', and 'ran' all become 'run'. Fast but can produce non-real words. Lemmatization: reduce words to their dictionary base form using vocabulary analysis. 'Better' becomes 'good'. Slower than stemming but produces real words."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Stop Words \u2014 Common words (the, is, and) that are filtered out because they carry little semantic meaning.",
+              "Stemming \u2014 A fast, heuristic approach that chops word prefixes/suffixes to get the root form.",
+              "Lemmatization \u2014 A slower, vocabulary-aware approach that returns the dictionary base form of a word."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Tokenization"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A token is the smallest unit of text that a model processes. Tokens can be words, subwords, or even individual characters. Word tokenization splits text on spaces and punctuation. Simple and intuitive, but fails on unknown words and treats 'run' and 'running' as different tokens. Sentence tokenization splits a document into individual sentences. Useful for tasks where sentence boundaries matter, like summarisation. Subword tokenization (used by GPT, BERT) splits rare words into common subword pieces. 'Unbelievable' becomes 'Un', 'believe', 'able'. Handles any input, unlimited vocabulary. Why tokenization matters: every token becomes an embedding the model learns. Bad tokenization means bad input representation."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Token \u2014 The smallest unit of text a model processes. Could be a word, subword, or character.",
+              "Word Tokenization \u2014 Splitting text into individual words based on spaces and punctuation boundaries.",
+              "Sentence Tokenization \u2014 Splitting text into individual sentences based on punctuation and capitalisation rules."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Text Representation"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Machines cannot understand words the way humans do. They need numbers \u2014 every word must be converted into a numerical vector. Why text must be converted into numbers: neural networks only operate on numbers. Input must be a tensor of floating-point values. The most basic idea: assign each unique word a fixed numeric ID (one-hot encoding) or count how many times it appears (Bag of Words). Better representations capture meaning: words with similar meanings should have similar numerical vectors. This is the goal of modern NLP."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Text Representation \u2014 The process of converting human-readable text into numerical vectors that machine learning models can process.",
+              "Feature Representation \u2014 The numerical encoding of textual features \u2014 each dimension encodes some property of the text."
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Bag of Words (BoW)"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Bag of Words is the simplest text representation: count how many times each word from the vocabulary appears in a document. The vocabulary is the complete set of unique words across all documents. Each document becomes a vector with one entry per vocabulary word. Each entry in the vector stores the frequency of that word in the document. 'The cat sat' with vocabulary ['cat', 'sat', 'the'] becomes [1, 1, 1]. BoW is simple and interpretable but loses word order and context. 'Dog bites man' and 'Man bites dog' have identical representations. Despite its simplicity, BoW works well for topic classification and spam detection where word presence matters more than order."
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "style": "bullet",
+            "items": [
+              "Bag of Words \u2014 A text representation that counts word frequencies while ignoring word order and grammar.",
+              "Vocabulary \u2014 The complete set of unique tokens (words) across all documents in the dataset.",
+              "Document Vector \u2014 A numerical vector where each entry represents the frequency of a vocabulary word in the document."
+            ]
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "Every NLP model, no matter how sophisticated, ultimately operates on numbers \u2014 not words. Text representation is the bridge between language and mathematics."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Text Processing Scans Language Like an Airport Scanner",
+          "subtitle": "A scanner doesn't understand the bag \u2014 it breaks it into analysable signals. NLP doesn't understand text \u2014 it converts it into numbers that encode measurable properties.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "An airport scanner converts a physical bag into an X-ray image \u2014 a numerical representation of densities. The scanner doesn't understand what a bag is; it understands numerical patterns that correlate with danger or safety."
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "Raw input gets converted to numbers. How you convert determines what patterns the computer can detect. A simple conversion counts words but loses their order. A better one preserves meaning.",
+              "visual": {
+                "type": "flow",
+                "items": [
+                  "Raw Text",
+                  "Tokenise",
+                  "Convert to Numbers",
+                  "Learn Patterns"
+                ],
+                "conclusion": "Language becomes learnable"
+              }
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "AI language models receive sequences of numbers, not words. Simple number schemes capture topic. More sophisticated ones capture meaning and context \u2014 who said what to whom."
+            }
+          ],
+          "insight": "Choosing the right text representation is choosing what the model can see. Everything else in NLP flows from that decision.",
+          "reinforcement": "Before any NLP model can learn, raw text must become numbers. Bag-of-words, TF-IDF, and tokenisation do this."
+        },
+        {
+          "type": "practice",
+          "title": "Tokenizing Text & Bag of Words",
+          "instructions": "Tokenize a sentence and count word frequencies (Bag of Words).",
+          "starterCode": "text = \"the cat sat on the mat\"\ntokens = text.split()\nprint(f\"Tokens: {tokens}\")\nfrom collections import Counter\nbow = Counter(tokens)\nfor word, count in bow.items():\n    print(f\"  '{word}': {count}\")",
+          "solution": "text = \"the cat sat on the mat\"\ntokens = text.split()\nprint(f\"Tokens: {tokens}\")\nfrom collections import Counter\nbow = Counter(tokens)\nfor word, count in bow.items():\n    print(f\"  '{word}': {count}\")",
+          "hint": "Tokenization splits text into individual tokens. Bag of Words counts how often each word appears."
+        }
+      ]
+    },
+    {
+      "id": "word-embeddings",
+      "label": "Word Embeddings",
+      "blocks": [
+        {
+          "type": "image",
+          "data": {
+            "url": "/media/word-embeddings.svg",
+            "alt": "Word Embeddings"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Bag-of-words treats every word as isolated and unrelated. Word embeddings map words into a continuous vector space where similar words land near each other. The meaning of a word is encoded in its coordinates."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Dense Vector Representation"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Each word is a dense vector of 100 to 1000 floating point numbers. Words with similar meanings have vectors that point in similar directions. The entire vocabulary lives in the same geometric space."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Semantic Similarity"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The cosine similarity between two word vectors measures semantic relatedness. Words like king and queen are close. King and car are far. This structure emerges automatically from training on large corpora \u2014 no one labels the meanings."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Word2Vec"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Train a small neural network to predict context words given a target word. The hidden layer weights become the word embeddings. The famous result: vector(King) minus vector(Man) plus vector(Woman) equals approximately vector(Queen)."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Context Independence Problem"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Traditional embeddings give each word one fixed vector regardless of context. But bank means something different in river bank versus bank account. This limitation led to contextual embeddings in modern transformer models."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Bias in Embeddings"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Embeddings trained on human text inherit human biases. Early word2vec embeddings associated doctor with men and nurse with women \u2014 simply because those associations appear in text. Debiasing is an active research area."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "Word embeddings are coordinates in meaning space. Words that mean similar things end up near each other \u2014 automatically, without any human labelling."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Word Embeddings Map Meaning Like GPS Coordinates",
+          "subtitle": "GPS coordinates encode physical location. Word embeddings encode semantic location. Close coordinates mean close places; close embeddings mean related meanings.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "Paris and London are geographically close. Tokyo and Sydney are far. These spatial relationships are encoded in their GPS coordinates \u2014 nearby coordinates mean nearby cities. You can even compute: Paris minus France plus Germany equals approximately Berlin."
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "Coordinates encode relationships mathematically. Distance in the coordinate space means distance in the real space. Directions in the space encode relationships \u2014 north means increasing latitude.",
+              "visual": {
+                "type": "flow",
+                "items": [
+                  "Word to Vector",
+                  "Similar Words = Close Vectors",
+                  "Arithmetic = Meaning Relations"
+                ],
+                "conclusion": "Meaning becomes geometry"
+              }
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "Word embeddings are semantic coordinates. King is close to Queen. Cat is close to Dog. And king minus man plus woman approximately equals queen. The directions in embedding space encode abstract relationships between concepts."
+            }
+          ],
+          "insight": "Word embeddings turned semantics into geometry \u2014 and suddenly meaning could be measured, compared, and computed.",
+          "reinforcement": "Semantically similar words cluster together in embedding space. Distance = dissimilarity. Direction = relationship."
+        },
+        {
+          "type": "practice",
+          "title": "Computing Word Similarity",
+          "instructions": "Calculate similarity between word pairs using letter overlap (simplified embedding).",
+          "starterCode": "# Word similarity using character overlap\ndef similarity(word1, word2):\n    common = len(set(word1) & set(word2))\n    total = len(set(word1) | set(word2))\n    return common / total if total > 0 else 0\npairs = [(\"king\", \"queen\"), (\"king\", \"apple\"), (\"apple\", \"orange\")]\nfor w1, w2 in pairs:\n    sim = similarity(w1, w2)\n    print(f\"{w1} \u2194 {w2}: {sim:.2f}\")",
+          "solution": "def similarity(word1, word2):\n    common = len(set(word1) & set(word2))\n    total = len(set(word1) | set(word2))\n    return common / total if total > 0 else 0\npairs = [(\"king\", \"queen\"), (\"king\", \"apple\"), (\"apple\", \"orange\")]\nfor w1, w2 in pairs:\n    sim = similarity(w1, w2)\n    print(f\"{w1} \u2194 {w2}: {sim:.2f}\")",
+          "hint": "Word embeddings place similar words close together in vector space. Similar words share more common letters."
+        }
+      ]
+    },
+    {
+      "id": "language-models",
+      "label": "Language Models",
+      "blocks": [
+        {
+          "type": "image",
+          "data": {
+            "url": "/media/language-models.svg",
+            "alt": "Language Models"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "A language model estimates the probability of a sequence of words. At its heart, every language model \u2014 from the simplest to GPT-4 \u2014 answers one question: given the words so far, what word is most likely to come next?"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Predict the next word based on the previous N-1 words. A trigram model uses the previous 2 words. Simple but powerful: trained on enough text, trigrams can generate surprisingly coherent short sentences."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Perplexity"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Perplexity measures how surprised a language model is by text it sees. Low perplexity means the model predicted well. A perplexity of 10 means the model was as confused as if choosing uniformly from 10 options at each step."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Neural Language Models"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Replace n-gram counting with a neural network that reads the previous words as embeddings and predicts the next word distribution. Neural LMs generalise far better than n-grams because they learn continuous representations."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Temperature & Sampling"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Temperature controls how random text generation is. Low temperature: always pick the most probable word \u2014 deterministic but repetitive. High temperature: more random \u2014 creative but potentially incoherent. Temperature 1.0 is the model's natural distribution."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "Every large language model \u2014 GPT, Claude, Gemini \u2014 is at its core a next-token predictor trained on massive text. That simple objective produces remarkably general intelligence."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Language Models Navigate Text Like GPS Navigates Roads",
+          "subtitle": "GPS uses a map of roads and probabilities \u2014 this road is likely given you are here. Language models use a map of word sequences and probabilities \u2014 this word is likely given you said this.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "GPS doesn't pick the next road at random. Given your current location and direction, it estimates which road you are most likely on and will continue along. Context determines the most probable next state."
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "Current context determines what comes next. More context means better predictions. Past context is weighted by relevance. The model builds a probability map over all possible next steps and samples from it.",
+              "visual": {
+                "type": "flow",
+                "items": [
+                  "Previous Words",
+                  "Compute Probabilities",
+                  "Sample Next Word",
+                  "Repeat"
+                ],
+                "conclusion": "Coherent text generated"
+              }
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "Language models are trained to predict the next token given all previous tokens. After training on billions of sentences, they build a rich map of what words follow what contexts \u2014 and generate text by sampling from that map."
+            }
+          ],
+          "insight": "Next-token prediction trained at scale produces models that appear to understand \u2014 because predicting text well requires modelling meaning.",
+          "reinforcement": "Next-token prediction forces the model to learn grammar, facts, and reasoning \u2014 all from predicting the next word."
+        },
+        {
+          "type": "image",
+          "data": {
+            "url": "/media/attention.svg",
+            "alt": "Attention & the Transformer"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "The Transformer architecture, introduced in 2017, is the foundation of every major language model today \u2014 GPT, BERT, Claude, Gemini. Its core innovation is the attention mechanism: letting every word in a sequence directly attend to every other word, regardless of distance."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "The Attention Mechanism"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Attention computes a weighted sum of value vectors, where the weights come from how much each query-key pair matches. Every word can directly look at every other word \u2014 and decide how much to pay attention to it."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Query, Key, Value"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Each token produces three vectors: a Query (what am I looking for?), a Key (what do I contain?), and a Value (what do I send if selected?). Attention weights are computed from Query-Key dot products \u2014 then applied to Values."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Self-Attention"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "In self-attention, a sequence attends to itself. The word bank in river bank will attend strongly to river and weakly to money \u2014 producing a context-dependent representation that correctly captures the word's meaning in this specific sentence."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "Multi-Head Attention"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Run multiple attention operations in parallel, each focusing on different relationship types simultaneously. One head might track grammatical structure; another tracks coreference; another tracks semantic similarity. Concatenate all heads for a richer representation."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "level": "h3",
+            "text": "The Transformer Block"
+          }
+        },
+        {
+          "type": "text",
+          "data": {
+            "body": "Each transformer block is: multi-head attention followed by a feed-forward network, with residual connections and layer normalisation around each. Stack 12 to 96 of these blocks and you have a large language model."
+          }
+        },
+        {
+          "type": "callout",
+          "data": {
+            "color": "teal",
+            "text": "Attention solved the long-range dependency problem: any word can directly influence any other word, no matter how far apart they are in the sentence."
+          }
+        },
+        {
+          "type": "ai_think_of",
+          "title": "Attention Routes Understanding Like GPS Routes Traffic",
+          "subtitle": "GPS doesn't give equal weight to every road \u2014 it focuses attention on the roads most relevant to your destination. Transformers do the same for words: focus on what matters, ignore what doesn't.",
+          "panels": [
+            {
+              "number": 1,
+              "label": "Real World",
+              "description": "When navigating a city, you focus on roads that lead toward your destination. A road on the other side of the city gets zero attention \u2014 it is irrelevant. Attention is selective routing of information toward what matters."
+            },
+            {
+              "number": 2,
+              "label": "The Pattern",
+              "description": "Given a query (where am I going?), score every road (key) by its relevance, take a weighted average of the routes (values), and follow the highest-weight path. Apply this at every decision point simultaneously.",
+              "visual": {
+                "type": "flow",
+                "items": [
+                  "Query: What matters here?",
+                  "Score every other word",
+                  "Weighted sum of values",
+                  "Context-aware representation"
+                ],
+                "conclusion": "Meaning flows where it is needed"
+              }
+            },
+            {
+              "number": 3,
+              "label": "AI",
+              "description": "The mechanism lets every word measure its relevance to every other word \u2014 even if they are far apart in the sentence. Words that are related get connected. Meaning flows directly across the entire sequence."
+            }
+          ],
+          "insight": "Attention is the most important idea in modern AI. It made language modelling a solved problem at scale \u2014 and unlocked GPT, BERT, Claude, and every successor.",
+          "reinforcement": "Attention scores which context tokens matter for each word. The Transformer learns WHAT to attend to \u2014 from data alone."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "keyTakeaways": [
+      {
+        "text": "Tokenisation converts raw text into tokens \u2014 the atoms of NLP systems"
+      },
+      {
+        "text": "Bag-of-words counts word frequencies but loses all word order"
+      },
+      {
+        "text": "TF-IDF weights words by how distinctive they are to a specific document"
+      },
+      {
+        "text": "Word embeddings place words in a continuous space where similar words are close"
+      },
+      {
+        "text": "Word2Vec encodes semantic relationships as vector arithmetic"
+      },
+      {
+        "text": "Language models predict the next token given all previous tokens"
+      },
+      {
+        "text": "Attention lets every word directly attend to every other word in a sequence"
+      },
+      {
+        "text": "The Transformer stacks multi-head attention and feed-forward blocks to process language"
+      }
+    ],
+    "whatYouLearned": [
+      "How raw text becomes numbers through tokenisation and vectorisation",
+      "What bag-of-words and TF-IDF are and when they are useful",
+      "How word embeddings encode meaning as geometry",
+      "What a language model does: estimate the probability of the next word",
+      "How temperature controls the creativity vs coherence of text generation",
+      "What attention is and why it solved long-range dependency problems",
+      "How Query-Key-Value attention is computed and weighted",
+      "Why the Transformer architecture underlies all modern large language models"
+    ],
+    "nextUp": "AI Ethics & Safety"
+  }
+}
