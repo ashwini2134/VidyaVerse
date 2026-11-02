@@ -1,4 +1,4 @@
-# GyanSetu — LMS
+# VidyaVerse — LMS
 
 A full-stack Learning Management System called **GyanSetu**. It teaches programming through
 scroll-driven interactive lessons, gates progression on real demonstrated work, grades capstone projects with an
@@ -6,8 +6,7 @@ LLM, and issues verifiable certificates at the end.
 
 | | |
 |---|---|
-| **Student app** | https://academy.fraylontech.com (GitHub Pages) |
-| **Repository** | https://github.com/yuvaraj-dudukuru/LMS |
+| **Repository** | https://github.com/ashwini2134/VidyaVerse |
 | **Version** | 3.0.0 — *Phase 3: Automated Student Pipeline* |
 | **Courses live** | Python Beginner (14 lectures) · Fundamentals of AI (9 lectures) |
 
