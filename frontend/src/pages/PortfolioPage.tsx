@@ -34,7 +34,7 @@ export default function PortfolioPage() {
   // (Shell sidebar nav or the Dashboard header button both route here).
   useEffect(() => {
     const previousTitle = document.title;
-    document.title = displayUser?.name ? `GyanSetu Portfolio — ${displayUser.name}` : 'GyanSetu Portfolio';
+    document.title = displayUser?.name ? `VIDYAVERSE Portfolio — ${displayUser.name}` : 'VIDYAVERSE Portfolio';
     return () => { document.title = previousTitle; };
   }, [displayUser?.name]);
 
@@ -282,7 +282,7 @@ export default function PortfolioPage() {
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = `gyansetu-portfolio-${(user?.name || 'portfolio').replace(/[^a-z0-9]+/gi, '-').toLowerCase()}.pdf`;
+      link.download = `vidyaverse-portfolio-${(user?.name || 'portfolio').replace(/[^a-z0-9]+/gi, '-').toLowerCase()}.pdf`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

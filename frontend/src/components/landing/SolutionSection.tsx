@@ -38,7 +38,7 @@ export default function SolutionSection() {
           transition={{ duration: 0.6 }}
           className="mb-20"
         >
-          <span className="text-sm font-bold uppercase tracking-widest text-[#6b7280] mb-4 block">THE GYANSETU WAY</span>
+          <span className="text-sm font-bold uppercase tracking-widest text-[#6b7280] mb-4 block">THE VIDYAVERSE WAY</span>
           <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight">
             A focused path from beginner to certified.
           </h2>

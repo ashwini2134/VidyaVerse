@@ -8,6 +8,7 @@ import DoorSignup from "../components/auth/DoorSignup";
 import HeroSection from "../components/landing/HeroSection";
 import TheShiftSection from "../components/landing/TheShiftSection";
 import TeachingMethodologySection from "../components/landing/TeachingMethodologySection";
+import BharatCodeAISection from "../components/landing/BharatCodeAISection";
 import LiveLearningPreviewSection from "../components/landing/LiveLearningPreviewSection";
 import LearnerPortfolioSection from "../components/landing/LearnerPortfolioSection";
 import RoadmapSection from "../components/landing/RoadmapSection";
@@ -81,8 +82,8 @@ export default function LandingPage() {
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2 cursor-pointer select-none" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <img src="/logo.svg" alt="GyanSetu" className="w-8 h-8 object-contain" />
-            <span className="font-bold text-[var(--text-primary)] text-sm tracking-wide">GyanSetu</span>
+            <img src="/logo.svg" alt="VIDYAVERSE" className="w-8 h-8 object-contain" />
+            <span className="font-bold text-[var(--text-primary)] text-sm tracking-wide">VIDYAVERSE</span>
           </div>
 
           <nav className="hidden lg:flex items-center gap-8 text-xs font-bold text-[var(--text-secondary)]">
@@ -129,8 +130,8 @@ export default function LandingPage() {
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <img src="/logo.svg" alt="GyanSetu" className="w-7 h-7 object-contain" />
-                <span className="font-bold text-[var(--text-primary)] text-xs">GyanSetu</span>
+                <img src="/logo.svg" alt="VIDYAVERSE" className="w-7 h-7 object-contain" />
+                <span className="font-bold text-[var(--text-primary)] text-xs">VIDYAVERSE</span>
               </div>
               <button onClick={() => setMobileMenuOpen(false)} className="p-2 text-[var(--text-secondary)] hover:text-[var(--accent-indigo)]">
                 <X className="w-5 h-5" />
@@ -236,8 +237,11 @@ export default function LandingPage() {
       {/* 2) HERO SECTION */}
       <HeroSection />
 
-      {/* 3) THE SHIFT — old way vs. GyanSetu way, told once */}
+      {/* 3) THE SHIFT — old way vs. VIDYAVERSE way, told once */}
       <TheShiftSection />
+
+      {/* 3.5) BHARATCODE AI — personal coding companion */}
+      <BharatCodeAISection />
 
       {/* 4) TEACHING METHODOLOGY — the 7-stage lecture loop */}
       <TeachingMethodologySection />

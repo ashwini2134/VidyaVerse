@@ -110,8 +110,8 @@ export default function PortfolioSpotlightPage() {
   const [previews, setPreviews] = useState<Record<string, TemplateProps>>({});
 
   useEffect(() => {
-    document.title = 'GyanSetu Portfolio Spotlight';
-    return () => { document.title = 'GyanSetu — Bridge Your Learning. Build Your Future.'; };
+    document.title = 'VIDYAVERSE Portfolio Spotlight';
+    return () => { document.title = 'VIDYAVERSE — Bridge Your Learning. Build Your Future.'; };
   }, []);
 
   useEffect(() => {

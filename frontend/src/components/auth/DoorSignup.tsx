@@ -192,11 +192,11 @@ export default function DoorSignup({ onSuccess, embedded = false }: DoorSignupPr
               <motion.div className="door-signup__brand" variants={fieldVariants}>
                 <img
                   src={branding?.logoUrl || `${import.meta.env.BASE_URL}logo.svg`}
-                  alt={branding?.platformName || "GyanSetu"}
+                  alt={branding?.platformName || "VIDYAVERSE"}
                   className="door-signup__logo"
                 />
                 <h1 className="door-signup__title">Get started</h1>
-                <p className="door-signup__subtitle">Create your {branding?.platformName || "GyanSetu"} account</p>
+                <p className="door-signup__subtitle">Create your {branding?.platformName || "VIDYAVERSE"} account</p>
               </motion.div>
 
               <form onSubmit={onSubmit}>

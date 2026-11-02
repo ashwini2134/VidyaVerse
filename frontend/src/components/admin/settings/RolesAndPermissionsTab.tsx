@@ -110,7 +110,7 @@ export function RolesAndPermissionsTab() {
       <div className="bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/20 text-[var(--color-primary)] p-4 rounded-xl flex items-start gap-3">
         <ShieldAlert className="w-5 h-5 mt-0.5 flex-shrink-0" />
         <div>
-          <p className="font-medium">GyanSetu has 3 built-in roles. Each role has a fixed set of permissions that cannot be deleted.</p>
+          <p className="font-medium">VIDYAVERSE has 3 built-in roles. Each role has a fixed set of permissions that cannot be deleted.</p>
           <p className="text-sm opacity-80 mt-1">You can customize what each role can access.</p>
         </div>
       </div>
@@ -149,7 +149,7 @@ export function RolesAndPermissionsTab() {
       <section className="bg-[var(--bg-surface)] rounded-xl border border-[var(--border-light)] overflow-hidden shadow-lg">
         <div className="px-6 py-5 border-b border-[var(--border-light)]">
           <h2 className="text-lg font-semibold text-[var(--text-main)]">Permission Matrix</h2>
-          <p className="text-sm text-[var(--text-secondary)] mt-1">What each role can do in GyanSetu</p>
+          <p className="text-sm text-[var(--text-secondary)] mt-1">What each role can do in VIDYAVERSE</p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse min-w-[600px]">

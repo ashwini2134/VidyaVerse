@@ -1,0 +1,63 @@
+GyanSetu: BharatCode AI Developer Studio
+=========================================
+
+Project Name: GyanSetu — BharatCode AI Developer Studio
+Build Track: Coding & Developer Tools
+Hackathon: BharatCode Build League
+
+──────────────────────────────────────────────────────────
+Project Description
+──────────────────────────────────────────────────────────
+GyanSetu is a full-stack Learning Management System (LMS) built for Indian students learning
+programming from scratch. It features gamified Python courses, a Monaco-based in-browser code
+editor, real-time Python execution (Pyodide/WASM), automated test-case grading, XP rewards,
+streaks, achievements, certificates, and an AI learning assistant.
+
+The BharatCode AI Developer Studio integration adds an In-Editor Socratic Code Diagnostician:
+when a student's code fails one or more test cases, they can request a BharatCode-powered
+diagnosis that identifies the type of bug, names the Python concept they need to revisit, and
+asks a Socratic guiding question — without ever revealing the answer.
+
+──────────────────────────────────────────────────────────
+BharatCode API Usage
+──────────────────────────────────────────────────────────
+Base URL   : https://bharatcode.ai/api/model/v1
+Endpoint   : POST /chat/completions  (OpenAI-compatible)
+Model      : qwen-3.8-27b  (BharatCode Qwen 3.8 27B — coding & reasoning)
+Auth       : Authorization: Bearer <BHARATCODE_API_KEY>  (server-side only)
+store flag : false  (no conversation history stored on BharatCode servers)
+
+The API key is stored exclusively as a backend environment variable.
+It is never exposed to the frontend, never committed to Git, and never logged.
+
+──────────────────────────────────────────────────────────
+How BharatCode is Used
+──────────────────────────────────────────────────────────
+1. Student writes Python code in the Monaco editor embedded in a course lesson.
+2. Student clicks "Submit" — the browser runs test cases locally using Pyodide (WASM).
+3. If one or more test cases fail, a "Ask BharatCode AI" button appears.
+4. Student clicks the button — the frontend sends failing test data to the GyanSetu backend.
+5. The backend calls BharatCode's /chat/completions endpoint with a Socratic system prompt.
+6. BharatCode returns a structured JSON response with three fields:
+     - rootCause      : type of bug (e.g. "off-by-one in loop range")
+     - conceptClue    : Python concept to revisit (e.g. "range() is exclusive of stop value")
+     - guidingQuestion: one Socratic question to lead the student to the fix
+7. The frontend renders this in a styled diagnosis drawer beneath the test results.
+
+The model is instructed to NEVER reveal the correct code or correct output — only Socratic
+hints. This preserves academic integrity while giving students meaningful, personalised feedback.
+
+──────────────────────────────────────────────────────────
+Technology Stack
+──────────────────────────────────────────────────────────
+Frontend : React + TypeScript + Vite + Monaco Editor + Pyodide (Python WASM)
+Backend  : Node.js + Express + TypeScript + Prisma + PostgreSQL
+Deployed : Vercel (frontend) + Render (backend)
+AI       : BharatCode Qwen 3.8 27B via /chat/completions
+
+──────────────────────────────────────────────────────────
+GitHub Repository
+──────────────────────────────────────────────────────────
+https://github.com/[your-github-username]/LMS-main
+
+(Replace with your actual repository URL before final submission)

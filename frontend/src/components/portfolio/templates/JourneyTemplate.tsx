@@ -95,7 +95,7 @@ export default function JourneyTemplate(props: TemplateProps) {
             </div>
             <div>
               <h1 className="text-[26px] font-bold tracking-tight" style={{ fontFamily: DISPLAY_FONT }}>{displayUser?.name || 'User'}'s Journey</h1>
-              <p className="text-[12.5px] text-[#8A8069] mt-0.5">Started at GyanSetu · {joinedDate}</p>
+              <p className="text-[12.5px] text-[#8A8069] mt-0.5">Started at VIDYAVERSE · {joinedDate}</p>
             </div>
           </div>
           {isOwn && (

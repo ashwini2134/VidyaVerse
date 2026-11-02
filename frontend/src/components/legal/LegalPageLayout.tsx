@@ -21,8 +21,8 @@ export default function LegalPageLayout({ title, lastUpdated, children }: LegalP
       <header className="border-b border-[var(--border-primary)] bg-[var(--bg-surface)]">
         <div className="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <img src="/logo.svg" alt="GyanSetu" className="w-7 h-7 object-contain" />
-            <span className="font-bold text-[var(--text-primary)] text-sm tracking-wide">GyanSetu</span>
+            <img src="/logo.svg" alt="VIDYAVERSE" className="w-7 h-7 object-contain" />
+            <span className="font-bold text-[var(--text-primary)] text-sm tracking-wide">VIDYAVERSE</span>
           </Link>
           <Link to="/" className="text-xs font-bold text-[var(--text-secondary)] hover:text-[var(--accent-indigo)] transition-colors">
             Back to Home
@@ -37,7 +37,7 @@ export default function LegalPageLayout({ title, lastUpdated, children }: LegalP
         <div className="mt-6 flex gap-3 rounded-xl border border-amber-500/30 bg-amber-500/8 px-4 py-3.5">
           <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
           <p className="text-sm text-amber-800 leading-relaxed">
-            <strong>Draft — pending legal review.</strong> This document accurately describes how the GyanSetu
+            <strong>Draft — pending legal review.</strong> This document accurately describes how the VIDYAVERSE
             platform currently works, but it has not yet been reviewed by legal counsel and is not a
             final, binding policy. Treat it as a good-faith disclosure, not a legal guarantee.
           </p>

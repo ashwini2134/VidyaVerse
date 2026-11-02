@@ -36,8 +36,8 @@ export default function AboutPage() {
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 cursor-pointer select-none">
-            <img src="/logo.svg" alt="GyanSetu" className="w-8 h-8 object-contain" />
-            <span className="font-bold text-[var(--text-primary)] text-sm tracking-wide">GyanSetu</span>
+            <img src="/logo.svg" alt="VIDYAVERSE" className="w-8 h-8 object-contain" />
+            <span className="font-bold text-[var(--text-primary)] text-sm tracking-wide">VIDYAVERSE</span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8 text-xs font-bold text-[var(--text-secondary)]">
@@ -84,8 +84,8 @@ export default function AboutPage() {
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <img src="/logo.svg" alt="GyanSetu" className="w-7 h-7 object-contain" />
-                <span className="font-bold text-[var(--text-primary)] text-xs">GyanSetu</span>
+                <img src="/logo.svg" alt="VIDYAVERSE" className="w-7 h-7 object-contain" />
+                <span className="font-bold text-[var(--text-primary)] text-xs">VIDYAVERSE</span>
               </div>
               <button onClick={() => setMobileMenuOpen(false)} className="p-2 text-[var(--text-secondary)] hover:text-[var(--accent-indigo)]">
                 <X className="w-5 h-5" />
@@ -119,13 +119,13 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={0.2}>
               <p className="text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed max-w-2xl mx-auto">
-                GyanSetu was born out of frustration with the modern edtech landscape. Passive video consumption doesn't create engineers. Doing the work does.
+                VIDYAVERSE was born out of frustration with the modern edtech landscape. Passive video consumption doesn't create engineers. Doing the work does.
               </p>
             </Reveal>
           </div>
         </section>
 
-        {/* For Colleges & Institutions — the actual answer to "bring GyanSetu to your college" */}
+        {/* For Colleges & Institutions — the actual answer to "bring VIDYAVERSE to your college" */}
         <section className="px-6 mb-32">
           <div className="max-w-6xl mx-auto">
             <Reveal delay={0.1}>
@@ -134,10 +134,10 @@ export default function AboutPage() {
                   For Colleges &amp; Institutions
                 </h2>
                 <h3 className="text-3xl md:text-4xl font-extrabold text-[var(--text-primary)] mt-3">
-                  Bring GyanSetu to your college.
+                  Bring VIDYAVERSE to your college.
                 </h3>
                 <p className="mt-4 text-[var(--text-secondary)] leading-relaxed">
-                  GyanSetu is deployed through partner institutions, not sold seat-by-seat to individual students. Your students learn by building; you get outcomes you can actually report.
+                  VIDYAVERSE is deployed through partner institutions, not sold seat-by-seat to individual students. Your students learn by building; you get outcomes you can actually report.
                 </p>
               </div>
             </Reveal>
@@ -175,7 +175,7 @@ export default function AboutPage() {
             <Reveal delay={0.5}>
               <div className="text-center">
                 <button
-                  onClick={() => window.location.href = 'mailto:contact@gyansetu.com'}
+                  onClick={() => window.location.href = 'mailto:contact@VIDYAVERSE.com'}
                   className="inline-flex items-center gap-2 px-8 py-3.5 bg-[var(--text-primary)] hover:bg-[#3B82F6] text-[#fff] rounded-lg font-bold text-sm transition-all shadow-md"
                 >
                   Contact Us
@@ -300,7 +300,7 @@ export default function AboutPage() {
           <div className="max-w-3xl mx-auto text-center">
             <Reveal delay={0.1}>
               <p className="text-sm text-[var(--text-muted)] leading-relaxed">
-                GyanSetu is a premium learning platform focused on active, project-based education. We believe in building real skills through hands-on coding exercises, AI-reviewed projects, and verified portfolios that employers trust.
+                VIDYAVERSE is a premium learning platform focused on active, project-based education. We believe in building real skills through hands-on coding exercises, AI-reviewed projects, and verified portfolios that employers trust.
               </p>
             </Reveal>
           </div>

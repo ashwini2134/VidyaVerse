@@ -10,8 +10,8 @@ export default function FooterSection() {
           {/* Logo & Tagline */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <img src="/logo.svg" alt="GyanSetu" className="w-8 h-8 object-contain" />
-              <span className="font-bold text-[var(--text-primary)] text-lg tracking-wide">GyanSetu</span>
+              <img src="/logo.svg" alt="VIDYAVERSE" className="w-8 h-8 object-contain" />
+              <span className="font-bold text-[var(--text-primary)] text-lg tracking-wide">VIDYAVERSE</span>
             </div>
             <p className="text-[var(--text-muted)] text-xs leading-relaxed">
               Bridge Your Learning. Build Your Future.
@@ -54,11 +54,11 @@ export default function FooterSection() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-[var(--border-primary)] flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-[var(--text-muted)] text-xs">
-            © 2026 GyanSetu. All Rights Reserved.
+            © 2026 VIDYAVERSE. All Rights Reserved.
           </p>
           <div className="flex items-center gap-4">
             <a href="#" className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"><MessageSquare className="w-4 h-4" /></a>
-            <a href="#" className="opacity-70 hover:opacity-100 transition-opacity"><img src="/logo.svg" alt="GyanSetu" className="w-4 h-4 object-contain" /></a>
+            <a href="#" className="opacity-70 hover:opacity-100 transition-opacity"><img src="/logo.svg" alt="VIDYAVERSE" className="w-4 h-4 object-contain" /></a>
             <a href="#" className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"><Mail className="w-4 h-4" /></a>
           </div>
         </div>

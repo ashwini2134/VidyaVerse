@@ -104,7 +104,7 @@ export default function ContentStudio() {
           </div>
           <h3 className="text-lg font-medium text-[var(--text-main)] mb-2">No courses yet</h3>
           <p className="text-[var(--text-secondary)] text-center max-w-sm mb-6">
-            Start building your first interactive learning experience with GyanSetu Studio.
+            Start building your first interactive learning experience with VIDYAVERSE Studio.
           </p>
           <button 
             onClick={() => navigate('/admin/content-studio/new')}

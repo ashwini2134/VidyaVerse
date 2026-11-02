@@ -6,7 +6,7 @@ export default function TermsOfService() {
       <section>
         <h2>The short version</h2>
         <p>
-          GyanSetu gives you access to project-based courses, an in-browser IDE, AI-reviewed project
+          VIDYAVERSE gives you access to project-based courses, an in-browser IDE, AI-reviewed project
           submissions, and — if you complete a course — a verifiable certificate. Use it to learn and build; don't
           use it to cheat, abuse, or resell access.
         </p>

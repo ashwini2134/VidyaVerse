@@ -15,7 +15,7 @@ export default function Settings() {
   const [toastMessage, setToastMessage] = useState("");
 
   const [branding, setBranding] = useState({
-    platformName: "GyanSetu",
+    platformName: "VIDYAVERSE",
     tagline: "Bridge Your Learning. Build Your Future.",
     primaryColor: "#1E3A8A",
     secondaryColor: "#0F172A",
@@ -38,7 +38,7 @@ export default function Settings() {
       const data = await authFetch<any>("/admin/branding");
       if (data) {
         setBranding({
-          platformName: data.platformName || "GyanSetu",
+          platformName: data.platformName || "VIDYAVERSE",
           tagline: data.tagline || "Bridge Your Learning. Build Your Future.",
           primaryColor: data.primaryColor || "#1E3A8A",
           secondaryColor: data.secondaryColor || "#0F172A",
@@ -124,7 +124,7 @@ export default function Settings() {
   const handleReset = () => {
     if (confirm("Reset all branding to defaults?")) {
       setBranding({
-        platformName: "GyanSetu",
+        platformName: "VIDYAVERSE",
         tagline: "Bridge Your Learning. Build Your Future.",
         primaryColor: "#1E3A8A",
         secondaryColor: "#0F172A",

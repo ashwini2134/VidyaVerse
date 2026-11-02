@@ -76,7 +76,7 @@ export default function MinimalTemplate(props: TemplateProps) {
                 {displayUser?.name || 'User'}
               </h1>
               <p className="text-[11px] mt-1.5 text-[var(--text-muted)] uppercase tracking-[0.14em]" style={{ fontFamily: LABEL_FONT }}>
-                GyanSetu · Joined {joinedDate}
+                VIDYAVERSE · Joined {joinedDate}
               </p>
             </div>
           </div>

@@ -61,7 +61,7 @@ export default function AiMentorPage() {
       id: 'welcome',
       role: 'assistant',
       content:
-        "Hello! I am your **AI Learning Assistant** at GyanSetu.\n\nI can explain difficult concepts, create practice coding challenges, or find relevant lecture materials directly from your courses. What would you like to explore today?",
+        "Hello! I am your **AI Learning Assistant** at VIDYAVERSE.\n\nI can explain difficult concepts, create practice coding challenges, or find relevant lecture materials directly from your courses. What would you like to explore today?",
       timestamp: new Date(),
     },
   ]);
@@ -430,7 +430,7 @@ export default function AiMentorPage() {
                   {healthStatus.label}
                 </span>
               </div>
-              <p className="text-xs text-[#5B6472]">Your personal study companion at GyanSetu</p>
+              <p className="text-xs text-[#5B6472]">Your personal study companion at VIDYAVERSE</p>
             </div>
           </div>
 

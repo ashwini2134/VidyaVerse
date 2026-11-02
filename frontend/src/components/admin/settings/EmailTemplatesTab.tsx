@@ -149,21 +149,21 @@ export default function EmailTemplatesTab() {
 
     const sampleData: Record<string, string> = {
       student_name: "Priya",
-      platform_name: "GyanSetu",
+      platform_name: "VIDYAVERSE",
       course_name: "Python for Beginners",
       score: "85%",
       passed: "✅ Passed",
       status: "Approved",
       feedback: "Great work on your submission!",
-      certificate_url: "https://gyansetu.com/cert/ABC",
+      certificate_url: "https://VIDYAVERSE.com/cert/ABC",
       completion_date: new Date().toLocaleDateString(),
       verification_id: "CERT-2025-ABC123",
       days_inactive: "3",
       last_lesson: "Introduction to Python",
-      continue_url: "https://gyansetu.com/course/python",
-      login_url: "https://gyansetu.com/login",
-      course_url: "https://gyansetu.com/course/python",
-      resubmit_url: "https://gyansetu.com/resubmit",
+      continue_url: "https://VIDYAVERSE.com/course/python",
+      login_url: "https://VIDYAVERSE.com/login",
+      course_url: "https://VIDYAVERSE.com/course/python",
+      resubmit_url: "https://VIDYAVERSE.com/resubmit",
       quiz_name: "Module 1 Quiz",
       project_name: "Final Project",
       instructor_name: "Admin",
@@ -490,10 +490,10 @@ export default function EmailTemplatesTab() {
                   <div className="w-full max-w-lg bg-white rounded-lg shadow-2xl overflow-hidden text-black font-sans text-sm">
                     <div className="p-4 border-b border-[var(--border-light)] bg-[var(--bg-surface)] flex items-center gap-3">
                       <div className="w-10 h-10 rounded-full bg-[var(--bg-surface)] flex items-center justify-center shrink-0 overflow-hidden p-1.5">
-                        <img src="/logo.svg" alt="GyanSetu" className="w-full h-full object-contain" />
+                        <img src="/logo.svg" alt="VIDYAVERSE" className="w-full h-full object-contain" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="text-xs text-[var(--text-muted)]">From: <span className="font-medium text-[var(--text-main)]">GyanSetu</span></div>
+                        <div className="text-xs text-[var(--text-muted)]">From: <span className="font-medium text-[var(--text-main)]">VIDYAVERSE</span></div>
                         <div className="font-bold truncate mt-0.5">{getPreviewHtml().subject}</div>
                       </div>
                     </div>
@@ -501,7 +501,7 @@ export default function EmailTemplatesTab() {
                       {getPreviewHtml().body}
                     </div>
                     <div className="px-6 py-4 border-t border-[var(--border-light)] text-xs text-[var(--text-secondary)] text-center">
-                      © {new Date().getFullYear()} GyanSetu
+                      © {new Date().getFullYear()} VIDYAVERSE
                     </div>
                   </div>
 

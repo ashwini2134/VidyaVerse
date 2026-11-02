@@ -32,7 +32,7 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({
         <div className="mb-6 flex flex-col items-center">
           <img
             src={branding?.logoUrl || `${import.meta.env.BASE_URL}logo.svg`}
-            alt={branding?.platformName || "GyanSetu"}
+            alt={branding?.platformName || "VIDYAVERSE"}
             className="h-14 w-auto object-contain drop-shadow-lg mb-2"
           />
           <p className="text-white/60 font-medium text-center text-sm">{branding?.tagline || "Learn. Build. Grow."}</p>

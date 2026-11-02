@@ -5,8 +5,8 @@ import Reveal from "./Reveal";
 
 const FAQS = [
   {
-    question: "How do I get access to GyanSetu?",
-    answer: "GyanSetu is offered through partner institutions and organizations. If your school or company already works with GyanSetu, you can sign up directly. Otherwise, reach out and we'll help you get set up."
+    question: "How do I get access to VIDYAVERSE?",
+    answer: "VIDYAVERSE is offered through partner institutions and organizations. If your school or company already works with VIDYAVERSE, you can sign up directly. Otherwise, reach out and we'll help you get set up."
   },
   {
     question: "Do I need prior coding experience?",
@@ -22,7 +22,7 @@ const FAQS = [
   },
   {
     question: "How is this different from a typical bootcamp?",
-    answer: "Traditional bootcamps cost thousands and rely heavily on manual grading, which slows you down. GyanSetu uses an automated, AI-driven infrastructure to give you instant feedback, letting you move at your own pace while building a real, verifiable portfolio."
+    answer: "Traditional bootcamps cost thousands and rely heavily on manual grading, which slows you down. VIDYAVERSE uses an automated, AI-driven infrastructure to give you instant feedback, letting you move at your own pace while building a real, verifiable portfolio."
   },
   {
     question: "Is my code and account data private?",

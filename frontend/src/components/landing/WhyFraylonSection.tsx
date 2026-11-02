@@ -1,18 +1,18 @@
 import { motion } from "framer-motion";
 import { Code, Award, Users, Flame, Terminal } from "lucide-react";
 
-export default function WhyGyanSetuSection() {
+export default function WhyVIDYAVERSESection() {
   return (
     <motion.section 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6 }}
-      id="why-gyansetu" 
+      id="why-vidyaverse" 
       className="py-24 max-w-6xl mx-auto px-6 border-t border-white/5"
     >
       <div className="max-w-2xl text-left mb-16">
-        <h2 className="text-xs uppercase tracking-widest text-blue-500 font-bold">Why GyanSetu</h2>
+        <h2 className="text-xs uppercase tracking-widest text-blue-500 font-bold">Why VIDYAVERSE</h2>
         <p className="text-3xl md:text-4xl font-extrabold text-white tracking-tight mt-3">
           Built for active learning, not passive consumption.
         </p>

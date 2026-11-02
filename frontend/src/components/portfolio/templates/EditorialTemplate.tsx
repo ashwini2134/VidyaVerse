@@ -109,7 +109,7 @@ export default function EditorialTemplate(props: TemplateProps) {
             </div>
             <div>
               <span className="inline-block px-3 py-1 bg-white/15 border border-white/20 rounded-full text-[#ffffff] text-[10px] font-bold tracking-[0.15em] uppercase mb-4" style={{ fontFamily: LABEL_FONT }}>
-                GyanSetu Portfolio
+                VIDYAVERSE Portfolio
               </span>
               <h1
                 className="text-[#ffffff] leading-[0.88] tracking-tight font-black"
@@ -118,7 +118,7 @@ export default function EditorialTemplate(props: TemplateProps) {
                 {displayUser?.name || 'User'}
               </h1>
               <p className="text-[#ffffff]/85 text-[15.5px] mt-3 max-w-lg">
-                {displayUser?.bio || 'A living record of everything built and learned at GyanSetu.'}
+                {displayUser?.bio || 'A living record of everything built and learned at VIDYAVERSE.'}
               </p>
             </div>
           </motion.div>

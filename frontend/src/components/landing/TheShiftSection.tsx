@@ -11,7 +11,7 @@ const OLD_WAY = [
   "A static certificate with no proof of skill"
 ];
 
-const GYANSETU_WAY = [
+const VIDYAVERSE_WAY = [
   "Hands-on coding exercises built into every lecture",
   "Real-world GitHub projects evaluated against rubrics",
   "Detailed, line-by-line AI code reviews on every submission",
@@ -132,10 +132,10 @@ export default function TheShiftSection() {
             <div className="p-8 rounded-2xl bg-[var(--bg-surface)] border border-[var(--accent-indigo)]/30 h-full flex flex-col relative overflow-hidden shadow-[0_0_30px_rgba(99,102,241,0.05)]">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--accent-indigo)]/10 blur-[50px] rounded-full pointer-events-none" />
               <h3 className="text-lg font-bold text-[var(--text-primary)] mb-6 pb-4 border-b border-[var(--accent-indigo)]/20">
-                The GyanSetu Way
+                The VIDYAVERSE Way
               </h3>
               <ul className="space-y-5 flex-1 relative z-10">
-                {GYANSETU_WAY.map((item: string, i: number) => (
+                {VIDYAVERSE_WAY.map((item: string, i: number) => (
                   <li key={i} className="flex items-start gap-3">
                     <div className="mt-0.5 w-5 h-5 rounded-full bg-[var(--accent-indigo)]/20 flex items-center justify-center shrink-0">
                       <Check className="w-3 h-3 text-[var(--accent-indigo)]" />

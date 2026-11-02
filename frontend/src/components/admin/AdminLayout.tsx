@@ -30,7 +30,7 @@ export function AdminLayout() {
               alt={branding?.platformName || "Platform Logo"}
               className="h-8 w-auto object-contain flex-shrink-0"
             />
-            <span className="font-bold text-white text-xl hidden md:block tracking-tight">{branding?.platformName || "GyanSetu"} Admin</span>
+            <span className="font-bold text-white text-xl hidden md:block tracking-tight">{branding?.platformName || "VIDYAVERSE"} Admin</span>
           </div>
 
           <nav className="mt-6 flex flex-col gap-2 px-3">

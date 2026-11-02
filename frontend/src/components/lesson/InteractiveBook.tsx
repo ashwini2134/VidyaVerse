@@ -46,7 +46,7 @@ function LeftPageContent({ spread }: { spread: BookSpread }) {
         <p style={{ fontFamily:'Georgia,serif', fontSize:'76px', fontWeight:700, color:'#e8ddd0', lineHeight:0.9, margin:0 }}>{num}</p>
         <p style={{ fontFamily:'Georgia,serif', fontSize:'14px', color:MUTED, fontStyle:'italic', margin:0, textAlign:'center' }}>{paragraphs[0] || ''}</p>
         <div style={{ width:'28px', height:'1.5px', background:ACCENT }} />
-        <p style={{ marginTop:'20px', fontFamily:'Georgia,serif', fontSize:'9px', letterSpacing:'3px', color:'#b0a090', textTransform:'uppercase' }}>GyanSetu</p>
+        <p style={{ marginTop:'20px', fontFamily:'Georgia,serif', fontSize:'9px', letterSpacing:'3px', color:'#b0a090', textTransform:'uppercase' }}>VIDYAVERSE</p>
       </div>
     );
   }
@@ -121,7 +121,7 @@ function LeftPageContent({ spread }: { spread: BookSpread }) {
         </div>
         <p style={{ fontFamily:'Georgia,serif', fontSize:'13px', color:MUTED, textAlign:'center', lineHeight:1.7, margin:0 }}>You've completed<br/><strong style={{ color:INK }}>{left.title || 'Chapter'}</strong></p>
         <div style={{ width:'22px', height:'1px', background:ACCENT }} />
-        <p style={{ fontFamily:'Georgia,serif', fontSize:'9px', color:'#b0a090', letterSpacing:'3px', textTransform:'uppercase', margin:0 }}>GyanSetu</p>
+        <p style={{ fontFamily:'Georgia,serif', fontSize:'9px', color:'#b0a090', letterSpacing:'3px', textTransform:'uppercase', margin:0 }}>VIDYAVERSE</p>
       </div>
     );
   }
@@ -371,7 +371,7 @@ function BookCover({ onOpen, exiting }: { onOpen: () => void; exiting: boolean }
         <div style={{ position:'absolute', left:0, top:0, bottom:0, width:'16px', background:'linear-gradient(to right,rgba(0,0,0,0.5),transparent)', pointerEvents:'none' }} />
 
         <div style={{ textAlign:'center', padding:'0 32px', zIndex:1 }}>
-          <p style={{ fontFamily:'Georgia,serif', fontSize:'9px', letterSpacing:'5px', color:'rgba(200,184,154,0.45)', textTransform:'uppercase', margin:'0 0 20px' }}>GyanSetu</p>
+          <p style={{ fontFamily:'Georgia,serif', fontSize:'9px', letterSpacing:'5px', color:'rgba(200,184,154,0.45)', textTransform:'uppercase', margin:'0 0 20px' }}>VIDYAVERSE</p>
           <div style={{ width:'32px', height:'1px', background:'rgba(200,184,154,0.3)', margin:'0 auto 18px' }} />
           <p style={{ fontFamily:'Georgia,serif', fontSize:'11px', letterSpacing:'3px', color:'rgba(200,184,154,0.5)', textTransform:'uppercase', margin:'0 0 12px' }}>Chapter One</p>
           <p style={{ fontFamily:'Georgia,serif', fontSize:'clamp(20px, 4vw, 30px)', fontWeight:700, color:'rgba(240,230,210,0.9)', lineHeight:1.3, margin:'0 0 8px' }}>What is<br/>Artificial<br/>Intelligence?</p>

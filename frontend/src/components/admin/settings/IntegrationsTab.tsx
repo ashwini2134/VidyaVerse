@@ -124,7 +124,7 @@ export function IntegrationsTab() {
       <div className="bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/20 text-[var(--color-primary)] p-4 rounded-xl flex items-start gap-3">
         <Link2 className="w-5 h-5 mt-0.5 flex-shrink-0" />
         <div>
-          <p className="font-medium">Connect GyanSetu to external tools and services.</p>
+          <p className="font-medium">Connect VIDYAVERSE to external tools and services.</p>
           <p className="text-sm opacity-80 mt-1">Webhooks let other apps receive real-time updates when things happen in your platform.</p>
         </div>
       </div>
@@ -136,7 +136,7 @@ export function IntegrationsTab() {
             <Zap className="w-5 h-5 text-orange-400" /> Zapier
           </h3>
           <p className="text-sm text-[var(--text-secondary)] mt-1">Automate workflows</p>
-          <p className="text-sm text-[var(--text-secondary)]">Connect GyanSetu to 5000+ apps</p>
+          <p className="text-sm text-[var(--text-secondary)]">Connect VIDYAVERSE to 5000+ apps</p>
           <div className="mt-6 flex items-center justify-between">
             <span className="text-sm text-[var(--text-muted)] font-medium">Status: Not Connected</span>
             <a href="https://zapier.com" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-transparent hover:bg-[var(--bg-surface)] text-[var(--text-main)] text-sm font-medium rounded-lg transition-colors border border-[var(--border-light)]">
@@ -199,7 +199,7 @@ export function IntegrationsTab() {
             <Plus className="w-4 h-4" /> Add Webhook Endpoint
           </button>
         </div>
-        <p className="text-sm text-[var(--text-secondary)] mb-6">GyanSetu will send a POST request to these URLs when the selected events occur.</p>
+        <p className="text-sm text-[var(--text-secondary)] mb-6">VIDYAVERSE will send a POST request to these URLs when the selected events occur.</p>
 
         {showAddForm && (
           <div className="mb-8 p-5 rounded-lg border border-[var(--border-light)] bg-[var(--bg-surface)]/50">
@@ -241,7 +241,7 @@ export function IntegrationsTab() {
                   placeholder="webhook_secret_key" 
                   className="w-full bg-[var(--bg-body)] border border-[var(--border-light)] text-[var(--text-main)] rounded-lg px-4 py-2 outline-none focus:border-[var(--color-primary)]/50"
                 />
-                <p className="text-xs text-[var(--text-muted)] mt-1">Used to verify requests are from GyanSetu</p>
+                <p className="text-xs text-[var(--text-muted)] mt-1">Used to verify requests are from VIDYAVERSE</p>
               </div>
 
               <div className="flex justify-end gap-3 pt-2">

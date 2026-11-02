@@ -46,8 +46,8 @@ export default function VerifyCertificatePage() {
       <header className="w-full border-b border-slate-900 bg-[#0b0f19]/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate("/")}>
-            <img src="/logo.svg" alt="GyanSetu" className="w-8 h-8 object-contain" />
-            <span className="font-bold text-white text-sm tracking-wide">GyanSetu</span>
+            <img src="/logo.svg" alt="VIDYAVERSE" className="w-8 h-8 object-contain" />
+            <span className="font-bold text-white text-sm tracking-wide">VIDYAVERSE</span>
           </div>
         </div>
       </header>
@@ -116,7 +116,7 @@ export default function VerifyCertificatePage() {
 
             {/* Verification Footer Text */}
             <div className="mt-8 border-t border-slate-900 pt-6 text-center text-xs text-slate-500 leading-relaxed">
-              This credential was issued electronically by GyanSetu after the student completed all required lectures, coding assignments, quiz assessments, and capstone projects.
+              This credential was issued electronically by VIDYAVERSE after the student completed all required lectures, coding assignments, quiz assessments, and capstone projects.
             </div>
           </div>
         ) : (
@@ -143,7 +143,7 @@ export default function VerifyCertificatePage() {
 
       {/* Footer */}
       <footer className="w-full border-t border-slate-900 bg-slate-950/40 py-6 text-center text-xs text-slate-650">
-        &copy; {new Date().getFullYear()} GyanSetu. All rights reserved.
+        &copy; {new Date().getFullYear()} VIDYAVERSE. All rights reserved.
       </footer>
     </div>
   );

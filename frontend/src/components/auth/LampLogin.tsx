@@ -293,11 +293,11 @@ export default function LampLogin({ onSuccess, embedded = false }: LampLoginProp
               <motion.div className="lamp-login__brand" variants={fieldVariants}>
                 <img
                   src={branding?.logoUrl || `${import.meta.env.BASE_URL}logo.svg`}
-                  alt={branding?.platformName || "GyanSetu"}
+                  alt={branding?.platformName || "VIDYAVERSE"}
                   className="lamp-login__logo"
                 />
                 <h1 className="lamp-login__title">Welcome back</h1>
-                <p className="lamp-login__subtitle">Sign in to your {branding?.platformName || "GyanSetu"} account</p>
+                <p className="lamp-login__subtitle">Sign in to your {branding?.platformName || "VIDYAVERSE"} account</p>
               </motion.div>
 
               <form onSubmit={onSubmit}>

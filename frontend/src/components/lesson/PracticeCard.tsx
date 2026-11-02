@@ -8,6 +8,20 @@ import { Target, Lightbulb, HelpCircle, ListChecks, Wand2, SendHorizonal } from 
 import { generateProgressiveHint } from '../../utils/logicValidation';
 import { scanForInput } from '../../utils/prescanner';
 import DragDropPracticeExercise from './DragDropPracticeExercise';
+
+// ── BharatCode Socratic Diagnostician ─────────────────────────────────────
+interface DiagnosisResult {
+  success: boolean;
+  rootCause?: string;
+  evidence?: string;
+  conceptClue?: string;
+  guidingQuestion?: string;
+  nextStep?: string;
+  isMockMode?: boolean;
+  isConfigured?: boolean;
+  error?: string;
+  errorType?: string;
+}
 import ExpandUniverse from './ExpandUniverse';
 import AIConversationExercise from './AIConversationExercise';
 import PathBuilderExercise from './PathBuilderExercise';
@@ -2069,6 +2083,12 @@ export default function PracticeCard({ block, courseSlug, lectureNumber, section
 
   const [submissionResult, setSubmissionResult] = useState<{ passed: boolean; expected: string; actual: string } | null>(null);
 
+  // BharatCode Socratic Diagnostician state
+  const [diagnosis, setDiagnosis] = useState<DiagnosisResult | null>(null);
+  const [diagnosisLoading, setDiagnosisLoading] = useState(false);
+  const [diagnosisError, setDiagnosisError] = useState<string | null>(null);
+  const [currentHintLevel, setCurrentHintLevel] = useState(1);
+
   const [savedCode, setSavedCode] = useState<string | null>(null);
   useEffect(() => {
     async function loadDraft() {
@@ -2109,6 +2129,11 @@ export default function PracticeCard({ block, courseSlug, lectureNumber, section
   const handleSubmit = (_code: string, output: string, error: string | null, dynamicExpected?: string) => {
     onAttempt?.();
     setAttempts(a => a + 1);
+    // Track the submitted code so diagnosis always references the latest attempt
+    setLastCode(_code);
+    // Clear any previous diagnosis on each new submission
+    setDiagnosis(null);
+    setDiagnosisError(null);
     const expected = dynamicExpected ?? block.expectedOutput;
     let passed = false;
     if (!error && expected && output !== null) {
@@ -2118,9 +2143,62 @@ export default function PracticeCard({ block, courseSlug, lectureNumber, section
     if (passed) {
       setPassed(true);
       onComplete?.();
+      // Record successful submission for hint outcome tracking
+      authFetch('/practice-exercises/record-submission', {
+        method: 'POST',
+        body: JSON.stringify({
+          problemId: `practice:${block.title}`,
+          passed: true,
+        }),
+      }).catch(err => console.error('Failed to record submission:', err));
     }
     saveCode(_code);
     setToast(true);
+  };
+
+  // ── BharatCode Socratic Diagnostician ───────────────────────────────────
+  const handleDiagnose = async (hintLevel: number = 1) => {
+    if (!submissionResult || submissionResult.passed) return;
+    setDiagnosisLoading(true);
+    setDiagnosis(null);
+    setDiagnosisError(null);
+    try {
+      // Map the single PracticeCard submissionResult into the failingTests array
+      // expected by POST /api/practice-exercises/diagnose
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 35_000); // 35s frontend timeout (slightly longer than backend 30s)
+
+      const result = await authFetch<DiagnosisResult>('/practice-exercises/diagnose', {
+        method: 'POST',
+        body: JSON.stringify({
+          problemId: `practice:${block.title}`,
+          problemTitle: block.title,
+          problemDescription: block.instructions,
+          studentCode: lastCode,
+          failingTests: [{
+            label: 'Output Check',
+            expected: submissionResult.expected,
+            actual: submissionResult.actual,
+          }],
+          hintLevel,
+        }),
+      });
+
+      clearTimeout(timeoutId);
+
+      if (result.success) {
+        setDiagnosis(result);
+        setCurrentHintLevel(hintLevel);
+      } else {
+        const errorType = result.errorType === 'timeout' ? '(timeout)' : result.errorType ? `(${result.errorType})` : '';
+        setDiagnosisError(`${result.error ?? 'The AI tutor returned an unexpected response.'} ${errorType}`.trim());
+      }
+    } catch (err) {
+      console.error('[BharatCode] Diagnosis failed:', err);
+      setDiagnosisError('Could not reach the AI tutor right now. Please try again.');
+    } finally {
+      setDiagnosisLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -2140,6 +2218,9 @@ export default function PracticeCard({ block, courseSlug, lectureNumber, section
     setHintLevel(0);
     setShowSolution(false);
     setLastCode('');
+    setDiagnosis(null);
+    setDiagnosisError(null);
+    setCurrentHintLevel(1);
   };
 
   if (!open) {
@@ -2270,6 +2351,129 @@ export default function PracticeCard({ block, courseSlug, lectureNumber, section
                     <p className="text-sm text-[var(--text-secondary)]">{generateHint(submissionResult.expected, submissionResult.actual)}</p>
                   </div>
                 )}
+
+                {/* ── BharatCode Socratic Diagnostician ── */}
+                <div className="space-y-2 pt-1">
+                  {/* Ask button — only shown when no active request and no result yet */}
+                  {!diagnosisLoading && !diagnosis && (
+                    <button
+                      id="bharatcode-diagnose-practice"
+                      onClick={() => handleDiagnose(1)}
+                      className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border border-violet-500/30 bg-violet-900/15 hover:bg-violet-900/30 text-xs font-semibold text-violet-300 hover:text-violet-200 transition-all duration-200 group"
+                    >
+                      <svg className="w-4 h-4 text-violet-400 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                      </svg>
+                      Ask BharatCode AI — Get a Hint
+                    </button>
+                  )}
+
+                  {/* Loading spinner */}
+                  {diagnosisLoading && (
+                    <div className="flex items-center justify-center gap-3 py-3 px-4 rounded-xl border border-violet-500/20 bg-violet-900/10">
+                      <svg className="w-4 h-4 text-violet-400 animate-spin" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                      </svg>
+                      <span className="text-xs text-violet-300 font-medium">Analysing your code with BharatCode AI...</span>
+                    </div>
+                  )}
+
+                  {/* Error state */}
+                  {diagnosisError && !diagnosisLoading && (
+                    <div className="p-3 rounded-xl border border-red-700/30 bg-red-900/10 space-y-1.5">
+                      <p className="text-[10px] font-semibold text-red-400 uppercase tracking-wider">AI Tutor Unavailable</p>
+                      <p className="text-xs text-red-300">{diagnosisError}</p>
+                      <button onClick={() => handleDiagnose()} className="text-[10px] font-semibold text-violet-400 hover:text-violet-300 underline transition-colors">Try again</button>
+                    </div>
+                  )}
+
+                  {/* Result drawer */}
+                  {diagnosis && diagnosis.success && !diagnosisLoading && (
+                    <div className="rounded-xl border border-violet-500/25 bg-violet-900/10 overflow-hidden">
+                      <div className="flex items-center justify-between px-4 py-2.5 border-b border-violet-500/20 bg-violet-900/20">
+                        <div className="flex items-center gap-2">
+                          <svg className="w-3.5 h-3.5 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                          </svg>
+                          <span className="text-[10px] font-bold text-violet-300 uppercase tracking-wider">BharatCode AI Diagnosis</span>
+                          {diagnosis.isMockMode && (
+                            <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-slate-700/60 text-slate-400 border border-slate-600/30 font-medium">DEMO</span>
+                          )}
+                        </div>
+                        <button
+                          onClick={() => { setDiagnosis(null); setDiagnosisError(null); }}
+                          className="text-slate-500 hover:text-slate-300 transition-colors"
+                          aria-label="Close diagnosis"
+                        >
+                          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </button>
+                      </div>
+                      <div className="p-4 space-y-3">
+                        <div className="flex gap-3 items-start">
+                          <span className="text-base shrink-0" aria-hidden="true">🔍</span>
+                          <div>
+                            <p className="text-[10px] font-semibold text-violet-400 uppercase tracking-wider mb-0.5">Root Cause</p>
+                            <p className="text-xs text-slate-200 leading-relaxed">{diagnosis.rootCause}</p>
+                          </div>
+                        </div>
+                        {diagnosis.evidence && (
+                          <div className="flex gap-3 items-start">
+                            <span className="text-base shrink-0" aria-hidden="true">📊</span>
+                            <div>
+                              <p className="text-[10px] font-semibold text-violet-400 uppercase tracking-wider mb-0.5">Evidence</p>
+                              <p className="text-xs text-slate-200 leading-relaxed">{diagnosis.evidence}</p>
+                            </div>
+                          </div>
+                        )}
+                        <div className="flex gap-3 items-start">
+                          <span className="text-base shrink-0" aria-hidden="true">📚</span>
+                          <div>
+                            <p className="text-[10px] font-semibold text-violet-400 uppercase tracking-wider mb-0.5">Concept to Revisit</p>
+                            <p className="text-xs text-slate-200 leading-relaxed">{diagnosis.conceptClue}</p>
+                          </div>
+                        </div>
+                        <div className="flex gap-3 items-start">
+                          <span className="text-base shrink-0" aria-hidden="true">❓</span>
+                          <div>
+                            <p className="text-[10px] font-semibold text-violet-400 uppercase tracking-wider mb-0.5">Think About This</p>
+                            <p className="text-xs text-violet-100 leading-relaxed font-medium italic">{diagnosis.guidingQuestion}</p>
+                          </div>
+                        </div>
+                        {diagnosis.nextStep && (
+                          <div className="flex gap-3 items-start">
+                            <span className="text-base shrink-0" aria-hidden="true">🚀</span>
+                            <div>
+                              <p className="text-[10px] font-semibold text-violet-400 uppercase tracking-wider mb-0.5">Next Step</p>
+                              <p className="text-xs text-slate-200 leading-relaxed">{diagnosis.nextStep}</p>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      <div className="px-4 py-2 border-t border-violet-500/15 bg-violet-900/20 flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <button onClick={() => handleDiagnose(1)} className="text-[10px] text-violet-400 hover:text-violet-300 transition-colors font-medium">↻ Refresh hint</button>
+                          {currentHintLevel < 3 && (
+                            <button
+                              onClick={() => handleDiagnose(currentHintLevel + 1)}
+                              disabled={diagnosisLoading}
+                              className="text-[10px] text-violet-400 hover:text-violet-300 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                              I still need help →
+                            </button>
+                          )}
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-[9px] text-slate-500 font-medium">Level {currentHintLevel}/3</span>
+                          <p className="text-[9px] text-slate-500 font-medium">💡 VIDYAVERSE · Powered by BharatCode Qwen 3.8</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                {/* ── End BharatCode Socratic Diagnostician ── */}
               </div>
             )}
           </div>

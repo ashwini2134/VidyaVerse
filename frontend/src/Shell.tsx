@@ -41,11 +41,11 @@ function Logo({ expanded }: { expanded: boolean }) {
     <NavLink to="/" className="flex items-center gap-2 flex-shrink-0 px-4 h-16 border-b border-[var(--border-primary)] overflow-hidden">
       <img
         src={branding?.logoUrl || `${import.meta.env.BASE_URL}logo.svg`}
-        alt={branding?.platformName || "GyanSetu"}
+        alt={branding?.platformName || "VIDYAVERSE"}
         className="h-8 w-auto object-contain flex-shrink-0"
       />
       <span className={`font-bold text-[var(--text-primary)] text-base tracking-wide whitespace-nowrap transition-opacity duration-200 ${expanded ? 'opacity-100' : 'opacity-0'}`}>
-        {branding?.platformName || "GyanSetu"}
+        {branding?.platformName || "VIDYAVERSE"}
       </span>
     </NavLink>
   );
@@ -182,10 +182,10 @@ export default function Shell() {
           <NavLink to="/" className="md:hidden flex items-center gap-2 flex-shrink-0">
             <img
               src={`${import.meta.env.BASE_URL}logo.svg`}
-              alt="GyanSetu"
+              alt="VIDYAVERSE"
               className="h-8 w-auto object-contain"
             />
-            <span className="font-bold text-[var(--text-primary)] text-base tracking-wide">GyanSetu</span>
+            <span className="font-bold text-[var(--text-primary)] text-base tracking-wide">VIDYAVERSE</span>
           </NavLink>
 
           <div className="flex-1" />

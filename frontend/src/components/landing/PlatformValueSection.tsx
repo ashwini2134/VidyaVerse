@@ -30,7 +30,7 @@ export default function PlatformValueSection() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-500 mb-4 block">Why GyanSetu</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-blue-500 mb-4 block">Why VIDYAVERSE</span>
           <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight">
             Everything you need. Nothing you don't.
           </h2>

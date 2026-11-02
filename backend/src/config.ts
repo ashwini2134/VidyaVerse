@@ -46,6 +46,12 @@ export const config = {
 
   groqApiKey: process.env.GROQ_API_KEY ?? "",
 
+  bharatCode: {
+    apiKey: process.env.BHARATCODE_API_KEY ?? "",
+    baseUrl: process.env.BHARATCODE_BASE_URL ?? "https://bharatcode.ai/api/model/v1",
+    model: process.env.BHARATCODE_MODEL ?? "qwen-3.8-27b",
+  },
+
   aiMentor: {
     qdrantUrl: process.env.QDRANT_URL ?? "http://localhost:6333",
     qdrantApiKey: process.env.QDRANT_API_KEY ?? "",

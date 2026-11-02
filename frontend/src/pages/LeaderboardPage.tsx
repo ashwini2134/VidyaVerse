@@ -436,7 +436,7 @@ export default function LeaderboardPage() {
           {showRankingDetails && (
             <div className="px-6 pb-6 pt-2 border-t border-[#16a394]/10">
                <p className="text-xs text-[#12564f]/80 mb-4 leading-relaxed">
-                GyanSetu rankings are computed dynamically using a strict hierarchy to reward consistent learning and capstone achievements.
+                VIDYAVERSE rankings are computed dynamically using a strict hierarchy to reward consistent learning and capstone achievements.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {[

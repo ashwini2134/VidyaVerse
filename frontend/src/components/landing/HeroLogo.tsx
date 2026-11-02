@@ -64,7 +64,7 @@ export default function HeroLogo() {
       >
         <img
           src="/logo.svg"
-          alt="GyanSetu"
+          alt="VIDYAVERSE"
           className="w-full h-full object-contain"
           style={{
             opacity: 0.92,

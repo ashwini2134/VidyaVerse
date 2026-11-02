@@ -78,10 +78,10 @@ export default function SidebarTemplate(props: TemplateProps) {
           className="inline-flex items-center gap-1.5 px-2.5 py-1 mt-2 text-[#ffffff] text-[10.5px] font-bold uppercase tracking-wide rotate-[1deg]"
           style={{ backgroundColor: accentTheme.hex, border: '2px solid var(--text-main)' }}
         >
-          GyanSetu Portfolio
+          VIDYAVERSE Portfolio
         </span>
         <p className="text-[12.5px] text-[var(--text-secondary)] mt-3 leading-relaxed">
-          {displayUser?.bio || 'A living record of everything built and learned at GyanSetu.'}
+          {displayUser?.bio || 'A living record of everything built and learned at VIDYAVERSE.'}
         </p>
         <p className="text-[11px] text-[var(--text-muted)] flex items-center gap-1 mt-3">
           <Calendar size={12} /> Joined {joinedDate}

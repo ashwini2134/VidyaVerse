@@ -133,7 +133,7 @@ export default function HeroSection() {
 
         <Reveal delay={0.2}>
           <p className="mt-6 text-base md:text-lg text-[var(--text-secondary)] leading-relaxed max-w-lg">
-            GyanSetu replaces passive video lectures with real projects, line-by-line AI code review, and a portfolio employers actually trust.
+            VIDYAVERSE replaces passive video lectures with real projects, line-by-line AI code review, and a portfolio employers actually trust.
           </p>
         </Reveal>
 
@@ -153,7 +153,7 @@ export default function HeroSection() {
         <Reveal delay={0.4}>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-8 text-xs text-[var(--text-muted)]">
             <Link to="/about" className="font-semibold text-[var(--text-secondary)] hover:text-[#3B82F6] transition-colors">
-              Learn About GyanSetu &rarr;
+              Learn About VIDYAVERSE &rarr;
             </Link>
           </div>
         </Reveal>

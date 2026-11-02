@@ -310,7 +310,7 @@ export default function StoryTemplate(props: TemplateProps) {
           </section>
 
           <footer className="max-w-5xl mx-auto px-6 py-8 text-center text-[12px] text-[#ffffff]/30">
-            {displayUser?.name || 'User'} · GyanSetu Portfolio
+            {displayUser?.name || 'User'} · VIDYAVERSE Portfolio
           </footer>
         </>
       )}

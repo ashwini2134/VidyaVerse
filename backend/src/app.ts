@@ -22,6 +22,7 @@ import profileRoutes from "./routes/profile.js";
 import coursesRoutes from "./routes/courses.js";
 import qaRoutes from "./routes/qa.js";
 import practiceExercisesRoutes from "./routes/practiceExercises.js";
+import diagnoseRoute from "./routes/practiceExerciseDiagnose.js";
 import assessmentsRoutes from "./routes/assessments.js";
 import invitesRoutes from "./routes/invites.js";
 import projectTasksRoutes from "./routes/projectTasks.js";
@@ -111,6 +112,7 @@ export function createApp() {
   app.use("/api/courses", coursesRoutes);
   app.use("/api/qa", qaRoutes);
   app.use("/api/practice-exercises", practiceExercisesRoutes);
+  app.use("/api/practice-exercises", diagnoseRoute); // BharatCode Socratic Diagnostician
   app.use("/api/assessments", assessmentsRoutes);
   app.use("/api/certifications", certificationsRoutes);
   app.use("/api/portfolio", portfolioRoutes);

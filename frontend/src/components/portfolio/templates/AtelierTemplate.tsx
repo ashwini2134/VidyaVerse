@@ -64,7 +64,7 @@ export default function AtelierTemplate(props: TemplateProps) {
             {/* Hero — asymmetric, avatar right */}
             <section className="grid sm:grid-cols-[1fr_auto] gap-8 items-center pt-14 pb-16">
               <motion.div initial="hidden" animate="visible" variants={fade}>
-                <p className={eyebrow}>GyanSetu Portfolio · {joinedDate}</p>
+                <p className={eyebrow}>VIDYAVERSE Portfolio · {joinedDate}</p>
                 <h1 className="text-[44px] sm:text-[56px] font-bold leading-[1.02] tracking-tight mt-3" style={{ fontFamily: DISPLAY_FONT }}>
                   {displayUser?.bio || 'Building thoughtful software, one project at a time.'}
                 </h1>

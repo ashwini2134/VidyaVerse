@@ -261,13 +261,13 @@ export default function CertificationsPage() {
   );
 }
 
-/** Fetches the server-rendered GyanSetu certificate PDF and saves it. */
+/** Fetches the server-rendered VIDYAVERSE certificate PDF and saves it. */
 async function downloadCertificate(certNumber: string) {
   const blob = await authFetchBlob(`/certifications/${certNumber}/download`);
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.href = url;
-  link.download = `gyansetu-certificate-${certNumber}.pdf`;
+  link.download = `vidyaverse-certificate-${certNumber}.pdf`;
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
@@ -368,7 +368,7 @@ function CertBlock({
                   GS
                 </div>
                 <div className="text-left leading-none">
-                  <p className="text-[12px] font-bold" style={{ color: '#161b22' }}>GyanSetu</p>
+                  <p className="text-[12px] font-bold" style={{ color: '#161b22' }}>VIDYAVERSE</p>
                   <p className="text-[7px] font-semibold tracking-[0.2em]" style={{ color: '#6b7280' }}>ACADEMY</p>
                 </div>
               </div>
@@ -404,7 +404,7 @@ function CertBlock({
               )}
 
               <p className="text-[9px] uppercase tracking-widest font-semibold mt-2" style={{ color: '#9ca3af' }}>
-                GyanSetu
+                VIDYAVERSE
               </p>
             </div>
           ) : (

@@ -26,7 +26,7 @@ export default function CookiePolicy() {
       <section>
         <h2>What we actually use</h2>
         <p>
-          GyanSetu uses a small, fixed set of cookies and browser-storage items to keep you signed in and
+          VIDYAVERSE uses a small, fixed set of cookies and browser-storage items to keep you signed in and
           the app working. We don't use advertising, tracking, or analytics cookies — there's currently no
           third-party tracking script on this platform to disclose.
         </p>

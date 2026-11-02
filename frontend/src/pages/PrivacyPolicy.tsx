@@ -6,7 +6,7 @@ export default function PrivacyPolicy() {
       <section>
         <h2>Who this covers</h2>
         <p>
-          This policy covers GyanSetu, the learning platform at this domain.
+          This policy covers VIDYAVERSE, the learning platform at this domain.
           It does not cover other products, which have their own policies.
         </p>
       </section>

@@ -87,7 +87,7 @@ export default function ResumeTemplate(props: TemplateProps) {
                 <h1 className="text-[30px] font-bold tracking-tight leading-tight" style={{ fontFamily: DISPLAY_FONT }}>{displayUser?.name || 'User'}</h1>
                 {displayUser?.bio && <p className="text-[14px] text-[#6B6862] mt-1.5">{displayUser.bio}</p>}
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-3 text-[12.5px] text-[#6B6862]">
-                  <span>GyanSetu · Joined {joinedDate}</span>
+                  <span>VIDYAVERSE · Joined {joinedDate}</span>
                   {displayUser?.githubUrl && <a href={displayUser.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-[var(--color-primary)] transition-colors"><Code size={12} /> GitHub</a>}
                   {displayUser?.linkedinUrl && <a href={displayUser.linkedinUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-[var(--color-primary)] transition-colors"><Award size={12} /> LinkedIn</a>}
                   {displayUser?.portfolioUrl && <a href={displayUser.portfolioUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-[var(--color-primary)] transition-colors"><Globe size={12} /> Site</a>}

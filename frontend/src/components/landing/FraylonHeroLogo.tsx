@@ -3,7 +3,7 @@ export default function FraylonHeroLogo() {
     <iframe
       src="/fraylon-logo-view.html"
       className="absolute inset-0 w-full h-full border-0"
-      title="GyanSetu Logo"
+      title="VIDYAVERSE Logo"
       loading="lazy"
       style={{ background: "transparent", pointerEvents: "none" }}
     />

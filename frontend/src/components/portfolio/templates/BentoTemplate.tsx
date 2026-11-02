@@ -83,11 +83,11 @@ export default function BentoTemplate(props: TemplateProps) {
                 <h1 className="text-[26px] font-bold text-[#FFFFFF] leading-tight" style={{ fontFamily: DISPLAY_FONT }}>{displayUser?.name || 'User'}</h1>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[var(--bg-surface)] text-[var(--text-secondary)] text-xs font-semibold rounded-full border border-[var(--border-light)] rotate-[-1.5deg]">
                   <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
-                  GyanSetu Portfolio
+                  VIDYAVERSE Portfolio
                 </span>
               </div>
               <p className="text-[14px] text-[var(--text-secondary)]">
-                {displayUser?.bio || 'A living record of everything built and learned at GyanSetu.'}
+                {displayUser?.bio || 'A living record of everything built and learned at VIDYAVERSE.'}
               </p>
               <div className="flex flex-wrap items-center gap-4 mt-2 text-[12px] text-[var(--text-muted)]">
                 <span className="flex items-center gap-1.5"><Calendar size={14} /> Joined {joinedDate}</span>

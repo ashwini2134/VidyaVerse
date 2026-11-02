@@ -141,7 +141,7 @@ export default function NotFoundPage() {
               </motion.h1>
               <motion.p className="not-found__subtitle" variants={fieldVariants}>
                 The link might be broken, or the page may have moved. Let&apos;s get you back to{" "}
-                {branding?.platformName || "GyanSetu"}.
+                {branding?.platformName || "VIDYAVERSE"}.
               </motion.p>
               <motion.div className="not-found__actions" variants={fieldVariants}>
                 <Link to="/" className="not-found__primary">

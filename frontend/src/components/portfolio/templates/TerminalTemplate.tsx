@@ -57,7 +57,7 @@ export default function TerminalTemplate(props: TemplateProps) {
             <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: '#EF4444' }} />
             <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: '#EAB308' }} />
             <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: '#22C55E' }} />
-            <span className="ml-3 text-[11px] truncate" style={{ color: MUTED }}>student@gyansetu:~/portfolio</span>
+            <span className="ml-3 text-[11px] truncate" style={{ color: MUTED }}>student@vidyaverse:~/portfolio</span>
             {isOwn && (
               <div className="ml-auto flex items-center gap-3 text-[11.5px] flex-shrink-0">
                 <button onClick={() => setTab('overview')} style={{ color: tab === 'overview' ? accent : MUTED }} className="hover:text-[#ffffff] transition-colors">
@@ -91,7 +91,7 @@ export default function TerminalTemplate(props: TemplateProps) {
 
             <PromptLine><span style={{ color: accent }}>$</span> cat bio.txt</PromptLine>
             <p className="text-[13.5px] mb-6 leading-relaxed" style={{ color: INK }}>
-              {displayUser?.bio || 'A living record of everything built and learned at GyanSetu.'}
+              {displayUser?.bio || 'A living record of everything built and learned at VIDYAVERSE.'}
             </p>
 
             <PromptLine><span style={{ color: accent }}>$</span> echo $STATUS</PromptLine>

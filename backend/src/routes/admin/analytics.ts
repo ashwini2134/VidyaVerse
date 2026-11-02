@@ -1,7 +1,10 @@
 import { Router } from "express";
+import { requireAuth, requireRole } from "../../middleware/auth.js";
+import type { AuthenticatedRequest } from "../../middleware/auth.js";
 import { prisma } from "../../prisma.js";
 
 const router = Router();
+router.use(requireAuth, requireRole("admin"));
 
 // Helper to filter dates based on period
 function getStartDate(period: string): Date {
